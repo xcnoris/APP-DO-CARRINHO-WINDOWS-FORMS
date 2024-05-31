@@ -16,7 +16,7 @@ namespace APP_DO_CARRINHO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Cadastro_Carrinho());
+            Application.Run(new Formularios.Pessoas.Frm_Pessoas());
         }
     }
 }

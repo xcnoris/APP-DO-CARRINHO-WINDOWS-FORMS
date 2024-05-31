@@ -52,10 +52,37 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.Designer.cs">
+      <DependentUpon>Frm_CadastroPessoa_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Pessoas\Frm_Geral_Usuarios_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Pessoas\Frm_Geral_Usuarios_UC.Designer.cs">
+      <DependentUpon>Frm_Geral_Usuarios_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Pessoas\Frm_Pessoas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Pessoas\Frm_Pessoas.Designer.cs">
+      <DependentUpon>Frm_Pessoas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.resx">
+      <DependentUpon>Frm_CadastroPessoa_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Pessoas\Frm_Geral_Usuarios_UC.resx">
+      <DependentUpon>Frm_Geral_Usuarios_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Pessoas\Frm_Pessoas.resx">
+      <DependentUpon>Frm_Pessoas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
