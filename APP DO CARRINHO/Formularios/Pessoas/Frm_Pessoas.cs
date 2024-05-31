@@ -21,6 +21,7 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         {
             Frm_CadastroPessoa_UC frm = new Frm_CadastroPessoa_UC();
             frm.Show();
+          
         }
 
         private void Btn_Fechar_Click(object sender, EventArgs e)

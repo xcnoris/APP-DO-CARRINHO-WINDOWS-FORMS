@@ -16,5 +16,15 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         {
             InitializeComponent();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {   
+
+        }
+
+        private void Btn_Fechar_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
