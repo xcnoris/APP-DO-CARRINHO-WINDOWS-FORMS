@@ -106,6 +106,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AppCarrinhoWFBiblioteca\AppCarrinhoWFBiblioteca.csproj">
+      <Project>{ab0b9d19-51ab-4f1b-b6c1-84f1eb536976}</Project>
+      <Name>AppCarrinhoWFBiblioteca</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
