@@ -31,22 +31,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.Txt_Id = new System.Windows.Forms.TextBox();
+            this.Txt_Cpf = new System.Windows.Forms.TextBox();
+            this.Txt_Nome = new System.Windows.Forms.TextBox();
+            this.Txt_Cep = new System.Windows.Forms.TextBox();
+            this.Txt_Cidade_Cod = new System.Windows.Forms.TextBox();
+            this.Txt_Cidade_Nome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.Txt_Endereco = new System.Windows.Forms.TextBox();
+            this.Txt_Endereco_Complemento = new System.Windows.Forms.TextBox();
+            this.Txt_Endereco_Bairro = new System.Windows.Forms.TextBox();
+            this.Txt_DDD_Telefone = new System.Windows.Forms.TextBox();
+            this.Txt_Telefone = new System.Windows.Forms.TextBox();
+            this.Txt_DDD_Celular = new System.Windows.Forms.TextBox();
+            this.Txt_Celular = new System.Windows.Forms.TextBox();
+            this.Txt_Email = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,13 +54,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.Txt_Endereco_Numero = new System.Windows.Forms.TextBox();
+            this.Txt_Sigla_Uf = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Msk_Data_Nascimento = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_Sexo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -90,47 +89,47 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Nome";
             // 
-            // textBox2
+            // Txt_Id
             // 
-            this.textBox2.Location = new System.Drawing.Point(97, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.Txt_Id.Location = new System.Drawing.Point(97, 36);
+            this.Txt_Id.Name = "Txt_Id";
+            this.Txt_Id.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Id.TabIndex = 5;
             // 
-            // textBox3
+            // Txt_Cpf
             // 
-            this.textBox3.Location = new System.Drawing.Point(97, 69);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(148, 20);
-            this.textBox3.TabIndex = 6;
+            this.Txt_Cpf.Location = new System.Drawing.Point(97, 69);
+            this.Txt_Cpf.Name = "Txt_Cpf";
+            this.Txt_Cpf.Size = new System.Drawing.Size(148, 20);
+            this.Txt_Cpf.TabIndex = 6;
             // 
-            // textBox4
+            // Txt_Nome
             // 
-            this.textBox4.Location = new System.Drawing.Point(97, 105);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(364, 20);
-            this.textBox4.TabIndex = 7;
+            this.Txt_Nome.Location = new System.Drawing.Point(97, 105);
+            this.Txt_Nome.Name = "Txt_Nome";
+            this.Txt_Nome.Size = new System.Drawing.Size(364, 20);
+            this.Txt_Nome.TabIndex = 7;
             // 
-            // textBox5
+            // Txt_Cep
             // 
-            this.textBox5.Location = new System.Drawing.Point(97, 141);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 8;
+            this.Txt_Cep.Location = new System.Drawing.Point(97, 141);
+            this.Txt_Cep.Name = "Txt_Cep";
+            this.Txt_Cep.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Cep.TabIndex = 8;
             // 
-            // textBox6
+            // Txt_Cidade_Cod
             // 
-            this.textBox6.Location = new System.Drawing.Point(280, 141);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(49, 20);
-            this.textBox6.TabIndex = 9;
+            this.Txt_Cidade_Cod.Location = new System.Drawing.Point(280, 141);
+            this.Txt_Cidade_Cod.Name = "Txt_Cidade_Cod";
+            this.Txt_Cidade_Cod.Size = new System.Drawing.Size(49, 20);
+            this.Txt_Cidade_Cod.TabIndex = 9;
             // 
-            // textBox7
+            // Txt_Cidade_Nome
             // 
-            this.textBox7.Location = new System.Drawing.Point(335, 141);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(177, 20);
-            this.textBox7.TabIndex = 10;
+            this.Txt_Cidade_Nome.Location = new System.Drawing.Point(335, 141);
+            this.Txt_Cidade_Nome.Name = "Txt_Cidade_Nome";
+            this.Txt_Cidade_Nome.Size = new System.Drawing.Size(177, 20);
+            this.Txt_Cidade_Nome.TabIndex = 10;
             // 
             // label5
             // 
@@ -150,61 +149,61 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "CEP";
             // 
-            // textBox8
+            // Txt_Endereco
             // 
-            this.textBox8.Location = new System.Drawing.Point(97, 176);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(364, 20);
-            this.textBox8.TabIndex = 13;
+            this.Txt_Endereco.Location = new System.Drawing.Point(97, 176);
+            this.Txt_Endereco.Name = "Txt_Endereco";
+            this.Txt_Endereco.Size = new System.Drawing.Size(364, 20);
+            this.Txt_Endereco.TabIndex = 13;
             // 
-            // textBox9
+            // Txt_Endereco_Complemento
             // 
-            this.textBox9.Location = new System.Drawing.Point(97, 210);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(364, 20);
-            this.textBox9.TabIndex = 14;
+            this.Txt_Endereco_Complemento.Location = new System.Drawing.Point(97, 210);
+            this.Txt_Endereco_Complemento.Name = "Txt_Endereco_Complemento";
+            this.Txt_Endereco_Complemento.Size = new System.Drawing.Size(364, 20);
+            this.Txt_Endereco_Complemento.TabIndex = 14;
             // 
-            // textBox10
+            // Txt_Endereco_Bairro
             // 
-            this.textBox10.Location = new System.Drawing.Point(97, 247);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(364, 20);
-            this.textBox10.TabIndex = 15;
+            this.Txt_Endereco_Bairro.Location = new System.Drawing.Point(97, 247);
+            this.Txt_Endereco_Bairro.Name = "Txt_Endereco_Bairro";
+            this.Txt_Endereco_Bairro.Size = new System.Drawing.Size(364, 20);
+            this.Txt_Endereco_Bairro.TabIndex = 15;
             // 
-            // textBox11
+            // Txt_DDD_Telefone
             // 
-            this.textBox11.Location = new System.Drawing.Point(97, 275);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(45, 20);
-            this.textBox11.TabIndex = 16;
+            this.Txt_DDD_Telefone.Location = new System.Drawing.Point(97, 275);
+            this.Txt_DDD_Telefone.Name = "Txt_DDD_Telefone";
+            this.Txt_DDD_Telefone.Size = new System.Drawing.Size(45, 20);
+            this.Txt_DDD_Telefone.TabIndex = 16;
             // 
-            // textBox12
+            // Txt_Telefone
             // 
-            this.textBox12.Location = new System.Drawing.Point(148, 275);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 17;
+            this.Txt_Telefone.Location = new System.Drawing.Point(148, 275);
+            this.Txt_Telefone.Name = "Txt_Telefone";
+            this.Txt_Telefone.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Telefone.TabIndex = 17;
             // 
-            // textBox13
+            // Txt_DDD_Celular
             // 
-            this.textBox13.Location = new System.Drawing.Point(97, 301);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(45, 20);
-            this.textBox13.TabIndex = 18;
+            this.Txt_DDD_Celular.Location = new System.Drawing.Point(97, 301);
+            this.Txt_DDD_Celular.Name = "Txt_DDD_Celular";
+            this.Txt_DDD_Celular.Size = new System.Drawing.Size(45, 20);
+            this.Txt_DDD_Celular.TabIndex = 18;
             // 
-            // textBox14
+            // Txt_Celular
             // 
-            this.textBox14.Location = new System.Drawing.Point(148, 301);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 20);
-            this.textBox14.TabIndex = 19;
+            this.Txt_Celular.Location = new System.Drawing.Point(148, 301);
+            this.Txt_Celular.Name = "Txt_Celular";
+            this.Txt_Celular.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Celular.TabIndex = 19;
             // 
-            // textBox15
+            // Txt_Email
             // 
-            this.textBox15.Location = new System.Drawing.Point(97, 362);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(364, 20);
-            this.textBox15.TabIndex = 20;
+            this.Txt_Email.Location = new System.Drawing.Point(97, 362);
+            this.Txt_Email.Name = "Txt_Email";
+            this.Txt_Email.Size = new System.Drawing.Size(364, 20);
+            this.Txt_Email.TabIndex = 20;
             // 
             // label7
             // 
@@ -269,20 +268,20 @@
             this.label13.TabIndex = 27;
             this.label13.Text = "Numero";
             // 
-            // textBox16
+            // Txt_Endereco_Numero
             // 
-            this.textBox16.Location = new System.Drawing.Point(517, 176);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(57, 20);
-            this.textBox16.TabIndex = 28;
+            this.Txt_Endereco_Numero.Location = new System.Drawing.Point(517, 176);
+            this.Txt_Endereco_Numero.Name = "Txt_Endereco_Numero";
+            this.Txt_Endereco_Numero.Size = new System.Drawing.Size(57, 20);
+            this.Txt_Endereco_Numero.TabIndex = 28;
             // 
-            // textBox17
+            // Txt_Sigla_Uf
             // 
-            this.textBox17.Location = new System.Drawing.Point(518, 141);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(25, 20);
-            this.textBox17.TabIndex = 29;
-            this.textBox17.Text = "SC";
+            this.Txt_Sigla_Uf.Location = new System.Drawing.Point(518, 141);
+            this.Txt_Sigla_Uf.Name = "Txt_Sigla_Uf";
+            this.Txt_Sigla_Uf.Size = new System.Drawing.Size(25, 20);
+            this.Txt_Sigla_Uf.TabIndex = 29;
+            this.Txt_Sigla_Uf.Text = "SC";
             // 
             // label14
             // 
@@ -293,13 +292,6 @@
             this.label14.TabIndex = 30;
             this.label14.Text = "Sexo";
             // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(97, 336);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(148, 20);
-            this.textBox18.TabIndex = 31;
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -309,38 +301,37 @@
             this.label15.TabIndex = 32;
             this.label15.Text = "Data de Nascimento";
             // 
-            // maskedTextBox1
+            // Msk_Data_Nascimento
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(373, 336);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(88, 20);
-            this.maskedTextBox1.TabIndex = 33;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.Msk_Data_Nascimento.Location = new System.Drawing.Point(373, 336);
+            this.Msk_Data_Nascimento.Mask = "00/00/0000";
+            this.Msk_Data_Nascimento.Name = "Msk_Data_Nascimento";
+            this.Msk_Data_Nascimento.Size = new System.Drawing.Size(88, 20);
+            this.Msk_Data_Nascimento.TabIndex = 33;
+            this.Msk_Data_Nascimento.ValidatingType = typeof(System.DateTime);
             // 
-            // comboBox1
+            // Txt_Sexo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.Txt_Sexo.FormattingEnabled = true;
+            this.Txt_Sexo.Items.AddRange(new object[] {
             "Masculino",
             "Feminino"});
-            this.comboBox1.Location = new System.Drawing.Point(340, 300);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 34;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.Txt_Sexo.Location = new System.Drawing.Point(97, 335);
+            this.Txt_Sexo.Name = "Txt_Sexo";
+            this.Txt_Sexo.Size = new System.Drawing.Size(121, 21);
+            this.Txt_Sexo.TabIndex = 34;
+            this.Txt_Sexo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Frm_Geral_Usuarios_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.Txt_Sexo);
+            this.Controls.Add(this.Msk_Data_Nascimento);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.textBox18);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox16);
+            this.Controls.Add(this.Txt_Sigla_Uf);
+            this.Controls.Add(this.Txt_Endereco_Numero);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -348,22 +339,22 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.Txt_Email);
+            this.Controls.Add(this.Txt_Celular);
+            this.Controls.Add(this.Txt_DDD_Celular);
+            this.Controls.Add(this.Txt_Telefone);
+            this.Controls.Add(this.Txt_DDD_Telefone);
+            this.Controls.Add(this.Txt_Endereco_Bairro);
+            this.Controls.Add(this.Txt_Endereco_Complemento);
+            this.Controls.Add(this.Txt_Endereco);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Txt_Cidade_Nome);
+            this.Controls.Add(this.Txt_Cidade_Cod);
+            this.Controls.Add(this.Txt_Cep);
+            this.Controls.Add(this.Txt_Nome);
+            this.Controls.Add(this.Txt_Cpf);
+            this.Controls.Add(this.Txt_Id);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -380,22 +371,22 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox Txt_Id;
+        private System.Windows.Forms.TextBox Txt_Cpf;
+        private System.Windows.Forms.TextBox Txt_Nome;
+        private System.Windows.Forms.TextBox Txt_Cep;
+        private System.Windows.Forms.TextBox Txt_Cidade_Cod;
+        private System.Windows.Forms.TextBox Txt_Cidade_Nome;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox Txt_Endereco;
+        private System.Windows.Forms.TextBox Txt_Endereco_Complemento;
+        private System.Windows.Forms.TextBox Txt_Endereco_Bairro;
+        private System.Windows.Forms.TextBox Txt_DDD_Telefone;
+        private System.Windows.Forms.TextBox Txt_Telefone;
+        private System.Windows.Forms.TextBox Txt_DDD_Celular;
+        private System.Windows.Forms.TextBox Txt_Celular;
+        private System.Windows.Forms.TextBox Txt_Email;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -403,12 +394,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox Txt_Endereco_Numero;
+        private System.Windows.Forms.TextBox Txt_Sigla_Uf;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.MaskedTextBox Msk_Data_Nascimento;
+        private System.Windows.Forms.ComboBox Txt_Sexo;
     }
 }

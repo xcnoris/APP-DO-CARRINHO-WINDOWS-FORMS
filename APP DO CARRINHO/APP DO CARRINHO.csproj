@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Formularios\Carrinho\Frm_Cad_Carrinho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Formularios\Carrinho\Frm_Cad_Carrinho.Designer.cs">
+      <DependentUpon>Frm_Cad_Carrinho.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.cs">
       <SubType>Form</SubType>
@@ -72,8 +72,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Carrinho\Frm_Cad_Carrinho.resx">
+      <DependentUpon>Frm_Cad_Carrinho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.resx">
       <DependentUpon>Frm_CadastroPessoa_UC.cs</DependentUpon>
@@ -106,5 +106,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
