@@ -52,6 +52,12 @@
     <Compile Include="Formularios\Carrinho\Frm_Cad_Carrinho.Designer.cs">
       <DependentUpon>Frm_Cad_Carrinho.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal.Designer.cs">
+      <DependentUpon>Frm_Menu_Principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\Carrinho\Frm_Cad_Carrinho.resx">
       <DependentUpon>Frm_Cad_Carrinho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Menu Principal\Frm_Menu_Principal.resx">
+      <DependentUpon>Frm_Menu_Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.resx">
       <DependentUpon>Frm_CadastroPessoa_UC.cs</DependentUpon>
@@ -111,6 +120,9 @@
       <Project>{ab0b9d19-51ab-4f1b-b6c1-84f1eb536976}</Project>
       <Name>AppCarrinhoWFBiblioteca</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Imagens\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
