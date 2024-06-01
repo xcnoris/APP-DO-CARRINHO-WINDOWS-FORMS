@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace APP_DO_CARRINHO.Formularios.Menu_Principal
 {
-    public partial class Frm_Menu_Principal : Form
+    public partial class Frm_Menu_Principal_2 : Form
     {
-        public Frm_Menu_Principal()
+        public Frm_Menu_Principal_2()
         {
             InitializeComponent();
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Frm_Menu_Principal_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

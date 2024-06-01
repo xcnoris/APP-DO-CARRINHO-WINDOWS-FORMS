@@ -58,6 +58,12 @@
     <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal.Designer.cs">
       <DependentUpon>Frm_Menu_Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal_2.Designer.cs">
+      <DependentUpon>Frm_Menu_Principal_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Menu Principal\Frm_Menu_Principal.resx">
       <DependentUpon>Frm_Menu_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Menu Principal\Frm_Menu_Principal_2.resx">
+      <DependentUpon>Frm_Menu_Principal_2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.resx">
       <DependentUpon>Frm_CadastroPessoa_UC.cs</DependentUpon>
