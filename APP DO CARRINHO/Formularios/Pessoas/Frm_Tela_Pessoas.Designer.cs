@@ -1,6 +1,6 @@
 ﻿namespace APP_DO_CARRINHO.Formularios.Pessoas
 {
-    partial class Frm_Pessoas
+    partial class Frm_Tela_Pessoas
     {
         /// <summary>
         /// Required designer variable.
@@ -222,7 +222,7 @@
             this.Txt_Congregacao_Id.Size = new System.Drawing.Size(62, 20);
             this.Txt_Congregacao_Id.TabIndex = 22;
             // 
-            // Frm_Pessoas
+            // Frm_Tela_Pessoas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -248,8 +248,9 @@
             this.Controls.Add(this.Btn_Alterar_Pessoas);
             this.Controls.Add(this.Btn_Incluir_Pessoas);
             this.MinimumSize = new System.Drawing.Size(800, 600);
-            this.Name = "Frm_Pessoas";
+            this.Name = "Frm_Tela_Pessoas";
             this.Text = "Pessoas";
+            this.Load += new System.EventHandler(this.Frm_Tela_Pessoas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

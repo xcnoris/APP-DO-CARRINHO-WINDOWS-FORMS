@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace APP_DO_CARRINHO.Formularios.Pessoas
 {
-    public partial class Frm_Pessoas : Form
+    public partial class Frm_Tela_Pessoas : Form
     {
-        public Frm_Pessoas()
+        public Frm_Tela_Pessoas()
         {
             InitializeComponent();
         }
@@ -27,6 +27,11 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         private void Btn_Fechar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Frm_Tela_Pessoas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
