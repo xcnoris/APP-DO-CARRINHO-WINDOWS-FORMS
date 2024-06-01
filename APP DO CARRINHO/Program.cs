@@ -16,7 +16,7 @@ namespace APP_DO_CARRINHO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Formularios.Pessoas.Frm_Tela_Pessoas());
+            Application.Run(new Formularios.Menu_Principal.Frm_Menu_Principal_2());
         }
     }
 }

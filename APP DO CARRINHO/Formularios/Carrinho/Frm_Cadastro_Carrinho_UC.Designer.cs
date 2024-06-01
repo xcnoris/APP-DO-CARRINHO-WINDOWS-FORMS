@@ -1,6 +1,6 @@
-﻿namespace APP_DO_CARRINHO.Formularios.Pessoas
+﻿namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
-    partial class Frm_CadastroPessoa_UC
+    partial class Frm_Cadastro_Carrinho_UC
     {
         /// <summary>
         /// Required designer variable.
@@ -28,60 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Tbc_CadastroUsuario = new System.Windows.Forms.TabControl();
+            this.Tbc_Cad_Carrinho = new System.Windows.Forms.TabControl();
             this.Btn_Fechar = new System.Windows.Forms.Button();
             this.Btn_Confirmar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Tbc_CadastroUsuario
+            // Tbc_Cad_Carrinho
             // 
-            this.Tbc_CadastroUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Tbc_CadastroUsuario.Location = new System.Drawing.Point(0, 0);
-            this.Tbc_CadastroUsuario.MinimumSize = new System.Drawing.Size(700, 430);
-            this.Tbc_CadastroUsuario.Name = "Tbc_CadastroUsuario";
-            this.Tbc_CadastroUsuario.SelectedIndex = 0;
-            this.Tbc_CadastroUsuario.Size = new System.Drawing.Size(700, 430);
-            this.Tbc_CadastroUsuario.TabIndex = 0;
+            this.Tbc_Cad_Carrinho.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Tbc_Cad_Carrinho.Location = new System.Drawing.Point(0, 0);
+            this.Tbc_Cad_Carrinho.Name = "Tbc_Cad_Carrinho";
+            this.Tbc_Cad_Carrinho.SelectedIndex = 0;
+            this.Tbc_Cad_Carrinho.Size = new System.Drawing.Size(684, 192);
+            this.Tbc_Cad_Carrinho.TabIndex = 0;
             // 
             // Btn_Fechar
             // 
-            this.Btn_Fechar.Location = new System.Drawing.Point(359, 441);
+            this.Btn_Fechar.Location = new System.Drawing.Point(356, 200);
             this.Btn_Fechar.Name = "Btn_Fechar";
             this.Btn_Fechar.Size = new System.Drawing.Size(88, 31);
-            this.Btn_Fechar.TabIndex = 38;
+            this.Btn_Fechar.TabIndex = 40;
             this.Btn_Fechar.Text = "Fechar";
             this.Btn_Fechar.UseVisualStyleBackColor = true;
+            this.Btn_Fechar.Click += new System.EventHandler(this.Btn_Fechar_Click);
             // 
             // Btn_Confirmar
             // 
-            this.Btn_Confirmar.Location = new System.Drawing.Point(240, 441);
+            this.Btn_Confirmar.Location = new System.Drawing.Point(237, 200);
             this.Btn_Confirmar.Name = "Btn_Confirmar";
             this.Btn_Confirmar.Size = new System.Drawing.Size(88, 31);
-            this.Btn_Confirmar.TabIndex = 37;
+            this.Btn_Confirmar.TabIndex = 39;
             this.Btn_Confirmar.Text = "Confirmar";
             this.Btn_Confirmar.UseVisualStyleBackColor = true;
+            this.Btn_Confirmar.Click += new System.EventHandler(this.Btn_Confirmar_Click);
             // 
-            // Frm_CadastroPessoa_UC
+            // Frm_Cadastro_Carrinho_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 481);
+            this.ClientSize = new System.Drawing.Size(684, 244);
             this.Controls.Add(this.Btn_Fechar);
             this.Controls.Add(this.Btn_Confirmar);
-            this.Controls.Add(this.Tbc_CadastroUsuario);
+            this.Controls.Add(this.Tbc_Cad_Carrinho);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(700, 520);
-            this.MinimumSize = new System.Drawing.Size(700, 520);
-            this.Name = "Frm_CadastroPessoa_UC";
-            this.Text = "Cadastro Pessoa";
-            this.Load += new System.EventHandler(this.Frm_CadastroPessoa_UC_Load);
+            this.MaximumSize = new System.Drawing.Size(700, 283);
+            this.MinimumSize = new System.Drawing.Size(700, 283);
+            this.Name = "Frm_Cadastro_Carrinho_UC";
+            this.Text = "Cadadastro Carrinho";
+            this.Load += new System.EventHandler(this.Frm_Cadastro_Carrinho_UC_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl Tbc_CadastroUsuario;
+        private System.Windows.Forms.TabControl Tbc_Cad_Carrinho;
         private System.Windows.Forms.Button Btn_Fechar;
         private System.Windows.Forms.Button Btn_Confirmar;
     }

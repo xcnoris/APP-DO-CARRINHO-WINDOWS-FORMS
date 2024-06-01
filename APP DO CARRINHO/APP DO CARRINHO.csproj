@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularios\Carrinho\Frm_Cadastro_Carrinho_UC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Carrinho\Frm_Cadastro_Carrinho_UC.Designer.cs">
+      <DependentUpon>Frm_Cadastro_Carrinho_UC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Carrinho\Frm_Cad_Carrinho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,12 @@
     </Compile>
     <Compile Include="Formularios\Carrinho\Frm_Tela_Carrinho.Designer.cs">
       <DependentUpon>Frm_Tela_Carrinho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Carrinho\Frm_Geral_Carrinho_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Carrinho\Frm_Geral_Carrinho_UC.Designer.cs">
+      <DependentUpon>Frm_Geral_Carrinho_UC.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal.cs">
       <SubType>Form</SubType>
@@ -90,11 +102,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\Carrinho\Frm_Cadastro_Carrinho_UC.resx">
+      <DependentUpon>Frm_Cadastro_Carrinho_UC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Carrinho\Frm_Cad_Carrinho.resx">
       <DependentUpon>Frm_Cad_Carrinho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Carrinho\Frm_Tela_Carrinho.resx">
       <DependentUpon>Frm_Tela_Carrinho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Carrinho\Frm_Geral_Carrinho_UC.resx">
+      <DependentUpon>Frm_Geral_Carrinho_UC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Menu Principal\Frm_Menu_Principal.resx">
       <DependentUpon>Frm_Menu_Principal.cs</DependentUpon>

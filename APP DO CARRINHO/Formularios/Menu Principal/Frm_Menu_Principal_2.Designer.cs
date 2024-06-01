@@ -31,14 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Menu_Principal_2));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Btn_Pessoas = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.Btn_Carrinho = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,26 +65,13 @@
             this.panel2.Size = new System.Drawing.Size(200, 194);
             this.panel2.TabIndex = 2;
             // 
-            // pictureBox1
+            // panel3
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(62, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Carrinho - 1.24.6.0";
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Location = new System.Drawing.Point(6, 77);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(170, 44);
+            this.panel3.TabIndex = 4;
             // 
             // button1
             // 
@@ -100,27 +90,73 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // panel3
+            // label1
             // 
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Location = new System.Drawing.Point(6, 77);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(170, 44);
-            this.panel3.TabIndex = 4;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(62, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Carrinho - 1.24.6.0";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Btn_Pessoas
+            // 
+            this.Btn_Pessoas.Location = new System.Drawing.Point(363, 98);
+            this.Btn_Pessoas.Name = "Btn_Pessoas";
+            this.Btn_Pessoas.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Pessoas.TabIndex = 2;
+            this.Btn_Pessoas.Text = "Pessoas";
+            this.Btn_Pessoas.UseVisualStyleBackColor = true;
+            this.Btn_Pessoas.Click += new System.EventHandler(this.Btn_Pessoas_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(363, 214);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // Btn_Carrinho
+            // 
+            this.Btn_Carrinho.Location = new System.Drawing.Point(363, 153);
+            this.Btn_Carrinho.Name = "Btn_Carrinho";
+            this.Btn_Carrinho.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Carrinho.TabIndex = 4;
+            this.Btn_Carrinho.Text = "Carrinhos";
+            this.Btn_Carrinho.UseVisualStyleBackColor = true;
+            this.Btn_Carrinho.Click += new System.EventHandler(this.Btn_Carrinho_Click);
             // 
             // Frm_Menu_Principal_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Btn_Carrinho);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Btn_Pessoas);
             this.Controls.Add(this.panel1);
             this.Name = "Frm_Menu_Principal_2";
             this.Text = "Frm_Menu_Principal_2";
+            this.Load += new System.EventHandler(this.Frm_Menu_Principal_2_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -132,5 +168,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button Btn_Pessoas;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Btn_Carrinho;
     }
 }

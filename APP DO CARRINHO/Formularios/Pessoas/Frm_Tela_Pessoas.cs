@@ -20,7 +20,7 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         private void button1_Click(object sender, EventArgs e)
         {
             Frm_CadastroPessoa_UC frm = new Frm_CadastroPessoa_UC();
-            frm.Show();
+            frm.ShowDialog();
           
         }
 
