@@ -106,6 +106,7 @@
             // 
             this.Txt_Senha.Location = new System.Drawing.Point(39, 91);
             this.Txt_Senha.Name = "Txt_Senha";
+            this.Txt_Senha.PasswordChar = '*';
             this.Txt_Senha.Size = new System.Drawing.Size(170, 20);
             this.Txt_Senha.TabIndex = 3;
             // 
