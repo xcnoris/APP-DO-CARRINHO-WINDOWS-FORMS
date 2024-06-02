@@ -33,7 +33,8 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
 
         private void Frm_Menu_Principal_2_Load(object sender, EventArgs e)
         {
-
+            Frm_Tela_Login_Registro frm = new Frm_Tela_Login_Registro();
+            frm.ShowDialog();
         }
     }
 }

@@ -82,6 +82,12 @@
     <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal_2.Designer.cs">
       <DependentUpon>Frm_Menu_Principal_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Menu Principal\Frm_Tela_Login_Registro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Menu Principal\Frm_Tela_Login_Registro.Designer.cs">
+      <DependentUpon>Frm_Tela_Login_Registro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     <EmbeddedResource Include="Formularios\Menu Principal\Frm_Menu_Principal_2.resx">
       <DependentUpon>Frm_Menu_Principal_2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Menu Principal\Frm_Tela_Login_Registro.resx">
+      <DependentUpon>Frm_Tela_Login_Registro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.resx">
       <DependentUpon>Frm_CadastroPessoa_UC.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +146,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -157,8 +167,12 @@
       <Name>AppCarrinhoWFBiblioteca</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Imagens\" />
+    <None Include="Imagens\ImagemTelaLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\Menu %2840 x 40 px%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
