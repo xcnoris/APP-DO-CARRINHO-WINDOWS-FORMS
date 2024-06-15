@@ -32,9 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Txt_Id = new System.Windows.Forms.TextBox();
-            this.Txt_Cpf = new System.Windows.Forms.TextBox();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
-            this.Txt_Cep = new System.Windows.Forms.TextBox();
             this.Txt_Cidade_Cod = new System.Windows.Forms.TextBox();
             this.Txt_Cidade_Nome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,10 +40,6 @@
             this.Txt_Endereco = new System.Windows.Forms.TextBox();
             this.Txt_Endereco_Complemento = new System.Windows.Forms.TextBox();
             this.Txt_Endereco_Bairro = new System.Windows.Forms.TextBox();
-            this.Txt_DDD_Telefone = new System.Windows.Forms.TextBox();
-            this.Txt_Telefone = new System.Windows.Forms.TextBox();
-            this.Txt_DDD_Celular = new System.Windows.Forms.TextBox();
-            this.Txt_Celular = new System.Windows.Forms.TextBox();
             this.Txt_Email = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -59,7 +53,13 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.Msk_Data_Nascimento = new System.Windows.Forms.MaskedTextBox();
-            this.Txt_Sexo = new System.Windows.Forms.ComboBox();
+            this.Cbox_Sexo = new System.Windows.Forms.ComboBox();
+            this.MSK_CPF = new System.Windows.Forms.MaskedTextBox();
+            this.MSK_CEP = new System.Windows.Forms.MaskedTextBox();
+            this.Txt_DDD_Celular = new System.Windows.Forms.TextBox();
+            this.Txt_DDD_Telefone = new System.Windows.Forms.TextBox();
+            this.Txt_Celular = new System.Windows.Forms.TextBox();
+            this.Txt_Telefone = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -96,26 +96,12 @@
             this.Txt_Id.Size = new System.Drawing.Size(100, 20);
             this.Txt_Id.TabIndex = 5;
             // 
-            // Txt_Cpf
-            // 
-            this.Txt_Cpf.Location = new System.Drawing.Point(97, 69);
-            this.Txt_Cpf.Name = "Txt_Cpf";
-            this.Txt_Cpf.Size = new System.Drawing.Size(148, 20);
-            this.Txt_Cpf.TabIndex = 6;
-            // 
             // Txt_Nome
             // 
             this.Txt_Nome.Location = new System.Drawing.Point(97, 105);
             this.Txt_Nome.Name = "Txt_Nome";
             this.Txt_Nome.Size = new System.Drawing.Size(364, 20);
             this.Txt_Nome.TabIndex = 7;
-            // 
-            // Txt_Cep
-            // 
-            this.Txt_Cep.Location = new System.Drawing.Point(97, 141);
-            this.Txt_Cep.Name = "Txt_Cep";
-            this.Txt_Cep.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Cep.TabIndex = 8;
             // 
             // Txt_Cidade_Cod
             // 
@@ -169,34 +155,6 @@
             this.Txt_Endereco_Bairro.Name = "Txt_Endereco_Bairro";
             this.Txt_Endereco_Bairro.Size = new System.Drawing.Size(364, 20);
             this.Txt_Endereco_Bairro.TabIndex = 15;
-            // 
-            // Txt_DDD_Telefone
-            // 
-            this.Txt_DDD_Telefone.Location = new System.Drawing.Point(97, 275);
-            this.Txt_DDD_Telefone.Name = "Txt_DDD_Telefone";
-            this.Txt_DDD_Telefone.Size = new System.Drawing.Size(45, 20);
-            this.Txt_DDD_Telefone.TabIndex = 16;
-            // 
-            // Txt_Telefone
-            // 
-            this.Txt_Telefone.Location = new System.Drawing.Point(148, 275);
-            this.Txt_Telefone.Name = "Txt_Telefone";
-            this.Txt_Telefone.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Telefone.TabIndex = 17;
-            // 
-            // Txt_DDD_Celular
-            // 
-            this.Txt_DDD_Celular.Location = new System.Drawing.Point(97, 301);
-            this.Txt_DDD_Celular.Name = "Txt_DDD_Celular";
-            this.Txt_DDD_Celular.Size = new System.Drawing.Size(45, 20);
-            this.Txt_DDD_Celular.TabIndex = 18;
-            // 
-            // Txt_Celular
-            // 
-            this.Txt_Celular.Location = new System.Drawing.Point(148, 301);
-            this.Txt_Celular.Name = "Txt_Celular";
-            this.Txt_Celular.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Celular.TabIndex = 19;
             // 
             // Txt_Email
             // 
@@ -310,23 +268,71 @@
             this.Msk_Data_Nascimento.TabIndex = 33;
             this.Msk_Data_Nascimento.ValidatingType = typeof(System.DateTime);
             // 
-            // Txt_Sexo
+            // Cbox_Sexo
             // 
-            this.Txt_Sexo.FormattingEnabled = true;
-            this.Txt_Sexo.Items.AddRange(new object[] {
+            this.Cbox_Sexo.FormattingEnabled = true;
+            this.Cbox_Sexo.Items.AddRange(new object[] {
             "Masculino",
             "Feminino"});
-            this.Txt_Sexo.Location = new System.Drawing.Point(97, 335);
-            this.Txt_Sexo.Name = "Txt_Sexo";
-            this.Txt_Sexo.Size = new System.Drawing.Size(121, 21);
-            this.Txt_Sexo.TabIndex = 34;
-            this.Txt_Sexo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.Cbox_Sexo.Location = new System.Drawing.Point(97, 335);
+            this.Cbox_Sexo.Name = "Cbox_Sexo";
+            this.Cbox_Sexo.Size = new System.Drawing.Size(121, 21);
+            this.Cbox_Sexo.TabIndex = 34;
+            this.Cbox_Sexo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // MSK_CPF
+            // 
+            this.MSK_CPF.Location = new System.Drawing.Point(97, 73);
+            this.MSK_CPF.Mask = "000,000,000-00";
+            this.MSK_CPF.Name = "MSK_CPF";
+            this.MSK_CPF.Size = new System.Drawing.Size(89, 20);
+            this.MSK_CPF.TabIndex = 35;
+            this.MSK_CPF.ValidatingType = typeof(System.DateTime);
+            // 
+            // MSK_CEP
+            // 
+            this.MSK_CEP.Location = new System.Drawing.Point(97, 141);
+            this.MSK_CEP.Mask = "00000-000";
+            this.MSK_CEP.Name = "MSK_CEP";
+            this.MSK_CEP.Size = new System.Drawing.Size(70, 20);
+            this.MSK_CEP.TabIndex = 36;
+            this.MSK_CEP.ValidatingType = typeof(System.DateTime);
+            // 
+            // Txt_DDD_Celular
+            // 
+            this.Txt_DDD_Celular.Location = new System.Drawing.Point(97, 301);
+            this.Txt_DDD_Celular.Name = "Txt_DDD_Celular";
+            this.Txt_DDD_Celular.Size = new System.Drawing.Size(45, 20);
+            this.Txt_DDD_Celular.TabIndex = 18;
+            // 
+            // Txt_DDD_Telefone
+            // 
+            this.Txt_DDD_Telefone.Location = new System.Drawing.Point(97, 275);
+            this.Txt_DDD_Telefone.Name = "Txt_DDD_Telefone";
+            this.Txt_DDD_Telefone.Size = new System.Drawing.Size(45, 20);
+            this.Txt_DDD_Telefone.TabIndex = 16;
+            // 
+            // Txt_Celular
+            // 
+            this.Txt_Celular.Location = new System.Drawing.Point(148, 301);
+            this.Txt_Celular.Name = "Txt_Celular";
+            this.Txt_Celular.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Celular.TabIndex = 19;
+            // 
+            // Txt_Telefone
+            // 
+            this.Txt_Telefone.Location = new System.Drawing.Point(148, 275);
+            this.Txt_Telefone.Name = "Txt_Telefone";
+            this.Txt_Telefone.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Telefone.TabIndex = 17;
             // 
             // Frm_Geral_Usuarios_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Txt_Sexo);
+            this.Controls.Add(this.MSK_CEP);
+            this.Controls.Add(this.MSK_CPF);
+            this.Controls.Add(this.Cbox_Sexo);
             this.Controls.Add(this.Msk_Data_Nascimento);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -351,9 +357,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Txt_Cidade_Nome);
             this.Controls.Add(this.Txt_Cidade_Cod);
-            this.Controls.Add(this.Txt_Cep);
             this.Controls.Add(this.Txt_Nome);
-            this.Controls.Add(this.Txt_Cpf);
             this.Controls.Add(this.Txt_Id);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -361,6 +365,7 @@
             this.MinimumSize = new System.Drawing.Size(700, 400);
             this.Name = "Frm_Geral_Usuarios_UC";
             this.Size = new System.Drawing.Size(700, 400);
+            this.Load += new System.EventHandler(this.Frm_Geral_Usuarios_UC_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,9 +377,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Txt_Id;
-        private System.Windows.Forms.TextBox Txt_Cpf;
         private System.Windows.Forms.TextBox Txt_Nome;
-        private System.Windows.Forms.TextBox Txt_Cep;
         private System.Windows.Forms.TextBox Txt_Cidade_Cod;
         private System.Windows.Forms.TextBox Txt_Cidade_Nome;
         private System.Windows.Forms.Label label5;
@@ -382,10 +385,6 @@
         private System.Windows.Forms.TextBox Txt_Endereco;
         private System.Windows.Forms.TextBox Txt_Endereco_Complemento;
         private System.Windows.Forms.TextBox Txt_Endereco_Bairro;
-        private System.Windows.Forms.TextBox Txt_DDD_Telefone;
-        private System.Windows.Forms.TextBox Txt_Telefone;
-        private System.Windows.Forms.TextBox Txt_DDD_Celular;
-        private System.Windows.Forms.TextBox Txt_Celular;
         private System.Windows.Forms.TextBox Txt_Email;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -399,6 +398,12 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.MaskedTextBox Msk_Data_Nascimento;
-        private System.Windows.Forms.ComboBox Txt_Sexo;
+        private System.Windows.Forms.ComboBox Cbox_Sexo;
+        private System.Windows.Forms.MaskedTextBox MSK_CPF;
+        private System.Windows.Forms.MaskedTextBox MSK_CEP;
+        private System.Windows.Forms.TextBox Txt_DDD_Celular;
+        private System.Windows.Forms.TextBox Txt_DDD_Telefone;
+        private System.Windows.Forms.TextBox Txt_Celular;
+        private System.Windows.Forms.TextBox Txt_Telefone;
     }
 }

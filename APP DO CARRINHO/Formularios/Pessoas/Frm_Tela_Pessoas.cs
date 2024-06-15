@@ -26,10 +26,20 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 
         private void Btn_Fechar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void Frm_Tela_Pessoas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

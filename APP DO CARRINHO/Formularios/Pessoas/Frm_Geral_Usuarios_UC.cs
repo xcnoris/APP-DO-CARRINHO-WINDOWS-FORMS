@@ -19,13 +19,20 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {   
-
+            
 
         }
 
         private void Btn_Fechar_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void Frm_Geral_Usuarios_UC_Load(object sender, EventArgs e)
+        {
+            Cbox_Sexo.Items.Clear();
+            Cbox_Sexo.Items.Add("Masculino");
+            Cbox_Sexo.Items.Add("Feminino");
         }
     }
 }
