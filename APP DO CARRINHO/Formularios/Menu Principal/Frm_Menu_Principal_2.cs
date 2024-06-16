@@ -73,5 +73,11 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
             Frm_Tela_Pessoas frm = new Frm_Tela_Pessoas();
             frm.Show();
         }
+
+        private void btnAlterarEntidade_Click_1(object sender, EventArgs e)
+        {
+            Frm_Tela_Carrinho f = new Frm_Tela_Carrinho();
+            f.Show();
+        }
     }
 }

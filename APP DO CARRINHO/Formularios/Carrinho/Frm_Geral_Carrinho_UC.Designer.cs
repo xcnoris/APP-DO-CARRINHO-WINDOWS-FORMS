@@ -28,53 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
+            this.Txt_Codigo_Carrinho = new System.Windows.Forms.TextBox();
+            this.Txt_Congregacao_Nome = new System.Windows.Forms.TextBox();
+            this.Txt_Nome = new System.Windows.Forms.TextBox();
+            this.Txt_ID = new System.Windows.Forms.TextBox();
             this.Lbl_Situacao_Carrinho = new System.Windows.Forms.Label();
             this.Lbl_Cod_Carrinho = new System.Windows.Forms.Label();
             this.Lbl_Cod_Congregacao = new System.Windows.Forms.Label();
             this.Lbl_Nome_Carrinho = new System.Windows.Forms.Label();
             this.Lbl_Id_Carrinho = new System.Windows.Forms.Label();
+            this.Txt_Congregacao_ID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // Cbox_Situacao
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(533, 61);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 23;
+            this.Cbox_Situacao.FormattingEnabled = true;
+            this.Cbox_Situacao.Location = new System.Drawing.Point(533, 61);
+            this.Cbox_Situacao.Name = "Cbox_Situacao";
+            this.Cbox_Situacao.Size = new System.Drawing.Size(121, 21);
+            this.Cbox_Situacao.TabIndex = 3;
             // 
-            // textBox4
+            // Txt_Codigo_Carrinho
             // 
-            this.textBox4.Location = new System.Drawing.Point(139, 115);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 20;
+            this.Txt_Codigo_Carrinho.Location = new System.Drawing.Point(139, 115);
+            this.Txt_Codigo_Carrinho.Name = "Txt_Codigo_Carrinho";
+            this.Txt_Codigo_Carrinho.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Codigo_Carrinho.TabIndex = 6;
             // 
-            // textBox3
+            // Txt_Congregacao_Nome
             // 
-            this.textBox3.Location = new System.Drawing.Point(139, 89);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(292, 20);
-            this.textBox3.TabIndex = 19;
+            this.Txt_Congregacao_Nome.Location = new System.Drawing.Point(197, 89);
+            this.Txt_Congregacao_Nome.Name = "Txt_Congregacao_Nome";
+            this.Txt_Congregacao_Nome.Size = new System.Drawing.Size(234, 20);
+            this.Txt_Congregacao_Nome.TabIndex = 5;
             // 
-            // textBox2
+            // Txt_Nome
             // 
-            this.textBox2.Location = new System.Drawing.Point(139, 61);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(292, 20);
-            this.textBox2.TabIndex = 18;
+            this.Txt_Nome.Location = new System.Drawing.Point(139, 61);
+            this.Txt_Nome.Name = "Txt_Nome";
+            this.Txt_Nome.Size = new System.Drawing.Size(292, 20);
+            this.Txt_Nome.TabIndex = 2;
             // 
-            // textBox1
+            // Txt_ID
             // 
-            this.textBox1.Location = new System.Drawing.Point(138, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 17;
+            this.Txt_ID.Location = new System.Drawing.Point(138, 35);
+            this.Txt_ID.Name = "Txt_ID";
+            this.Txt_ID.Size = new System.Drawing.Size(100, 20);
+            this.Txt_ID.TabIndex = 1;
             // 
             // Lbl_Situacao_Carrinho
             // 
@@ -122,15 +123,23 @@
             this.Lbl_Id_Carrinho.TabIndex = 12;
             this.Lbl_Id_Carrinho.Text = "ID";
             // 
+            // Txt_Congregacao_ID
+            // 
+            this.Txt_Congregacao_ID.Location = new System.Drawing.Point(138, 89);
+            this.Txt_Congregacao_ID.Name = "Txt_Congregacao_ID";
+            this.Txt_Congregacao_ID.Size = new System.Drawing.Size(53, 20);
+            this.Txt_Congregacao_ID.TabIndex = 4;
+            // 
             // Frm_Geral_Carrinho_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Txt_Congregacao_ID);
+            this.Controls.Add(this.Cbox_Situacao);
+            this.Controls.Add(this.Txt_Codigo_Carrinho);
+            this.Controls.Add(this.Txt_Congregacao_Nome);
+            this.Controls.Add(this.Txt_Nome);
+            this.Controls.Add(this.Txt_ID);
             this.Controls.Add(this.Lbl_Situacao_Carrinho);
             this.Controls.Add(this.Lbl_Cod_Carrinho);
             this.Controls.Add(this.Lbl_Cod_Congregacao);
@@ -146,15 +155,16 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox Cbox_Situacao;
+        private System.Windows.Forms.TextBox Txt_Codigo_Carrinho;
+        private System.Windows.Forms.TextBox Txt_Congregacao_Nome;
+        private System.Windows.Forms.TextBox Txt_Nome;
+        private System.Windows.Forms.TextBox Txt_ID;
         private System.Windows.Forms.Label Lbl_Situacao_Carrinho;
         private System.Windows.Forms.Label Lbl_Cod_Carrinho;
         private System.Windows.Forms.Label Lbl_Cod_Congregacao;
         private System.Windows.Forms.Label Lbl_Nome_Carrinho;
         private System.Windows.Forms.Label Lbl_Id_Carrinho;
+        private System.Windows.Forms.TextBox Txt_Congregacao_ID;
     }
 }

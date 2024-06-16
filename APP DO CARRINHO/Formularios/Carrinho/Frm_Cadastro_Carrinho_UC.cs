@@ -2,12 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AppCarrinhoWFBiblioteca.carrinho1;
+using AppCarrinhoWFBiblioteca;
+using AppCarrinhoWFBiblioteca.clientes;
+using System.Text.RegularExpressions;
+using System.Runtime.InteropServices.WindowsRuntime;
+using AppCarrinhoWFBiblioteca.cep;
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
@@ -31,12 +38,28 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void Btn_Confirmar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Carrinho1.Unit cliente = new Carrinho1.Unit();
+                cliente = LeituraFormulario();
+                cliente.ValidarClasse();
+                MessageBox.Show($"Class foi inicializada sem erros!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (ValidationException Ex)
+            {
+                MessageBox.Show($" {Ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        Carrinho1.Unit LeituraFormulario()
+        {
+            Carrinho1.Unit c = new Carrinho1.Unit();
+
+            return c;
+        }
         private void Btn_Fechar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

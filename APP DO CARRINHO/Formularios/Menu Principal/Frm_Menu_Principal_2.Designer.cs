@@ -89,6 +89,7 @@
             this.btnAlterarEntidade.Text = "Alterar Entidade";
             this.btnAlterarEntidade.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAlterarEntidade.UseVisualStyleBackColor = true;
+            this.btnAlterarEntidade.Click += new System.EventHandler(this.btnAlterarEntidade_Click_1);
             // 
             // btnCadastrarEntidade
             // 

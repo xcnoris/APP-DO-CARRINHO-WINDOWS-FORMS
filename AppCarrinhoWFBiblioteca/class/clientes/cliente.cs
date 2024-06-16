@@ -12,6 +12,7 @@ namespace AppCarrinhoWFBiblioteca.clientes
     {
         public class Unit
         {
+            #region Propriedades
             [Required(ErrorMessage ="ID do cliente é obrigatorio!")]
             // Expressão regular para testar numeros
             //[RegularExpression("([0-9]+)", ErrorMessage ="Codigo do cliente aceita somente numericos!")]
@@ -24,23 +25,30 @@ namespace AppCarrinhoWFBiblioteca.clientes
             public string CPF { get; set; }
 
             [Required(ErrorMessage = "Nome do cliente é obrigatorio!")]
-            [StringLength(70, ErrorMessage = "CPF do cliente deve ter 11 digitos!")]
+            [StringLength(70, ErrorMessage = "Nome do Cliente deve ter no Maximo 70 Caracteres!")]
             public string Nome { get; set; }
             public string CEP { get; set; }
-            public int ID_Cidade { get; set; }
+            public string ID_Cidade { get; set; }
             public string Nome_Cidade { get; set; }
             public string UF { get; set; }
             public string Endereco { get; set; }
             public string Endereco_Numero { get; set; }
+
+            [StringLength(70, ErrorMessage = "Complemento do Endereço deve ter no Maximo 70 Caracteres!")]
             public string Endereco_Complemento { get; set; }
             public string Bairro { get; set; }
-            public int DDD_Telefone { get; set; }
-            public int Telefone { get; set; }
-            public int DDD_Celular { get; set; }
-            public int Celular { get; set; }
+            public string DDD_Telefone { get; set; }
+
+            [StringLength(9, ErrorMessage = "Numero de Telefone deve ter no Maximo 9 Caracteres!")]
+            public string Telefone { get; set; }
+            public string DDD_Celular { get; set; }
+
+            [StringLength(9, ErrorMessage = "Numero de Celular deve ter no Maximo 9 Caracteres!")]
+            public string Celular { get; set; }
             public string Sexo { get; set; }
             public string DataNascimento { get; set; }
             public string Email { get; set; }
+            #endregion
 
             public void ValidarClasse()
             {

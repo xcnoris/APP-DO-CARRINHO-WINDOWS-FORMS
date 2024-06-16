@@ -45,8 +45,6 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         {
             try
             {
-              
-
                 Cliente.Unit cliente = new Cliente.Unit();
                 cliente = LeituraFormulario();
                 cliente.ValidarClasse();
@@ -68,9 +66,23 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
             Cliente.Unit c = new Cliente.Unit();
 
             c.ID = frmGeralUsuarios.Id;
-            c.Nome = frmGeralUsuarios.Nome;
             c.CPF = Regex.Replace(frmGeralUsuarios.CPF, @"[^\d]", ""); // Remove todos os caracteres não numéricos
+            c.Nome = frmGeralUsuarios.Nome;
+            c.CEP = frmGeralUsuarios.CEP_Numero;
+            c.ID_Cidade = frmGeralUsuarios.Cidade_Cod;
+            c.Nome_Cidade = frmGeralUsuarios.Cidade_Nome;
+            c.UF = frmGeralUsuarios.UF;
+            c.Endereco = frmGeralUsuarios.Endereco;
+            c.Endereco_Numero = frmGeralUsuarios.Endereco_Numero;
+            c.Endereco_Complemento = frmGeralUsuarios.Endereco_Complemento;
+            c.Bairro = frmGeralUsuarios.Endereco_Bairro;
+            c.DDD_Telefone = frmGeralUsuarios.Telefone_DDD;
+            c.Telefone = frmGeralUsuarios.Telefone_Numero;
+            c.DDD_Celular = frmGeralUsuarios.Celular_DDD;
+            c.Celular = frmGeralUsuarios.Celular_Numero;
             c.Sexo = frmGeralUsuarios.Sexo;
+            c.DataNascimento = frmGeralUsuarios.Data_Nascimento;
+            c.Email = frmGeralUsuarios.Email;
 
             return c;
         }

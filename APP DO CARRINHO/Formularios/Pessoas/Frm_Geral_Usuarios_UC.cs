@@ -17,6 +17,8 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 {
     public partial class Frm_Geral_Usuarios_UC : UserControl
     {
+        #region Propriedades
+
         public string Id
         {
             get{ return Txt_Id.Text; }
@@ -29,6 +31,54 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         public string CPF
         {
             get{ return MSK_CPF.Text; }
+        }
+        public string CEP_Numero
+        {
+            get { return MSK_CEP.Text; }
+        }
+        public string Cidade_Cod
+        {
+            get { return Txt_Cidade_Cod.Text; }
+        }
+        public string Cidade_Nome
+        {
+            get { return Txt_Cidade_Nome.Text; }
+        }
+        public string UF
+        {
+            get { return Txt_Sigla_Uf.Text; }
+        }
+        public string Endereco
+        {
+            get { return Txt_Endereco.Text; }
+        }
+        public string Endereco_Numero
+        {
+            get { return Txt_Endereco_Numero.Text; }
+        }
+        public string Endereco_Complemento
+        {
+            get { return Txt_Endereco_Complemento.Text; }
+        }
+        public string Endereco_Bairro
+        {
+            get { return Txt_Endereco_Bairro.Text; }
+        }
+        public string Telefone_DDD
+        {
+            get { return Txt_DDD_Telefone.Text; }
+        }
+        public string Telefone_Numero
+        {
+            get { return Txt_Telefone.Text; }
+        }
+        public string Celular_DDD
+        {
+            get { return Txt_DDD_Celular.Text; }
+        }
+        public string Celular_Numero
+        {
+            get { return Txt_Celular.Text; }
         }
         public string Sexo
         {
@@ -44,7 +94,16 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
                 }
             }
         }
-        
+        public string Data_Nascimento
+        {
+            get { return Msk_Data_Nascimento.Text; }
+        }
+        public string Email
+        {
+            get { return Txt_Email.Text; }
+        }
+        #endregion
+
         public Frm_Geral_Usuarios_UC()
         {
             InitializeComponent();

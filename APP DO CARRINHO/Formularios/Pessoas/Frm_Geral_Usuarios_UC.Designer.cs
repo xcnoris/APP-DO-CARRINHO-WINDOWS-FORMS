@@ -97,28 +97,28 @@
             this.Txt_Id.Location = new System.Drawing.Point(97, 36);
             this.Txt_Id.Name = "Txt_Id";
             this.Txt_Id.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Id.TabIndex = 5;
+            this.Txt_Id.TabIndex = 1;
             // 
             // Txt_Nome
             // 
             this.Txt_Nome.Location = new System.Drawing.Point(97, 105);
             this.Txt_Nome.Name = "Txt_Nome";
             this.Txt_Nome.Size = new System.Drawing.Size(364, 20);
-            this.Txt_Nome.TabIndex = 7;
+            this.Txt_Nome.TabIndex = 3;
             // 
             // Txt_Cidade_Cod
             // 
             this.Txt_Cidade_Cod.Location = new System.Drawing.Point(280, 141);
             this.Txt_Cidade_Cod.Name = "Txt_Cidade_Cod";
             this.Txt_Cidade_Cod.Size = new System.Drawing.Size(49, 20);
-            this.Txt_Cidade_Cod.TabIndex = 9;
+            this.Txt_Cidade_Cod.TabIndex = 5;
             // 
             // Txt_Cidade_Nome
             // 
             this.Txt_Cidade_Nome.Location = new System.Drawing.Point(335, 141);
             this.Txt_Cidade_Nome.Name = "Txt_Cidade_Nome";
             this.Txt_Cidade_Nome.Size = new System.Drawing.Size(177, 20);
-            this.Txt_Cidade_Nome.TabIndex = 10;
+            this.Txt_Cidade_Nome.TabIndex = 6;
             // 
             // label5
             // 
@@ -143,28 +143,28 @@
             this.Txt_Endereco.Location = new System.Drawing.Point(97, 176);
             this.Txt_Endereco.Name = "Txt_Endereco";
             this.Txt_Endereco.Size = new System.Drawing.Size(364, 20);
-            this.Txt_Endereco.TabIndex = 13;
+            this.Txt_Endereco.TabIndex = 8;
             // 
             // Txt_Endereco_Complemento
             // 
             this.Txt_Endereco_Complemento.Location = new System.Drawing.Point(97, 210);
             this.Txt_Endereco_Complemento.Name = "Txt_Endereco_Complemento";
             this.Txt_Endereco_Complemento.Size = new System.Drawing.Size(364, 20);
-            this.Txt_Endereco_Complemento.TabIndex = 14;
+            this.Txt_Endereco_Complemento.TabIndex = 10;
             // 
             // Txt_Endereco_Bairro
             // 
             this.Txt_Endereco_Bairro.Location = new System.Drawing.Point(97, 247);
             this.Txt_Endereco_Bairro.Name = "Txt_Endereco_Bairro";
             this.Txt_Endereco_Bairro.Size = new System.Drawing.Size(364, 20);
-            this.Txt_Endereco_Bairro.TabIndex = 15;
+            this.Txt_Endereco_Bairro.TabIndex = 11;
             // 
             // Txt_Email
             // 
             this.Txt_Email.Location = new System.Drawing.Point(97, 362);
             this.Txt_Email.Name = "Txt_Email";
             this.Txt_Email.Size = new System.Drawing.Size(364, 20);
-            this.Txt_Email.TabIndex = 20;
+            this.Txt_Email.TabIndex = 18;
             // 
             // label7
             // 
@@ -234,14 +234,14 @@
             this.Txt_Endereco_Numero.Location = new System.Drawing.Point(517, 176);
             this.Txt_Endereco_Numero.Name = "Txt_Endereco_Numero";
             this.Txt_Endereco_Numero.Size = new System.Drawing.Size(57, 20);
-            this.Txt_Endereco_Numero.TabIndex = 28;
+            this.Txt_Endereco_Numero.TabIndex = 9;
             // 
             // Txt_Sigla_Uf
             // 
             this.Txt_Sigla_Uf.Location = new System.Drawing.Point(518, 141);
             this.Txt_Sigla_Uf.Name = "Txt_Sigla_Uf";
             this.Txt_Sigla_Uf.Size = new System.Drawing.Size(25, 20);
-            this.Txt_Sigla_Uf.TabIndex = 29;
+            this.Txt_Sigla_Uf.TabIndex = 7;
             // 
             // label14
             // 
@@ -267,7 +267,7 @@
             this.Msk_Data_Nascimento.Mask = "00/00/0000";
             this.Msk_Data_Nascimento.Name = "Msk_Data_Nascimento";
             this.Msk_Data_Nascimento.Size = new System.Drawing.Size(88, 20);
-            this.Msk_Data_Nascimento.TabIndex = 33;
+            this.Msk_Data_Nascimento.TabIndex = 17;
             this.Msk_Data_Nascimento.ValidatingType = typeof(System.DateTime);
             // 
             // Cbox_Sexo
@@ -279,7 +279,7 @@
             this.Cbox_Sexo.Location = new System.Drawing.Point(97, 335);
             this.Cbox_Sexo.Name = "Cbox_Sexo";
             this.Cbox_Sexo.Size = new System.Drawing.Size(121, 21);
-            this.Cbox_Sexo.TabIndex = 34;
+            this.Cbox_Sexo.TabIndex = 16;
             this.Cbox_Sexo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // MSK_CPF
@@ -288,7 +288,7 @@
             this.MSK_CPF.Mask = "000,000,000-00";
             this.MSK_CPF.Name = "MSK_CPF";
             this.MSK_CPF.Size = new System.Drawing.Size(89, 20);
-            this.MSK_CPF.TabIndex = 35;
+            this.MSK_CPF.TabIndex = 2;
             this.MSK_CPF.ValidatingType = typeof(System.DateTime);
             // 
             // MSK_CEP
@@ -297,7 +297,7 @@
             this.MSK_CEP.Mask = "00000-000";
             this.MSK_CEP.Name = "MSK_CEP";
             this.MSK_CEP.Size = new System.Drawing.Size(70, 20);
-            this.MSK_CEP.TabIndex = 36;
+            this.MSK_CEP.TabIndex = 4;
             this.MSK_CEP.ValidatingType = typeof(System.DateTime);
             this.MSK_CEP.Leave += new System.EventHandler(this.MSK_CEP_Leave);
             // 
@@ -306,28 +306,28 @@
             this.Txt_DDD_Celular.Location = new System.Drawing.Point(97, 301);
             this.Txt_DDD_Celular.Name = "Txt_DDD_Celular";
             this.Txt_DDD_Celular.Size = new System.Drawing.Size(45, 20);
-            this.Txt_DDD_Celular.TabIndex = 18;
+            this.Txt_DDD_Celular.TabIndex = 14;
             // 
             // Txt_DDD_Telefone
             // 
             this.Txt_DDD_Telefone.Location = new System.Drawing.Point(97, 275);
             this.Txt_DDD_Telefone.Name = "Txt_DDD_Telefone";
             this.Txt_DDD_Telefone.Size = new System.Drawing.Size(45, 20);
-            this.Txt_DDD_Telefone.TabIndex = 16;
+            this.Txt_DDD_Telefone.TabIndex = 12;
             // 
             // Txt_Celular
             // 
             this.Txt_Celular.Location = new System.Drawing.Point(148, 301);
             this.Txt_Celular.Name = "Txt_Celular";
             this.Txt_Celular.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Celular.TabIndex = 19;
+            this.Txt_Celular.TabIndex = 15;
             // 
             // Txt_Telefone
             // 
             this.Txt_Telefone.Location = new System.Drawing.Point(148, 275);
             this.Txt_Telefone.Name = "Txt_Telefone";
             this.Txt_Telefone.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Telefone.TabIndex = 17;
+            this.Txt_Telefone.TabIndex = 13;
             // 
             // Frm_Geral_Usuarios_UC
             // 
