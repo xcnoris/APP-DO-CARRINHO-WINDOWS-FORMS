@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APP DO CARRINHO", "APP DO C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCarrinhoWFBiblioteca", "AppCarrinhoWFBiblioteca\AppCarrinhoWFBiblioteca.csproj", "{AB0B9D19-51AB-4F1B-B6C1-84F1EB536976}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "banco.DAL", "banco.DAL\banco.DAL.csproj", "{1AB0CCC1-1D26-436A-A71E-B0A2DCB0A1EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "banco.DAL\DataBase.csproj", "{1AB0CCC1-1D26-436A-A71E-B0A2DCB0A1EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
