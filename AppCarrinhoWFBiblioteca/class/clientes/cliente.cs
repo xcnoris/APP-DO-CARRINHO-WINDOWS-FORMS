@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using AppCarrinhoWFBiblioteca;
 
 namespace AppCarrinhoWFBiblioteca.clientes
 {
@@ -61,9 +62,14 @@ namespace AppCarrinhoWFBiblioteca.clientes
                     // E força a mensagem da exceção
                     throw new ValidationException(sbrErrors.ToString());
                 }
+
+                // Valida CPF
+                if (!Cls_Uteis.Valida(this.CPF))
+                {
+                    throw new ValidationException("Cpf Inválido!");
+                }
             }
-
-
+            
         }
 
         public class List

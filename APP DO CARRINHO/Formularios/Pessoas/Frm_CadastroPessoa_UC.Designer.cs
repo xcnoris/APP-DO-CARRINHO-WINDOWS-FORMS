@@ -51,6 +51,7 @@
             this.Btn_Fechar.TabIndex = 38;
             this.Btn_Fechar.Text = "Fechar";
             this.Btn_Fechar.UseVisualStyleBackColor = true;
+            this.Btn_Fechar.Click += new System.EventHandler(this.Btn_Fechar_Click);
             // 
             // Btn_Salvar
             // 

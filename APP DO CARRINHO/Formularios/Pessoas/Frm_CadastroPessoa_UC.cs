@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using AppCarrinhoWFBiblioteca.clientes;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace APP_DO_CARRINHO.Formularios.Pessoas
 {
@@ -44,10 +45,7 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
             {
 
                 Cliente.Unit cliente = new Cliente.Unit();
-
-                cliente.ID = frmGeralUsuarios.Id;
-                cliente.Nome = frmGeralUsuarios.Nome;
-                cliente.CPF = Regex.Replace(frmGeralUsuarios.CPF, @"[^\d]", ""); // Remove todos os caracteres não numéricos
+                cliente = LeituraFormulario();
                 cliente.ValidarClasse();
                 MessageBox.Show($"Class foi inicializada sem erros!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -55,6 +53,23 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
             {
                 MessageBox.Show($" {Ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Btn_Fechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        Cliente.Unit LeituraFormulario()
+        {
+            Cliente.Unit c = new Cliente.Unit();
+
+            c.ID = frmGeralUsuarios.Id;
+            c.Nome = frmGeralUsuarios.Nome;
+            c.CPF = Regex.Replace(frmGeralUsuarios.CPF, @"[^\d]", ""); // Remove todos os caracteres não numéricos
+            c.Sexo = frmGeralUsuarios.Sexo;
+
+            return c;
         }
     }
 }

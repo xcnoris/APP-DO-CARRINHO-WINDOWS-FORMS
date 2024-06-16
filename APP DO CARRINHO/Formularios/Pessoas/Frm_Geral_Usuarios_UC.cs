@@ -29,8 +29,19 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         }
         public string Sexo
         {
-            get { return Cbox_Sexo.Text; }
+            get
+            {
+                if (Cbox_Sexo.SelectedIndex < 0)
+                {
+                    return "";
+                }
+                else
+                {
+                    return Cbox_Sexo.SelectedIndex.ToString();
+                }
+            }
         }
+        
         public Frm_Geral_Usuarios_UC()
         {
             InitializeComponent();
