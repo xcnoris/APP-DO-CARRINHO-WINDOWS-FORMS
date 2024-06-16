@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppCarrinhoWFBiblioteca.clientes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +16,20 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
     {
         public string Id
         {
-            get { return Txt_Id.Text; }
+            get{ return Txt_Id.Text; }
+        
         }
         public  string Nome 
         {
             get { return Txt_Nome.Text; }
+        }
+        public string CPF
+        {
+            get{ return MSK_CPF.Text; }
+        }
+        public string Sexo
+        {
+            get { return Cbox_Sexo.Text; }
         }
         public Frm_Geral_Usuarios_UC()
         {
@@ -43,6 +53,11 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
             Cbox_Sexo.Items.Clear();
             Cbox_Sexo.Items.Add("Masculino");
             Cbox_Sexo.Items.Add("Feminino");
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

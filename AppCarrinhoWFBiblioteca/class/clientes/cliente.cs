@@ -13,11 +13,17 @@ namespace AppCarrinhoWFBiblioteca.clientes
         {
             [Required(ErrorMessage ="ID do cliente é obrigatorio!")]
             // Expressão regular para testar numeros
-            [RegularExpression("([0-9]+)", ErrorMessage ="Codigo do cliente aceita somente numericos!")]
-            [StringLength(12, MinimumLength = 2, ErrorMessage ="Codigo do cliente deve ter 2 digitos no minimo")]
+            //[RegularExpression("([0-9]+)", ErrorMessage ="Codigo do cliente aceita somente numericos!")]
             public string ID { get; set; }
+
+           
+            [Required(ErrorMessage = "CPF do cliente é obrigatorio!")]
+            [RegularExpression("([0-9]+)", ErrorMessage ="Codigo do cliente aceita somente numericos!")]
+            [StringLength(11, MinimumLength = 11,ErrorMessage = "CPF do cliente deve ter 11 digitos!")]
             public string CPF { get; set; }
+
             [Required(ErrorMessage = "Nome do cliente é obrigatorio!")]
+            [StringLength(70, ErrorMessage = "CPF do cliente deve ter 11 digitos!")]
             public string Nome { get; set; }
             public string CEP { get; set; }
             public int ID_Cidade { get; set; }
@@ -31,8 +37,7 @@ namespace AppCarrinhoWFBiblioteca.clientes
             public int Telefone { get; set; }
             public int DDD_Celular { get; set; }
             public int Celular { get; set; }
-            [Required(ErrorMessage = "Nome do cliente é obrigatorio!")]
-            public int Sexo { get; set; }
+            public string Sexo { get; set; }
             public string DataNascimento { get; set; }
             public string Email { get; set; }
 

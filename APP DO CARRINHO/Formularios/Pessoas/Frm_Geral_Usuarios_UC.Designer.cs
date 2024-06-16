@@ -65,11 +65,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.LimeGreen;
             this.label1.Location = new System.Drawing.Point(19, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "CPF";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -83,6 +85,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.LimeGreen;
             this.label4.Location = new System.Drawing.Point(20, 105);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
@@ -239,7 +242,6 @@
             this.Txt_Sigla_Uf.Name = "Txt_Sigla_Uf";
             this.Txt_Sigla_Uf.Size = new System.Drawing.Size(25, 20);
             this.Txt_Sigla_Uf.TabIndex = 29;
-            this.Txt_Sigla_Uf.Text = "SC";
             // 
             // label14
             // 

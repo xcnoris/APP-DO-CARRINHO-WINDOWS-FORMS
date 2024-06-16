@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppCarrinhoWFBiblioteca.clientes;
 using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace APP_DO_CARRINHO.Formularios.Pessoas
 {
@@ -43,14 +44,16 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
             {
 
                 Cliente.Unit cliente = new Cliente.Unit();
+
                 cliente.ID = frmGeralUsuarios.Id;
                 cliente.Nome = frmGeralUsuarios.Nome;
+                cliente.CPF = Regex.Replace(frmGeralUsuarios.CPF, @"[^\d]", ""); // Remove todos os caracteres não numéricos
                 cliente.ValidarClasse();
                 MessageBox.Show($"Class foi inicializada sem erros!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException Ex)
             {
-                MessageBox.Show(Ex.Message, "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($" {Ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
