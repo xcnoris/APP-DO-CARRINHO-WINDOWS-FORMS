@@ -30,7 +30,7 @@
         {
             this.Tbc_CadastroUsuario = new System.Windows.Forms.TabControl();
             this.Btn_Fechar = new System.Windows.Forms.Button();
-            this.Btn_Confirmar = new System.Windows.Forms.Button();
+            this.Btn_Salvar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Tbc_CadastroUsuario
@@ -52,14 +52,15 @@
             this.Btn_Fechar.Text = "Fechar";
             this.Btn_Fechar.UseVisualStyleBackColor = true;
             // 
-            // Btn_Confirmar
+            // Btn_Salvar
             // 
-            this.Btn_Confirmar.Location = new System.Drawing.Point(240, 441);
-            this.Btn_Confirmar.Name = "Btn_Confirmar";
-            this.Btn_Confirmar.Size = new System.Drawing.Size(88, 31);
-            this.Btn_Confirmar.TabIndex = 37;
-            this.Btn_Confirmar.Text = "Confirmar";
-            this.Btn_Confirmar.UseVisualStyleBackColor = true;
+            this.Btn_Salvar.Location = new System.Drawing.Point(240, 441);
+            this.Btn_Salvar.Name = "Btn_Salvar";
+            this.Btn_Salvar.Size = new System.Drawing.Size(88, 31);
+            this.Btn_Salvar.TabIndex = 37;
+            this.Btn_Salvar.Text = "Salvar";
+            this.Btn_Salvar.UseVisualStyleBackColor = true;
+            this.Btn_Salvar.Click += new System.EventHandler(this.Btn_Salvar_Click);
             // 
             // Frm_CadastroPessoa_UC
             // 
@@ -67,7 +68,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 481);
             this.Controls.Add(this.Btn_Fechar);
-            this.Controls.Add(this.Btn_Confirmar);
+            this.Controls.Add(this.Btn_Salvar);
             this.Controls.Add(this.Tbc_CadastroUsuario);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(700, 520);
@@ -83,6 +84,6 @@
 
         private System.Windows.Forms.TabControl Tbc_CadastroUsuario;
         private System.Windows.Forms.Button Btn_Fechar;
-        private System.Windows.Forms.Button Btn_Confirmar;
+        private System.Windows.Forms.Button Btn_Salvar;
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,11 +13,16 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 {
     public partial class Frm_Geral_Usuarios_UC : UserControl
     {
+        public string Id
+        {
+            get { return Txt_Id.Text; }
+        }
         public Frm_Geral_Usuarios_UC()
         {
             InitializeComponent();
+         
         }
-
+     
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {   
             

@@ -70,7 +70,8 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
 
         private void btnCadastrarEntidade_Click_1(object sender, EventArgs e)
         {
-
+            Frm_Tela_Pessoas frm = new Frm_Tela_Pessoas();
+            frm.Show();
         }
     }
 }
