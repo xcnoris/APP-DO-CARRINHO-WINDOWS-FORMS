@@ -57,7 +57,7 @@
             // Btn_Incluir_Pessoas
             // 
             this.Btn_Incluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Incluir_Pessoas.Location = new System.Drawing.Point(103, 528);
+            this.Btn_Incluir_Pessoas.Location = new System.Drawing.Point(118, 528);
             this.Btn_Incluir_Pessoas.Name = "Btn_Incluir_Pessoas";
             this.Btn_Incluir_Pessoas.Size = new System.Drawing.Size(100, 30);
             this.Btn_Incluir_Pessoas.TabIndex = 0;
@@ -68,7 +68,7 @@
             // Btn_Alterar_Pessoas
             // 
             this.Btn_Alterar_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Alterar_Pessoas.Location = new System.Drawing.Point(209, 528);
+            this.Btn_Alterar_Pessoas.Location = new System.Drawing.Point(224, 528);
             this.Btn_Alterar_Pessoas.Name = "Btn_Alterar_Pessoas";
             this.Btn_Alterar_Pessoas.Size = new System.Drawing.Size(100, 30);
             this.Btn_Alterar_Pessoas.TabIndex = 1;
@@ -78,7 +78,7 @@
             // Btn_Excluir_Pessoas
             // 
             this.Btn_Excluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Excluir_Pessoas.Location = new System.Drawing.Point(315, 528);
+            this.Btn_Excluir_Pessoas.Location = new System.Drawing.Point(330, 528);
             this.Btn_Excluir_Pessoas.Name = "Btn_Excluir_Pessoas";
             this.Btn_Excluir_Pessoas.Size = new System.Drawing.Size(100, 30);
             this.Btn_Excluir_Pessoas.TabIndex = 2;
@@ -88,7 +88,7 @@
             // Btn_Fechar
             // 
             this.Btn_Fechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_Fechar.Location = new System.Drawing.Point(680, 528);
+            this.Btn_Fechar.Location = new System.Drawing.Point(672, 528);
             this.Btn_Fechar.Name = "Btn_Fechar";
             this.Btn_Fechar.Size = new System.Drawing.Size(100, 30);
             this.Btn_Fechar.TabIndex = 3;

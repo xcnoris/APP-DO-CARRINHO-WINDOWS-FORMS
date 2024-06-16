@@ -13,7 +13,7 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
         {
 
             [Required(ErrorMessage = "ID do Carrinho é Obrigatorio!")]
-            public int ID { get; set; }
+            public string ID { get; set; }
 
             [Required(ErrorMessage = "Nome do Carrinho é Obrigatorio!")]
             [StringLength(30, ErrorMessage = "Nome do Carrinho Deve ter no Maximo 30 Caracteres!")]

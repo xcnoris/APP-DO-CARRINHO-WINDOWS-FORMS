@@ -274,8 +274,8 @@
             // 
             this.Cbox_Sexo.FormattingEnabled = true;
             this.Cbox_Sexo.Items.AddRange(new object[] {
-            "Masculino",
-            "Feminino"});
+            " Masculino",
+            " Feminino"});
             this.Cbox_Sexo.Location = new System.Drawing.Point(97, 335);
             this.Cbox_Sexo.Name = "Cbox_Sexo";
             this.Cbox_Sexo.Size = new System.Drawing.Size(121, 21);

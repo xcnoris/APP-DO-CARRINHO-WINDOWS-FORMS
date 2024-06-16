@@ -20,6 +20,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
     public partial class Frm_Cadastro_Carrinho_UC : Form
     {
+        private Frm_Geral_Carrinho_UC frmGeralCarrinho;
         public Frm_Cadastro_Carrinho_UC()
         {
             InitializeComponent();
@@ -54,6 +55,12 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         Carrinho1.Unit LeituraFormulario()
         {
             Carrinho1.Unit c = new Carrinho1.Unit();
+
+            c.ID = frmGeralCarrinho.Id;
+            c.Nome = frmGeralCarrinho.Nome;
+            c.Situacao = frmGeralCarrinho.Situacao;
+            c.Congregacao_ID = frmGeralCarrinho.Congregacao_Nome;
+            c.Codigo_Carrinho = frmGeralCarrinho.Carrinho_Codigo;
 
             return c;
         }
