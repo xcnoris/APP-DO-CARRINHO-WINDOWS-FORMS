@@ -45,12 +45,7 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         {
             try
             {
-                // Consulta o cep informado, e retorna uma varial string, no formato Json 
-                var vJson = Cls_Uteis.GeraJSONCEP("88345006");
-                // Instancia a class
-                CEP.Unit Cep = new CEP.Unit();
-                // DesSerialized o Json na class CEP.Unit(), transforma o texto em class
-                Cep = CEP.DesSerializedClassUnit(vJson);
+              
 
                 Cliente.Unit cliente = new Cliente.Unit();
                 cliente = LeituraFormulario();

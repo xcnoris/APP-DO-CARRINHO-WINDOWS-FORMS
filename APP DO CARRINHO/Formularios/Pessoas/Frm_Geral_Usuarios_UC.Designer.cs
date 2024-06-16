@@ -299,6 +299,7 @@
             this.MSK_CEP.Size = new System.Drawing.Size(70, 20);
             this.MSK_CEP.TabIndex = 36;
             this.MSK_CEP.ValidatingType = typeof(System.DateTime);
+            this.MSK_CEP.Leave += new System.EventHandler(this.MSK_CEP_Leave);
             // 
             // Txt_DDD_Celular
             // 
