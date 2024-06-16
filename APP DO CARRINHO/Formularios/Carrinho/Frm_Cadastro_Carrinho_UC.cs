@@ -20,7 +20,9 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
     public partial class Frm_Cadastro_Carrinho_UC : Form
     {
+
         private Frm_Geral_Carrinho_UC frmGeralCarrinho;
+
         public Frm_Cadastro_Carrinho_UC()
         {
             InitializeComponent();
@@ -28,12 +30,14 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void Frm_Cadastro_Carrinho_UC_Load(object sender, EventArgs e)
         {
-            Frm_Geral_Carrinho_UC frm = new Frm_Geral_Carrinho_UC();
-            frm.Dock = DockStyle.Fill;
+            frmGeralCarrinho = new Frm_Geral_Carrinho_UC();
+            frmGeralCarrinho.Dock = DockStyle.Fill;
+            //Frm_Geral_Carrinho_UC frm = new Frm_Geral_Carrinho_UC();
+            //frm.Dock = DockStyle.Fill;
             TabPage TB = new TabPage();
             TB.Name = "Geral";
             TB.Text = "Geral";
-            TB.Controls.Add(frm);
+            TB.Controls.Add(frmGeralCarrinho);
             Tbc_Cad_Carrinho.TabPages.Add(TB);
         }
 
@@ -41,10 +45,13 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
             try
             {
-                Carrinho1.Unit cliente = new Carrinho1.Unit();
-                cliente = LeituraFormulario();
-                cliente.ValidarClasse();
-                MessageBox.Show($"Class foi inicializada sem erros!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Carrinho1.Unit carrinho = new Carrinho1.Unit();
+                carrinho = LeituraFormulario();
+                carrinho.ValidarClasse();
+
+                string carrinhoJson = Carrinho1.SerializedClassUnit(carrinho);
+         
+                MessageBox.Show($"Carrinho Vai ser incluido. O conteudo sera: {carrinhoJson}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException Ex)
             {
@@ -56,7 +63,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
             Carrinho1.Unit c = new Carrinho1.Unit();
 
-            c.ID = frmGeralCarrinho.Id;
+            c.ID = frmGeralCarrinho.Carrinho_Id;
             c.Nome = frmGeralCarrinho.Nome;
             c.Situacao = frmGeralCarrinho.Situacao;
             c.Congregacao_ID = frmGeralCarrinho.Congregacao_Nome;

@@ -7,12 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AppCarrinhoWFBiblioteca.cep;
+using AppCarrinhoWFBiblioteca;
+using AppCarrinhoWFBiblioteca.clientes;
+using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
+
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
     public partial class Frm_Geral_Carrinho_UC : UserControl
     {
-        public string Id
+        public string Carrinho_Id
         {
             get { return Txt_ID.Text; }
         }
