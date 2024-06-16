@@ -44,6 +44,7 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 
                 Cliente.Unit cliente = new Cliente.Unit();
                 cliente.ID = frmGeralUsuarios.Id;
+                cliente.Nome = frmGeralUsuarios.Nome;
                 cliente.ValidarClasse();
                 MessageBox.Show($"Class foi inicializada sem erros!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

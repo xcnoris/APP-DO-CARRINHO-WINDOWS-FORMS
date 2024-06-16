@@ -17,6 +17,10 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         {
             get { return Txt_Id.Text; }
         }
+        public  string Nome 
+        {
+            get { return Txt_Nome.Text; }
+        }
         public Frm_Geral_Usuarios_UC()
         {
             InitializeComponent();
