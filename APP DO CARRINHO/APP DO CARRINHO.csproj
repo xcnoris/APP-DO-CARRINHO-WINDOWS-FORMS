@@ -167,6 +167,10 @@
       <Project>{ab0b9d19-51ab-4f1b-b6c1-84f1eb536976}</Project>
       <Name>AppCarrinhoWFBiblioteca</Name>
     </ProjectReference>
+    <ProjectReference Include="..\banco.DAL\DataBase.csproj">
+      <Project>{1ab0ccc1-1d26-436a-a71e-b0a2dcb0a1ee}</Project>
+      <Name>DataBase</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -15,6 +15,8 @@ using AppCarrinhoWFBiblioteca.clientes;
 using System.Text.RegularExpressions;
 using System.Runtime.InteropServices.WindowsRuntime;
 using AppCarrinhoWFBiblioteca.cep;
+using DataBase.DataBases;
+using System.IO;
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
@@ -48,10 +50,20 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 Carrinho1.Unit carrinho = new Carrinho1.Unit();
                 carrinho = LeituraFormulario();
                 carrinho.ValidarClasse();
-
                 string carrinhoJson = Carrinho1.SerializedClassUnit(carrinho);
-         
-                MessageBox.Show($"Carrinho Vai ser incluido. O conteudo sera: {carrinhoJson}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                //Fichario F = new Fichario("C:\\Users\\augus\\OneDrive\\Documentos\\teste\\fichario");
+                Fichario F = new Fichario("C:\\Documentos\\PROJETOS PESSOAIS\\PROJETOS COM C#\\APP CARRINHO - WINDOWS FORMS\\Fichario");
+                if (F.Status)
+                {
+                    MessageBox.Show($"OK: {F.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"[ERROR]: {F.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+               
             }
             catch (ValidationException Ex)
             {
