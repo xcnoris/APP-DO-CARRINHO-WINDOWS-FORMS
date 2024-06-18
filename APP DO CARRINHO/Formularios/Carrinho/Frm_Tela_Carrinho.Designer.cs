@@ -36,21 +36,21 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Lbl_Nome = new System.Windows.Forms.Label();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
+            this.Txt_Carrinho_Cod = new System.Windows.Forms.TextBox();
+            this.Lbl_Nome = new System.Windows.Forms.Label();
+            this.Lbl_Cod_Carrinho = new System.Windows.Forms.Label();
             this.Lbl_Id = new System.Windows.Forms.Label();
+            this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
             this.Lbl_Congregacao = new System.Windows.Forms.Label();
+            this.Lbl_Situacao_Carrinho = new System.Windows.Forms.Label();
             this.Txt_Congregacao_Nome = new System.Windows.Forms.TextBox();
+            this.Txt_Congregacao_Id = new System.Windows.Forms.TextBox();
             this.Txt_Id = new System.Windows.Forms.TextBox();
             this.Btn_Filtrar = new System.Windows.Forms.Button();
-            this.Txt_Congregacao_Id = new System.Windows.Forms.TextBox();
-            this.Lbl_Situacao_Carrinho = new System.Windows.Forms.Label();
-            this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
-            this.Lbl_Cod_Carrinho = new System.Windows.Forms.Label();
-            this.Txt_Carrinho_Cod = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGV_Dados = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_Incluir_Pessoas
@@ -144,6 +144,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
+            // Txt_Nome
+            // 
+            this.Txt_Nome.Location = new System.Drawing.Point(151, 34);
+            this.Txt_Nome.Name = "Txt_Nome";
+            this.Txt_Nome.Size = new System.Drawing.Size(204, 20);
+            this.Txt_Nome.TabIndex = 5;
+            // 
+            // Txt_Carrinho_Cod
+            // 
+            this.Txt_Carrinho_Cod.Location = new System.Drawing.Point(153, 60);
+            this.Txt_Carrinho_Cod.Name = "Txt_Carrinho_Cod";
+            this.Txt_Carrinho_Cod.Size = new System.Drawing.Size(100, 20);
+            this.Txt_Carrinho_Cod.TabIndex = 26;
+            // 
             // Lbl_Nome
             // 
             this.Lbl_Nome.AutoSize = true;
@@ -153,12 +167,15 @@
             this.Lbl_Nome.TabIndex = 4;
             this.Lbl_Nome.Text = "Nome";
             // 
-            // Txt_Nome
+            // Lbl_Cod_Carrinho
             // 
-            this.Txt_Nome.Location = new System.Drawing.Point(151, 34);
-            this.Txt_Nome.Name = "Txt_Nome";
-            this.Txt_Nome.Size = new System.Drawing.Size(204, 20);
-            this.Txt_Nome.TabIndex = 5;
+            this.Lbl_Cod_Carrinho.AutoSize = true;
+            this.Lbl_Cod_Carrinho.Location = new System.Drawing.Point(36, 67);
+            this.Lbl_Cod_Carrinho.Name = "Lbl_Cod_Carrinho";
+            this.Lbl_Cod_Carrinho.Size = new System.Drawing.Size(109, 13);
+            this.Lbl_Cod_Carrinho.TabIndex = 25;
+            this.Lbl_Cod_Carrinho.Text = "CODIGO CARRINHO";
+            this.Lbl_Cod_Carrinho.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Lbl_Id
             // 
@@ -169,6 +186,14 @@
             this.Lbl_Id.TabIndex = 10;
             this.Lbl_Id.Text = "Id";
             // 
+            // Cbox_Situacao
+            // 
+            this.Cbox_Situacao.FormattingEnabled = true;
+            this.Cbox_Situacao.Location = new System.Drawing.Point(435, 62);
+            this.Cbox_Situacao.Name = "Cbox_Situacao";
+            this.Cbox_Situacao.Size = new System.Drawing.Size(133, 21);
+            this.Cbox_Situacao.TabIndex = 24;
+            // 
             // Lbl_Congregacao
             // 
             this.Lbl_Congregacao.AutoSize = true;
@@ -178,12 +203,28 @@
             this.Lbl_Congregacao.TabIndex = 12;
             this.Lbl_Congregacao.Text = "Congregação";
             // 
+            // Lbl_Situacao_Carrinho
+            // 
+            this.Lbl_Situacao_Carrinho.AutoSize = true;
+            this.Lbl_Situacao_Carrinho.Location = new System.Drawing.Point(364, 69);
+            this.Lbl_Situacao_Carrinho.Name = "Lbl_Situacao_Carrinho";
+            this.Lbl_Situacao_Carrinho.Size = new System.Drawing.Size(61, 13);
+            this.Lbl_Situacao_Carrinho.TabIndex = 23;
+            this.Lbl_Situacao_Carrinho.Text = "SITUAÇÃO";
+            // 
             // Txt_Congregacao_Nome
             // 
             this.Txt_Congregacao_Nome.Location = new System.Drawing.Point(221, 89);
             this.Txt_Congregacao_Nome.Name = "Txt_Congregacao_Nome";
             this.Txt_Congregacao_Nome.Size = new System.Drawing.Size(134, 20);
             this.Txt_Congregacao_Nome.TabIndex = 15;
+            // 
+            // Txt_Congregacao_Id
+            // 
+            this.Txt_Congregacao_Id.Location = new System.Drawing.Point(153, 89);
+            this.Txt_Congregacao_Id.Name = "Txt_Congregacao_Id";
+            this.Txt_Congregacao_Id.Size = new System.Drawing.Size(62, 20);
+            this.Txt_Congregacao_Id.TabIndex = 22;
             // 
             // Txt_Id
             // 
@@ -200,67 +241,27 @@
             this.Btn_Filtrar.TabIndex = 19;
             this.Btn_Filtrar.Text = "Filtrar";
             this.Btn_Filtrar.UseVisualStyleBackColor = true;
+            this.Btn_Filtrar.Click += new System.EventHandler(this.Btn_Filtrar_Click);
             // 
-            // Txt_Congregacao_Id
+            // DGV_Dados
             // 
-            this.Txt_Congregacao_Id.Location = new System.Drawing.Point(153, 89);
-            this.Txt_Congregacao_Id.Name = "Txt_Congregacao_Id";
-            this.Txt_Congregacao_Id.Size = new System.Drawing.Size(62, 20);
-            this.Txt_Congregacao_Id.TabIndex = 22;
-            // 
-            // Lbl_Situacao_Carrinho
-            // 
-            this.Lbl_Situacao_Carrinho.AutoSize = true;
-            this.Lbl_Situacao_Carrinho.Location = new System.Drawing.Point(364, 69);
-            this.Lbl_Situacao_Carrinho.Name = "Lbl_Situacao_Carrinho";
-            this.Lbl_Situacao_Carrinho.Size = new System.Drawing.Size(61, 13);
-            this.Lbl_Situacao_Carrinho.TabIndex = 23;
-            this.Lbl_Situacao_Carrinho.Text = "SITUAÇÃO";
-            // 
-            // Cbox_Situacao
-            // 
-            this.Cbox_Situacao.FormattingEnabled = true;
-            this.Cbox_Situacao.Location = new System.Drawing.Point(435, 62);
-            this.Cbox_Situacao.Name = "Cbox_Situacao";
-            this.Cbox_Situacao.Size = new System.Drawing.Size(133, 21);
-            this.Cbox_Situacao.TabIndex = 24;
-            // 
-            // Lbl_Cod_Carrinho
-            // 
-            this.Lbl_Cod_Carrinho.AutoSize = true;
-            this.Lbl_Cod_Carrinho.Location = new System.Drawing.Point(36, 67);
-            this.Lbl_Cod_Carrinho.Name = "Lbl_Cod_Carrinho";
-            this.Lbl_Cod_Carrinho.Size = new System.Drawing.Size(109, 13);
-            this.Lbl_Cod_Carrinho.TabIndex = 25;
-            this.Lbl_Cod_Carrinho.Text = "CODIGO CARRINHO";
-            this.Lbl_Cod_Carrinho.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // Txt_Carrinho_Cod
-            // 
-            this.Txt_Carrinho_Cod.Location = new System.Drawing.Point(153, 60);
-            this.Txt_Carrinho_Cod.Name = "Txt_Carrinho_Cod";
-            this.Txt_Carrinho_Cod.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Carrinho_Cod.TabIndex = 26;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DGV_Dados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(123, 183);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(765, 328);
-            this.dataGridView1.TabIndex = 28;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.DGV_Dados.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.DGV_Dados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Dados.Location = new System.Drawing.Point(123, 183);
+            this.DGV_Dados.Name = "DGV_Dados";
+            this.DGV_Dados.Size = new System.Drawing.Size(765, 328);
+            this.DGV_Dados.TabIndex = 28;
+            this.DGV_Dados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Frm_Tela_Carrinho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 561);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGV_Dados);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -275,7 +276,7 @@
             this.Load += new System.EventHandler(this.Frm_Tela_Pessoas_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -302,6 +303,6 @@
         private System.Windows.Forms.TextBox Txt_Congregacao_Id;
         private System.Windows.Forms.TextBox Txt_Id;
         private System.Windows.Forms.Button Btn_Filtrar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGV_Dados;
     }
 }

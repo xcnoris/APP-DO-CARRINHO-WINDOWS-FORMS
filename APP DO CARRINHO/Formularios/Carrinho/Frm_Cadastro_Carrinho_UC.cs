@@ -51,16 +51,23 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 carrinho = LeituraFormulario();
                 carrinho.ValidarClasse();
                 string carrinhoJson = Carrinho1.SerializedClassUnit(carrinho);
-                
-                //Fichario F = new Fichario("C:\\Users\\augus\\OneDrive\\Documentos\\teste\\fichario");
-                Fichario F = new Fichario("C:\\Documentos\\PROJETOS PESSOAIS\\PROJETOS COM C#\\APP CARRINHO - WINDOWS FORMS\\Fichario");
+
+                Fichario F = new Fichario("C:\\Users\\augus\\OneDrive\\Documentos\\PROJETOS PESSOAIS\\PROJETOS COM C#\\APP CARRINHO - WINDOWS FORMS\\Fichario");
                 if (F.Status)
                 {
-                    MessageBox.Show($"OK: {F.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    F.Incluir(carrinho.ID, carrinhoJson);
+                    if(F.Status)
+                    {
+                        MessageBox.Show($"OK: {F.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"[ERROR]: {F.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show($"[ERROR]: {F.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"[ERROR]: {F.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                
@@ -78,7 +85,8 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             c.ID = frmGeralCarrinho.Carrinho_Id;
             c.Nome = frmGeralCarrinho.Nome;
             c.Situacao = frmGeralCarrinho.Situacao;
-            c.Congregacao_ID = frmGeralCarrinho.Congregacao_Nome;
+            c.Congregacao_ID = frmGeralCarrinho.Congregacao_ID;
+            c.Congregacao_Nome = frmGeralCarrinho.Congregacao_Nome;
             c.Codigo_Carrinho = frmGeralCarrinho.Carrinho_Codigo;
 
             return c;
