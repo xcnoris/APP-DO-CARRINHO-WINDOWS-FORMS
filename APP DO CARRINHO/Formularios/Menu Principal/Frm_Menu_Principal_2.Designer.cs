@@ -157,7 +157,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panelSidebar);
             this.Name = "Frm_Menu_Principal_2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Frm_Menu_Principal_2";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Frm_Menu_Principal_2_Load);
             this.panelSidebar.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);

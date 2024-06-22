@@ -17,6 +17,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using AppCarrinhoWFBiblioteca.cep;
 using DataBase.DataBases;
 using System.IO;
+using AppCarrinhoWFBiblioteca.carrinho;
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
@@ -47,10 +48,9 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
             try
             {
-                Carrinho1.Unit carrinho = new Carrinho1.Unit();
-                carrinho = LeituraFormulario();
+                Carrinho1 carrinho = LeituraFormulario();
                 carrinho.ValidarClasse();
-                string carrinhoJson = Carrinho1.SerializedClassUnit(carrinho);
+                string carrinhoJson = CarrinhoService.SerializedClassUnit(carrinho);
 
                 Fichario F = new Fichario("C:\\Users\\augus\\OneDrive\\Documentos\\PROJETOS PESSOAIS\\PROJETOS COM C#\\APP CARRINHO - WINDOWS FORMS\\Fichario");
                 if (F.Status)
@@ -78,22 +78,28 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             }
         }
 
-        Carrinho1.Unit LeituraFormulario()
+
+        // Instancia a class Carrinho1 com os dados dos TextBox 
+        private Carrinho1 LeituraFormulario()
         {
-            Carrinho1.Unit c = new Carrinho1.Unit();
+            return new Carrinho1
+            {
 
-            c.ID = frmGeralCarrinho.Carrinho_Id;
-            c.Nome = frmGeralCarrinho.Nome;
-            c.Situacao = frmGeralCarrinho.Situacao;
-            c.Congregacao_ID = frmGeralCarrinho.Congregacao_ID;
-            c.Congregacao_Nome = frmGeralCarrinho.Congregacao_Nome;
-            c.Codigo_Carrinho = frmGeralCarrinho.Carrinho_Codigo;
+                ID = frmGeralCarrinho.Carrinho_Id,
+                Nome = frmGeralCarrinho.Nome,
+                Situacao = frmGeralCarrinho.Situacao,
+                Congregacao_ID = frmGeralCarrinho.Congregacao_ID,
+                Congregacao_Nome = frmGeralCarrinho.Congregacao_Nome,
+                Codigo_Carrinho = frmGeralCarrinho.Carrinho_Codigo
 
-            return c;
+            };
         }
+
         private void Btn_Fechar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
     }
 }
+
+

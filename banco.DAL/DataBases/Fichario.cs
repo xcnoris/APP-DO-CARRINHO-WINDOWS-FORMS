@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
+using AppCarrinhoWFBiblioteca.carrinho;
+using AppCarrinhoWFBiblioteca.carrinho1;
 
 namespace DataBase.DataBases
 {
@@ -24,6 +26,7 @@ namespace DataBase.DataBases
                 {
                     Directory.CreateDirectory(diretorio);
                 }
+                
                 Diretorio = diretorio;
                 Mensagem = "Conexão Com o Fichario Criada Com Sucesso!";
             }
@@ -64,6 +67,7 @@ namespace DataBase.DataBases
 
         }
 
+        // BUsca dentro do diretorio se existe um arquivo Json com o id passado, caso tenha ele retorna a string do Json
         public string Buscar(string Id)
         {
             Status = true;
@@ -91,5 +95,28 @@ namespace DataBase.DataBases
             }
             return "";
         }
+
+        public List<string> ListarTodos()
+        {
+            List<string> lista = new List<string>();
+            try
+            {
+                var arquivos = Directory.GetFiles(this.Diretorio, "*.json");
+                foreach (var arquivo in arquivos)
+                {
+                    // Para cada arquivo dentro do for, eu leio o conteudo e jogo dentro da lista
+                    lista.Add(File.ReadAllText(arquivo));
+                }
+                this.Status = true;
+            }
+            catch (Exception ex)
+            {
+                this.Status = false;
+                this.Mensagem = $"[ERROR]: {ex.Message}";
+            }
+            return lista;
+        }
+
+
     }
 }

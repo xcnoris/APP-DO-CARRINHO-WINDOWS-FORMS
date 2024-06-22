@@ -22,10 +22,14 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
 
         private void Frm_Menu_Principal_2_Load(object sender, EventArgs e)
         {
-
-            // Inicialização ou configurações adicionais, se necessário.
-            Frm_Tela_Login_Registro frm = new Frm_Tela_Login_Registro();
+            this.Hide();
+            //Inicialização ou configurações adicionais, se necessário.
+            Frm_Tela_Login_V2 frm = new Frm_Tela_Login_V2();
             frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.Yes)
+            {
+                this.Show();
+            }
         }
 
         private void CustomizeDesign()

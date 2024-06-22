@@ -1,4 +1,5 @@
 ﻿using APP_DO_CARRINHO.Formularios.Pessoas;
+using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
 using DataBase.DataBases;
 using System;
@@ -23,7 +24,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void Frm_Tela_Carrinho_Load(object sender, EventArgs e)
         {
-
+    
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,7 +42,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void Frm_Tela_Pessoas_Load(object sender, EventArgs e)
         {
-
+            CarregarTodosCarrinhos();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -56,22 +57,37 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void Btn_Filtrar_Click(object sender, EventArgs e)
         {
-            if (!(Txt_Id.Text == ""))
+            // Caso tenha algum caracter no TextBox ele tenta filtrar
+            if((Txt_Id.Text == ""))
             {
-
                 try
                 {
+
+                    DGV_Dados.Rows.Clear();
+                    CarregarTodosCarrinhos();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                try
+                {
+                    DGV_Dados.Rows.Clear();
+                   
                     Carrinho1 carrinho1 = new Carrinho1();
                     Fichario F = new Fichario("C:\\Users\\augus\\OneDrive\\Documentos\\PROJETOS PESSOAIS\\PROJETOS COM C#\\APP CARRINHO - WINDOWS FORMS\\Fichario");
-
+                    // Caso consiga criar/acessar o diretorio ele entra no if
                     if (F.Status)
                     {
                         string carrinhoJson = F.Buscar(Txt_Id.Text);
                         if (F.Status)
                         {
-
+                            
                             // Desserializar o JSON para a classe Carrinho1.Unit
-                            Carrinho1.Unit carrinho = Carrinho1.DesSerializedClassUnit(carrinhoJson);
+                            Carrinho1 carrinho = CarrinhoService.DesSerializedClassUnit(carrinhoJson);
 
                             // Adicionar o carrinho desserializado ao DataGridView
                             AddCarrinhoToDataGridView(carrinho);
@@ -96,7 +112,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 }
             }
         }
-        private void AddCarrinhoToDataGridView(Carrinho1.Unit carrinho)
+        private void AddCarrinhoToDataGridView(Carrinho1 carrinho)
         {
             // Se o DataGridView não tiver colunas, adicione-as
             if (DGV_Dados.Columns.Count == 0)
@@ -113,6 +129,41 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             DGV_Dados.Rows.Add(carrinho.ID, carrinho.Nome, carrinho.Congregacao_ID, carrinho.Congregacao_Nome, carrinho.Situacao, carrinho.Codigo_Carrinho);
         }
 
+
+        private void CarregarTodosCarrinhos()
+        {
+            try
+            {
+                Carrinho1 carrinho1 = new Carrinho1();
+                Fichario fichario = new Fichario("C:\\Users\\augus\\OneDrive\\Documentos\\PROJETOS PESSOAIS\\PROJETOS COM C#\\APP CARRINHO - WINDOWS FORMS\\Fichario");
+                if (fichario.Status)
+                {
+                    // Cria uma lista com os Json dos carrinho
+                    List<string> carrinhosJson = fichario.ListarTodos();
+                    if (fichario.Status)
+                    {
+                        // Pecorre a lista
+                        foreach (string carrinhoJson in carrinhosJson)
+                        {
+                            Carrinho1 carrinho = CarrinhoService.DesSerializedClassUnit(carrinhoJson);
+                            AddCarrinhoToDataGridView(carrinho);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"[ERROR]: {fichario.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"[ERROR]: {fichario.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
     }
 }
