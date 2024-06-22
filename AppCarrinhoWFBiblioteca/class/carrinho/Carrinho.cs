@@ -5,12 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
+using AppCarrinhoWFBiblioteca.carrinho;
 
 namespace AppCarrinhoWFBiblioteca.carrinho1
 {
     public class Carrinho1
     {
-    
+        public bool Status;
+        public string Mensagem;
+
+        public string Menssage { get; set; }
+  
+
         [Required(ErrorMessage = "ID do Carrinho é Obrigatorio!")]
         public string ID { get; set; }
 
@@ -44,6 +50,30 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
                 // E força a mensagem da exceção
                 throw new ValidationException(sbrErrors.ToString());
             }
+            
+        }
+    
+
+        public void IncluirFichario(string conexao)
+        {
+            Status = true;
+            CarrinhoService CS = new CarrinhoService();
+            try
+            {
+         
+                CS.IncluirFicharioCarrinho(conexao, this);
+                if (CS.Status)
+             
+                Status = true;
+                Menssage = CS.Menssage;
+            }
+            catch
+            {
+                Status = false;
+                Menssage = CS.Menssage;
+            }
+  
+            
         }
     }
 }

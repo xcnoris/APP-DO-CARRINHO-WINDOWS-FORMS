@@ -56,5 +56,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\banco.DAL\DataBase.csproj">
+      <Project>{1ab0ccc1-1d26-436a-a71e-b0a2dcb0a1ee}</Project>
+      <Name>DataBase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

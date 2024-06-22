@@ -50,27 +50,16 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             {
                 Carrinho1 carrinho = LeituraFormulario();
                 carrinho.ValidarClasse();
-                string carrinhoJson = CarrinhoService.SerializedClassUnit(carrinho);
-
-                Fichario F = new Fichario("C:\\Users\\augus\\OneDrive\\Documentos\\PROJETOS PESSOAIS\\PROJETOS COM C#\\APP CARRINHO - WINDOWS FORMS\\Fichario");
-                if (F.Status)
+                carrinho.IncluirFichario("C:\\Users\\augus\\OneDrive\\Documentos\\PROJETOS PESSOAIS\\PROJETOS COM C#\\APP CARRINHO - WINDOWS FORMS\\Fichario");
+                if (carrinho.Status)
                 {
-                    F.Incluir(carrinho.ID, carrinhoJson);
-                    if(F.Status)
-                    {
-                        MessageBox.Show($"OK: {F.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: {F.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show($"OK: {carrinho.Menssage}Carrinho Incluido Com Sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show($"[ERROR]: {F.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
 
-               
+                    MessageBox.Show($"{carrinho.Menssage}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (ValidationException Ex)
             {

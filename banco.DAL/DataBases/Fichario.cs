@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
-using AppCarrinhoWFBiblioteca.carrinho;
-using AppCarrinhoWFBiblioteca.carrinho1;
+
 
 namespace DataBase.DataBases
 {
