@@ -18,6 +18,7 @@ using AppCarrinhoWFBiblioteca.cep;
 using DataBase.DataBases;
 using System.IO;
 using AppCarrinhoWFBiblioteca.carrinho;
+using banco.DataBases;
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
@@ -25,10 +26,13 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
     {
 
         private Frm_Geral_Carrinho_UC frmGeralCarrinho;
+        
+        private ConexaoDB conexaoDB;
 
         public Frm_Cadastro_Carrinho_UC()
         {
             InitializeComponent();
+            conexaoDB = new ConexaoDB();
         }
 
         private void Frm_Cadastro_Carrinho_UC_Load(object sender, EventArgs e)
@@ -48,22 +52,24 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
             try
             {
+                // Instancia a class e puxa os dados do formulario
                 Carrinho1 carrinho = LeituraFormulario();
+                // Valida os dados
                 carrinho.ValidarClasse();
-                carrinho.IncluirFichario("C:\\Users\\augus\\OneDrive\\Documentos\\PROJETOS PESSOAIS\\PROJETOS COM C#\\APP CARRINHO - WINDOWS FORMS\\Fichario");
+                // Tenta incluir os dados no banco de dados
+                carrinho.IncluirNoBanco(conexaoDB);
                 if (carrinho.Status)
                 {
-                    MessageBox.Show($"OK: {carrinho.Menssage}Carrinho Incluido Com Sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"OK: {carrinho.Mensagem} Carrinho incluído com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-
-                    MessageBox.Show($"{carrinho.Menssage}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"{carrinho.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (ValidationException Ex)
+            catch (ValidationException ex)
             {
-                MessageBox.Show($" {Ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

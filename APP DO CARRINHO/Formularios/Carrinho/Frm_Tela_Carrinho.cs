@@ -1,6 +1,7 @@
 ﻿using APP_DO_CARRINHO.Formularios.Pessoas;
 using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
+using banco.DataBases;
 using DataBase.DataBases;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,11 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
     public partial class Frm_Tela_Carrinho : Form
     {
+        private ConexaoDB conexaoDB;
         public Frm_Tela_Carrinho()
         {
             InitializeComponent();
+            conexaoDB = new ConexaoDB();
         }
 
         private void Frm_Tela_Carrinho_Load(object sender, EventArgs e)
@@ -77,21 +80,22 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 {
                     DGV_Dados.Rows.Clear();
                    
-                    Carrinho1 carrinho1 = new Carrinho1();
-                    Fichario F = new Fichario("C:\\Users\\augus\\OneDrive\\Documentos\\PROJETOS PESSOAIS\\PROJETOS COM C#\\APP CARRINHO - WINDOWS FORMS\\Fichario");
+                    CarrinhoService CS = new CarrinhoService();
                     // Caso consiga criar/acessar o diretorio ele entra no if
-                    if (F.Status)
+                    if (CS.Status)
                     {
-                        string carrinhoJson = F.Buscar(Txt_Id.Text);
-                        if (F.Status)
+                        CS.ConsultarCarrinhosPorID(conexaoDB, Txt_Id.Text);
+                        
+                        if (CS.Status)
                         {
-                            
-                            // Desserializar o JSON para a classe Carrinho1.Unit
-                            Carrinho1 carrinho = CarrinhoService.DesSerializedClassUnit(carrinhoJson);
 
-                            // Adicionar o carrinho desserializado ao DataGridView
-                            AddCarrinhoToDataGridView(carrinho);
-                            Txt_Id.Text = "";
+                            // Pecorre a lista
+                            foreach (Carrinho1 carrinhos in CS.Carrinhos)
+                            {
+
+                                AddCarrinhoToDataGridView(carrinhos);
+                            }
+
                         }
                         else
                         {
@@ -103,7 +107,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                     }
                     else
                     {
-                        MessageBox.Show($"[ERROR]: {F.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"[ERROR]: {CS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
@@ -118,11 +122,11 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             if (DGV_Dados.Columns.Count == 0)
             {
                 DGV_Dados.Columns.Add("ID", "ID");
-                DGV_Dados.Columns.Add("Nome", "Nome");
-                DGV_Dados.Columns.Add("Congregacao_ID", "Congregação ID");
-                DGV_Dados.Columns.Add("Congregacao_Nome", "Congregação Nome");
-                DGV_Dados.Columns.Add("Situacao", "Situação");
-                DGV_Dados.Columns.Add("Codigo_Carrinho", "Código Carrinho");
+                DGV_Dados.Columns.Add("nome", "Nome");
+                DGV_Dados.Columns.Add("congregacao_id", "Congregação ID");
+                //DGV_Dados.Columns.Add("congregacao_nome", "Congregação Nome");
+                DGV_Dados.Columns.Add("situacao", "Situação");
+                DGV_Dados.Columns.Add("codigo_carrinho", "Código Carrinho");
             }
 
             // Adicionar a linha ao DataGridView
@@ -134,34 +138,35 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
             try
             {
-                Carrinho1 carrinho1 = new Carrinho1();
-                Fichario fichario = new Fichario("C:\\Users\\augus\\OneDrive\\Documentos\\PROJETOS PESSOAIS\\PROJETOS COM C#\\APP CARRINHO - WINDOWS FORMS\\Fichario");
-                if (fichario.Status)
+                //Carrinho1 carrinho1 = new Carrinho1();
+                CarrinhoService CS = new CarrinhoService();
+                
+                if (CS.Status)
                 {
-                    // Cria uma lista com os Json dos carrinho
-                    List<string> carrinhosJson = fichario.ListarTodos();
-                    if (fichario.Status)
+                    CS.ConsultarCarrinhosInDB(conexaoDB);
+                    
+                    if (CS.Status)
                     {
                         // Pecorre a lista
-                        foreach (string carrinhoJson in carrinhosJson)
+                        foreach (Carrinho1 carrinhos in CS.Carrinhos)
                         {
-                            Carrinho1 carrinho = CarrinhoService.DesSerializedClassUnit(carrinhoJson);
-                            AddCarrinhoToDataGridView(carrinho);
+                            
+                            AddCarrinhoToDataGridView(carrinhos);
                         }
                     }
                     else
                     {
-                        MessageBox.Show($"[ERROR]: {fichario.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"[ERROR]: 1{CS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show($"[ERROR]: {fichario.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"[ERROR]: 2{CS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

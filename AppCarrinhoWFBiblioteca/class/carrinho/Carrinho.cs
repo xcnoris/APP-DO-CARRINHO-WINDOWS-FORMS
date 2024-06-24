@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using AppCarrinhoWFBiblioteca.carrinho;
+using banco.DataBases;
 
 namespace AppCarrinhoWFBiblioteca.carrinho1
 {
     public class Carrinho1
     {
+
+        public ICollection<Carrinho1> Carrinhos { get; set; } = new List<Carrinho1>();
+
         public bool Status;
         public string Mensagem;
 
@@ -30,6 +34,10 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
         [Required(ErrorMessage = "Codigo do Carrinho é obrigatorio!")]
         public string Codigo_Carrinho { get; set; }
 
+        public Carrinho1()
+        {
+            Status = true;
+        }
         public void ValidarClasse()
         {
             // Captura os results dos testes de validação dos campos
@@ -54,26 +62,31 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
         }
     
 
-        public void IncluirFichario(string conexao)
+        // Metodo de inclusao no banco de dados
+        public void IncluirNoBanco(ConexaoDB conexaoDB)
         {
-            Status = true;
             CarrinhoService CS = new CarrinhoService();
             try
             {
-         
-                CS.IncluirFicharioCarrinho(conexao, this);
+                CS.IncluirCarrinhoInDB(conexaoDB, this);
                 if (CS.Status)
-             
-                Status = true;
-                Menssage = CS.Menssage;
+                {
+                    Carrinhos = CS.Carrinhos;
+                    Status = true;
+                    Mensagem = CS.Mensagem;
+                }
+                else
+                {
+                    Status = false;
+                    Mensagem = CS.Mensagem;
+                }
             }
-            catch
+            catch (Exception ex)
             {
                 Status = false;
-                Menssage = CS.Menssage;
+                Mensagem = ex.Message;
             }
-  
-            
         }
+
     }
 }
