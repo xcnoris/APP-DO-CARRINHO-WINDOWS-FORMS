@@ -28,6 +28,8 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         private Frm_Geral_Carrinho_UC frmGeralCarrinho;
         
         private ConexaoDB conexaoDB;
+        // Controla se o clinte vai incluir um novo carrinho, ou atualizar um existente
+        private bool ControleSalvarIncluirCarrinho = true;
 
         public Frm_Cadastro_Carrinho_UC()
         {
@@ -50,19 +52,49 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
             try
             {
-                // Instancia a class e puxa os dados do formulario
-                Carrinho1 carrinho = LeituraFormulario();
-                // Valida os dados
-                carrinho.ValidarClasse();
-                // Tenta incluir os dados no banco de dados
-                carrinho.IncluirNoBanco(conexaoDB);
-                if (carrinho.Status)
+                // Função de incluir no banco o novo carrinho
+                if (ControleSalvarIncluirCarrinho)
                 {
-                    MessageBox.Show($"OK: {carrinho.Mensagem} Carrinho incluído com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Instancia a class e puxa os dados do formulario
+                    Carrinho1 carrinho = LeituraFormulario();
+                    // Valida os dados
+                    carrinho.ValidarClasse();
+                    // Tenta incluir os dados no banco de dados
+                    carrinho.IncluirNoBanco(conexaoDB);
+                    if (carrinho.Status)
+                    {
+                        ControleSalvarIncluirCarrinho = true;
+                        MessageBox.Show($"OK: {carrinho.Mensagem} Carrinho incluído com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        ControleSalvarIncluirCarrinho = true;
+                        MessageBox.Show($"{carrinho.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
                 }
+                // Funcao de atualizar carrinho no banco
                 else
                 {
-                    MessageBox.Show($"{carrinho.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Instancia a class e puxa os dados do formulario
+                    Carrinho1 carrinho = LeituraFormulario();
+                    // Valida os dados
+                    carrinho.ValidarClasse();
+                    // Tenta incluir os dados no banco de dados
+                    carrinho.AtualizarNoBanco(conexaoDB);
+                    if (carrinho.Status)
+                    {
+                        ControleSalvarIncluirCarrinho = true;
+                        MessageBox.Show($"OK: {carrinho.Mensagem} Carrinho Atualizado com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        ControleSalvarIncluirCarrinho = true;
+                        MessageBox.Show($"{carrinho.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
                 }
             }
             catch (ValidationException ex)
@@ -88,6 +120,11 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             };
         }
 
+        public void InserirDadosInUserControl(string id, string nome, string congregacaoId, string nome_congregacao, string situacao, string codigoCarrinho)
+        {
+            ControleSalvarIncluirCarrinho = false;
+            frmGeralCarrinho.SetCarrinhoData(id, nome, congregacaoId, nome_congregacao, situacao, codigoCarrinho);
+        }
         private void Btn_Fechar_Click(object sender, EventArgs e)
         {
             this.Close();

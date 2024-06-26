@@ -79,7 +79,7 @@ namespace AppCarrinhoWFBiblioteca.carrinho
             Status = true;
             try
             {
-                string query = "UPDATE Carrinho SET Nome = @Nome, Codigo_Carrinho = @Codigo_Carrinho, Situacao = @Situacao WHERE ID = @ID";
+                string query = "UPDATE tb_carrinho SET Nome = @Nome, Codigo_Carrinho = @Codigo_Carrinho, Situacao = @Situacao WHERE ID = @ID";
                 using (MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@ID", carrinho.ID);

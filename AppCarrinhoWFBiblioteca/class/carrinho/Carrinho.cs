@@ -19,9 +19,6 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
 
         public bool Status;
         public string Mensagem;
-
-
-
         public string ID { get; set; }
 
         [Required(ErrorMessage = "Nome do Carrinho é Obrigatorio!")]

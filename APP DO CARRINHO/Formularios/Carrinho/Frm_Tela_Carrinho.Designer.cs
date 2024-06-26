@@ -251,6 +251,7 @@
             // 
             // DGV_Dados
             // 
+            this.DGV_Dados.AllowUserToAddRows = false;
             this.DGV_Dados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -259,6 +260,7 @@
             this.DGV_Dados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Dados.Location = new System.Drawing.Point(123, 183);
             this.DGV_Dados.Name = "DGV_Dados";
+            this.DGV_Dados.ReadOnly = true;
             this.DGV_Dados.Size = new System.Drawing.Size(765, 328);
             this.DGV_Dados.TabIndex = 28;
             this.DGV_Dados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

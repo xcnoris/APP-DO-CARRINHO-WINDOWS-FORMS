@@ -37,6 +37,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             Frm_Cadastro_Carrinho_UC frm = new Frm_Cadastro_Carrinho_UC();
             frm.ShowDialog();
 
@@ -235,8 +236,8 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             string codigoCarrinho = selectedRow.Cells["codigo_carrinho"].Value.ToString();
 
             // Pass the data to the Frm_Cadastro_Carrinho_UC form
-            Frm_Cadastro_Carrinho_UC_Edit frm = new Frm_Cadastro_Carrinho_UC_Edit();
-            frm.SetCarrinhoData(id, nome, congregacaoId, congregacaoNome, situacao, codigoCarrinho);
+            Frm_Cadastro_Carrinho_UC frm = new Frm_Cadastro_Carrinho_UC();
+            frm.InserirDadosInUserControl(id, nome, congregacaoId, congregacaoNome, situacao, codigoCarrinho);
             frm.ShowDialog();
         }
     }
