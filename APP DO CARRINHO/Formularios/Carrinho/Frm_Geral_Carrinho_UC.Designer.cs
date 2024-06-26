@@ -91,6 +91,7 @@
             // Lbl_Situacao_Carrinho
             // 
             this.Lbl_Situacao_Carrinho.AutoSize = true;
+            this.Lbl_Situacao_Carrinho.ForeColor = System.Drawing.Color.LimeGreen;
             this.Lbl_Situacao_Carrinho.Location = new System.Drawing.Point(457, 68);
             this.Lbl_Situacao_Carrinho.Name = "Lbl_Situacao_Carrinho";
             this.Lbl_Situacao_Carrinho.Size = new System.Drawing.Size(61, 13);
@@ -100,6 +101,7 @@
             // Lbl_Cod_Carrinho
             // 
             this.Lbl_Cod_Carrinho.AutoSize = true;
+            this.Lbl_Cod_Carrinho.ForeColor = System.Drawing.Color.LimeGreen;
             this.Lbl_Cod_Carrinho.Location = new System.Drawing.Point(22, 122);
             this.Lbl_Cod_Carrinho.Name = "Lbl_Cod_Carrinho";
             this.Lbl_Cod_Carrinho.Size = new System.Drawing.Size(109, 13);
@@ -110,6 +112,7 @@
             // Lbl_Cod_Congregacao
             // 
             this.Lbl_Cod_Congregacao.AutoSize = true;
+            this.Lbl_Cod_Congregacao.ForeColor = System.Drawing.Color.Black;
             this.Lbl_Cod_Congregacao.Location = new System.Drawing.Point(22, 96);
             this.Lbl_Cod_Congregacao.Name = "Lbl_Cod_Congregacao";
             this.Lbl_Cod_Congregacao.Size = new System.Drawing.Size(90, 13);
@@ -119,11 +122,13 @@
             // Lbl_Nome_Carrinho
             // 
             this.Lbl_Nome_Carrinho.AutoSize = true;
+            this.Lbl_Nome_Carrinho.ForeColor = System.Drawing.Color.LimeGreen;
             this.Lbl_Nome_Carrinho.Location = new System.Drawing.Point(22, 68);
             this.Lbl_Nome_Carrinho.Name = "Lbl_Nome_Carrinho";
             this.Lbl_Nome_Carrinho.Size = new System.Drawing.Size(39, 13);
             this.Lbl_Nome_Carrinho.TabIndex = 13;
             this.Lbl_Nome_Carrinho.Text = "NOME";
+            this.Lbl_Nome_Carrinho.Click += new System.EventHandler(this.Lbl_Nome_Carrinho_Click);
             // 
             // Lbl_Id_Carrinho
             // 

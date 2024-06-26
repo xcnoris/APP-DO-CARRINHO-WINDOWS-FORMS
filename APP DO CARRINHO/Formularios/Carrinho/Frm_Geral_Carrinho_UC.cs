@@ -79,6 +79,9 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             Txt_Codigo_Carrinho.Text = codigoCarrinho;
         }
 
+        private void Lbl_Nome_Carrinho_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

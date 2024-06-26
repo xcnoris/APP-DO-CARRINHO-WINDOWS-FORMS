@@ -1,6 +1,6 @@
 ﻿namespace APP_DO_CARRINHO.Formularios.Pessoas
 {
-    partial class Frm_Geral_Usuarios_UC
+    partial class Frm_Geral_Pessoa_UC
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -96,6 +96,7 @@
             // 
             this.Txt_Id.Location = new System.Drawing.Point(97, 36);
             this.Txt_Id.Name = "Txt_Id";
+            this.Txt_Id.ReadOnly = true;
             this.Txt_Id.Size = new System.Drawing.Size(100, 20);
             this.Txt_Id.TabIndex = 1;
             // 

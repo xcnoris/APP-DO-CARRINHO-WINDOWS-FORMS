@@ -48,9 +48,9 @@
             this.Btn_Filtrar = new System.Windows.Forms.Button();
             this.Txt_Cidade_Cod = new System.Windows.Forms.TextBox();
             this.Txt_Congregacao_Id = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGV_Dados = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -226,18 +226,18 @@
             this.Txt_Congregacao_Id.Size = new System.Drawing.Size(62, 20);
             this.Txt_Congregacao_Id.TabIndex = 22;
             // 
-            // dataGridView1
+            // DGV_Dados
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DGV_Dados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(118, 168);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(654, 337);
-            this.dataGridView1.TabIndex = 23;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.DGV_Dados.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.DGV_Dados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Dados.Location = new System.Drawing.Point(118, 168);
+            this.DGV_Dados.Name = "DGV_Dados";
+            this.DGV_Dados.Size = new System.Drawing.Size(654, 337);
+            this.DGV_Dados.TabIndex = 23;
+            this.DGV_Dados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // groupBox1
             // 
@@ -268,7 +268,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGV_Dados);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -280,7 +280,7 @@
             this.Name = "Frm_Tela_Pessoas";
             this.Text = "Pessoas";
             this.Load += new System.EventHandler(this.Frm_Tela_Pessoas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -309,7 +309,7 @@
         private System.Windows.Forms.Button Btn_Filtrar;
         private System.Windows.Forms.TextBox Txt_Cidade_Cod;
         private System.Windows.Forms.TextBox Txt_Congregacao_Id;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGV_Dados;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }

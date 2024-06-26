@@ -15,7 +15,7 @@ using System.Text.RegularExpressions;
 
 namespace APP_DO_CARRINHO.Formularios.Pessoas
 {
-    public partial class Frm_Geral_Usuarios_UC : UserControl
+    public partial class Frm_Geral_Pessoa_UC : UserControl
     {
         #region Propriedades
 
@@ -104,7 +104,7 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         }
         #endregion
 
-        public Frm_Geral_Usuarios_UC()
+        public Frm_Geral_Pessoa_UC()
         {
             InitializeComponent();
          
@@ -155,6 +155,33 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
                     Txt_Endereco_Bairro.Text = Cep.bairro;
                 }
             }
+        }
+
+        // Método para definir os dados da pessoa no controle de usuário
+        public void SetPessoaData(string id, string cpf, string nome, string cep, string cidade, string uf, string endereco, string numero, string complemento, string bairro, string telefoneDDD, string telefoneNumero, string celularDDD, string celularNumero, string sexo, string dataNascimento, string email, string congregacaoId, string situacao)
+        {
+            // Atribua os valores aos campos correspondentes no controle de usuário
+            Txt_Id.Text = id;
+            MSK_CPF.Text = cpf;
+            Txt_Nome.Text = nome;
+            MSK_CEP.Text = cep;
+            Txt_Cidade_Nome.Text = cidade;
+            Txt_Sigla_Uf.Text = uf;
+            Txt_Endereco.Text = endereco;
+            Txt_Endereco_Numero.Text = numero;
+            Txt_Endereco_Complemento.Text = complemento;
+            Txt_Endereco_Bairro.Text = bairro;
+            Txt_DDD_Telefone.Text = telefoneDDD;
+            Txt_Telefone.Text = telefoneNumero;
+            Txt_DDD_Celular.Text = celularDDD;
+            Txt_Celular.Text = celularNumero;
+            Cbox_Sexo.Text = sexo;
+            Msk_Data_Nascimento.Text = dataNascimento;
+            Txt_Email.Text = email;
+            //Txt.Text = congregacaoId;
+            //Cbox.Text = situacao;
+
+            // Qualquer lógica adicional para atualizar a UI pode ser adicionada aqui
         }
     }
 }

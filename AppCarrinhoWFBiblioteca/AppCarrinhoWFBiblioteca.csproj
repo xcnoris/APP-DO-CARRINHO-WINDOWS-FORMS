@@ -100,8 +100,8 @@
     <Compile Include="class\carrinho\Carrinho.cs" />
     <Compile Include="class\carrinho\CarrinhoService.cs" />
     <Compile Include="class\CEP.cs" />
-    <Compile Include="class\clientes\cliente.cs" />
-    <Compile Include="class\clientes\ClienteService.cs" />
+    <Compile Include="class\clientes\Pessoa.cs" />
+    <Compile Include="class\clientes\PessoaService.cs" />
     <Compile Include="class\Cls_Uteis.cs" />
     <Compile Include="class\Situacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,13 +6,23 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using AppCarrinhoWFBiblioteca;
 using Newtonsoft.Json;
+using AppCarrinhoWFBiblioteca.carrinho;
+using AppCarrinhoWFBiblioteca.carrinho1;
+using banco.DataBases;
 
 namespace AppCarrinhoWFBiblioteca.clientes
 {
-    public class Cliente
+    public class Pessoa
     {
 
-        [Required(ErrorMessage = "ID do cliente é obrigatorio!")]
+        public bool Status;
+        public string Mensagem;
+
+        public Pessoa()
+        {
+            Status = true;
+        }
+
         public string ID { get; set; }
 
         [Required(ErrorMessage = "CPF do cliente é obrigatorio!")]
@@ -23,20 +33,24 @@ namespace AppCarrinhoWFBiblioteca.clientes
         [Required(ErrorMessage = "Nome do cliente é obrigatorio!")]
         [StringLength(70, ErrorMessage = "Nome do Cliente deve ter no Maximo 70 Caracteres!")]
         public string Nome { get; set; }
+        [StringLength(10, ErrorMessage = "Cep deve ter no maximo 10 caracteres!")]
         public string CEP { get; set; }
-        public string ID_Cidade { get; set; }
-        public string Nome_Cidade { get; set; }
+        //public string ID_Cidade { get; set; }
+        public string Cidade_Nome { get; set; }
         public string UF { get; set; }
+        [StringLength(150, ErrorMessage = "Endereço do Endereço deve ter no Maximo 70 Caracteres!")]
         public string Endereco { get; set; }
         public string Endereco_Numero { get; set; }
 
-        [StringLength(70, ErrorMessage = "Complemento do Endereço deve ter no Maximo 70 Caracteres!")]
+        [StringLength(100, ErrorMessage = "Complemento do Endereço deve ter no Maximo 70 Caracteres!")]
         public string Endereco_Complemento { get; set; }
         public string Bairro { get; set; }
+        [StringLength(2, ErrorMessage = "DDD do Cliente deve ter no Maximo 2 Caracteres!")]
         public string DDD_Telefone { get; set; }
 
         [StringLength(9, ErrorMessage = "Numero de Telefone deve ter no Maximo 9 Caracteres!")]
         public string Telefone { get; set; }
+        [StringLength(2, ErrorMessage = "DDD do Cliente deve ter no Maximo 2 Caracteres!")]
         public string DDD_Celular { get; set; }
 
         [StringLength(9, ErrorMessage = "Numero de Celular deve ter no Maximo 9 Caracteres!")]
@@ -44,7 +58,7 @@ namespace AppCarrinhoWFBiblioteca.clientes
         public string Sexo { get; set; }
         public string DataNascimento { get; set; }
         public string Email { get; set; }
-
+        public string Congregacao_ID { get; set; }
         public void ValidarClass()
         {
             // Captura os results dos testes de validação dos campos
@@ -71,5 +85,57 @@ namespace AppCarrinhoWFBiblioteca.clientes
                 throw new ValidationException("Cpf Inválido!");
             }
         }
+
+        // Metodo de inclusao no banco de dados
+        public void IncluirNoBanco(ConexaoDB conexaoDB)
+        {
+            PessoaService PS = new PessoaService();
+            try
+            {
+                PS.IncluirPessoaInDB(conexaoDB, this);
+                if (PS.Status)
+                {
+
+                    Status = true;
+                    Mensagem = PS.Mensagem;
+                }
+                else
+                {
+                    Status = false;
+                    Mensagem = PS.Mensagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                Status = false;
+                Mensagem = ex.Message;
+            }
+        }
+
+        // Metodo de Atualização no banco de dados
+        public void AtualizarNoBanco(ConexaoDB conexaoDB)
+        {
+            PessoaService PS = new PessoaService();
+            try
+            {
+                PS.AtualizarPessoaInDB(conexaoDB, this);
+                if (PS.Status)
+                {
+                    Status = true;
+                    Mensagem = PS.Mensagem;
+                }
+                else
+                {
+                    Status = false;
+                    Mensagem = PS.Mensagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                Status = false;
+                Mensagem = ex.Message;
+            }
+        }
+
     }
 }

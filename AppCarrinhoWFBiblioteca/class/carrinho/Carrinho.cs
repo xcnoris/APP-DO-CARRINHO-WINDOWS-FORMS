@@ -15,8 +15,6 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
     public class Carrinho1
     {
 
-        public ICollection<Carrinho1> Carrinhos { get; set; } = new List<Carrinho1>();
-
         public bool Status;
         public string Mensagem;
         public string ID { get; set; }
@@ -26,6 +24,8 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
         public string Nome { get; set; }
         public string Congregacao_ID { get; set; }
         public string Congregacao_Nome { get; set; }
+
+        [Required(ErrorMessage = "Situação do Carrinho é Obrigatorio!")]
         public string Situacao { get; set; }
 
         [Required(ErrorMessage = "Codigo do Carrinho é obrigatorio!")]
@@ -68,7 +68,7 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
                 CS.IncluirCarrinhoInDB(conexaoDB, this);
                 if (CS.Status)
                 {
-                    Carrinhos = CS.Carrinhos;
+                    
                     Status = true;
                     Mensagem = CS.Mensagem;
                 }
@@ -85,6 +85,7 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
             }
         }
 
+        // Metodo de Atualização no banco de dados
         public void AtualizarNoBanco(ConexaoDB conexaoDB)
         {
             CarrinhoService CS = new CarrinhoService();
@@ -93,7 +94,6 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
                 CS.AtualizarCarrinhoInDB(conexaoDB, this);
                 if (CS.Status)
                 {
-                    Carrinhos = CS.Carrinhos;
                     Status = true;
                     Mensagem = CS.Mensagem;
                 }
