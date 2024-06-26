@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelEntidadesSubMenu = new System.Windows.Forms.Panel();
@@ -37,11 +38,14 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.labelVersion = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panelSidebar.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelEntidadesSubMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSidebar
@@ -150,11 +154,21 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(286, 261);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(148, 41);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Btn_Congregacao";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Frm_Menu_Principal_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panelSidebar);
             this.Name = "Frm_Menu_Principal_2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -167,6 +181,7 @@
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -182,5 +197,7 @@
         private System.Windows.Forms.Button btnAlterarEntidade;
         private System.Windows.Forms.Button btnCadastrarEntidade;
         private System.Windows.Forms.Button btnEntidades;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

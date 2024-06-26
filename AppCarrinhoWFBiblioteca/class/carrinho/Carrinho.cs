@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
 using AppCarrinhoWFBiblioteca.carrinho;
 using banco.DataBases;
+using banco.DAL.DataBases;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace AppCarrinhoWFBiblioteca.carrinho1
 {
@@ -18,10 +20,8 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
         public bool Status;
         public string Mensagem;
 
-        public string Menssage { get; set; }
-  
 
-        [Required(ErrorMessage = "ID do Carrinho é Obrigatorio!")]
+
         public string ID { get; set; }
 
         [Required(ErrorMessage = "Nome do Carrinho é Obrigatorio!")]
@@ -87,6 +87,32 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
                 Mensagem = ex.Message;
             }
         }
+
+        public void AtualizarNoBanco(ConexaoDB conexaoDB)
+        {
+            CarrinhoService CS = new CarrinhoService();
+            try
+            {
+                CS.AtualizarCarrinhoInDB(conexaoDB, this);
+                if (CS.Status)
+                {
+                    Carrinhos = CS.Carrinhos;
+                    Status = true;
+                    Mensagem = CS.Mensagem;
+                }
+                else
+                {
+                    Status = false;
+                    Mensagem = CS.Mensagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                Status = false;
+                Mensagem = ex.Message;
+            }
+        }
+
 
     }
 }

@@ -59,7 +59,26 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void Frm_Geral_Carrinho_UC_Load(object sender, EventArgs e)
         {
-
+            //Situacao situacao = situacao.ConsultarDisponibilidadeInDB();
+            
         }
+
+        public void InserirSituacao()
+        {
+            
+        }
+
+        // Função para inserir dados quando é dado um duplo clique em um data grid view
+        public void SetCarrinhoData(string id, string nome, string congregacaoId,  string congregacaoNome, string situacao, string codigoCarrinho)
+        {
+            Txt_ID.Text = id;
+            Txt_Nome.Text = nome;
+            Txt_Congregacao_ID.Text = congregacaoId;
+            Txt_Congregacao_Nome.Text = congregacaoNome;
+            Cbox_Situacao.SelectedIndex = Cbox_Situacao.FindStringExact(situacao); // Or set the value directly if you have the value member
+            Txt_Codigo_Carrinho.Text = codigoCarrinho;
+        }
+
+
     }
 }

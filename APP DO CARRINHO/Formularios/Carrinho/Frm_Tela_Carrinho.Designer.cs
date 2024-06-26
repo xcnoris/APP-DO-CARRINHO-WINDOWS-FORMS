@@ -143,6 +143,7 @@
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // Txt_Nome
             // 
@@ -193,6 +194,7 @@
             this.Cbox_Situacao.Name = "Cbox_Situacao";
             this.Cbox_Situacao.Size = new System.Drawing.Size(133, 21);
             this.Cbox_Situacao.TabIndex = 24;
+            this.Cbox_Situacao.Text = "( Selecione )";
             // 
             // Lbl_Congregacao
             // 
@@ -216,15 +218,19 @@
             // 
             this.Txt_Congregacao_Nome.Location = new System.Drawing.Point(221, 89);
             this.Txt_Congregacao_Nome.Name = "Txt_Congregacao_Nome";
+            this.Txt_Congregacao_Nome.ReadOnly = true;
             this.Txt_Congregacao_Nome.Size = new System.Drawing.Size(134, 20);
             this.Txt_Congregacao_Nome.TabIndex = 15;
+            this.Txt_Congregacao_Nome.Text = "Congregação Areias";
             // 
             // Txt_Congregacao_Id
             // 
             this.Txt_Congregacao_Id.Location = new System.Drawing.Point(153, 89);
             this.Txt_Congregacao_Id.Name = "Txt_Congregacao_Id";
+            this.Txt_Congregacao_Id.ReadOnly = true;
             this.Txt_Congregacao_Id.Size = new System.Drawing.Size(62, 20);
             this.Txt_Congregacao_Id.TabIndex = 22;
+            this.Txt_Congregacao_Id.Text = "1";
             // 
             // Txt_Id
             // 
@@ -256,6 +262,7 @@
             this.DGV_Dados.Size = new System.Drawing.Size(765, 328);
             this.DGV_Dados.TabIndex = 28;
             this.DGV_Dados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.DGV_Dados.DoubleClick += new System.EventHandler(this.DGV_Dados_DoubleClick);
             // 
             // Frm_Tela_Carrinho
             // 

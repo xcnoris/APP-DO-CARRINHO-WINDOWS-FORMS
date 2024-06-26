@@ -51,10 +51,12 @@
             this.Cbox_Situacao.Name = "Cbox_Situacao";
             this.Cbox_Situacao.Size = new System.Drawing.Size(121, 21);
             this.Cbox_Situacao.TabIndex = 3;
+            this.Cbox_Situacao.Text = "( Selecione )";
             // 
             // Txt_Codigo_Carrinho
             // 
             this.Txt_Codigo_Carrinho.Location = new System.Drawing.Point(139, 115);
+            this.Txt_Codigo_Carrinho.MaxLength = 10;
             this.Txt_Codigo_Carrinho.Name = "Txt_Codigo_Carrinho";
             this.Txt_Codigo_Carrinho.Size = new System.Drawing.Size(100, 20);
             this.Txt_Codigo_Carrinho.TabIndex = 6;
@@ -62,13 +64,17 @@
             // Txt_Congregacao_Nome
             // 
             this.Txt_Congregacao_Nome.Location = new System.Drawing.Point(197, 89);
+            this.Txt_Congregacao_Nome.MaxLength = 80;
             this.Txt_Congregacao_Nome.Name = "Txt_Congregacao_Nome";
+            this.Txt_Congregacao_Nome.ReadOnly = true;
             this.Txt_Congregacao_Nome.Size = new System.Drawing.Size(234, 20);
             this.Txt_Congregacao_Nome.TabIndex = 5;
+            this.Txt_Congregacao_Nome.Text = "Congregação Areias";
             // 
             // Txt_Nome
             // 
             this.Txt_Nome.Location = new System.Drawing.Point(139, 61);
+            this.Txt_Nome.MaxLength = 80;
             this.Txt_Nome.Name = "Txt_Nome";
             this.Txt_Nome.Size = new System.Drawing.Size(292, 20);
             this.Txt_Nome.TabIndex = 2;
@@ -76,7 +82,9 @@
             // Txt_ID
             // 
             this.Txt_ID.Location = new System.Drawing.Point(138, 35);
+            this.Txt_ID.MaxLength = 10;
             this.Txt_ID.Name = "Txt_ID";
+            this.Txt_ID.ReadOnly = true;
             this.Txt_ID.Size = new System.Drawing.Size(100, 20);
             this.Txt_ID.TabIndex = 1;
             // 
@@ -129,9 +137,12 @@
             // Txt_Congregacao_ID
             // 
             this.Txt_Congregacao_ID.Location = new System.Drawing.Point(138, 89);
+            this.Txt_Congregacao_ID.MaxLength = 10;
             this.Txt_Congregacao_ID.Name = "Txt_Congregacao_ID";
+            this.Txt_Congregacao_ID.ReadOnly = true;
             this.Txt_Congregacao_ID.Size = new System.Drawing.Size(53, 20);
             this.Txt_Congregacao_ID.TabIndex = 4;
+            this.Txt_Congregacao_ID.Text = "1";
             // 
             // Frm_Geral_Carrinho_UC
             // 

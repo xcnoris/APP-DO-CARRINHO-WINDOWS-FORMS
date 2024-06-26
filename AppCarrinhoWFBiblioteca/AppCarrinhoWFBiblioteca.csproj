@@ -103,6 +103,7 @@
     <Compile Include="class\clientes\cliente.cs" />
     <Compile Include="class\clientes\ClienteService.cs" />
     <Compile Include="class\Cls_Uteis.cs" />
+    <Compile Include="class\Situacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using APP_DO_CARRINHO.Formularios.Pessoas;
+﻿using AppCarrinhoWFBiblioteca.carrinho1;
+using banco.DataBases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,27 +10,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AppCarrinhoWFBiblioteca.carrinho1;
-using AppCarrinhoWFBiblioteca;
-using AppCarrinhoWFBiblioteca.clientes;
-using System.Text.RegularExpressions;
-using System.Runtime.InteropServices.WindowsRuntime;
-using AppCarrinhoWFBiblioteca.cep;
-using DataBase.DataBases;
-using System.IO;
-using AppCarrinhoWFBiblioteca.carrinho;
-using banco.DataBases;
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
-    public partial class Frm_Cadastro_Carrinho_UC : Form
+    public partial class Frm_Cadastro_Carrinho_UC_Edit : Form
     {
-
         private Frm_Geral_Carrinho_UC frmGeralCarrinho;
-        
+
         private ConexaoDB conexaoDB;
 
-        public Frm_Cadastro_Carrinho_UC()
+        public Frm_Cadastro_Carrinho_UC_Edit()
         {
             InitializeComponent();
             conexaoDB = new ConexaoDB();
@@ -55,7 +45,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 // Valida os dados
                 carrinho.ValidarClasse();
                 // Tenta incluir os dados no banco de dados
-                carrinho.IncluirNoBanco(conexaoDB);
+                carrinho.AtualizarNoBanco(conexaoDB);
                 if (carrinho.Status)
                 {
                     MessageBox.Show($"OK: {carrinho.Mensagem} Carrinho incluído com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -93,7 +83,10 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             this.Close();
         }
 
+        public void SetCarrinhoData(string id, string nome, string congregacaoId, string nome_congregacao, string situacao, string codigoCarrinho)
+        {
+            frmGeralCarrinho.SetCarrinhoData(id, nome, congregacaoId, nome_congregacao, situacao, codigoCarrinho);
+        }
+
     }
 }
-
-

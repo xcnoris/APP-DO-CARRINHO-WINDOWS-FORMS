@@ -74,6 +74,43 @@ namespace AppCarrinhoWFBiblioteca.carrinho
                 Mensagem = "Erro ao incluir carrinho no banco de dados: " + ex.Message;
             }
         }
+        public void AtualizarCarrinhoInDB(ConexaoDB conexaoDB, Carrinho1 carrinho)
+        {
+            Status = true;
+            try
+            {
+                string query = "UPDATE Carrinho SET Nome = @Nome, Codigo_Carrinho = @Codigo_Carrinho, Situacao = @Situacao WHERE ID = @ID";
+                using (MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@ID", carrinho.ID);
+                    cmd.Parameters.AddWithValue("@Nome", carrinho.Nome);
+                    cmd.Parameters.AddWithValue("@Codigo_Carrinho", carrinho.Codigo_Carrinho);
+                    cmd.Parameters.AddWithValue("@Situacao", carrinho.Situacao);
+
+                    
+                    conexaoDB.OpenConnection();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    conexaoDB.CloseConnection();
+                    if (rowsAffected > 0)
+                    {
+                        Status = true;
+                        Mensagem = "Carrinho atualizado com sucesso!";
+                    }
+                    else
+                    {
+                        Status = false;
+                        Mensagem = "Nenhum carrinho foi atualizado.";
+                    }
+                    
+                }
+                Mensagem = "Carrinho incluído com sucesso!";
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao incluir carrinho no banco de dados: " + ex.Message;
+            }
+        }
 
 
         // Consulta todos os carrinhos no banco de dados
