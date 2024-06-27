@@ -104,6 +104,7 @@
     <Compile Include="class\clientes\PessoaService.cs" />
     <Compile Include="class\Cls_Uteis.cs" />
     <Compile Include="class\Situacao.cs" />
+    <Compile Include="Iterfaces\ICruds.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

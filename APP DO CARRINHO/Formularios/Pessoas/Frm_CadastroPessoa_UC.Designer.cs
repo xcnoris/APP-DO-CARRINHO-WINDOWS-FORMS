@@ -59,7 +59,7 @@
             this.Btn_Salvar.Name = "Btn_Salvar";
             this.Btn_Salvar.Size = new System.Drawing.Size(88, 31);
             this.Btn_Salvar.TabIndex = 37;
-            this.Btn_Salvar.Text = "Salvar";
+            this.Btn_Salvar.Text = "Confirmar";
             this.Btn_Salvar.UseVisualStyleBackColor = true;
             this.Btn_Salvar.Click += new System.EventHandler(this.Btn_Salvar_Click);
             // 

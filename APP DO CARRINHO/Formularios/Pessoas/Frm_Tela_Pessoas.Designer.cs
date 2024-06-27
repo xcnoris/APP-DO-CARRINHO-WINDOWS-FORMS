@@ -74,6 +74,7 @@
             this.Btn_Alterar_Pessoas.TabIndex = 1;
             this.Btn_Alterar_Pessoas.Text = "Alterar";
             this.Btn_Alterar_Pessoas.UseVisualStyleBackColor = true;
+            this.Btn_Alterar_Pessoas.Click += new System.EventHandler(this.Btn_Alterar_Pessoas_Click);
             // 
             // Btn_Excluir_Pessoas
             // 
@@ -84,6 +85,7 @@
             this.Btn_Excluir_Pessoas.TabIndex = 2;
             this.Btn_Excluir_Pessoas.Text = "Excluir";
             this.Btn_Excluir_Pessoas.UseVisualStyleBackColor = true;
+            this.Btn_Excluir_Pessoas.Click += new System.EventHandler(this.Btn_Excluir_Pessoas_Click);
             // 
             // Btn_Fechar
             // 
@@ -211,6 +213,7 @@
             this.Btn_Filtrar.TabIndex = 19;
             this.Btn_Filtrar.Text = "Filtrar";
             this.Btn_Filtrar.UseVisualStyleBackColor = true;
+            this.Btn_Filtrar.Click += new System.EventHandler(this.Btn_Filtrar_Click);
             // 
             // Txt_Cidade_Cod
             // 
@@ -228,6 +231,7 @@
             // 
             // DGV_Dados
             // 
+            this.DGV_Dados.AllowUserToAddRows = false;
             this.DGV_Dados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -235,9 +239,11 @@
             this.DGV_Dados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Dados.Location = new System.Drawing.Point(118, 168);
             this.DGV_Dados.Name = "DGV_Dados";
+            this.DGV_Dados.ReadOnly = true;
             this.DGV_Dados.Size = new System.Drawing.Size(654, 337);
             this.DGV_Dados.TabIndex = 23;
             this.DGV_Dados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.DGV_Dados.DoubleClick += new System.EventHandler(this.DGV_Dados_DoubleClick);
             // 
             // groupBox1
             // 

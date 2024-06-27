@@ -95,6 +95,7 @@
     <Compile Include="Formularios\Menu Principal\Frm_Tela_Login_V2.Designer.cs">
       <DependentUpon>Frm_Tela_Login_V2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Metodos.cs" />
     <Compile Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.cs">
       <SubType>Form</SubType>
     </Compile>

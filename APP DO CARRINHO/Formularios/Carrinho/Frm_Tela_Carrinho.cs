@@ -91,7 +91,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                     // Caso consiga criar/acessar o diretorio ele entra no if
                     if (CS.Status)
                     {
-                        CS.ConsultarCarrinhosPorID(conexaoDB, Txt_Id.Text);
+                        CS.ReadInDB(conexaoDB, Txt_Id.Text);
                         
                         if (CS.Status)
                         {
@@ -150,7 +150,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 
                 if (CS.Status)
                 {
-                    CS.ConsultarCarrinhosInDB(conexaoDB);
+                    CS.ReadAllInDB(conexaoDB);
                     
                     if (CS.Status)
                     {
@@ -225,6 +225,25 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         // Abre um
         private void DGV_Dados_DoubleClick(object sender, EventArgs e)
         {
+            // Retrieve the selected row data
+            var selectedRow = DGV_Dados.CurrentRow;
+            string id = selectedRow.Cells["ID"].Value.ToString();
+            string nome = selectedRow.Cells["nome"].Value.ToString();
+            string congregacaoId = selectedRow.Cells["congregacao_id"].Value.ToString();
+            //string congregacaoNome = selectedRow.Cells["congregacao_nome"].Value.ToString();
+            string congregacaoNome = "Congregacao Areias";
+            string situacao = selectedRow.Cells["situacao"].Value.ToString();
+            string codigoCarrinho = selectedRow.Cells["codigo_carrinho"].Value.ToString();
+
+            // Pass the data to the Frm_Cadastro_Carrinho_UC form
+            Frm_Cadastro_Carrinho_UC frm = new Frm_Cadastro_Carrinho_UC();
+            frm.InserirDadosInUserControl(id, nome, congregacaoId, congregacaoNome, situacao, codigoCarrinho);
+            frm.ShowDialog();
+        }
+
+        private void Btn_Alterar_Pessoas_Click(object sender, EventArgs e)
+        {
+
             // Retrieve the selected row data
             var selectedRow = DGV_Dados.CurrentRow;
             string id = selectedRow.Cells["ID"].Value.ToString();

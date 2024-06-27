@@ -73,6 +73,7 @@
             this.Btn_Alterar_Pessoas.TabIndex = 1;
             this.Btn_Alterar_Pessoas.Text = "Alterar";
             this.Btn_Alterar_Pessoas.UseVisualStyleBackColor = true;
+            this.Btn_Alterar_Pessoas.Click += new System.EventHandler(this.Btn_Alterar_Pessoas_Click);
             // 
             // Btn_Excluir_Pessoas
             // 

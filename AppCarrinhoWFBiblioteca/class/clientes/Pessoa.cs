@@ -92,7 +92,7 @@ namespace AppCarrinhoWFBiblioteca.clientes
             PessoaService PS = new PessoaService();
             try
             {
-                PS.IncluirPessoaInDB(conexaoDB, this);
+                PS.CreateInDB(conexaoDB, this);
                 if (PS.Status)
                 {
 
@@ -118,7 +118,7 @@ namespace AppCarrinhoWFBiblioteca.clientes
             PessoaService PS = new PessoaService();
             try
             {
-                PS.AtualizarPessoaInDB(conexaoDB, this);
+                PS.UpdateInDB(conexaoDB, this);
                 if (PS.Status)
                 {
                     Status = true;

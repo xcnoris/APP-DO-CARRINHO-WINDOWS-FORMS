@@ -1,4 +1,5 @@
 ﻿using AppCarrinhoWFBiblioteca.carrinho1;
+using AppCarrinhoWFBiblioteca.Interfaces;
 using banco.DAL.DataBases;
 using banco.DataBases;
 using MySql.Data.MySqlClient;
@@ -6,28 +7,23 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AppCarrinhoWFBiblioteca.clientes
 {
-    public class PessoaService
+    public class PessoaService : ICrud<Pessoa>
     {
         public string Mensagem { get; set; }
         public bool Status { get; set; }
+        public ICollection<Pessoa> Pessoas { get; set; } = new List<Pessoa>();
 
+        //Construtor
         public PessoaService()
         {
             Status = true;
-        }
-
-        public ICollection<Pessoa> Pessoas { get; set; } = new List<Pessoa>();
-
-        public void AddCliente(Pessoa cliente)
-        {
-            cliente.ValidarClass();
-            Pessoas.Add(cliente);
         }
 
         // Transforma Json em Class
@@ -41,7 +37,10 @@ namespace AppCarrinhoWFBiblioteca.clientes
         {
             return JsonConvert.SerializeObject(cliente);
         }
-        public void IncluirPessoaInDB(ConexaoDB conexaoDB, Pessoa pessoa)
+
+
+        // Cria um novo registro no banco de dados
+        public void CreateInDB(ConexaoDB conexaoDB, Pessoa pessoa)
         {
             Status = true;
             try
@@ -81,7 +80,113 @@ namespace AppCarrinhoWFBiblioteca.clientes
             }
         }
 
-        public void AtualizarPessoaInDB(ConexaoDB conexaoDB, Pessoa pessoa)
+        // Consulta um registro pelo ID no banco de dados
+        public void ReadInDB(ConexaoDB conexaoDB, string Id)
+        {
+            Status = true;
+            try
+            {
+                string querySelect = $"SELECT * FROM tb_pessoa WHERE ID = {Id}";
+
+                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                DataTable result = comandosDB.ExecuteQuery(querySelect);
+
+                // Limpa a lista de carrinhos antes de adicionar os novos resultados
+                Pessoas.Clear();
+
+                // Itera pelas linhas do resultado e adiciona cada carrinho à lista Carrinhos
+                foreach (DataRow row in result.Rows)
+                {
+                    Pessoa pessoa = new Pessoa
+                    {
+                        //ID = Convert.ToInt32(row["id"]),
+                        ID = row["id"].ToString(),
+                        CPF = row["cpf"].ToString(),
+                        Nome = row["nome"].ToString(),
+                        CEP = row["cep"].ToString(),
+                        Cidade_Nome = row["cidade"].ToString(),
+                        UF = row["uf"].ToString(),
+                        Endereco = row["endereco"].ToString(),
+                        Endereco_Numero = row["numero"].ToString(),
+                        Endereco_Complemento = row["complemento"].ToString(),
+                        Bairro = row["bairro"].ToString(),
+                        DDD_Telefone = row["telefone_ddd"].ToString(),
+                        Telefone = row["telefone_numero"].ToString(),
+                        DDD_Celular = row["celular_ddd"].ToString(),
+                        Celular = row["celular_numero"].ToString(),
+                        Sexo = row["sexo"].ToString(),
+                        DataNascimento = row["data_nascimento"].ToString(),
+                        Email = row["email"].ToString(),
+                        Congregacao_ID = row["congregacao_id"].ToString()
+                    };
+
+                    Pessoas.Add(pessoa);
+                }
+                //return Carrinhos;
+                Mensagem = comandosDB.Mensagem;
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
+            }
+        }
+
+        // Consulta todas as pessoas no banco de dados
+        public void ReadAllInDB(ConexaoDB conexaoDB)
+        {
+            Status = true;
+            try
+            {
+                string querySelect = "SELECT * FROM tb_pessoa";
+
+                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                DataTable result = comandosDB.ExecuteQuery(querySelect);
+
+                // Limpa a lista de pessoas antes de adicionar os novos resultados
+                Pessoas.Clear();
+
+                // Itera pelas linhas do resultado e adiciona cada pessoa à lista Pessoas
+                foreach (DataRow row in result.Rows)
+                {
+                    Pessoa pessoa = new Pessoa
+                    {
+                        //ID = Convert.ToInt32(row["id"]),
+                        ID = row["id"].ToString(),
+                        CPF = row["cpf"].ToString(),
+                        Nome = row["nome"].ToString(),
+                        CEP = row["cep"].ToString(),
+                        Cidade_Nome = row["cidade"].ToString(),
+                        UF = row["uf"].ToString(),
+                        Endereco = row["endereco"].ToString(),
+                        Endereco_Numero = row["numero"].ToString(),
+                        Endereco_Complemento = row["complemento"].ToString(),
+                        Bairro = row["bairro"].ToString(),
+                        DDD_Telefone = row["telefone_ddd"].ToString(),
+                        Telefone = row["telefone_numero"].ToString(),
+                        DDD_Celular = row["celular_ddd"].ToString(),
+                        Celular = row["celular_numero"].ToString(),
+                        Sexo = row["sexo"].ToString(),
+                        DataNascimento = row["data_nascimento"].ToString(),
+                        Email = row["email"].ToString(),
+                        Congregacao_ID = row["congregacao_id"].ToString()
+                    };
+
+                    Pessoas.Add(pessoa);
+                }
+                Mensagem = comandosDB.Mensagem;
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar pessoas no banco de dados: " + ex.Message;
+            }
+        }
+
+        // Atualiza um registro no banco pelo ID
+        public void UpdateInDB(ConexaoDB conexaoDB, Pessoa pessoa)
         {
             Status = true;
             try
@@ -151,111 +256,32 @@ namespace AppCarrinhoWFBiblioteca.clientes
             }
         }
 
-
-        // Consulta todas as pessoas no banco de dados
-        public void ConsultarPessoasInDB(ConexaoDB conexaoDB)
+        // Delete um resgitro no banco pelo ID
+        public void DeleteInDB(ConexaoDB conexaoDB, string Id)
         {
-            Status = true;
             try
             {
-                string querySelect = "SELECT * FROM tb_pessoa";
-
-                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
                 ComandosDB comandosDB = new ComandosDB(conexaoDB);
-                DataTable result = comandosDB.ExecuteQuery(querySelect);
+                string query = $"DELETE FROM tb_pessoa WHERE ID = '{Id}'";
 
-                // Limpa a lista de pessoas antes de adicionar os novos resultados
-                Pessoas.Clear();
+                int affectedRows = comandosDB.ExecuteNonQuery(query);
 
-                // Itera pelas linhas do resultado e adiciona cada pessoa à lista Pessoas
-                foreach (DataRow row in result.Rows)
+                if (affectedRows > 0)
                 {
-                    Pessoa pessoa = new Pessoa
-                    {
-                        //ID = Convert.ToInt32(row["id"]),
-                        ID = row["id"].ToString(),
-                        CPF = row["cpf"].ToString(),
-                        Nome = row["nome"].ToString(),
-                        CEP = row["cep"].ToString(),
-                        Cidade_Nome = row["cidade"].ToString(),
-                        UF = row["uf"].ToString(),
-                        Endereco = row["endereco"].ToString(),
-                        Endereco_Numero = row["numero"].ToString(),
-                        Endereco_Complemento = row["complemento"].ToString(),
-                        Bairro = row["bairro"].ToString(),
-                        DDD_Telefone = row["telefone_ddd"].ToString(),
-                        Telefone = row["telefone_numero"].ToString(),
-                        DDD_Celular = row["celular_ddd"].ToString(),
-                        Celular = row["celular_numero"].ToString(),
-                        Sexo = row["sexo"].ToString(),
-                        DataNascimento = row["data_nascimento"].ToString(),
-                        Email = row["email"].ToString(),
-                        Congregacao_ID = row["congregacao_id"].ToString()
-                    };
-
-                    Pessoas.Add(pessoa);
+                    Status = true;
+                    Mensagem = "Pessoa Excluida com sucesso!";
                 }
-                Mensagem = comandosDB.Mensagem;
+                else
+                {
+                    Status = false;
+                    Mensagem = $"ID {Id} não existe no banco de dados!";
+                }
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
                 Status = false;
-                Mensagem = "Erro ao consultar pessoas no banco de dados: " + ex.Message;
+                Mensagem = "Erro ao Excluir pessoa no banco de dados: " + ex.Message;
             }
         }
-
-        public void ConsultarCarrinhosPorID(ConexaoDB conexaoDB, string Id)
-        {
-            Status = true;
-            try
-            {
-                string querySelect = $"SELECT * FROM tb_carrinho WHERE ID = {Id}";
-
-                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
-                ComandosDB comandosDB = new ComandosDB(conexaoDB);
-                DataTable result = comandosDB.ExecuteQuery(querySelect);
-
-                // Limpa a lista de carrinhos antes de adicionar os novos resultados
-                Pessoas.Clear();
-
-                // Itera pelas linhas do resultado e adiciona cada carrinho à lista Carrinhos
-                foreach (DataRow row in result.Rows)
-                {
-                    Pessoa pessoa = new Pessoa
-                    {
-                        //ID = Convert.ToInt32(row["id"]),
-                        ID = row["id"].ToString(),
-                        CPF = row["cpf"].ToString(),
-                        Nome = row["nome"].ToString(),
-                        CEP = row["cep"].ToString(),
-                        Cidade_Nome = row["cidade"].ToString(),
-                        UF = row["uf"].ToString(),
-                        Endereco = row["endereco"].ToString(),
-                        Endereco_Numero = row["numero"].ToString(),
-                        Endereco_Complemento = row["complemento"].ToString(),
-                        Bairro = row["bairro"].ToString(),
-                        DDD_Telefone = row["telefone_ddd"].ToString(),
-                        Telefone = row["telefone_numero"].ToString(),
-                        DDD_Celular = row["celular_ddd"].ToString(),
-                        Celular = row["celular_numero"].ToString(),
-                        Sexo = row["sexo"].ToString(),
-                        DataNascimento = row["data_nascimento"].ToString(),
-                        Email = row["email"].ToString(),
-                        Congregacao_ID = row["congregacao_id"].ToString()
-                    };
-
-                    Pessoas.Add(pessoa);
-                }
-                //return Carrinhos;
-                Mensagem = comandosDB.Mensagem;
-            }
-            catch (MySqlException ex)
-            {
-                Status = false;
-                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
-            }
-        }
-
-
     }
 }

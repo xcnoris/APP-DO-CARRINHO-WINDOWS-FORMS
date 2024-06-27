@@ -65,7 +65,7 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
             CarrinhoService CS = new CarrinhoService();
             try
             {
-                CS.IncluirCarrinhoInDB(conexaoDB, this);
+                CS.CreateInDB(conexaoDB, this);
                 if (CS.Status)
                 {
                     
@@ -91,7 +91,7 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
             CarrinhoService CS = new CarrinhoService();
             try
             {
-                CS.AtualizarCarrinhoInDB(conexaoDB, this);
+                CS.UpdateInDB(conexaoDB, this);
                 if (CS.Status)
                 {
                     Status = true;

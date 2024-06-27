@@ -13,10 +13,11 @@ using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using banco.DAL.DataBases;
 using System.Data;
+using AppCarrinhoWFBiblioteca.Interfaces;
 
 namespace AppCarrinhoWFBiblioteca.carrinho
 {
-    public class CarrinhoService
+    public class CarrinhoService : ICrud<Carrinho1>
     {
         public string Mensagem {  get; set; }
         public bool Status;
@@ -27,16 +28,8 @@ namespace AppCarrinhoWFBiblioteca.carrinho
         {
             Status = true;
         }
-        public void AdicionarCarrinho(Carrinho1 carrinho)
-        {
-            carrinho.ValidarClasse();
-            Carrinhos.Add(carrinho);
-        }
+     
 
-        public Carrinho1 BuscarPorID(string Id)
-        {
-            return Carrinhos.FirstOrDefault(c => c.ID == Id);
-        }
         public static Carrinho1 DesSerializedClassUnit(string vJson)
         {
             return JsonConvert.DeserializeObject<Carrinho1>(vJson);
@@ -46,7 +39,9 @@ namespace AppCarrinhoWFBiblioteca.carrinho
             return JsonConvert.SerializeObject(unit);
         }
 
-        public void IncluirCarrinhoInDB(ConexaoDB conexaoDB, Carrinho1 carrinhoUnit)
+
+        //Class de criar um novo registro de carrinho no Banco de dados
+        public void CreateInDB(ConexaoDB conexaoDB, Carrinho1 carrinhoUnit)
         {
             Status = true;
             try
@@ -74,86 +69,10 @@ namespace AppCarrinhoWFBiblioteca.carrinho
                 Mensagem = "Erro ao incluir carrinho no banco de dados: " + ex.Message;
             }
         }
-        public void AtualizarCarrinhoInDB(ConexaoDB conexaoDB, Carrinho1 carrinho)
-        {
-            Status = true;
-            try
-            {
-                string query = "UPDATE tb_carrinho SET Nome = @Nome, Codigo_Carrinho = @Codigo_Carrinho, Situacao = @Situacao WHERE ID = @ID";
-                using (MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection()))
-                {
-                    cmd.Parameters.AddWithValue("@ID", carrinho.ID);
-                    cmd.Parameters.AddWithValue("@Nome", carrinho.Nome);
-                    cmd.Parameters.AddWithValue("@Codigo_Carrinho", carrinho.Codigo_Carrinho);
-                    cmd.Parameters.AddWithValue("@Situacao", carrinho.Situacao);
-
-                    
-                    conexaoDB.OpenConnection();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    conexaoDB.CloseConnection();
-                    if (rowsAffected > 0)
-                    {
-                        Status = true;
-                        Mensagem = "Carrinho atualizado com sucesso!";
-                    }
-                    else
-                    {
-                        Status = false;
-                        Mensagem = "Nenhum carrinho foi atualizado.";
-                    }
-                    
-                }
-                Mensagem = "Carrinho incluído com sucesso!";
-            }
-            catch (MySqlException ex)
-            {
-                Status = false;
-                Mensagem = "Erro ao incluir carrinho no banco de dados: " + ex.Message;
-            }
-        }
 
 
-        // Consulta todos os carrinhos no banco de dados
-        public void ConsultarCarrinhosInDB(ConexaoDB conexaoDB)
-        {
-            Status = true;
-            try
-            {
-                string querySelect = "SELECT ID, nome, situacao, congregacao_id, codigo_carrinho FROM tb_carrinho";
-
-                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
-                ComandosDB comandosDB = new ComandosDB(conexaoDB);
-                DataTable result = comandosDB.ExecuteQuery(querySelect);
-
-                // Limpa a lista de carrinhos antes de adicionar os novos resultados
-                Carrinhos.Clear();
-
-                // Itera pelas linhas do resultado e adiciona cada carrinho à lista Carrinhos
-                foreach (DataRow row in result.Rows)
-                {
-                    Carrinho1 carrinho = new Carrinho1
-                    {
-                        ID = row["ID"].ToString(),
-                        Nome = row["nome"].ToString(),
-                        Situacao = row["situacao"].ToString(),
-                        Congregacao_ID = row["congregacao_id"].ToString(),
-                        Codigo_Carrinho = row["codigo_carrinho"].ToString()
-                        // Certifique-se de ajustar os nomes das colunas conforme estão no banco de dados
-                    };
-
-                    Carrinhos.Add(carrinho);
-                }
-                //return Carrinhos;
-                Mensagem = comandosDB.Mensagem ;
-            }
-            catch (MySqlException ex)
-            {
-                Status = false;
-                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
-            }
-        }
-
-        public void ConsultarCarrinhosPorID(ConexaoDB conexaoDB, string Id)
+        // Consulta um registro de carrinho no banco de dados
+        public void ReadInDB(ConexaoDB conexaoDB, string Id)
         {
             Status = true;
             try
@@ -191,6 +110,113 @@ namespace AppCarrinhoWFBiblioteca.carrinho
                 Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
             }
         }
+
+        // Consulta todos os carrinhos no banco de dados
+        public void ReadAllInDB(ConexaoDB conexaoDB)
+        {
+            Status = true;
+            try
+            {
+                string querySelect = "SELECT ID, nome, situacao, congregacao_id, codigo_carrinho FROM tb_carrinho";
+
+                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                DataTable result = comandosDB.ExecuteQuery(querySelect);
+
+                // Limpa a lista de carrinhos antes de adicionar os novos resultados
+                Carrinhos.Clear();
+
+                // Itera pelas linhas do resultado e adiciona cada carrinho à lista Carrinhos
+                foreach (DataRow row in result.Rows)
+                {
+                    Carrinho1 carrinho = new Carrinho1
+                    {
+                        ID = row["ID"].ToString(),
+                        Nome = row["nome"].ToString(),
+                        Situacao = row["situacao"].ToString(),
+                        Congregacao_ID = row["congregacao_id"].ToString(),
+                        Codigo_Carrinho = row["codigo_carrinho"].ToString()
+                        // Certifique-se de ajustar os nomes das colunas conforme estão no banco de dados
+                    };
+
+                    Carrinhos.Add(carrinho);
+                }
+                //return Carrinhos;
+                Mensagem = comandosDB.Mensagem;
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
+            }
+        }
+
+        // Class de atualizar dado de carrinho no banco de dados
+        public void UpdateInDB(ConexaoDB conexaoDB, Carrinho1 carrinho)
+        {
+            Status = true;
+            try
+            {
+                string query = "UPDATE tb_carrinho SET Nome = @Nome, Codigo_Carrinho = @Codigo_Carrinho, Situacao = @Situacao WHERE ID = @ID";
+                using (MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@ID", carrinho.ID);
+                    cmd.Parameters.AddWithValue("@Nome", carrinho.Nome);
+                    cmd.Parameters.AddWithValue("@Codigo_Carrinho", carrinho.Codigo_Carrinho);
+                    cmd.Parameters.AddWithValue("@Situacao", carrinho.Situacao);
+
+                    
+                    conexaoDB.OpenConnection();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    conexaoDB.CloseConnection();
+                    if (rowsAffected > 0)
+                    {
+                        Status = true;
+                        Mensagem = "Carrinho atualizado com sucesso!";
+                    }
+                    else
+                    {
+                        Status = false;
+                        Mensagem = "Nenhum carrinho foi atualizado.";
+                    }
+                    
+                }
+                Mensagem = "Carrinho incluído com sucesso!";
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao incluir carrinho no banco de dados: " + ex.Message;
+            }
+        }
+
+        public void DeleteInDB(ConexaoDB conexaoDB, string Id)
+        {
+            try
+            {
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                string query = $"DELETE FROM tb_carrinho WHERE ID = '{Id}'";
+
+                int affectedRows = comandosDB.ExecuteNonQuery(query);
+
+                if (affectedRows > 0)
+                {
+                    Status = true;
+                    Mensagem = "Carrinho Excluida com sucesso!";
+                }
+                else
+                {
+                    Status = false;
+                    Mensagem = $"ID {Id} não existe no banco de dados!";
+                }
+            }
+            catch (Exception ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao Excluir Carrinho no banco de dados: " + ex.Message;
+            }
+        }
+
 
     }
 }
