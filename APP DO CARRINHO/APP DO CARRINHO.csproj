@@ -128,6 +128,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\Agendamento\Frm_Tela_Agendamento.resx">
+      <DependentUpon>Frm_Tela_Agendamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Carrinho\Frm_Cadastro_Carrinho_UC.resx">
       <DependentUpon>Frm_Cadastro_Carrinho_UC.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Carrinho\Frm_Geral_Carrinho_UC.resx">
       <DependentUpon>Frm_Geral_Carrinho_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Configuração\Frm_Tela_Configuracao.resx">
+      <DependentUpon>Frm_Tela_Configuracao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Menu Principal\Frm_Menu_Principal.resx">
       <DependentUpon>Frm_Menu_Principal.cs</DependentUpon>

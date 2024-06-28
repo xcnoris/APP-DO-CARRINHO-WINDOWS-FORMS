@@ -74,6 +74,7 @@
             this.MaximumSize = new System.Drawing.Size(700, 283);
             this.MinimumSize = new System.Drawing.Size(700, 283);
             this.Name = "Frm_Cadastro_Carrinho_UC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadadastro Carrinho";
             this.Load += new System.EventHandler(this.Frm_Cadastro_Carrinho_UC_Load);
             this.ResumeLayout(false);

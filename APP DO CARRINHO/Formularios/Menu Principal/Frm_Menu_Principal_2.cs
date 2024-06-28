@@ -42,11 +42,7 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
 
     
 
-        private void HideSubMenu()
-        {
-            if (panelEntidadesSubMenu.Visible == true)
-                panelEntidadesSubMenu.Visible = false;
-        }
+     
 
         private void ShowSubMenu(Button subMenu)
         {
@@ -63,19 +59,6 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
         {
             ShowSubMenu(Pnl_Pessoas);
             
-        }
-
-        // Adicione manipuladores de eventos para seus botões de submenu aqui, se necessário.
-        private void btnCadastrarEntidade_Click(object sender, EventArgs e)
-        {
-            // Código para lidar com o clique no botão "Cadastrar Entidade"
-            HideSubMenu();
-        }
-
-        private void btnAlterarEntidade_Click(object sender, EventArgs e)
-        {
-            // Código para lidar com o clique no botão "Alterar Entidade"
-            HideSubMenu();
         }
 
         private void btnCadastrarEntidade_Click_1(object sender, EventArgs e)

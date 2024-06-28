@@ -284,7 +284,9 @@
             this.Controls.Add(this.Btn_Incluir_Pessoas);
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Frm_Tela_Pessoas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pessoas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Frm_Tela_Pessoas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).EndInit();
             this.groupBox1.ResumeLayout(false);

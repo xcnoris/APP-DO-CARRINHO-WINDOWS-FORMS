@@ -283,7 +283,9 @@
             this.Controls.Add(this.Btn_Incluir_Pessoas);
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Frm_Tela_Carrinho";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Carrinhos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Frm_Tela_Pessoas_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

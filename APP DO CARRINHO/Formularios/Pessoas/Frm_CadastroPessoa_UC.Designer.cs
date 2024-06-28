@@ -75,6 +75,7 @@
             this.MaximumSize = new System.Drawing.Size(700, 520);
             this.MinimumSize = new System.Drawing.Size(700, 520);
             this.Name = "Frm_CadastroPessoa_UC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Pessoa";
             this.Load += new System.EventHandler(this.Frm_CadastroPessoa_UC_Load);
             this.ResumeLayout(false);
