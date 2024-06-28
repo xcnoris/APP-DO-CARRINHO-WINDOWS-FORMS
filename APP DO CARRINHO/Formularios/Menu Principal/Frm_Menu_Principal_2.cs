@@ -1,4 +1,6 @@
-﻿using APP_DO_CARRINHO.Formularios.Carrinho;
+﻿using APP_DO_CARRINHO.Formularios.Agendamento;
+using APP_DO_CARRINHO.Formularios.Carrinho;
+using APP_DO_CARRINHO.Formularios.Configuração;
 using APP_DO_CARRINHO.Formularios.Pessoas;
 using System;
 using System.Collections.Generic;
@@ -116,6 +118,18 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
         {
             Frm_Tela_Carrinho Frm = new Frm_Tela_Carrinho();
             Frm.Show();
+        }
+
+        private void Pnl_Agendamentos_Click(object sender, EventArgs e)
+        {
+            Frm_Tela_Agendamento frm = new Frm_Tela_Agendamento();
+            frm.Show();
+        }
+
+        private void Pnl_Configuracoes_Click(object sender, EventArgs e)
+        {
+            Frm_Tela_Configuracao frm = new Frm_Tela_Configuracao();
+            frm.Show();
         }
     }
 }

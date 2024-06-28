@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularios\Agendamento\Frm_Tela_Agendamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Agendamento\Frm_Tela_Agendamento.Designer.cs">
+      <DependentUpon>Frm_Tela_Agendamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Carrinho\Frm_Cadastro_Carrinho_UC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,12 @@
     </Compile>
     <Compile Include="Formularios\Carrinho\Frm_Geral_Carrinho_UC.Designer.cs">
       <DependentUpon>Frm_Geral_Carrinho_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Configuração\Frm_Tela_Configuracao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Configuração\Frm_Tela_Configuracao.Designer.cs">
+      <DependentUpon>Frm_Tela_Configuracao.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal.cs">
       <SubType>Form</SubType>
