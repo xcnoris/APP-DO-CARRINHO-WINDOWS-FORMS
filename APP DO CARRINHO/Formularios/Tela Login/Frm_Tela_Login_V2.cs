@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APP_DO_CARRINHO.Formularios.Tela_Login;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
 {
     public partial class Frm_Tela_Login_V2 : Form
     {
+        public string NomeUser { get; set; }
+
+
         public Frm_Tela_Login_V2()
         {
             InitializeComponent();
@@ -21,6 +25,7 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
         {
           
             DialogResult = DialogResult.Yes;
+            NomeUser = Txt_NomeUser.Text;
             this.Hide();
         }
 
@@ -31,7 +36,8 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
 
         private void Btn_Conexoes_Click(object sender, EventArgs e)
         {
-
+            Frm_Tela_ConexoesDB frm = new Frm_Tela_ConexoesDB();
+            frm.ShowDialog();
         }
 
         private void label1_Click(object sender, EventArgs e)

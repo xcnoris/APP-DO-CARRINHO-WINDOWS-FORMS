@@ -14,28 +14,31 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
 {
     public partial class Frm_Menu_Principal_2 : Form
     {
+
+
+
         public Frm_Menu_Principal_2()
         {
             InitializeComponent();
-            CustomizeDesign(); // Certifique-se de que os submenus estão ocultos ao iniciar o formulário
         }
 
         private void Frm_Menu_Principal_2_Load(object sender, EventArgs e)
         {
+            OcutarSubMenus();
             this.Hide();
             //Inicialização ou configurações adicionais, se necessário.
             Frm_Tela_Login_V2 frm = new Frm_Tela_Login_V2();
             frm.ShowDialog();
             if (frm.DialogResult == DialogResult.Yes)
             {
+                // Define o nome de exibicao do usuario logado como sendo o valor que foi informado na tela de login
+                Lbl_Nome_User.Text = frm.NomeUser; 
+
                 this.Show();
             }
         }
 
-        private void CustomizeDesign()
-        {
-            panelEntidadesSubMenu.Visible = false;
-        }
+    
 
         private void HideSubMenu()
         {
@@ -43,11 +46,11 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
                 panelEntidadesSubMenu.Visible = false;
         }
 
-        private void ShowSubMenu(Panel subMenu)
+        private void ShowSubMenu(Button subMenu)
         {
             if (subMenu.Visible == false)
             {
-                HideSubMenu();
+                //HideSubMenu();
                 subMenu.Visible = true;
             }
             else
@@ -56,7 +59,8 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
 
         private void btnEntidades_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(panelEntidadesSubMenu);
+            ShowSubMenu(Pnl_Pessoas);
+            
         }
 
         // Adicione manipuladores de eventos para seus botões de submenu aqui, se necessário.
@@ -78,10 +82,40 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
             frm.Show();
         }
 
-        private void btnAlterarEntidade_Click_1(object sender, EventArgs e)
+ 
+        private void button7_Click(object sender, EventArgs e)
         {
-            Frm_Tela_Carrinho f = new Frm_Tela_Carrinho();
-            f.Show();
+            //ShowSubMenu2(Btn_9);
+            //Btn_9.Visible = false;
+            
+        }
+        public void OcutarSubMenus()
+        {
+            Pnl_Pessoas.Visible = false;
+            Pnl_Agendamentos.Visible = false;
+            Pnl_Carrinhos.Visible = false;
+            Pnl_Configuracoes.Visible = false;
+        }
+
+        private void Pnl_Carrinho_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(Pnl_Carrinhos);
+        }
+
+        private void Pnl_Agendamento_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(Pnl_Agendamentos);
+        }
+
+        private void Pnl_Configuracao_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(Pnl_Configuracoes);
+        }
+
+        private void Pnl_Carrinhos_Click(object sender, EventArgs e)
+        {
+            Frm_Tela_Carrinho Frm = new Frm_Tela_Carrinho();
+            Frm.Show();
         }
     }
 }

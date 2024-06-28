@@ -83,10 +83,16 @@
     <Compile Include="Formularios\Menu Principal\Frm_Tela_Login_Registro.Designer.cs">
       <DependentUpon>Frm_Tela_Login_Registro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Menu Principal\Frm_Tela_Login_V2.cs">
+    <Compile Include="Formularios\Tela Login\Frm_Tela_ConexoesDB.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Menu Principal\Frm_Tela_Login_V2.Designer.cs">
+    <Compile Include="Formularios\Tela Login\Frm_Tela_ConexoesDB.Designer.cs">
+      <DependentUpon>Frm_Tela_ConexoesDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tela Login\Frm_Tela_Login_V2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Tela Login\Frm_Tela_Login_V2.Designer.cs">
       <DependentUpon>Frm_Tela_Login_V2.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Metodos.cs" />
@@ -128,7 +134,10 @@
     <EmbeddedResource Include="Formularios\Menu Principal\Frm_Tela_Login_Registro.resx">
       <DependentUpon>Frm_Tela_Login_Registro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Menu Principal\Frm_Tela_Login_V2.resx">
+    <EmbeddedResource Include="Formularios\Tela Login\Frm_Tela_ConexoesDB.resx">
+      <DependentUpon>Frm_Tela_ConexoesDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tela Login\Frm_Tela_Login_V2.resx">
       <DependentUpon>Frm_Tela_Login_V2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Pessoas\Frm_CadastroPessoa_UC.resx">
