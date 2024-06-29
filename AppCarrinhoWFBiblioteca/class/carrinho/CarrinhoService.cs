@@ -218,8 +218,89 @@ namespace AppCarrinhoWFBiblioteca.carrinho
         }
 
 
+        // Consulta um registro de carrinho no banco de dados
+        public void FiltrarPorNome(ConexaoDB conexaoDB, string Nome)
+        {
+            Status = true;
+            try
+            {
+                string querySelect = $"SELECT* FROM tb_carrinho WHERE nome LIKE '%{Nome}%'";
+
+                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                DataTable result = comandosDB.ExecuteQuery(querySelect);
+
+                // Limpa a lista de carrinhos antes de adicionar os novos resultados
+                Carrinhos.Clear();
+
+                // Itera pelas linhas do resultado e adiciona cada carrinho à lista Carrinhos
+                foreach (DataRow row in result.Rows)
+                {
+                    Carrinho1 carrinho = new Carrinho1
+                    {
+                        ID = row["ID"].ToString(),
+                        Nome = row["nome"].ToString(),
+                        Situacao = row["situacao"].ToString(),
+                        Congregacao_ID = row["congregacao_id"].ToString(),
+                        Codigo_Carrinho = row["codigo_carrinho"].ToString()
+                        // Certifique-se de ajustar os nomes das colunas conforme estão no banco de dados
+                    };
+
+                    Carrinhos.Add(carrinho);
+                }
+                //return Carrinhos;
+                Mensagem = comandosDB.Mensagem;
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
+            }
+        }
+
+
+        // Consulta um registro de carrinho no banco de dados
+        public void FiltrarPorCodigoCarrinhoENome(ConexaoDB conexaoDB, string Nome, string codigoCarrinho)
+        {
+            Status = true;
+            try
+            {
+                string querySelect = $"SELECT * FROM tb_carrinho WHERE nome LIKE '%{Nome}%' AND codigo_carrinho ='{codigoCarrinho}'";
+
+                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                DataTable result = comandosDB.ExecuteQuery(querySelect);
+
+                // Limpa a lista de carrinhos antes de adicionar os novos resultados
+                Carrinhos.Clear();
+
+                // Itera pelas linhas do resultado e adiciona cada carrinho à lista Carrinhos
+                foreach (DataRow row in result.Rows)
+                {
+                    Carrinho1 carrinho = new Carrinho1
+                    {
+                        ID = row["ID"].ToString(),
+                        Nome = row["nome"].ToString(),
+                        Situacao = row["situacao"].ToString(),
+                        Congregacao_ID = row["congregacao_id"].ToString(),
+                        Codigo_Carrinho = row["codigo_carrinho"].ToString()
+                        // Certifique-se de ajustar os nomes das colunas conforme estão no banco de dados
+                    };
+
+                    Carrinhos.Add(carrinho);
+                }
+                //return Carrinhos;
+                Mensagem = comandosDB.Mensagem;
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
+            }
+        }
+
         // Consulta um registro de carrinho no banco de dados com filtro de ID e Situação
-        public void ReadInDBWithFilter(ConexaoDB conexaoDB, string id, string situacao)
+        public void FiltrarPorIDESituacao(ConexaoDB conexaoDB, string id, string situacao)
         {
             Status = true;
             try
@@ -256,8 +337,46 @@ namespace AppCarrinhoWFBiblioteca.carrinho
             }
         }
 
+        // Consulta um registro de carrinho no banco de dados com filtro de ID e Situação
+        public void FiltrarPorIDESituacaoECodigoCarrinho(ConexaoDB conexaoDB, string id, string situacao,string codigocarrinho)
+        {
+            Status = true;
+            try
+            {
+                string querySelect = $"SELECT * FROM tb_carrinho WHERE ID = {id} AND situacao = '{situacao}' AND codigo_carrinho = {codigocarrinho}";
+
+                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                DataTable result = comandosDB.ExecuteQuery(querySelect);
+
+                // Limpa a lista de carrinhos antes de adicionar os novos resultados
+                Carrinhos.Clear();
+
+                // Itera pelas linhas do resultado e adiciona cada carrinho à lista Carrinhos
+                foreach (DataRow row in result.Rows)
+                {
+                    Carrinho1 carrinho = new Carrinho1
+                    {
+                        ID = row["ID"].ToString(),
+                        Nome = row["nome"].ToString(),
+                        Situacao = row["situacao"].ToString(),
+                        Congregacao_ID = row["congregacao_id"].ToString(),
+                        Codigo_Carrinho = row["codigo_carrinho"].ToString()
+                    };
+
+                    Carrinhos.Add(carrinho);
+                }
+                Mensagem = comandosDB.Mensagem;
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
+            }
+        }
+
         // Consulta um registro de carrinho no banco de dados com filtro de Situação
-        public void ReadInDBBySituacao(ConexaoDB conexaoDB, string situacao)
+        public void FiltrarPorSituacao(ConexaoDB conexaoDB, string situacao)
         {
             Status = true;
             try
@@ -294,6 +413,152 @@ namespace AppCarrinhoWFBiblioteca.carrinho
             }
         }
 
+        // Consulta um registro de carrinho no banco de dados com filtro de Situação
+        public void FiltrarPorSituacaoENome(ConexaoDB conexaoDB, string situacao, string nome)
+        {
+            Status = true;
+            try
+            {
+                string querySelect = $"SELECT ID, nome, situacao, congregacao_id, codigo_carrinho FROM tb_carrinho WHERE situacao = '{situacao}' AND  nome LIKE '%{nome}%'";
+
+                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                DataTable result = comandosDB.ExecuteQuery(querySelect);
+
+                // Limpa a lista de carrinhos antes de adicionar os novos resultados
+                Carrinhos.Clear();
+
+                // Itera pelas linhas do resultado e adiciona cada carrinho à lista Carrinhos
+                foreach (DataRow row in result.Rows)
+                {
+                    Carrinho1 carrinho = new Carrinho1
+                    {
+                        ID = row["ID"].ToString(),
+                        Nome = row["nome"].ToString(),
+                        Situacao = row["situacao"].ToString(),
+                        Congregacao_ID = row["congregacao_id"].ToString(),
+                        Codigo_Carrinho = row["codigo_carrinho"].ToString()
+                    };
+
+                    Carrinhos.Add(carrinho);
+                }
+                Mensagem = comandosDB.Mensagem;
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
+            }
+        }
+
+
+
+        // Consulta um registro de carrinho no banco de dados com filtro de ID + Situação + Nome
+        public void FiltrarPorIDESituacaoNomeECodigoCarrinho(ConexaoDB conexaoDB, string situacao, string nome, string codigoCarrinho)
+        {
+            Status = true;
+            try
+            {
+                string querySelect = $"SELECT * FROM tb_carrinho WHERE situacao = '{situacao}' AND nome ='{nome}' AND codigo_carrinho = '{codigoCarrinho}'";
+
+                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                DataTable result = comandosDB.ExecuteQuery(querySelect);
+
+                // Limpa a lista de carrinhos antes de adicionar os novos resultados
+                Carrinhos.Clear();
+
+                // Itera pelas linhas do resultado e adiciona cada carrinho à lista Carrinhos
+                foreach (DataRow row in result.Rows)
+                {
+                    Carrinho1 carrinho = new Carrinho1
+                    {
+                        ID = row["ID"].ToString(),
+                        Nome = row["nome"].ToString(),
+                        Situacao = row["situacao"].ToString(),
+                        Congregacao_ID = row["congregacao_id"].ToString(),
+                        Codigo_Carrinho = row["codigo_carrinho"].ToString()
+                    };
+
+                    Carrinhos.Add(carrinho);
+                }
+                Mensagem = comandosDB.Mensagem;
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
+            }
+        }
+
+        public void FiltrarPorCodigoCarrinho(ConexaoDB conexaoDB, string codigoCarrinho)
+        {
+            Status = true;
+            try
+            {
+                string querySelect = $"SELECT ID, nome, situacao, congregacao_id, codigo_carrinho FROM tb_carrinho WHERE codigo_carrinho = '{codigoCarrinho}'";
+
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                DataTable result = comandosDB.ExecuteQuery(querySelect);
+
+                Carrinhos.Clear();
+
+                foreach (DataRow row in result.Rows)
+                {
+                    Carrinho1 carrinho = new Carrinho1
+                    {
+                        ID = row["ID"].ToString(),
+                        Nome = row["nome"].ToString(),
+                        Situacao = row["situacao"].ToString(),
+                        Congregacao_ID = row["congregacao_id"].ToString(),
+                        Codigo_Carrinho = row["codigo_carrinho"].ToString()
+                    };
+
+                    Carrinhos.Add(carrinho);
+                }
+                Mensagem = comandosDB.Mensagem;
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
+            }
+        }
+
+        // Método de filtragem por ID, Situação e Código de Carrinho
+        public void FiltrarPorSituacaoECodigoCarrinho(ConexaoDB conexaoDB,  string situacao, string codigoCarrinho)
+        {
+            Status = true;
+            try
+            {
+                string querySelect = $"SELECT * FROM tb_carrinho WHERE  situacao = '{situacao}' AND codigo_carrinho ='{codigoCarrinho}'";
+
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                DataTable result = comandosDB.ExecuteQuery(querySelect);
+
+                Carrinhos.Clear();
+
+                foreach (DataRow row in result.Rows)
+                {
+                    Carrinho1 carrinho = new Carrinho1
+                    {
+                        ID = row["ID"].ToString(),
+                        Nome = row["nome"].ToString(),
+                        Situacao = row["situacao"].ToString(),
+                        Congregacao_ID = row["congregacao_id"].ToString(),
+                        Codigo_Carrinho = row["codigo_carrinho"].ToString()
+                    };
+
+                    Carrinhos.Add(carrinho);
+                }
+                Mensagem = comandosDB.Mensagem;
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
+            }
+        }
 
     }
 }

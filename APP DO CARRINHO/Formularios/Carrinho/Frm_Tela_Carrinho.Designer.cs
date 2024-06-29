@@ -56,6 +56,7 @@
             // Btn_Incluir_Pessoas
             // 
             this.Btn_Incluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_Incluir_Pessoas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Incluir_Pessoas.Location = new System.Drawing.Point(123, 528);
             this.Btn_Incluir_Pessoas.Name = "Btn_Incluir_Pessoas";
             this.Btn_Incluir_Pessoas.Size = new System.Drawing.Size(100, 30);
@@ -67,6 +68,7 @@
             // Btn_Alterar_Pessoas
             // 
             this.Btn_Alterar_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_Alterar_Pessoas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Alterar_Pessoas.Location = new System.Drawing.Point(229, 528);
             this.Btn_Alterar_Pessoas.Name = "Btn_Alterar_Pessoas";
             this.Btn_Alterar_Pessoas.Size = new System.Drawing.Size(100, 30);
@@ -88,6 +90,7 @@
             // Btn_Fechar
             // 
             this.Btn_Fechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Fechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Fechar.Location = new System.Drawing.Point(788, 528);
             this.Btn_Fechar.Name = "Btn_Fechar";
             this.Btn_Fechar.Size = new System.Drawing.Size(100, 30);
@@ -190,12 +193,12 @@
             // 
             // Cbox_Situacao
             // 
+            this.Cbox_Situacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbox_Situacao.FormattingEnabled = true;
             this.Cbox_Situacao.Location = new System.Drawing.Point(435, 62);
             this.Cbox_Situacao.Name = "Cbox_Situacao";
             this.Cbox_Situacao.Size = new System.Drawing.Size(133, 21);
             this.Cbox_Situacao.TabIndex = 24;
-            this.Cbox_Situacao.Text = "( Selecione )";
             // 
             // Lbl_Congregacao
             // 
@@ -237,11 +240,13 @@
             // 
             this.Txt_Id.Location = new System.Drawing.Point(435, 34);
             this.Txt_Id.Name = "Txt_Id";
+            this.Txt_Id.ReadOnly = true;
             this.Txt_Id.Size = new System.Drawing.Size(172, 20);
             this.Txt_Id.TabIndex = 16;
             // 
             // Btn_Filtrar
             // 
+            this.Btn_Filtrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Filtrar.Location = new System.Drawing.Point(435, 89);
             this.Btn_Filtrar.Name = "Btn_Filtrar";
             this.Btn_Filtrar.Size = new System.Drawing.Size(172, 23);
@@ -269,6 +274,7 @@
             // 
             // Frm_Tela_Carrinho
             // 
+            this.AcceptButton = this.Btn_Filtrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 561);

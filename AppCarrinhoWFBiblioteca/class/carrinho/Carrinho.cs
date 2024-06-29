@@ -26,6 +26,7 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
         public string Congregacao_Nome { get; set; }
 
         [Required(ErrorMessage = "Situação do Carrinho é Obrigatorio!")]
+
         public string Situacao { get; set; }
 
         [Required(ErrorMessage = "Codigo do Carrinho é obrigatorio!")]
@@ -55,7 +56,11 @@ namespace AppCarrinhoWFBiblioteca.carrinho1
                 // E força a mensagem da exceção
                 throw new ValidationException(sbrErrors.ToString());
             }
-            
+            if (this.Situacao == "0")
+            {
+                throw new ValidationException("Situação não pode ser todas!");
+            }
+
         }
     
 

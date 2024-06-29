@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -68,11 +69,12 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void Btn_Filtrar_Click(object sender, EventArgs e)
         {
-            // Caso não tenha caracter no TextBox ele filtra todos os carrinhos
             var IndexDaSituacao = Cbox_Situacao.SelectedIndex;
-            
+            string codigoCarrinho = Txt_Carrinho_Cod.Text; // Novo campo para o código do carrinho
+            string nomeCarrinho = Txt_Nome.Text;
 
-            if (string.IsNullOrWhiteSpace(Txt_Id.Text) && IndexDaSituacao == 0)
+
+            if (IndexDaSituacao == 0 && string.IsNullOrWhiteSpace(nomeCarrinho) && string.IsNullOrWhiteSpace(codigoCarrinho))
             {
                 try
                 {
@@ -86,38 +88,78 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             }
             else
             {
-                // Caso tenha algum valor no Txt_Id ou Situação ele tenta buscar no Banco de dados
                 try
                 {
                     DGV_Dados.Rows.Clear();
 
                     CarrinhoService CS = new CarrinhoService();
-                    // Caso consiga criar/acessar o diretorio ele entra no if
                     if (CS.Status)
                     {
-                        
-                        if (!string.IsNullOrWhiteSpace(Txt_Id.Text) && IndexDaSituacao > 0)
+                        //if (!string.IsNullOrWhiteSpace(Txt_Id.Text))
+                        //{
+                        //    if (IndexDaSituacao > 0 && !string.IsNullOrWhiteSpace(nomeCarrinho) && !string.IsNullOrWhiteSpace(codigoCarrinho))
+                        //    {
+                        //        CS.FiltrarPorIDESituacaoENome(conexaoDB, Txt_Id.Text, IndexDaSituacao.ToString(), nomeCarrinho);
+                        //    }
+                        //    else if (IndexDaSituacao > 0 && !string.IsNullOrWhiteSpace(codigoCarrinho))
+                        //    {
+                        //        CS.FiltrarPorIDESituacaoECodigoCarrinho(conexaoDB, Txt_Id.Text, IndexDaSituacao.ToString(), codigoCarrinho);
+                        //    }
+                        //    else if (IndexDaSituacao > 0)
+                        //    {
+                        //        CS.FiltrarPorIDESituacao(conexaoDB, Txt_Id.Text, IndexDaSituacao.ToString());
+                        //    }
+                        //    else
+                        //    {
+                        //        CS.ReadInDB(conexaoDB, Txt_Id.Text);
+                        //    }
+                        //}
+                        if (IndexDaSituacao > 0)
                         {
-                            // Filtrar por ID e Situação
-                            
-                            
-                            CS.ReadInDBWithFilter(conexaoDB, Txt_Id.Text, IndexDaSituacao.ToString());
+                            if (!string.IsNullOrWhiteSpace(codigoCarrinho) && !string.IsNullOrWhiteSpace(nomeCarrinho))
+                            {
+                                CS.FiltrarPorIDESituacaoNomeECodigoCarrinho(conexaoDB, IndexDaSituacao.ToString(), nomeCarrinho, codigoCarrinho);
+                            }
+                            else if (!string.IsNullOrWhiteSpace(nomeCarrinho))
+                            {
+                                CS.FiltrarPorSituacaoENome(conexaoDB, IndexDaSituacao.ToString(), nomeCarrinho);
+                            }
+                            else if (!string.IsNullOrWhiteSpace(codigoCarrinho))
+                            {
+                                CS.FiltrarPorSituacaoECodigoCarrinho(conexaoDB, IndexDaSituacao.ToString(), codigoCarrinho);
+                            }
+                            else
+                            {
+                                CS.FiltrarPorSituacao(conexaoDB, IndexDaSituacao.ToString());
+                            }
                         }
-                        else if (!string.IsNullOrWhiteSpace(Txt_Id.Text))
+                        else if (IndexDaSituacao == 0)
                         {
-                            // Filtrar apenas por ID
-                            CS.ReadInDB(conexaoDB, Txt_Id.Text);
+                            if (!string.IsNullOrWhiteSpace(nomeCarrinho) && !string.IsNullOrWhiteSpace(codigoCarrinho))
+                            {
+                                CS.FiltrarPorCodigoCarrinhoENome(conexaoDB, nomeCarrinho, codigoCarrinho);
+                            }
+                            else if (!string.IsNullOrWhiteSpace(nomeCarrinho))
+                            {
+                                CS.FiltrarPorNome(conexaoDB, nomeCarrinho);
+                            }
+                            else
+                            {
+                                CS.FiltrarPorCodigoCarrinho(conexaoDB, codigoCarrinho);
+                            }
                         }
-                        else if (IndexDaSituacao > 0)
-                        {
-                            // Filtrar apenas por Situação
-                            //string situacao = Cbox_Situacao.SelectedItem.ToString();
-                            CS.ReadInDBBySituacao(conexaoDB, IndexDaSituacao.ToString());
-                        }
+                        //}
+                        //else if (!string.IsNullOrWhiteSpace(nomeCarrinho))
+                        //{
+                        //    CS.FiltrarPorNome(conexaoDB, nomeCarrinho);
+                        //}
+                        //else
+                        //{
+                        //    CarregarTodosCarrinhos();
+                        //}
 
                         if (CS.Status)
                         {
-                            // Pecorre a lista
                             foreach (Carrinho1 carrinhos in CS.Carrinhos)
                             {
                                 AddCarrinhoToDataGridView(carrinhos);
@@ -139,6 +181,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 }
             }
         }
+
         private void AddCarrinhoToDataGridView(Carrinho1 carrinho)
         {
             // Se o DataGridView não tiver colunas, adicione-as

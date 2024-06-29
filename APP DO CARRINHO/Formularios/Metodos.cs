@@ -41,6 +41,7 @@ namespace APP_DO_CARRINHO.Formularios
                         CboxSituacao.DataSource = situacaoList;
                         CboxSituacao.DisplayMember = "Nome";
                         CboxSituacao.ValueMember = "Id";
+                        CboxSituacao.DropDownStyle = ComboBoxStyle.DropDownList;
                     }
                     else
                     {

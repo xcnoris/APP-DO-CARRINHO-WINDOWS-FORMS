@@ -70,13 +70,13 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             conexaoDB = new ConexaoDB();
             metodos = new Metodos();
             metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
-            var i = Cbox_Situacao.SelectedIndex = 0;
-            Cbox_Situacao.Items.Remove(i);
+
+            
         }
 
         private void Frm_Geral_Carrinho_UC_Load(object sender, EventArgs e)
         {
-            
+
             //Situacao situacao = situacao.ConsultarDisponibilidadeInDB();
 
         }
