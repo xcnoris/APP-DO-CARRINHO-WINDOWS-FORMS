@@ -36,7 +36,7 @@ namespace APP_DO_CARRINHO.Formularios
                         List<Situacao> situacaoList = situacoes.ToList();
 
                         // Adiciona a opção "Todos"
-                        //situacaoList.Insert(0, new Situacao { Id = "0", Nome = "Todos" });
+                        situacaoList.Insert(0, new Situacao { Id = "0", Nome = "Todos" });
 
                         CboxSituacao.DataSource = situacaoList;
                         CboxSituacao.DisplayMember = "Nome";

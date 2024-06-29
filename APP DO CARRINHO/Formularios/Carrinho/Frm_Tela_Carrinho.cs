@@ -69,49 +69,64 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         private void Btn_Filtrar_Click(object sender, EventArgs e)
         {
             // Caso não tenha caracter no TextBox ele filtra todos os carrinhos
-            if((Txt_Id.Text == ""))
+            var IndexDaSituacao = Cbox_Situacao.SelectedIndex;
+            
+
+            if (string.IsNullOrWhiteSpace(Txt_Id.Text) && IndexDaSituacao == 0)
             {
                 try
                 {
                     DGV_Dados.Rows.Clear();
                     CarregarTodosCarrinhos();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                // Caso tenha algum valor no Txt_Id ele tenta buscar no Banco de dados
+                // Caso tenha algum valor no Txt_Id ou Situação ele tenta buscar no Banco de dados
                 try
                 {
                     DGV_Dados.Rows.Clear();
-                   
+
                     CarrinhoService CS = new CarrinhoService();
                     // Caso consiga criar/acessar o diretorio ele entra no if
                     if (CS.Status)
                     {
-                        CS.ReadInDB(conexaoDB, Txt_Id.Text);
                         
+                        if (!string.IsNullOrWhiteSpace(Txt_Id.Text) && IndexDaSituacao > 0)
+                        {
+                            // Filtrar por ID e Situação
+                            
+                            
+                            CS.ReadInDBWithFilter(conexaoDB, Txt_Id.Text, IndexDaSituacao.ToString());
+                        }
+                        else if (!string.IsNullOrWhiteSpace(Txt_Id.Text))
+                        {
+                            // Filtrar apenas por ID
+                            CS.ReadInDB(conexaoDB, Txt_Id.Text);
+                        }
+                        else if (IndexDaSituacao > 0)
+                        {
+                            // Filtrar apenas por Situação
+                            //string situacao = Cbox_Situacao.SelectedItem.ToString();
+                            CS.ReadInDBBySituacao(conexaoDB, IndexDaSituacao.ToString());
+                        }
+
                         if (CS.Status)
                         {
-
                             // Pecorre a lista
                             foreach (Carrinho1 carrinhos in CS.Carrinhos)
                             {
-
                                 AddCarrinhoToDataGridView(carrinhos);
                             }
-
                         }
                         else
                         {
-                            MessageBox.Show($"ID {Txt_Id.Text} Não Localizado Na Base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"Registro não encontrado na base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-
-                        //MessageBox.Show(carrinhoJson);
-
                     }
                     else
                     {
@@ -135,6 +150,17 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 DGV_Dados.Columns.Add("congregacao_nome", "Congregação Nome");
                 DGV_Dados.Columns.Add("situacao", "Situação");
                 DGV_Dados.Columns.Add("codigo_carrinho", "Código Carrinho");
+            }
+            string situacao;
+            if(carrinho.Situacao == "1")
+            {
+                carrinho.Situacao = "Ativo";
+                
+            }
+            if (carrinho.Situacao == "2")
+            {
+                carrinho.Situacao = "Inativo";
+                
             }
 
             // Adicionar a linha ao DataGridView

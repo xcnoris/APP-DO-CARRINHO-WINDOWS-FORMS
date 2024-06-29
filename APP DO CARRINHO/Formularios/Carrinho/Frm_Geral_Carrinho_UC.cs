@@ -96,15 +96,13 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             Txt_Codigo_Carrinho.Text = codigoCarrinho;
 
             // Configurar o valor do ComboBox de Situação
-            if (Cbox_Situacao.Items.Count > 0)
+            foreach (var item in Cbox_Situacao.Items)
             {
-                foreach (var item in Cbox_Situacao.Items)
+                // Assuming each item in Cbox_Situacao is of type Situacao
+                if (item is Situacao situacaoItem && situacaoItem.Nome == situacao)
                 {
-                    if (item is Situacao situacaoItem && situacaoItem.Id == situacao)
-                    {
-                        Cbox_Situacao.SelectedItem = item;
-                        break;
-                    }
+                    Cbox_Situacao.SelectedItem = item;
+                    break;
                 }
             }
         }
