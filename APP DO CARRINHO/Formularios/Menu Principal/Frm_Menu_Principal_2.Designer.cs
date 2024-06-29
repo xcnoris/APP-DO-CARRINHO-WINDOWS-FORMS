@@ -306,11 +306,11 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(834, 8);
+            this.label1.Location = new System.Drawing.Point(809, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.Size = new System.Drawing.Size(104, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Versão: 0.0.0.0";
+            this.label1.Text = "Versão Beta: 0.0.0.0";
             // 
             // Frm_Menu_Principal_2
             // 

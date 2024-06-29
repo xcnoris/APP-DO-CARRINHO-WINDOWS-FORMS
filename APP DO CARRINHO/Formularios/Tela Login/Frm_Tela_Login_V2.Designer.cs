@@ -110,7 +110,7 @@
             // 
             this.Btn_Conexoes.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.Btn_Conexoes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Conexoes.Location = new System.Drawing.Point(12, 380);
+            this.Btn_Conexoes.Location = new System.Drawing.Point(12, 390);
             this.Btn_Conexoes.Name = "Btn_Conexoes";
             this.Btn_Conexoes.Size = new System.Drawing.Size(75, 23);
             this.Btn_Conexoes.TabIndex = 6;
@@ -122,11 +122,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(343, 389);
+            this.label1.Location = new System.Drawing.Point(315, 395);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 14);
+            this.label1.Size = new System.Drawing.Size(115, 14);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Versão 0.1.1.0";
+            this.label1.Text = "Versão Beta:  0.1.1.0";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox1

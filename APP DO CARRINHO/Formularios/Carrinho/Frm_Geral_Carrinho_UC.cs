@@ -12,12 +12,20 @@ using AppCarrinhoWFBiblioteca;
 using AppCarrinhoWFBiblioteca.clientes;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
+using banco.DataBases;
 
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
     public partial class Frm_Geral_Carrinho_UC : UserControl
     {
+
+        private ConexaoDB conexaoDB;
+        private Metodos metodos;
+        private ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
+
+
+
         public string Carrinho_Id
         {
             get { return Txt_ID.Text; }
@@ -36,6 +44,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 }
                 else
                 {
+                    
                     return Cbox_Situacao.SelectedIndex.ToString();
                 }
             }
@@ -52,15 +61,21 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
             get { return Txt_Codigo_Carrinho.Text; }
         }
+
+
+        // ======> Construtor  <=============
         public Frm_Geral_Carrinho_UC()
         {
+            conexaoDB = new ConexaoDB();
+            metodos = new Metodos();
             InitializeComponent();
         }
 
         private void Frm_Geral_Carrinho_UC_Load(object sender, EventArgs e)
         {
+            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
             //Situacao situacao = situacao.ConsultarDisponibilidadeInDB();
-            
+
         }
 
         public void InserirSituacao()

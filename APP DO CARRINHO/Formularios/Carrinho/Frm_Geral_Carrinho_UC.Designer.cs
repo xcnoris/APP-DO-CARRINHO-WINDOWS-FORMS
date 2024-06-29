@@ -45,8 +45,7 @@
             // 
             this.Cbox_Situacao.FormattingEnabled = true;
             this.Cbox_Situacao.Items.AddRange(new object[] {
-            " ATIVO",
-            " INATIVO"});
+            " "});
             this.Cbox_Situacao.Location = new System.Drawing.Point(533, 61);
             this.Cbox_Situacao.Name = "Cbox_Situacao";
             this.Cbox_Situacao.Size = new System.Drawing.Size(121, 21);

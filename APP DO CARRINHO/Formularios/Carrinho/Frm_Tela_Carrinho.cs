@@ -51,7 +51,8 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void Frm_Tela_Pessoas_Load(object sender, EventArgs e)
         {
-            IncluirCamposSituacao(conexaoDB, RetornoSituacoes);
+            Metodos m = new Metodos();
+            m.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
             CarregarTodosCarrinhos();
         }
 
@@ -176,46 +177,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void IncluirCamposSituacao(ConexaoDB conexao, ICollection<Situacao> situacoes)
-        {
-            try
-            {
-                
-                Situacao situacao = new Situacao();
-
-                if (situacao.Status)
-                {
-                    situacao.ConsultarDisponibilidadeInDB(conexao);
-
-                    if (situacao.Status)
-                    {
-                        situacoes = Situacao.Situacoes;
-
-                        // Convert the ICollection<Situacao> to a List<Situacao> to add the "Todos" option
-                        List<Situacao> situacaoList = situacoes.ToList();
-
-                        // Add the "Todos" option
-                        situacaoList.Insert(0, new Situacao { Id = "0", Nome = "Todos" });
-
-                        Cbox_Situacao.DataSource = situacaoList;
-                        Cbox_Situacao.DisplayMember = "Nome";
-                        Cbox_Situacao.ValueMember = "Id";
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+       
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
