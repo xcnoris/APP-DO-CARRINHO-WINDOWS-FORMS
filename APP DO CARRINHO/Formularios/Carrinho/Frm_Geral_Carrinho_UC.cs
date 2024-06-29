@@ -66,14 +66,17 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         // ======> Construtor  <=============
         public Frm_Geral_Carrinho_UC()
         {
+            InitializeComponent();
             conexaoDB = new ConexaoDB();
             metodos = new Metodos();
-            InitializeComponent();
+            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
+            var i = Cbox_Situacao.SelectedIndex = 0;
+            Cbox_Situacao.Items.Remove(i);
         }
 
         private void Frm_Geral_Carrinho_UC_Load(object sender, EventArgs e)
         {
-            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
+            
             //Situacao situacao = situacao.ConsultarDisponibilidadeInDB();
 
         }
@@ -84,14 +87,26 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         }
 
         // Função para inserir dados quando é dado um duplo clique em um data grid view
-        public void SetCarrinhoData(string id, string nome, string congregacaoId,  string congregacaoNome, string situacao, string codigoCarrinho)
+        public void SetCarrinhoData(string id, string nome,string situacao, string congregacaoId,  string congregacaoNome, string codigoCarrinho)
         {
             Txt_ID.Text = id;
             Txt_Nome.Text = nome;
             Txt_Congregacao_ID.Text = congregacaoId;
             Txt_Congregacao_Nome.Text = congregacaoNome;
-            Cbox_Situacao.SelectedIndex = Cbox_Situacao.FindStringExact(situacao); // Or set the value directly if you have the value member
             Txt_Codigo_Carrinho.Text = codigoCarrinho;
+
+            // Configurar o valor do ComboBox de Situação
+            if (Cbox_Situacao.Items.Count > 0)
+            {
+                foreach (var item in Cbox_Situacao.Items)
+                {
+                    if (item is Situacao situacaoItem && situacaoItem.Id == situacao)
+                    {
+                        Cbox_Situacao.SelectedItem = item;
+                        break;
+                    }
+                }
+            }
         }
 
         private void Lbl_Nome_Carrinho_Click(object sender, EventArgs e)

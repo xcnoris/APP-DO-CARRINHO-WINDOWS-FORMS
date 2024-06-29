@@ -120,10 +120,10 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             };
         }
 
-        public void InserirDadosInUserControl(string id, string nome, string congregacaoId, string nome_congregacao, string situacao, string codigoCarrinho)
+        public void InserirDadosInUserControl(string id, string nome, string situacao, string congregacaoId, string nome_congregacao, string codigoCarrinho)
         {
             ControleSalvarIncluirCarrinho = false;
-            frmGeralCarrinho.SetCarrinhoData(id, nome, congregacaoId, nome_congregacao, situacao, codigoCarrinho);
+            frmGeralCarrinho.SetCarrinhoData(id, nome, situacao, congregacaoId, nome_congregacao, codigoCarrinho);
         }
         private void Btn_Fechar_Click(object sender, EventArgs e)
         {

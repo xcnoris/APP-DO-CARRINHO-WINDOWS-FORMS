@@ -199,7 +199,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
             // Pass the data to the Frm_Cadastro_Carrinho_UC form
             Frm_Cadastro_Carrinho_UC frm = new Frm_Cadastro_Carrinho_UC();
-            frm.InserirDadosInUserControl(id, nome, congregacaoId, congregacaoNome, situacao, codigoCarrinho);
+            frm.InserirDadosInUserControl(id, nome, situacao, congregacaoId, congregacaoNome, codigoCarrinho);
             frm.ShowDialog();
         }
 
@@ -218,7 +218,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
             // Pass the data to the Frm_Cadastro_Carrinho_UC form
             Frm_Cadastro_Carrinho_UC frm = new Frm_Cadastro_Carrinho_UC();
-            frm.InserirDadosInUserControl(id, nome, congregacaoId, congregacaoNome, situacao, codigoCarrinho);
+            frm.InserirDadosInUserControl(id, nome, situacao, congregacaoId, congregacaoNome, codigoCarrinho);
             frm.ShowDialog();
         }
     }

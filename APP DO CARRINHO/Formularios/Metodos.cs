@@ -12,11 +12,15 @@ namespace APP_DO_CARRINHO.Formularios
     internal class Metodos
     {
 
-       
+
         public void IncluirCamposSituacao(ConexaoDB conexao, ICollection<Situacao> situacoes, ComboBox CboxSituacao)
         {
             try
             {
+                if (CboxSituacao == null)
+                {
+                    throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
+                }
 
                 Situacao situacao = new Situacao();
 
@@ -28,11 +32,11 @@ namespace APP_DO_CARRINHO.Formularios
                     {
                         situacoes = Situacao.Situacoes;
 
-                        // Convert the ICollection<Situacao> to a List<Situacao> to add the "Todos" option
+                        // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
                         List<Situacao> situacaoList = situacoes.ToList();
 
-                        // Add the "Todos" option
-                        situacaoList.Insert(0, new Situacao { Id = "0", Nome = "Todos" });
+                        // Adiciona a opção "Todos"
+                        //situacaoList.Insert(0, new Situacao { Id = "0", Nome = "Todos" });
 
                         CboxSituacao.DataSource = situacaoList;
                         CboxSituacao.DisplayMember = "Nome";
@@ -53,5 +57,6 @@ namespace APP_DO_CARRINHO.Formularios
                 MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
