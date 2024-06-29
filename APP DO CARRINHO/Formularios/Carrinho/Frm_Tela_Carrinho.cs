@@ -7,6 +7,7 @@ using DataBase.DataBases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
@@ -29,6 +30,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
             InitializeComponent();
             conexaoDB = new ConexaoDB();
+            
         }
 
         private void Frm_Tela_Carrinho_Load(object sender, EventArgs e)
@@ -52,6 +54,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void Frm_Tela_Pessoas_Load(object sender, EventArgs e)
         {
+          
             Metodos m = new Metodos();
             m.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
             CarregarTodosCarrinhos();
@@ -95,25 +98,6 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                     CarrinhoService CS = new CarrinhoService();
                     if (CS.Status)
                     {
-                        //if (!string.IsNullOrWhiteSpace(Txt_Id.Text))
-                        //{
-                        //    if (IndexDaSituacao > 0 && !string.IsNullOrWhiteSpace(nomeCarrinho) && !string.IsNullOrWhiteSpace(codigoCarrinho))
-                        //    {
-                        //        CS.FiltrarPorIDESituacaoENome(conexaoDB, Txt_Id.Text, IndexDaSituacao.ToString(), nomeCarrinho);
-                        //    }
-                        //    else if (IndexDaSituacao > 0 && !string.IsNullOrWhiteSpace(codigoCarrinho))
-                        //    {
-                        //        CS.FiltrarPorIDESituacaoECodigoCarrinho(conexaoDB, Txt_Id.Text, IndexDaSituacao.ToString(), codigoCarrinho);
-                        //    }
-                        //    else if (IndexDaSituacao > 0)
-                        //    {
-                        //        CS.FiltrarPorIDESituacao(conexaoDB, Txt_Id.Text, IndexDaSituacao.ToString());
-                        //    }
-                        //    else
-                        //    {
-                        //        CS.ReadInDB(conexaoDB, Txt_Id.Text);
-                        //    }
-                        //}
                         if (IndexDaSituacao > 0)
                         {
                             if (!string.IsNullOrWhiteSpace(codigoCarrinho) && !string.IsNullOrWhiteSpace(nomeCarrinho))
@@ -148,16 +132,6 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                                 CS.FiltrarPorCodigoCarrinho(conexaoDB, codigoCarrinho);
                             }
                         }
-                        //}
-                        //else if (!string.IsNullOrWhiteSpace(nomeCarrinho))
-                        //{
-                        //    CS.FiltrarPorNome(conexaoDB, nomeCarrinho);
-                        //}
-                        //else
-                        //{
-                        //    CarregarTodosCarrinhos();
-                        //}
-
                         if (CS.Status)
                         {
                             foreach (Carrinho1 carrinhos in CS.Carrinhos)
@@ -182,39 +156,50 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             }
         }
 
+        // Recebe um object Carrinho1 e convert para uma linha do DataGridView
         private void AddCarrinhoToDataGridView(Carrinho1 carrinho)
         {
-            // Se o DataGridView não tiver colunas, adicione-as
-            if (DGV_Dados.Columns.Count == 0)
+            try
             {
-                DGV_Dados.Columns.Add("ID", "ID");
-                DGV_Dados.Columns.Add("nome", "Nome");
-                DGV_Dados.Columns.Add("congregacao_id", "Congregação ID");
-                DGV_Dados.Columns.Add("congregacao_nome", "Congregação Nome");
-                DGV_Dados.Columns.Add("situacao", "Situação");
-                DGV_Dados.Columns.Add("codigo_carrinho", "Código Carrinho");
-            }
-            string situacao;
-            if(carrinho.Situacao == "1")
-            {
-                carrinho.Situacao = "Ativo";
-                
-            }
-            if (carrinho.Situacao == "2")
-            {
-                carrinho.Situacao = "Inativo";
-                
-            }
 
-            // Adicionar a linha ao DataGridView
-            DGV_Dados.Rows.Add(carrinho.ID, carrinho.Nome, carrinho.Congregacao_ID, carrinho.Congregacao_Nome, carrinho.Situacao, carrinho.Codigo_Carrinho);
+                // Se o DataGridView não tiver colunas, adicione-as
+                if (DGV_Dados.Columns.Count == 0)
+                {
+                    DGV_Dados.Columns.Add("ID", "ID");
+                    DGV_Dados.Columns.Add("nome", "Nome");
+                    DGV_Dados.Columns.Add("congregacao_id", "Congregação ID");
+                    DGV_Dados.Columns.Add("congregacao_nome", "Congregação Nome");
+                    DGV_Dados.Columns.Add("situacao", "Situação");
+                    DGV_Dados.Columns.Add("codigo_carrinho", "Código Carrinho");
+                }
+                string situacao;
+                if (carrinho.Situacao == "1")
+                {
+                    carrinho.Situacao = "Ativo";
+
+                }
+                if (carrinho.Situacao == "2")
+                {
+                    carrinho.Situacao = "Inativo";
+
+                }
+
+                // Adicionar a linha ao DataGridView
+                DGV_Dados.Rows.Add(carrinho.ID, carrinho.Nome, carrinho.Congregacao_ID, carrinho.Congregacao_Nome, carrinho.Situacao, carrinho.Codigo_Carrinho);
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
         private void CarregarTodosCarrinhos()
         {
+            
             try
             {
+                DGV_Dados.Rows.Clear();
                 //Carrinho1 carrinho1 = new Carrinho1();
                 CarrinhoService CS = new CarrinhoService();
                 
@@ -256,39 +241,85 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         // Abre um
         private void DGV_Dados_DoubleClick(object sender, EventArgs e)
         {
-            // Retrieve the selected row data
-            var selectedRow = DGV_Dados.CurrentRow;
-            string id = selectedRow.Cells["ID"].Value.ToString();
-            string nome = selectedRow.Cells["nome"].Value.ToString();
-            string congregacaoId = selectedRow.Cells["congregacao_id"].Value.ToString();
-            //string congregacaoNome = selectedRow.Cells["congregacao_nome"].Value.ToString();
-            string congregacaoNome = "Congregacao Areias";
-            string situacao = selectedRow.Cells["situacao"].Value.ToString();
-            string codigoCarrinho = selectedRow.Cells["codigo_carrinho"].Value.ToString();
+            try
+            {
+                // Retrieve the selected row data
+                var selectedRow = DGV_Dados.CurrentRow;
+                string id = selectedRow.Cells["ID"].Value.ToString();
+                string nome = selectedRow.Cells["nome"].Value.ToString();
+                string congregacaoId = selectedRow.Cells["congregacao_id"].Value.ToString();
+                //string congregacaoNome = selectedRow.Cells["congregacao_nome"].Value.ToString();
+                string congregacaoNome = "Congregacao Areias";
+                string situacao = selectedRow.Cells["situacao"].Value.ToString();
+                string codigoCarrinho = selectedRow.Cells["codigo_carrinho"].Value.ToString();
 
-            // Pass the data to the Frm_Cadastro_Carrinho_UC form
-            Frm_Cadastro_Carrinho_UC frm = new Frm_Cadastro_Carrinho_UC();
-            frm.InserirDadosInUserControl(id, nome, situacao, congregacaoId, congregacaoNome, codigoCarrinho);
-            frm.ShowDialog();
+                // Pass the data to the Frm_Cadastro_Carrinho_UC form
+                Frm_Cadastro_Carrinho_UC frm = new Frm_Cadastro_Carrinho_UC();
+                frm.InserirDadosInUserControl(id, nome, situacao, congregacaoId, congregacaoNome, codigoCarrinho);
+                frm.ShowDialog();
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+         
         }
 
         private void Btn_Alterar_Pessoas_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Retrieve the selected row data
+                var selectedRow = DGV_Dados.CurrentRow;
+                string id = selectedRow.Cells["ID"].Value.ToString();
+                string nome = selectedRow.Cells["nome"].Value.ToString();
+                string congregacaoId = selectedRow.Cells["congregacao_id"].Value.ToString();
+                //string congregacaoNome = selectedRow.Cells["congregacao_nome"].Value.ToString();
+                string congregacaoNome = "Congregacao Areias";
+                string situacao = selectedRow.Cells["situacao"].Value.ToString();
+                string codigoCarrinho = selectedRow.Cells["codigo_carrinho"].Value.ToString();
 
-            // Retrieve the selected row data
-            var selectedRow = DGV_Dados.CurrentRow;
-            string id = selectedRow.Cells["ID"].Value.ToString();
-            string nome = selectedRow.Cells["nome"].Value.ToString();
-            string congregacaoId = selectedRow.Cells["congregacao_id"].Value.ToString();
-            //string congregacaoNome = selectedRow.Cells["congregacao_nome"].Value.ToString();
-            string congregacaoNome = "Congregacao Areias";
-            string situacao = selectedRow.Cells["situacao"].Value.ToString();
-            string codigoCarrinho = selectedRow.Cells["codigo_carrinho"].Value.ToString();
+                // Pass the data to the Frm_Cadastro_Carrinho_UC form
+                Frm_Cadastro_Carrinho_UC frm = new Frm_Cadastro_Carrinho_UC();
+                frm.InserirDadosInUserControl(id, nome, situacao, congregacaoId, congregacaoNome, codigoCarrinho);
+                frm.ShowDialog();
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
 
-            // Pass the data to the Frm_Cadastro_Carrinho_UC form
-            Frm_Cadastro_Carrinho_UC frm = new Frm_Cadastro_Carrinho_UC();
-            frm.InserirDadosInUserControl(id, nome, situacao, congregacaoId, congregacaoNome, codigoCarrinho);
-            frm.ShowDialog();
+        private void Btn_Excluir_Pessoas_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                var resposta = MessageBox.Show("Você Realmente quer excluir o carrinho selecionado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resposta == DialogResult.Yes)
+                {
+                    CarrinhoService carrinho = new CarrinhoService();
+                    var selectedRow = DGV_Dados.CurrentRow;
+                    string id = selectedRow.Cells["ID"].Value.ToString();
+                    carrinho.DeleteInDB(conexaoDB, id);
+
+                    if (carrinho.Status)
+                    {
+                        MessageBox.Show($"OK: {carrinho.Mensagem} Carrinho Excluido com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        CarregarTodosCarrinhos();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"{carrinho.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }  
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

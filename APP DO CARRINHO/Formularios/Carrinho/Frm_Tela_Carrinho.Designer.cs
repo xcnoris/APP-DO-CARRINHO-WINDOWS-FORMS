@@ -86,6 +86,7 @@
             this.Btn_Excluir_Pessoas.TabIndex = 2;
             this.Btn_Excluir_Pessoas.Text = "Excluir";
             this.Btn_Excluir_Pessoas.UseVisualStyleBackColor = true;
+            this.Btn_Excluir_Pessoas.Click += new System.EventHandler(this.Btn_Excluir_Pessoas_Click);
             // 
             // Btn_Fechar
             // 
@@ -251,7 +252,7 @@
             this.Btn_Filtrar.Name = "Btn_Filtrar";
             this.Btn_Filtrar.Size = new System.Drawing.Size(172, 23);
             this.Btn_Filtrar.TabIndex = 19;
-            this.Btn_Filtrar.Text = "Filtrar";
+            this.Btn_Filtrar.Text = "Filtrar ( Enter )";
             this.Btn_Filtrar.UseVisualStyleBackColor = true;
             this.Btn_Filtrar.Click += new System.EventHandler(this.Btn_Filtrar_Click);
             // 
