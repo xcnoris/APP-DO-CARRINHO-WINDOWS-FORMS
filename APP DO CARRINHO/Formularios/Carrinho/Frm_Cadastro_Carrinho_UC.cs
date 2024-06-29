@@ -65,12 +65,14 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                     {
                         ControleSalvarIncluirCarrinho = true;
                         MessageBox.Show($"OK: {carrinho.Mensagem} Carrinho incluído com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       
                         this.Close();
                     }
                     else
                     {
                         ControleSalvarIncluirCarrinho = true;
                         MessageBox.Show($"{carrinho.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        
                         this.Close();
                     }
                 }
@@ -87,12 +89,14 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                     {
                         ControleSalvarIncluirCarrinho = true;
                         MessageBox.Show($"OK: {carrinho.Mensagem} Carrinho Atualizado com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                     
                         this.Close();
                     }
                     else
                     {
                         ControleSalvarIncluirCarrinho = true;
                         MessageBox.Show($"{carrinho.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                      
                         this.Close();
                     }
                 }

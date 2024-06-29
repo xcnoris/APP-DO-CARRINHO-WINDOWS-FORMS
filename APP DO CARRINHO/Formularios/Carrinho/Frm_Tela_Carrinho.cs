@@ -30,12 +30,12 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
             InitializeComponent();
             conexaoDB = new ConexaoDB();
-            
+         
         }
 
         private void Frm_Tela_Carrinho_Load(object sender, EventArgs e)
         {
-    
+   
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -283,6 +283,8 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 Frm_Cadastro_Carrinho_UC frm = new Frm_Cadastro_Carrinho_UC();
                 frm.InserirDadosInUserControl(id, nome, situacao, congregacaoId, congregacaoNome, codigoCarrinho);
                 frm.ShowDialog();
+                
+                
             }
             catch (ValidationException ex)
             {

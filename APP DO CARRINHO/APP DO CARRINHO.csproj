@@ -77,23 +77,11 @@
     <Compile Include="Formularios\Configuração\Frm_Tela_Configuracao.Designer.cs">
       <DependentUpon>Frm_Tela_Configuracao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal.Designer.cs">
-      <DependentUpon>Frm_Menu_Principal.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal_2.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal_2.Designer.cs">
       <DependentUpon>Frm_Menu_Principal_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Menu Principal\Frm_Tela_Login_Registro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Menu Principal\Frm_Tela_Login_Registro.Designer.cs">
-      <DependentUpon>Frm_Tela_Login_Registro.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Tela Login\Frm_Tela_ConexoesDB.cs">
       <SubType>Form</SubType>
@@ -143,14 +131,8 @@
     <EmbeddedResource Include="Formularios\Configuração\Frm_Tela_Configuracao.resx">
       <DependentUpon>Frm_Tela_Configuracao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Menu Principal\Frm_Menu_Principal.resx">
-      <DependentUpon>Frm_Menu_Principal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Menu Principal\Frm_Menu_Principal_2.resx">
       <DependentUpon>Frm_Menu_Principal_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Menu Principal\Frm_Tela_Login_Registro.resx">
-      <DependentUpon>Frm_Tela_Login_Registro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Tela Login\Frm_Tela_ConexoesDB.resx">
       <DependentUpon>Frm_Tela_ConexoesDB.cs</DependentUpon>

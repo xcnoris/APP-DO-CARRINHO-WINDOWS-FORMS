@@ -1,10 +1,12 @@
-﻿using AppCarrinhoWFBiblioteca.carrinho;
+﻿using APP_DO_CARRINHO.Formularios.Carrinho;
+using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
 using AppCarrinhoWFBiblioteca.clientes;
 using banco.DataBases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -54,6 +56,7 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         {
             try
             {
+                DGV_Dados.Rows.Clear();
                 PessoaService PS = new PessoaService();
 
                 if (PS.Status)
@@ -278,44 +281,80 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 
         private void Btn_Alterar_Pessoas_Click(object sender, EventArgs e)
         {
-            // Verifique se há uma linha selecionada
-            if (DGV_Dados.CurrentRow != null)
+            try
             {
-                // Recupere os dados da linha selecionada
-                var selectedRow = DGV_Dados.CurrentRow;
-                string id = selectedRow.Cells["ID"].Value.ToString();
-                string cpf = selectedRow.Cells["CPF"].Value.ToString();
-                string nome = selectedRow.Cells["Nome"].Value.ToString();
-                string cep = selectedRow.Cells["CEP"].Value.ToString();
-                string cidadeNome = selectedRow.Cells["Cidade_Nome"].Value.ToString();
-                string uf = selectedRow.Cells["UF"].Value.ToString();
-                string endereco = selectedRow.Cells["Endereco"].Value.ToString();
-                string enderecoNumero = selectedRow.Cells["Endereco_Numero"].Value.ToString();
-                string enderecoComplemento = selectedRow.Cells["Endereco_Complemento"].Value.ToString();
-                string bairro = selectedRow.Cells["Bairro"].Value.ToString();
-                string dddTelefone = selectedRow.Cells["DDD_Telefone"].Value.ToString();
-                string telefone = selectedRow.Cells["Telefone"].Value.ToString();
-                string dddCelular = selectedRow.Cells["DDD_Celular"].Value.ToString();
-                string celular = selectedRow.Cells["Celular"].Value.ToString();
-                string sexo = selectedRow.Cells["Sexo"].Value.ToString();
-                string dataNascimento = selectedRow.Cells["DataNascimento"].Value.ToString();
-                string email = selectedRow.Cells["Email"].Value.ToString();
-                string congregacaoId = selectedRow.Cells["Congregacao_ID"].Value.ToString();
-                string situacao = "1";
-                // Passe os dados para o formulário Frm_CadastroPessoa_UC
-                Frm_CadastroPessoa_UC frm = new Frm_CadastroPessoa_UC();
-                frm.InserirDadosInUserControlPessoa(id, cpf, nome, cep, cidadeNome, uf, endereco, enderecoNumero, enderecoComplemento, bairro, dddTelefone, telefone, dddCelular, celular, sexo, dataNascimento, email, congregacaoId, situacao);
-                frm.ShowDialog();
+
+                // Verifique se há uma linha selecionada
+                if (DGV_Dados.CurrentRow != null)
+                {
+                    // Recupere os dados da linha selecionada
+                    var selectedRow = DGV_Dados.CurrentRow;
+                    string id = selectedRow.Cells["ID"].Value.ToString();
+                    string cpf = selectedRow.Cells["CPF"].Value.ToString();
+                    string nome = selectedRow.Cells["Nome"].Value.ToString();
+                    string cep = selectedRow.Cells["CEP"].Value.ToString();
+                    string cidadeNome = selectedRow.Cells["Cidade_Nome"].Value.ToString();
+                    string uf = selectedRow.Cells["UF"].Value.ToString();
+                    string endereco = selectedRow.Cells["Endereco"].Value.ToString();
+                    string enderecoNumero = selectedRow.Cells["Endereco_Numero"].Value.ToString();
+                    string enderecoComplemento = selectedRow.Cells["Endereco_Complemento"].Value.ToString();
+                    string bairro = selectedRow.Cells["Bairro"].Value.ToString();
+                    string dddTelefone = selectedRow.Cells["DDD_Telefone"].Value.ToString();
+                    string telefone = selectedRow.Cells["Telefone"].Value.ToString();
+                    string dddCelular = selectedRow.Cells["DDD_Celular"].Value.ToString();
+                    string celular = selectedRow.Cells["Celular"].Value.ToString();
+                    string sexo = selectedRow.Cells["Sexo"].Value.ToString();
+                    string dataNascimento = selectedRow.Cells["DataNascimento"].Value.ToString();
+                    string email = selectedRow.Cells["Email"].Value.ToString();
+                    string congregacaoId = selectedRow.Cells["Congregacao_ID"].Value.ToString();
+                    string situacao = "1";
+                    // Passe os dados para o formulário Frm_CadastroPessoa_UC
+                    Frm_CadastroPessoa_UC frm = new Frm_CadastroPessoa_UC();
+                    frm.InserirDadosInUserControlPessoa(id, cpf, nome, cep, cidadeNome, uf, endereco, enderecoNumero, enderecoComplemento, bairro, dddTelefone, telefone, dddCelular, celular, sexo, dataNascimento, email, congregacaoId, situacao);
+                    frm.ShowDialog();
+                }
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void Btn_Excluir_Pessoas_Click(object sender, EventArgs e)
         {
-            // Verifique se há uma linha selecionada
-            if (DGV_Dados.CurrentRow != null)
+            try
             {
-                
+
+                // Verifique se há uma linha selecionada
+                if (DGV_Dados.CurrentRow != null)
+                {
+                    var resposta = MessageBox.Show("Você Realmente quer excluir a Pessoa selecionada?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resposta == DialogResult.Yes)
+                    {
+                        PessoaService pessoa = new PessoaService();
+                        var selectedRow = DGV_Dados.CurrentRow;
+                        string id = selectedRow.Cells["ID"].Value.ToString();
+                        pessoa.DeleteInDB(conexaoDB, id);
+
+                        if (pessoa.Status)
+                        {
+                            MessageBox.Show($"OK: {pessoa.Mensagem} Carrinho Excluido com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            CarregarTodasAsPessoas();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"{pessoa.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                }
             }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
