@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Menu_Principal_2));
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.Pnl_Configuracoes = new System.Windows.Forms.Button();
@@ -88,6 +89,7 @@
             // 
             // Pnl_Configuracoes
             // 
+            this.Pnl_Configuracoes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Pnl_Configuracoes.Dock = System.Windows.Forms.DockStyle.Top;
             this.Pnl_Configuracoes.FlatAppearance.BorderSize = 0;
             this.Pnl_Configuracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -121,6 +123,8 @@
             // 
             // Pnl_Agendamentos
             // 
+            this.Pnl_Agendamentos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pnl_Agendamentos.BackgroundImage")));
+            this.Pnl_Agendamentos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Pnl_Agendamentos.Dock = System.Windows.Forms.DockStyle.Top;
             this.Pnl_Agendamentos.FlatAppearance.BorderSize = 0;
             this.Pnl_Agendamentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -128,7 +132,7 @@
             this.Pnl_Agendamentos.ForeColor = System.Drawing.Color.White;
             this.Pnl_Agendamentos.Location = new System.Drawing.Point(0, 228);
             this.Pnl_Agendamentos.Name = "Pnl_Agendamentos";
-            this.Pnl_Agendamentos.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.Pnl_Agendamentos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.Pnl_Agendamentos.Size = new System.Drawing.Size(266, 47);
             this.Pnl_Agendamentos.TabIndex = 4;
             this.Pnl_Agendamentos.Text = "Agendamentos";
@@ -187,6 +191,8 @@
             // 
             // Pnl_Pessoas
             // 
+            this.Pnl_Pessoas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pnl_Pessoas.BackgroundImage")));
+            this.Pnl_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Pnl_Pessoas.Dock = System.Windows.Forms.DockStyle.Top;
             this.Pnl_Pessoas.FlatAppearance.BorderSize = 0;
             this.Pnl_Pessoas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -194,7 +200,7 @@
             this.Pnl_Pessoas.ForeColor = System.Drawing.Color.White;
             this.Pnl_Pessoas.Location = new System.Drawing.Point(0, 47);
             this.Pnl_Pessoas.Name = "Pnl_Pessoas";
-            this.Pnl_Pessoas.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.Pnl_Pessoas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.Pnl_Pessoas.Size = new System.Drawing.Size(266, 40);
             this.Pnl_Pessoas.TabIndex = 0;
             this.Pnl_Pessoas.Text = "Pessoas";
