@@ -45,8 +45,8 @@ namespace AppCarrinhoWFBiblioteca.clientes
             Status = true;
             try
             {
-                string query = "INSERT INTO tb_pessoa (cpf, nome, cep, cidade, uf, endereco, numero, complemento, bairro, telefone_ddd,telefone_numero, celular_ddd, celular_numero, sexo, data_nascimento, email, congregacao_id) " +
-                               "VALUES (@cpf, @nome, @cep, @cidade, @uf,@endereco, @numero, @complemento, @bairro, @telefone_ddd,@telefone_numero,@celular_ddd, @celular_numero, @sexo, @data_nascimento, @email, @congregacao_id)";
+                string query = "INSERT INTO tb_pessoa (cpf, nome, cep, cidade, uf, endereco, numero, complemento, bairro, telefone_ddd,telefone_numero, celular_ddd, celular_numero, sexo, data_nascimento, email, congregacao_id, data_criacao) " +
+                               "VALUES (@cpf, @nome, @cep, @cidade, @uf,@endereco, @numero, @complemento, @bairro, @telefone_ddd,@telefone_numero,@celular_ddd, @celular_numero, @sexo, @data_nascimento, @email, @congregacao_id, @data_criacao)";
                 using (MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@cpf", pessoa.CPF);
@@ -66,6 +66,7 @@ namespace AppCarrinhoWFBiblioteca.clientes
                     cmd.Parameters.AddWithValue("@data_nascimento", pessoa.DataNascimento);
                     cmd.Parameters.AddWithValue("@email", pessoa.Email);
                     cmd.Parameters.AddWithValue("@congregacao_id", pessoa.Congregacao_ID);
+                    cmd.Parameters.AddWithValue("@data_Criacao", DateTime.Now);
 
                     conexaoDB.OpenConnection();
                     cmd.ExecuteNonQuery();

@@ -7,11 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace APP_DO_CARRINHO.Formularios.Pessoas
@@ -91,9 +87,21 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 
         private void Btn_Filtrar_Click(object sender, EventArgs e)
         {
+            try
+            {
 
-            // Caso não tenha caracter no TextBox ele filtra todas as pessoas
-            if ((Txt_Id.Text == ""))
+            }
+            catch (Exception ex)
+            {
+
+            }
+            string nome_Cliente = Txt_Nome.Text;
+            string id_Cliente = Txt_Id.Text;
+            string cpf_Cliente = Txt_Cpf.Text; 
+
+
+            // Caso todos os campos estejam em branco, ele busca todos os carrinho
+            if ((id_Cliente == "") && string.IsNullOrWhiteSpace(nome_Cliente) && (cpf_Cliente == ""))
             {
                 try
                 {
@@ -105,22 +113,21 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
                     MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            // Caso o campo do id não seja nulo, ele busca pelo id do cliente
+            else if(!string.IsNullOrWhiteSpace(id_Cliente))
             {
-                // Caso tenha algum valor no Txt_Id ele tenta buscar no Banco de dados
                 try
                 {
-                    DGV_Dados.Rows.Clear();
-
                     PessoaService PS = new PessoaService();
-                    // Caso consiga criar/acessar o diretorio ele entra no if
+                    
                     if (PS.Status)
                     {
+                        // Busca a pessoa pelo id
                         PS.ReadInDB(conexaoDB, Txt_Id.Text);
 
                         if (PS.Status)
                         {
-
+                            DGV_Dados.Rows.Clear();
                             // Pecorre a lista
                             foreach (Pessoa pessoa in PS.Pessoas)
                             {
@@ -133,9 +140,6 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
                         {
                             MessageBox.Show($"ID {Txt_Id.Text} Não Localizado Na Base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-
-                        //MessageBox.Show(carrinhoJson);
-
                     }
                     else
                     {
@@ -220,6 +224,9 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         // Recebe um object Pessoa, e inclui os valores em uma linha do DataGridView
         private void AddPessoaToDataGridView(Pessoa pessoa)
         {
+
+
+
             AddColumnDataGridView();
 
             // Adicionar a linha ao DataGridView

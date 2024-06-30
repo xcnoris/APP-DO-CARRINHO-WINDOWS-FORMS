@@ -144,5 +144,9 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
             frmGeralUSPessoas.SetPessoaData(id, cpf, nome, cep, cidade, uf, endereco, numero, complemento, bairro, telefoneDDD, telefoneNumero, celularDDD, celularNumero, sexo, dataNascimento, email, congregacaoId, situacao);
         }
 
+        private void Tbc_CadastroUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -42,6 +42,7 @@
             this.Tbc_CadastroUsuario.SelectedIndex = 0;
             this.Tbc_CadastroUsuario.Size = new System.Drawing.Size(700, 430);
             this.Tbc_CadastroUsuario.TabIndex = 0;
+            this.Tbc_CadastroUsuario.SelectedIndexChanged += new System.EventHandler(this.Tbc_CadastroUsuario_SelectedIndexChanged);
             // 
             // Btn_Fechar
             // 
