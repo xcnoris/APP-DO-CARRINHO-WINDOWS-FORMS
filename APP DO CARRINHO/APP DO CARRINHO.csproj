@@ -114,6 +114,12 @@
     <Compile Include="Formularios\Pessoas\Frm_Tela_Pessoas.Designer.cs">
       <DependentUpon>Frm_Tela_Pessoas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\User\Frm_Tela_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\User\Frm_Tela_User.Designer.cs">
+      <DependentUpon>Frm_Tela_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\Agendamento\Frm_Tela_Agendamento.resx">
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Pessoas\Frm_Tela_Pessoas.resx">
       <DependentUpon>Frm_Tela_Pessoas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\User\Frm_Tela_User.resx">
+      <DependentUpon>Frm_Tela_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -208,6 +217,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\encontrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cronograma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\encontrar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

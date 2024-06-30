@@ -50,6 +50,8 @@
             this.Txt_Congregacao_Id = new System.Windows.Forms.TextBox();
             this.DGV_Dados = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -57,20 +59,26 @@
             // Btn_Incluir_Pessoas
             // 
             this.Btn_Incluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Incluir_Pessoas.Location = new System.Drawing.Point(118, 528);
+            this.Btn_Incluir_Pessoas.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.adicionar__2_;
+            this.Btn_Incluir_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Incluir_Pessoas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Incluir_Pessoas.Location = new System.Drawing.Point(118, 524);
             this.Btn_Incluir_Pessoas.Name = "Btn_Incluir_Pessoas";
-            this.Btn_Incluir_Pessoas.Size = new System.Drawing.Size(100, 30);
+            this.Btn_Incluir_Pessoas.Size = new System.Drawing.Size(100, 34);
             this.Btn_Incluir_Pessoas.TabIndex = 0;
-            this.Btn_Incluir_Pessoas.Text = " Incluir";
+            this.Btn_Incluir_Pessoas.Text = "   Incluir";
             this.Btn_Incluir_Pessoas.UseVisualStyleBackColor = true;
             this.Btn_Incluir_Pessoas.Click += new System.EventHandler(this.button1_Click);
             // 
             // Btn_Alterar_Pessoas
             // 
             this.Btn_Alterar_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Alterar_Pessoas.Location = new System.Drawing.Point(224, 528);
+            this.Btn_Alterar_Pessoas.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.editar;
+            this.Btn_Alterar_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Alterar_Pessoas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Alterar_Pessoas.Location = new System.Drawing.Point(224, 524);
             this.Btn_Alterar_Pessoas.Name = "Btn_Alterar_Pessoas";
-            this.Btn_Alterar_Pessoas.Size = new System.Drawing.Size(100, 30);
+            this.Btn_Alterar_Pessoas.Size = new System.Drawing.Size(100, 34);
             this.Btn_Alterar_Pessoas.TabIndex = 1;
             this.Btn_Alterar_Pessoas.Text = "Alterar";
             this.Btn_Alterar_Pessoas.UseVisualStyleBackColor = true;
@@ -79,9 +87,11 @@
             // Btn_Excluir_Pessoas
             // 
             this.Btn_Excluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Excluir_Pessoas.Location = new System.Drawing.Point(330, 528);
+            this.Btn_Excluir_Pessoas.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.caixa;
+            this.Btn_Excluir_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Excluir_Pessoas.Location = new System.Drawing.Point(330, 524);
             this.Btn_Excluir_Pessoas.Name = "Btn_Excluir_Pessoas";
-            this.Btn_Excluir_Pessoas.Size = new System.Drawing.Size(100, 30);
+            this.Btn_Excluir_Pessoas.Size = new System.Drawing.Size(100, 34);
             this.Btn_Excluir_Pessoas.TabIndex = 2;
             this.Btn_Excluir_Pessoas.Text = "Excluir";
             this.Btn_Excluir_Pessoas.UseVisualStyleBackColor = true;
@@ -90,7 +100,7 @@
             // Btn_Fechar
             // 
             this.Btn_Fechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_Fechar.Location = new System.Drawing.Point(672, 528);
+            this.Btn_Fechar.Location = new System.Drawing.Point(769, 528);
             this.Btn_Fechar.Name = "Btn_Fechar";
             this.Btn_Fechar.Size = new System.Drawing.Size(100, 30);
             this.Btn_Fechar.TabIndex = 3;
@@ -240,13 +250,15 @@
             this.DGV_Dados.Location = new System.Drawing.Point(118, 168);
             this.DGV_Dados.Name = "DGV_Dados";
             this.DGV_Dados.ReadOnly = true;
-            this.DGV_Dados.Size = new System.Drawing.Size(654, 337);
+            this.DGV_Dados.Size = new System.Drawing.Size(751, 346);
             this.DGV_Dados.TabIndex = 23;
             this.DGV_Dados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.DGV_Dados.DoubleClick += new System.EventHandler(this.DGV_Dados_DoubleClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.Txt_Cidade_Nome);
             this.groupBox1.Controls.Add(this.Lbl_Nome);
             this.groupBox1.Controls.Add(this.Txt_Congregacao_Id);
@@ -268,12 +280,34 @@
             this.groupBox1.Text = "Filtros";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.White;
+            this.button6.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.encontrar;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button6.Location = new System.Drawing.Point(304, 94);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(24, 23);
+            this.button6.TabIndex = 32;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.encontrar;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button5.Location = new System.Drawing.Point(304, 68);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(24, 23);
+            this.button5.TabIndex = 32;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
             // Frm_Tela_Pessoas
             // 
             this.AcceptButton = this.Btn_Filtrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(881, 570);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DGV_Dados);
             this.Controls.Add(this.button3);
@@ -320,5 +354,7 @@
         private System.Windows.Forms.TextBox Txt_Congregacao_Id;
         private System.Windows.Forms.DataGridView DGV_Dados;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }

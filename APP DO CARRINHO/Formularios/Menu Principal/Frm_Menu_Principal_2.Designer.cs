@@ -50,6 +50,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.Btn_User = new System.Windows.Forms.Button();
             this.panelSidebar.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -68,7 +69,7 @@
             this.panelSidebar.Controls.Add(this.panelLogo);
             this.panelSidebar.Location = new System.Drawing.Point(0, 35);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(266, 510);
+            this.panelSidebar.Size = new System.Drawing.Size(266, 542);
             this.panelSidebar.TabIndex = 0;
             // 
             // panelMenu
@@ -79,12 +80,13 @@
             this.panelMenu.Controls.Add(this.Pnl_Agendamento);
             this.panelMenu.Controls.Add(this.Pnl_Carrinhos);
             this.panelMenu.Controls.Add(this.Pnl_Carrinho);
+            this.panelMenu.Controls.Add(this.Btn_User);
             this.panelMenu.Controls.Add(this.Pnl_Pessoas);
             this.panelMenu.Controls.Add(this.Pnl_Pessoa);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 80);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(266, 404);
+            this.panelMenu.Size = new System.Drawing.Size(266, 451);
             this.panelMenu.TabIndex = 1;
             // 
             // Pnl_Configuracoes
@@ -95,7 +97,7 @@
             this.Pnl_Configuracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Pnl_Configuracoes.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.Pnl_Configuracoes.ForeColor = System.Drawing.Color.White;
-            this.Pnl_Configuracoes.Location = new System.Drawing.Point(0, 322);
+            this.Pnl_Configuracoes.Location = new System.Drawing.Point(0, 362);
             this.Pnl_Configuracoes.Name = "Pnl_Configuracoes";
             this.Pnl_Configuracoes.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
             this.Pnl_Configuracoes.Size = new System.Drawing.Size(266, 47);
@@ -112,7 +114,7 @@
             this.Pnl_Configuracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Pnl_Configuracao.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.Pnl_Configuracao.ForeColor = System.Drawing.Color.White;
-            this.Pnl_Configuracao.Location = new System.Drawing.Point(0, 275);
+            this.Pnl_Configuracao.Location = new System.Drawing.Point(0, 315);
             this.Pnl_Configuracao.Name = "Pnl_Configuracao";
             this.Pnl_Configuracao.Size = new System.Drawing.Size(266, 47);
             this.Pnl_Configuracao.TabIndex = 5;
@@ -130,7 +132,7 @@
             this.Pnl_Agendamentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Pnl_Agendamentos.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.Pnl_Agendamentos.ForeColor = System.Drawing.Color.White;
-            this.Pnl_Agendamentos.Location = new System.Drawing.Point(0, 228);
+            this.Pnl_Agendamentos.Location = new System.Drawing.Point(0, 268);
             this.Pnl_Agendamentos.Name = "Pnl_Agendamentos";
             this.Pnl_Agendamentos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.Pnl_Agendamentos.Size = new System.Drawing.Size(266, 47);
@@ -147,7 +149,7 @@
             this.Pnl_Agendamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Pnl_Agendamento.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.Pnl_Agendamento.ForeColor = System.Drawing.Color.White;
-            this.Pnl_Agendamento.Location = new System.Drawing.Point(0, 181);
+            this.Pnl_Agendamento.Location = new System.Drawing.Point(0, 221);
             this.Pnl_Agendamento.Name = "Pnl_Agendamento";
             this.Pnl_Agendamento.Size = new System.Drawing.Size(266, 47);
             this.Pnl_Agendamento.TabIndex = 3;
@@ -163,7 +165,7 @@
             this.Pnl_Carrinhos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Pnl_Carrinhos.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.Pnl_Carrinhos.ForeColor = System.Drawing.Color.White;
-            this.Pnl_Carrinhos.Location = new System.Drawing.Point(0, 134);
+            this.Pnl_Carrinhos.Location = new System.Drawing.Point(0, 174);
             this.Pnl_Carrinhos.Name = "Pnl_Carrinhos";
             this.Pnl_Carrinhos.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
             this.Pnl_Carrinhos.Size = new System.Drawing.Size(266, 47);
@@ -180,7 +182,7 @@
             this.Pnl_Carrinho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Pnl_Carrinho.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.Pnl_Carrinho.ForeColor = System.Drawing.Color.White;
-            this.Pnl_Carrinho.Location = new System.Drawing.Point(0, 87);
+            this.Pnl_Carrinho.Location = new System.Drawing.Point(0, 127);
             this.Pnl_Carrinho.Name = "Pnl_Carrinho";
             this.Pnl_Carrinho.Size = new System.Drawing.Size(266, 47);
             this.Pnl_Carrinho.TabIndex = 2;
@@ -303,7 +305,7 @@
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 540);
+            this.panel3.Location = new System.Drawing.Point(0, 572);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(925, 30);
             this.panel3.TabIndex = 2;
@@ -318,11 +320,29 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Versão Beta: 0.0.0.0";
             // 
+            // Btn_User
+            // 
+            this.Btn_User.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_User.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_User.FlatAppearance.BorderSize = 0;
+            this.Btn_User.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_User.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.Btn_User.ForeColor = System.Drawing.Color.White;
+            this.Btn_User.Location = new System.Drawing.Point(0, 87);
+            this.Btn_User.Name = "Btn_User";
+            this.Btn_User.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.Btn_User.Size = new System.Drawing.Size(266, 40);
+            this.Btn_User.TabIndex = 1;
+            this.Btn_User.Text = "Usuarios";
+            this.Btn_User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_User.UseVisualStyleBackColor = true;
+            this.Btn_User.Click += new System.EventHandler(this.Btn_User_Click);
+            // 
             // Frm_Menu_Principal_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 570);
+            this.ClientSize = new System.Drawing.Size(925, 602);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelSidebar);
@@ -368,5 +388,6 @@
         private System.Windows.Forms.Button Pnl_Carrinhos;
         private System.Windows.Forms.Button Pnl_Carrinho;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Btn_User;
     }
 }

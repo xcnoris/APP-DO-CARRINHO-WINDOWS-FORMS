@@ -2,6 +2,7 @@
 using APP_DO_CARRINHO.Formularios.Carrinho;
 using APP_DO_CARRINHO.Formularios.Configuração;
 using APP_DO_CARRINHO.Formularios.Pessoas;
+using APP_DO_CARRINHO.Formularios.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,7 +59,7 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
         private void btnEntidades_Click(object sender, EventArgs e)
         {
             ShowSubMenu(Pnl_Pessoas);
-            
+            ShowSubMenu(Btn_User);
         }
 
         private void btnCadastrarEntidade_Click_1(object sender, EventArgs e)
@@ -80,6 +81,7 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
             Pnl_Agendamentos.Visible = false;
             Pnl_Carrinhos.Visible = false;
             Pnl_Configuracoes.Visible = false;
+            Btn_User.Visible = false;
         }
 
         private void Pnl_Carrinho_Click(object sender, EventArgs e)
@@ -112,6 +114,12 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
         private void Pnl_Configuracoes_Click(object sender, EventArgs e)
         {
             Frm_Tela_Configuracao frm = new Frm_Tela_Configuracao();
+            frm.Show();
+        }
+
+        private void Btn_User_Click(object sender, EventArgs e)
+        {
+            Frm_Tela_User frm = new Frm_Tela_User();
             frm.Show();
         }
     }

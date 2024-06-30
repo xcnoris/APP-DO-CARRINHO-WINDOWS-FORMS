@@ -49,6 +49,8 @@
             this.Btn_Fechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Btn_Fechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Fechar.Location = new System.Drawing.Point(356, 200);
+            this.Btn_Fechar.MaximumSize = new System.Drawing.Size(118, 32);
+            this.Btn_Fechar.MinimumSize = new System.Drawing.Size(118, 32);
             this.Btn_Fechar.Name = "Btn_Fechar";
             this.Btn_Fechar.Size = new System.Drawing.Size(118, 32);
             this.Btn_Fechar.TabIndex = 40;

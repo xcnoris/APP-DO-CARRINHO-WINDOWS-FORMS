@@ -46,9 +46,12 @@
             // 
             // Btn_Fechar
             // 
-            this.Btn_Fechar.Location = new System.Drawing.Point(359, 441);
+            this.Btn_Fechar.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.cancelar;
+            this.Btn_Fechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Fechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Fechar.Location = new System.Drawing.Point(364, 441);
             this.Btn_Fechar.Name = "Btn_Fechar";
-            this.Btn_Fechar.Size = new System.Drawing.Size(88, 31);
+            this.Btn_Fechar.Size = new System.Drawing.Size(118, 32);
             this.Btn_Fechar.TabIndex = 38;
             this.Btn_Fechar.Text = "Fechar";
             this.Btn_Fechar.UseVisualStyleBackColor = true;
@@ -56,11 +59,14 @@
             // 
             // Btn_Salvar
             // 
-            this.Btn_Salvar.Location = new System.Drawing.Point(240, 441);
+            this.Btn_Salvar.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.adicionar__2_;
+            this.Btn_Salvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Salvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Salvar.Location = new System.Drawing.Point(202, 441);
             this.Btn_Salvar.Name = "Btn_Salvar";
-            this.Btn_Salvar.Size = new System.Drawing.Size(88, 31);
+            this.Btn_Salvar.Size = new System.Drawing.Size(118, 32);
             this.Btn_Salvar.TabIndex = 37;
-            this.Btn_Salvar.Text = "Confirmar";
+            this.Btn_Salvar.Text = "    Confirmar";
             this.Btn_Salvar.UseVisualStyleBackColor = true;
             this.Btn_Salvar.Click += new System.EventHandler(this.Btn_Salvar_Click);
             // 
