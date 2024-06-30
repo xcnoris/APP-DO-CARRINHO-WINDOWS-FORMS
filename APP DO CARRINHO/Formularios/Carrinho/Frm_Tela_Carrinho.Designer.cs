@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Btn_Incluir_Pessoas = new System.Windows.Forms.Button();
-            this.Btn_Alterar_Pessoas = new System.Windows.Forms.Button();
-            this.Btn_Excluir_Pessoas = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Tela_Carrinho));
             this.Btn_Fechar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -49,50 +47,21 @@
             this.Txt_Id = new System.Windows.Forms.TextBox();
             this.Btn_Filtrar = new System.Windows.Forms.Button();
             this.DGV_Dados = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.Btn_Excluir_Pessoas = new System.Windows.Forms.Button();
+            this.Btn_Alterar_Pessoas = new System.Windows.Forms.Button();
+            this.Btn_Incluir_Pessoas = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Btn_Incluir_Pessoas
-            // 
-            this.Btn_Incluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Incluir_Pessoas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Incluir_Pessoas.Location = new System.Drawing.Point(123, 528);
-            this.Btn_Incluir_Pessoas.Name = "Btn_Incluir_Pessoas";
-            this.Btn_Incluir_Pessoas.Size = new System.Drawing.Size(100, 30);
-            this.Btn_Incluir_Pessoas.TabIndex = 0;
-            this.Btn_Incluir_Pessoas.Text = " Incluir";
-            this.Btn_Incluir_Pessoas.UseVisualStyleBackColor = true;
-            this.Btn_Incluir_Pessoas.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Btn_Alterar_Pessoas
-            // 
-            this.Btn_Alterar_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Alterar_Pessoas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Alterar_Pessoas.Location = new System.Drawing.Point(229, 528);
-            this.Btn_Alterar_Pessoas.Name = "Btn_Alterar_Pessoas";
-            this.Btn_Alterar_Pessoas.Size = new System.Drawing.Size(100, 30);
-            this.Btn_Alterar_Pessoas.TabIndex = 1;
-            this.Btn_Alterar_Pessoas.Text = "Alterar";
-            this.Btn_Alterar_Pessoas.UseVisualStyleBackColor = true;
-            this.Btn_Alterar_Pessoas.Click += new System.EventHandler(this.Btn_Alterar_Pessoas_Click);
-            // 
-            // Btn_Excluir_Pessoas
-            // 
-            this.Btn_Excluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Excluir_Pessoas.Location = new System.Drawing.Point(335, 528);
-            this.Btn_Excluir_Pessoas.Name = "Btn_Excluir_Pessoas";
-            this.Btn_Excluir_Pessoas.Size = new System.Drawing.Size(100, 30);
-            this.Btn_Excluir_Pessoas.TabIndex = 2;
-            this.Btn_Excluir_Pessoas.Text = "Excluir";
-            this.Btn_Excluir_Pessoas.UseVisualStyleBackColor = true;
-            this.Btn_Excluir_Pessoas.Click += new System.EventHandler(this.Btn_Excluir_Pessoas_Click);
             // 
             // Btn_Fechar
             // 
             this.Btn_Fechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Fechar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Fechar.Location = new System.Drawing.Point(788, 528);
+            this.Btn_Fechar.Location = new System.Drawing.Point(789, 528);
             this.Btn_Fechar.Name = "Btn_Fechar";
             this.Btn_Fechar.Size = new System.Drawing.Size(100, 30);
             this.Btn_Fechar.TabIndex = 3;
@@ -130,6 +99,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.Txt_Nome);
             this.groupBox1.Controls.Add(this.Txt_Carrinho_Cod);
             this.groupBox1.Controls.Add(this.Lbl_Nome);
@@ -268,17 +238,82 @@
             this.DGV_Dados.Location = new System.Drawing.Point(123, 183);
             this.DGV_Dados.Name = "DGV_Dados";
             this.DGV_Dados.ReadOnly = true;
-            this.DGV_Dados.Size = new System.Drawing.Size(765, 328);
+            this.DGV_Dados.Size = new System.Drawing.Size(766, 328);
             this.DGV_Dados.TabIndex = 28;
             this.DGV_Dados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.DGV_Dados.DoubleClick += new System.EventHandler(this.DGV_Dados_DoubleClick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(105, 133);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.encontrar;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button4.Location = new System.Drawing.Point(361, 89);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(24, 23);
+            this.button4.TabIndex = 31;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // Btn_Excluir_Pessoas
+            // 
+            this.Btn_Excluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_Excluir_Pessoas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Excluir_Pessoas.BackgroundImage")));
+            this.Btn_Excluir_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Excluir_Pessoas.Location = new System.Drawing.Point(335, 519);
+            this.Btn_Excluir_Pessoas.Name = "Btn_Excluir_Pessoas";
+            this.Btn_Excluir_Pessoas.Size = new System.Drawing.Size(100, 39);
+            this.Btn_Excluir_Pessoas.TabIndex = 2;
+            this.Btn_Excluir_Pessoas.Text = "Excluir";
+            this.Btn_Excluir_Pessoas.UseVisualStyleBackColor = true;
+            this.Btn_Excluir_Pessoas.Click += new System.EventHandler(this.Btn_Excluir_Pessoas_Click);
+            // 
+            // Btn_Alterar_Pessoas
+            // 
+            this.Btn_Alterar_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_Alterar_Pessoas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Alterar_Pessoas.BackgroundImage")));
+            this.Btn_Alterar_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Alterar_Pessoas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Alterar_Pessoas.Location = new System.Drawing.Point(229, 519);
+            this.Btn_Alterar_Pessoas.Name = "Btn_Alterar_Pessoas";
+            this.Btn_Alterar_Pessoas.Size = new System.Drawing.Size(100, 39);
+            this.Btn_Alterar_Pessoas.TabIndex = 1;
+            this.Btn_Alterar_Pessoas.Text = "Alterar";
+            this.Btn_Alterar_Pessoas.UseVisualStyleBackColor = true;
+            this.Btn_Alterar_Pessoas.Click += new System.EventHandler(this.Btn_Alterar_Pessoas_Click);
+            // 
+            // Btn_Incluir_Pessoas
+            // 
+            this.Btn_Incluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_Incluir_Pessoas.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.adicionar__2_;
+            this.Btn_Incluir_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Incluir_Pessoas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Incluir_Pessoas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Incluir_Pessoas.Location = new System.Drawing.Point(123, 519);
+            this.Btn_Incluir_Pessoas.Name = "Btn_Incluir_Pessoas";
+            this.Btn_Incluir_Pessoas.Size = new System.Drawing.Size(100, 39);
+            this.Btn_Incluir_Pessoas.TabIndex = 0;
+            this.Btn_Incluir_Pessoas.Text = "   Incluir";
+            this.Btn_Incluir_Pessoas.UseVisualStyleBackColor = true;
+            this.Btn_Incluir_Pessoas.Click += new System.EventHandler(this.button1_Click);
             // 
             // Frm_Tela_Carrinho
             // 
             this.AcceptButton = this.Btn_Filtrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 561);
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.ClientSize = new System.Drawing.Size(911, 561);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.DGV_Dados);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
@@ -297,6 +332,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -324,5 +360,7 @@
         private System.Windows.Forms.TextBox Txt_Id;
         private System.Windows.Forms.Button Btn_Filtrar;
         private System.Windows.Forms.DataGridView DGV_Dados;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button4;
     }
 }

@@ -320,6 +320,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelSidebar);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Frm_Menu_Principal_2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Frm_Menu_Principal_2";

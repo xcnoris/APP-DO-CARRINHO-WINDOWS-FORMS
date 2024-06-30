@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Cadastro_Carrinho_UC));
             this.Tbc_Cad_Carrinho = new System.Windows.Forms.TabControl();
             this.Btn_Fechar = new System.Windows.Forms.Button();
             this.Btn_Confirmar = new System.Windows.Forms.Button();
@@ -44,21 +45,27 @@
             // 
             // Btn_Fechar
             // 
+            this.Btn_Fechar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Fechar.BackgroundImage")));
+            this.Btn_Fechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Fechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Fechar.Location = new System.Drawing.Point(356, 200);
             this.Btn_Fechar.Name = "Btn_Fechar";
-            this.Btn_Fechar.Size = new System.Drawing.Size(88, 31);
+            this.Btn_Fechar.Size = new System.Drawing.Size(118, 32);
             this.Btn_Fechar.TabIndex = 40;
-            this.Btn_Fechar.Text = "Fechar";
+            this.Btn_Fechar.Text = "  Cancelar";
             this.Btn_Fechar.UseVisualStyleBackColor = true;
             this.Btn_Fechar.Click += new System.EventHandler(this.Btn_Fechar_Click);
             // 
             // Btn_Confirmar
             // 
-            this.Btn_Confirmar.Location = new System.Drawing.Point(237, 200);
+            this.Btn_Confirmar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Confirmar.BackgroundImage")));
+            this.Btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Confirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Confirmar.Location = new System.Drawing.Point(207, 200);
             this.Btn_Confirmar.Name = "Btn_Confirmar";
-            this.Btn_Confirmar.Size = new System.Drawing.Size(88, 31);
+            this.Btn_Confirmar.Size = new System.Drawing.Size(118, 32);
             this.Btn_Confirmar.TabIndex = 39;
-            this.Btn_Confirmar.Text = "Confirmar";
+            this.Btn_Confirmar.Text = "   Confirmar";
             this.Btn_Confirmar.UseVisualStyleBackColor = true;
             this.Btn_Confirmar.Click += new System.EventHandler(this.Btn_Confirmar_Click);
             // 

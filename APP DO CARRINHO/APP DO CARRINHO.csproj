@@ -182,12 +182,32 @@
       <Name>DataBase</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\editar.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Imagens\ImagemTelaLogin.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagens\Menu %2840 x 40 px%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adicionar %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adicionar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adicionar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caixa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\botao-de-deletar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\encontrar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
