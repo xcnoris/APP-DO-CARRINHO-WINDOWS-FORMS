@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Cadastro_Usuario));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.Btn_Fechar = new System.Windows.Forms.Button();
             this.Btn_Confirmar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.Txt_Id = new System.Windows.Forms.TextBox();
+            this.Txt_Login = new System.Windows.Forms.TextBox();
             this.MSK_CPF = new System.Windows.Forms.MaskedTextBox();
             this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
             this.Lbl_Situacao_Carrinho = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Cbox_Tipo = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -57,12 +57,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
             // 
-            // textBox1
+            // Txt_Nome
             // 
-            this.textBox1.Location = new System.Drawing.Point(99, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(316, 20);
-            this.textBox1.TabIndex = 1;
+            this.Txt_Nome.Location = new System.Drawing.Point(99, 97);
+            this.Txt_Nome.Name = "Txt_Nome";
+            this.Txt_Nome.Size = new System.Drawing.Size(316, 20);
+            this.Txt_Nome.TabIndex = 1;
             // 
             // Btn_Fechar
             // 
@@ -90,6 +90,7 @@
             this.Btn_Confirmar.TabIndex = 41;
             this.Btn_Confirmar.Text = "   Confirmar";
             this.Btn_Confirmar.UseVisualStyleBackColor = true;
+            this.Btn_Confirmar.Click += new System.EventHandler(this.Btn_Confirmar_Click);
             // 
             // label2
             // 
@@ -132,20 +133,20 @@
             this.label5.TabIndex = 46;
             this.label5.Text = "Login";
             // 
-            // textBox2
+            // Txt_Id
             // 
-            this.textBox2.Location = new System.Drawing.Point(99, 28);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(74, 20);
-            this.textBox2.TabIndex = 48;
+            this.Txt_Id.Location = new System.Drawing.Point(99, 28);
+            this.Txt_Id.Name = "Txt_Id";
+            this.Txt_Id.ReadOnly = true;
+            this.Txt_Id.Size = new System.Drawing.Size(74, 20);
+            this.Txt_Id.TabIndex = 48;
             // 
-            // textBox5
+            // Txt_Login
             // 
-            this.textBox5.Location = new System.Drawing.Point(99, 165);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(168, 20);
-            this.textBox5.TabIndex = 51;
+            this.Txt_Login.Location = new System.Drawing.Point(99, 165);
+            this.Txt_Login.Name = "Txt_Login";
+            this.Txt_Login.Size = new System.Drawing.Size(168, 20);
+            this.Txt_Login.TabIndex = 51;
             // 
             // MSK_CPF
             // 
@@ -177,16 +178,16 @@
             this.Lbl_Situacao_Carrinho.TabIndex = 55;
             this.Lbl_Situacao_Carrinho.Text = "SITUAÇÃO";
             // 
-            // comboBox1
+            // Cbox_Tipo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.Cbox_Tipo.FormattingEnabled = true;
+            this.Cbox_Tipo.Items.AddRange(new object[] {
             " "});
-            this.comboBox1.Location = new System.Drawing.Point(99, 130);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 21);
-            this.comboBox1.TabIndex = 56;
-            this.comboBox1.Text = "( Selecione )";
+            this.Cbox_Tipo.Location = new System.Drawing.Point(99, 130);
+            this.Cbox_Tipo.Name = "Cbox_Tipo";
+            this.Cbox_Tipo.Size = new System.Drawing.Size(168, 21);
+            this.Cbox_Tipo.TabIndex = 56;
+            this.Cbox_Tipo.Text = "( Selecione )";
             // 
             // button1
             // 
@@ -202,16 +203,16 @@
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.Cbox_Tipo);
+            this.groupBox1.Controls.Add(this.Txt_Nome);
             this.groupBox1.Controls.Add(this.Cbox_Situacao);
             this.groupBox1.Controls.Add(this.Lbl_Situacao_Carrinho);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.MSK_CPF);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.Txt_Login);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.Txt_Id);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -243,19 +244,19 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txt_Nome;
         private System.Windows.Forms.Button Btn_Fechar;
         private System.Windows.Forms.Button Btn_Confirmar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox Txt_Id;
+        private System.Windows.Forms.TextBox Txt_Login;
         private System.Windows.Forms.MaskedTextBox MSK_CPF;
         private System.Windows.Forms.ComboBox Cbox_Situacao;
         private System.Windows.Forms.Label Lbl_Situacao_Carrinho;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Cbox_Tipo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
     }

@@ -1,4 +1,5 @@
-﻿using AppCarrinhoWFBiblioteca;
+﻿using APP_DO_CARRINHO.Formularios.Carrinho;
+using AppCarrinhoWFBiblioteca;
 using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
 using AppCarrinhoWFBiblioteca.User;
@@ -114,19 +115,19 @@ namespace APP_DO_CARRINHO.Formularios.User
                 AddColumnDataGridView();
 
                 string situacao;
-                if (user.Situacao == "1")
+                if (user.Id_Situacao == "1")
                 {
-                    user.Situacao = "Ativo";
+                    user.Id_Situacao = "Ativo";
 
                 }
-                if (user.Situacao == "2")
+                if (user.Id_Situacao == "2")
                 {
-                    user.Situacao = "Inativo";
+                    user.Id_Situacao = "Inativo";
 
                 }
 
                 // Adicionar a linha ao DataGridView
-                DGV_Dados.Rows.Add(user.Id, user.CPF, user.Nome,user.Situacao, user.Login, user.Id_Tipo);
+                DGV_Dados.Rows.Add(user.Id, user.CPF, user.Nome,user.Id_Situacao, user.Login, user.Id_Tipo);
             }
             catch (ValidationException ex)
             {
@@ -143,6 +144,40 @@ namespace APP_DO_CARRINHO.Formularios.User
         {
             Frm_Cadastro_Usuario frm = new Frm_Cadastro_Usuario();
             frm.Show();
+        }
+
+        private void DGV_Dados_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                // Retrieve the selected row data
+                var selectedRow = DGV_Dados.CurrentRow;
+                if (selectedRow != null) 
+                {
+
+                    string id = selectedRow.Cells["ID"].Value.ToString();
+                    string cpf = selectedRow.Cells["CPF"].Value.ToString();
+                    string nome = selectedRow.Cells["Nome"].Value.ToString();
+                    string situacao = selectedRow.Cells["Situacao"].Value.ToString();
+                    string login = selectedRow.Cells["Login"].Value.ToString();
+                    string tipo = selectedRow.Cells["Tipo"].Value.ToString();
+
+                    // Pass the data to the Frm_Cadastro_Carrinho_UC form
+                    Frm_Cadastro_Usuario frm = new Frm_Cadastro_Usuario();
+                    frm.InserirDadosInFrm(id, cpf, nome, situacao, login, tipo);
+                    frm.ShowDialog();
+                }
+           
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DGV_Dados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

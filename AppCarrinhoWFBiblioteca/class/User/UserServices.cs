@@ -32,16 +32,16 @@ namespace AppCarrinhoWFBiblioteca.User
             try
             {
                 // Query para inserir um novo registro na tabela tb_pessoa
-                string query = "INSERT INTO tb_pessoa ( nome, tipo, login, senha, situacao, datacriacao, cpf ) " +
-                               "VALUES (@nome, @tipo, @login, @senha, @situacao, @datacriacao, @cpf)";
+                string query = "INSERT INTO tb_pessoa ( nome,  login, senha, situacao, datacriacao, cpf ) " +
+                               "VALUES (@nome, @login, @senha, @situacao, @datacriacao, @cpf)";
                 using (MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection()))
                 {
                     // Adiciona os parâmetros à query
                     cmd.Parameters.AddWithValue("@nome", user.Nome);
-                    cmd.Parameters.AddWithValue("@tipo", user.Id_Tipo);
+                    //cmd.Parameters.AddWithValue("@tipo", user.Id_Tipo);
                     cmd.Parameters.AddWithValue("@login", user.Login);
                     cmd.Parameters.AddWithValue("@senha", user.Senha);
-                    cmd.Parameters.AddWithValue("@situacao", user.Situacao);
+                    cmd.Parameters.AddWithValue("@situacao", user.Id_Situacao);
                     cmd.Parameters.AddWithValue("@datacriacao", DateTime.Now);
                     cmd.Parameters.AddWithValue("@cpf", user.CPF);
 
@@ -86,7 +86,7 @@ namespace AppCarrinhoWFBiblioteca.User
                         Id_Tipo = row["tipo"].ToString(),
                         Login = row["login"].ToString(),
                         Senha = row["senha"].ToString(),
-                        Situacao = row["situacao"].ToString(),
+                        Id_Situacao = row["situacao"].ToString(),
                     };
 
                     usuarios.Add(user);
@@ -127,7 +127,7 @@ namespace AppCarrinhoWFBiblioteca.User
                         Id_Tipo = row["tipo"].ToString(),
                         Login = row["login"].ToString(),
                         Senha = row["senha"].ToString(),
-                        Situacao = row["situacao"].ToString(),
+                        Id_Situacao = row["situacao"].ToString(),
                     };
 
                     usuarios.Add(user);
@@ -166,7 +166,7 @@ namespace AppCarrinhoWFBiblioteca.User
                     cmd.Parameters.AddWithValue("@tipo", user.Id_Tipo);
                     cmd.Parameters.AddWithValue("@login", user.Login);
                     cmd.Parameters.AddWithValue("@senha", user.Senha);
-                    cmd.Parameters.AddWithValue("@situacao", user.Situacao);
+                    cmd.Parameters.AddWithValue("@situacao", user.Id_Situacao);
 
                     // Abre a conexão, executa a query e fecha a conexão
                     conexaoDB.OpenConnection();

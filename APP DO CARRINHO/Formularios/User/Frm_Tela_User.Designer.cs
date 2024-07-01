@@ -58,6 +58,8 @@
             this.DGV_Dados.Name = "DGV_Dados";
             this.DGV_Dados.Size = new System.Drawing.Size(695, 248);
             this.DGV_Dados.TabIndex = 0;
+            this.DGV_Dados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Dados_CellContentClick);
+            this.DGV_Dados.DoubleClick += new System.EventHandler(this.DGV_Dados_DoubleClick);
             // 
             // label1
             // 

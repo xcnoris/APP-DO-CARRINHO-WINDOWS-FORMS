@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using AppCarrinhoWFBiblioteca.CateriaUser;
 using AppCarrinhoWFBiblioteca.Interfaces;
+using AppCarrinhoWFBiblioteca.clientes;
+using banco.DataBases;
+using AppCarrinhoWFBiblioteca.User;
 
 namespace AppCarrinhoWFBiblioteca.Users
 {
@@ -33,7 +36,7 @@ namespace AppCarrinhoWFBiblioteca.Users
         public string Nome { get; set; }
 
 
-        [Required(ErrorMessage = "Tipo de documentp é obrigatorio!")]
+        //[Required(ErrorMessage = "Tipo de documentp é obrigatorio!")]
         public string Id_Tipo { get; set; }
 
 
@@ -41,10 +44,10 @@ namespace AppCarrinhoWFBiblioteca.Users
         public string Login { get; set; }
 
 
-        [Required(ErrorMessage = "Cliente é obrigatorio!")]
+        //[Required(ErrorMessage = "Cliente é obrigatorio!")]
         public string Senha { get; set; }
 
-        public string Situacao { get; set; }
+        public string Id_Situacao { get; set; }
 
 
         public void ValidarClass()
@@ -73,5 +76,59 @@ namespace AppCarrinhoWFBiblioteca.Users
                 throw new ValidationException("Cpf Inválido!");
             }
         }
+
+
+        // Metodo de inclusao no banco de dados
+        public void IncluirNoBanco(ConexaoDB conexaoDB)
+        {
+            UserServices US = new UserServices();
+            try
+            {
+                US.CreateInDB(conexaoDB, this);
+                if (US.Status)
+                {
+
+                    Status = true;
+                    Mensagem = US.Mensagem;
+                }
+                else
+                {
+                    Status = false;
+                    Mensagem = US.Mensagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                Status = false;
+                Mensagem = ex.Message;
+            }
+        }
+
+
+        // Metodo de Atualização no banco de dados
+        public void AtualizarNoBanco(ConexaoDB conexaoDB)
+        {
+            UserServices US = new UserServices();
+            try
+            {
+                US.UpdateInDB(conexaoDB, this);
+                if (US.Status)
+                {
+                    Status = true;
+                    Mensagem = US.Mensagem;
+                }
+                else
+                {
+                    Status = false;
+                    Mensagem = US.Mensagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                Status = false;
+                Mensagem = ex.Message;
+            }
+        }
+
     }
 }
