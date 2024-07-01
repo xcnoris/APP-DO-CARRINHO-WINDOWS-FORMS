@@ -34,6 +34,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.Txt_Carrinho_Cod = new System.Windows.Forms.TextBox();
             this.Lbl_Nome = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.Btn_Filtrar = new System.Windows.Forms.Button();
             this.DGV_Dados = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.Btn_Excluir_Pessoas = new System.Windows.Forms.Button();
             this.Btn_Alterar_Pessoas = new System.Windows.Forms.Button();
             this.Btn_Incluir_Pessoas = new System.Windows.Forms.Button();
@@ -119,6 +119,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.encontrar;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button4.Location = new System.Drawing.Point(361, 89);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(24, 23);
+            this.button4.TabIndex = 31;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // Txt_Nome
             // 
@@ -252,17 +263,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.encontrar;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button4.Location = new System.Drawing.Point(361, 89);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(24, 23);
-            this.button4.TabIndex = 31;
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // Btn_Excluir_Pessoas
             // 

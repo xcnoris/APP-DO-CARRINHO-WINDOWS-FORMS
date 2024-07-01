@@ -30,7 +30,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
             InitializeComponent();
             conexaoDB = new ConexaoDB();
-         
+            AddColumnDataGridView();
         }
 
         private void Frm_Tela_Carrinho_Load(object sender, EventArgs e)
@@ -40,11 +40,8 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
             Frm_Cadastro_Carrinho_UC frm = new Frm_Cadastro_Carrinho_UC();
             frm.ShowDialog();
-
-
         }
 
         private void Btn_Fechar_Click(object sender, EventArgs e)
@@ -54,7 +51,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void Frm_Tela_Pessoas_Load(object sender, EventArgs e)
         {
-          
+       
             Metodos m = new Metodos();
             m.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
             
@@ -156,13 +153,10 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 }
             }
         }
-
-        // Recebe um object Carrinho1 e convert para uma linha do DataGridView
-        private void AddCarrinhoToDataGridView(Carrinho1 carrinho)
+        private void AddColumnDataGridView()
         {
             try
             {
-
                 // Se o DataGridView não tiver colunas, adicione-as
                 if (DGV_Dados.Columns.Count == 0)
                 {
@@ -173,6 +167,21 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                     DGV_Dados.Columns.Add("situacao", "Situação");
                     DGV_Dados.Columns.Add("codigo_carrinho", "Código Carrinho");
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        // Recebe um object Carrinho1 e convert para uma linha do DataGridView
+        private void AddCarrinhoToDataGridView(Carrinho1 carrinho)
+        {
+            try
+            {
+                AddColumnDataGridView();
+
                 string situacao;
                 if (carrinho.Situacao == "1")
                 {

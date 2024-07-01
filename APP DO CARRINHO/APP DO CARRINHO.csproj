@@ -114,6 +114,12 @@
     <Compile Include="Formularios\Pessoas\Frm_Tela_Pessoas.Designer.cs">
       <DependentUpon>Frm_Tela_Pessoas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\User\Frm_Cadastro_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\User\Frm_Cadastro_Usuario.Designer.cs">
+      <DependentUpon>Frm_Cadastro_Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\User\Frm_Tela_User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Pessoas\Frm_Tela_Pessoas.resx">
       <DependentUpon>Frm_Tela_Pessoas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\User\Frm_Cadastro_Usuario.resx">
+      <DependentUpon>Frm_Cadastro_Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\User\Frm_Tela_User.resx">
       <DependentUpon>Frm_Tela_User.cs</DependentUpon>

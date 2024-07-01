@@ -29,30 +29,35 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Tela_User));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGV_Dados = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.Btn_Filtrar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.Txt_Login = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Btn_Incluir_User = new System.Windows.Forms.Button();
-            this.Btn_Alterar_User = new System.Windows.Forms.Button();
-            this.Btn_Excluir_User = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Btn_Excluir_User = new System.Windows.Forms.Button();
+            this.Btn_Alterar_User = new System.Windows.Forms.Button();
+            this.Btn_Incluir_User = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // DGV_Dados
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 117);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(695, 248);
-            this.dataGridView1.TabIndex = 0;
+            this.DGV_Dados.AllowUserToAddRows = false;
+            this.DGV_Dados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGV_Dados.BackgroundColor = System.Drawing.Color.White;
+            this.DGV_Dados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Dados.Location = new System.Drawing.Point(12, 117);
+            this.DGV_Dados.Name = "DGV_Dados";
+            this.DGV_Dados.Size = new System.Drawing.Size(695, 248);
+            this.DGV_Dados.TabIndex = 0;
             // 
             // label1
             // 
@@ -66,7 +71,7 @@
             // Btn_Filtrar
             // 
             this.Btn_Filtrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Filtrar.Location = new System.Drawing.Point(289, 57);
+            this.Btn_Filtrar.Location = new System.Drawing.Point(514, 51);
             this.Btn_Filtrar.Name = "Btn_Filtrar";
             this.Btn_Filtrar.Size = new System.Drawing.Size(121, 23);
             this.Btn_Filtrar.TabIndex = 6;
@@ -96,42 +101,84 @@
             this.Txt_Login.Size = new System.Drawing.Size(206, 20);
             this.Txt_Login.TabIndex = 9;
             // 
-            // comboBox1
+            // Cbox_Situacao
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(289, 28);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 10;
+            this.Cbox_Situacao.FormattingEnabled = true;
+            this.Cbox_Situacao.Location = new System.Drawing.Point(358, 28);
+            this.Cbox_Situacao.Name = "Cbox_Situacao";
+            this.Cbox_Situacao.Size = new System.Drawing.Size(121, 21);
+            this.Cbox_Situacao.TabIndex = 10;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.Txt_Nome);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.Cbox_Situacao);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.Txt_Login);
             this.groupBox1.Controls.Add(this.Btn_Filtrar);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(427, 91);
+            this.groupBox1.Size = new System.Drawing.Size(695, 91);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Filtros";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // Btn_Incluir_User
+            // button1
             // 
-            this.Btn_Incluir_User.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Incluir_User.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.adicionar__2_;
-            this.Btn_Incluir_User.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Btn_Incluir_User.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Incluir_User.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Incluir_User.Location = new System.Drawing.Point(12, 377);
-            this.Btn_Incluir_User.Name = "Btn_Incluir_User";
-            this.Btn_Incluir_User.Size = new System.Drawing.Size(100, 32);
-            this.Btn_Incluir_User.TabIndex = 11;
-            this.Btn_Incluir_User.Text = "   Incluir";
-            this.Btn_Incluir_User.UseVisualStyleBackColor = true;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(607, 379);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 30);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Fechar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(358, 53);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(292, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Situacao";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(292, 62);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Tipo";
+            // 
+            // Btn_Excluir_User
+            // 
+            this.Btn_Excluir_User.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_Excluir_User.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Excluir_User.BackgroundImage")));
+            this.Btn_Excluir_User.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Excluir_User.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Excluir_User.Location = new System.Drawing.Point(224, 377);
+            this.Btn_Excluir_User.Name = "Btn_Excluir_User";
+            this.Btn_Excluir_User.Size = new System.Drawing.Size(100, 32);
+            this.Btn_Excluir_User.TabIndex = 13;
+            this.Btn_Excluir_User.Text = "Excluir";
+            this.Btn_Excluir_User.UseVisualStyleBackColor = true;
             // 
             // Btn_Alterar_User
             // 
@@ -147,30 +194,20 @@
             this.Btn_Alterar_User.Text = "  Alterar";
             this.Btn_Alterar_User.UseVisualStyleBackColor = true;
             // 
-            // Btn_Excluir_User
+            // Btn_Incluir_User
             // 
-            this.Btn_Excluir_User.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Excluir_User.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Excluir_User.BackgroundImage")));
-            this.Btn_Excluir_User.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Btn_Excluir_User.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Excluir_User.Location = new System.Drawing.Point(224, 377);
-            this.Btn_Excluir_User.Name = "Btn_Excluir_User";
-            this.Btn_Excluir_User.Size = new System.Drawing.Size(100, 32);
-            this.Btn_Excluir_User.TabIndex = 13;
-            this.Btn_Excluir_User.Text = "Excluir";
-            this.Btn_Excluir_User.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(607, 379);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Fechar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Btn_Incluir_User.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_Incluir_User.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.adicionar__2_;
+            this.Btn_Incluir_User.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Incluir_User.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Incluir_User.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Incluir_User.Location = new System.Drawing.Point(12, 377);
+            this.Btn_Incluir_User.Name = "Btn_Incluir_User";
+            this.Btn_Incluir_User.Size = new System.Drawing.Size(100, 32);
+            this.Btn_Incluir_User.TabIndex = 11;
+            this.Btn_Incluir_User.Text = "   Incluir";
+            this.Btn_Incluir_User.UseVisualStyleBackColor = true;
+            this.Btn_Incluir_User.Click += new System.EventHandler(this.Btn_Incluir_User_Click);
             // 
             // Frm_Tela_User
             // 
@@ -183,16 +220,15 @@
             this.Controls.Add(this.Btn_Alterar_User);
             this.Controls.Add(this.Btn_Incluir_User);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DGV_Dados);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(735, 460);
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(735, 460);
             this.Name = "Frm_Tela_User";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "s";
+            this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.Frm_Tela_User_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -201,17 +237,20 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGV_Dados;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Btn_Filtrar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Txt_Nome;
         private System.Windows.Forms.TextBox Txt_Login;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Cbox_Situacao;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Btn_Incluir_User;
         private System.Windows.Forms.Button Btn_Alterar_User;
         private System.Windows.Forms.Button Btn_Excluir_User;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

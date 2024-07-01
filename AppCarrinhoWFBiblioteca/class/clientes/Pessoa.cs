@@ -31,7 +31,7 @@ namespace AppCarrinhoWFBiblioteca.clientes
         public string CPF { get; set; }
 
         [Required(ErrorMessage = "Nome do cliente é obrigatorio!")]
-        [StringLength(70, ErrorMessage = "Nome do Cliente deve ter no Maximo 70 Caracteres!")]
+        [StringLength(100, ErrorMessage = "Nome do Cliente deve ter no Maximo 70 Caracteres!")]
         public string Nome { get; set; }
         [StringLength(10, ErrorMessage = "Cep deve ter no maximo 10 caracteres!")]
         public string CEP { get; set; }

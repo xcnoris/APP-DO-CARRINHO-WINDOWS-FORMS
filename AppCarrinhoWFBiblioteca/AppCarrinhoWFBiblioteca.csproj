@@ -99,11 +99,15 @@
   <ItemGroup>
     <Compile Include="class\carrinho\Carrinho.cs" />
     <Compile Include="class\carrinho\CarrinhoService.cs" />
+    <Compile Include="class\CateriaUser\CategoriaUser.cs" />
+    <Compile Include="class\CateriaUser\CategoriaUserServices.cs" />
     <Compile Include="class\CEP.cs" />
     <Compile Include="class\clientes\Pessoa.cs" />
     <Compile Include="class\clientes\PessoaService.cs" />
     <Compile Include="class\Cls_Uteis.cs" />
     <Compile Include="class\Situacao.cs" />
+    <Compile Include="class\User\User.cs" />
+    <Compile Include="class\User\UserServices.cs" />
     <Compile Include="Interfaces\ICruds.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

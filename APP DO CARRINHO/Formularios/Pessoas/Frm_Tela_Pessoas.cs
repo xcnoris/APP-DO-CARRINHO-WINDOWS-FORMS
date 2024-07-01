@@ -36,6 +36,7 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 
         private void Frm_Tela_Pessoas_Load(object sender, EventArgs e)
         {
+            AddColumnDataGridView();
             CarregarTodasAsPessoas();
         }
 
@@ -196,28 +197,36 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 
         private void AddColumnDataGridView() 
         {
-            // Se o DataGridView não tiver colunas, adicione-as
-            if (DGV_Dados.Columns.Count == 0)
+            try
             {
-                DGV_Dados.Columns.Add("ID", "ID");
-                DGV_Dados.Columns.Add("CPF", "CPF");
-                DGV_Dados.Columns.Add("Nome", "Nome");
-                DGV_Dados.Columns.Add("CEP", "CEP");
-                DGV_Dados.Columns.Add("Cidade_Nome", "Cidade Nome");
-                DGV_Dados.Columns.Add("UF", "UF");
-                DGV_Dados.Columns.Add("Endereco", "Endereço");
-                DGV_Dados.Columns.Add("Endereco_Numero", "Endereço Número");
-                DGV_Dados.Columns.Add("Endereco_Complemento", "Endereço Complemento");
-                DGV_Dados.Columns.Add("Bairro", "Bairro");
-                DGV_Dados.Columns.Add("DDD_Telefone", "DDD Telefone");
-                DGV_Dados.Columns.Add("Telefone", "Telefone");
-                DGV_Dados.Columns.Add("DDD_Celular", "DDD Celular");
-                DGV_Dados.Columns.Add("Celular", "Celular");
-                DGV_Dados.Columns.Add("Sexo", "Sexo");
-                DGV_Dados.Columns.Add("DataNascimento", "Data Nascimento");
-                DGV_Dados.Columns.Add("Email", "Email");
-                DGV_Dados.Columns.Add("Congregacao_ID", "Congregação ID");
+                // Se o DataGridView não tiver colunas, adicione-as
+                if (DGV_Dados.Columns.Count == 0)
+                {
+                    DGV_Dados.Columns.Add("ID", "ID");
+                    DGV_Dados.Columns.Add("CPF", "CPF");
+                    DGV_Dados.Columns.Add("Nome", "Nome");
+                    DGV_Dados.Columns.Add("CEP", "CEP");
+                    DGV_Dados.Columns.Add("Cidade_Nome", "Cidade Nome");
+                    DGV_Dados.Columns.Add("UF", "UF");
+                    DGV_Dados.Columns.Add("Endereco", "Endereço");
+                    DGV_Dados.Columns.Add("Endereco_Numero", "Endereço Número");
+                    DGV_Dados.Columns.Add("Endereco_Complemento", "Endereço Complemento");
+                    DGV_Dados.Columns.Add("Bairro", "Bairro");
+                    DGV_Dados.Columns.Add("DDD_Telefone", "DDD Telefone");
+                    DGV_Dados.Columns.Add("Telefone", "Telefone");
+                    DGV_Dados.Columns.Add("DDD_Celular", "DDD Celular");
+                    DGV_Dados.Columns.Add("Celular", "Celular");
+                    DGV_Dados.Columns.Add("Sexo", "Sexo");
+                    DGV_Dados.Columns.Add("DataNascimento", "Data Nascimento");
+                    DGV_Dados.Columns.Add("Email", "Email");
+                    DGV_Dados.Columns.Add("Congregacao_ID", "Congregação ID");
+                }
             }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
 
