@@ -25,6 +25,9 @@ namespace AppCarrinhoWFBiblioteca.User
             Status = true;
         }
 
+
+
+
         // Método para incluir um usuário no banco de dados
         public void CreateInDB(ConexaoDB conexaoDB, User1 user)
         {
@@ -148,7 +151,7 @@ namespace AppCarrinhoWFBiblioteca.User
             try
             {
                 // Query para atualizar um registro na tabela tb_pessoa
-                string query = "UPDATE tb_pessoa SET " +
+                string query = "UPDATE tb_user SET " +
                                "cpf = @cpf, " +
                                "nome = @nome, " +
                                "tipo = @tipo, " +
@@ -177,19 +180,19 @@ namespace AppCarrinhoWFBiblioteca.User
                     if (rowsAffected > 0)
                     {
                         Status = true;
-                        Mensagem = "Pessoa atualizada com sucesso!";
+                        Mensagem = "Usuario atualizada com sucesso!";
                     }
                     else
                     {
                         Status = false;
-                        Mensagem = "Nenhuma pessoa foi atualizada.";
+                        Mensagem = "Nenhum usuario foi atualizado.";
                     }
                 }
             }
             catch (MySqlException ex)
             {
                 Status = false;
-                Mensagem = "Erro ao atualizar pessoa no banco de dados: " + ex.Message;
+                Mensagem = "Erro ao atualizar usuario no banco de dados: " + ex.Message;
             }
         }
 

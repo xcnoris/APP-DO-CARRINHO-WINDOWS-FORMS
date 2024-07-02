@@ -5,6 +5,7 @@ using AppCarrinhoWFBiblioteca.carrinho1;
 using AppCarrinhoWFBiblioteca.clientes;
 using AppCarrinhoWFBiblioteca.User;
 using AppCarrinhoWFBiblioteca.Users;
+using banco.DAL.DataBases;
 using banco.DataBases;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace APP_DO_CARRINHO.Formularios.User
 {
     public partial class Frm_Tela_User : Form
     {
-
+        
         private ConexaoDB conexaoDB;
 
         // Icolletion usaddo para armazenar o retorno da consulta no DB
@@ -33,6 +34,8 @@ namespace APP_DO_CARRINHO.Formularios.User
         {
             InitializeComponent();
             conexaoDB = new ConexaoDB();
+        
+
             AddColumnDataGridView();
         }
 
@@ -190,15 +193,15 @@ namespace APP_DO_CARRINHO.Formularios.User
         {
             try
             {
-                string teste = "1";
                 string nome_Cliente = Txt_Nome.Text;
-                //string id_Cliente = Txt_Id.Text;
-                //string cpf_Cliente = Txt_Cpf.Text;
+                string login = Txt_Login.Text;
+                string situacao = Cbox_Situacao.Text;
+                string tipo = Cbox_TipoUser.Text;
 
 
                 // Caso todos os campos estejam em branco, ele busca todos os carrinho
                 //if ((id_Cliente == "") && string.IsNullOrWhiteSpace(nome_Cliente) && (cpf_Cliente == ""))
-                if (teste == "1")
+                if (string.IsNullOrEmpty(nome_Cliente))
                 {
                     try
                     {
@@ -254,6 +257,129 @@ namespace APP_DO_CARRINHO.Formularios.User
             {
                 MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void c_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Retrieve the selected row data
+                var selectedRow = DGV_Dados.CurrentRow;
+                string id;
+                if (selectedRow != null)
+                {
+                    id = selectedRow.Cells["ID"].Value.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Nenhuma linha selecionada.", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Instancia a classe
+                UserServices US = new UserServices();
+
+                if (US.Status)
+                {
+                    // Busca o usuário pelo id
+                    US.ReadInDB(conexaoDB, id);
+
+                    if (US.Status)
+                    {
+                        //DGV_Dados.Rows.Clear();
+
+                        // Percorre a lista
+                        foreach (User1 user in US.usuarios)
+                        {
+                            if (string.IsNullOrEmpty(user.Senha))
+                            {
+                                Random random = new Random();
+
+                                // Gera um número aleatório de 4 dígitos
+                                string randomNumber = random.Next(1000, 10000).ToString();
+
+                                // transforma o numero gerado em hash
+                                string senhaInHasg = ComandosDB.GetMD5Hasg(randomNumber);
+                                user.Senha = senhaInHasg;
+
+                                // Atualiza no banco
+                                user.AtualizarNoBanco(conexaoDB);
+                                if (user.Status)
+                                {
+                                    MessageBox.Show($"Senha {randomNumber} gerada com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show($"[ERROR]: {user.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Usuario já tem senha gerada!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"ID {id} não localizado na base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"[ERROR]: {US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Btn_Excluir_User_Click(object sender, EventArgs e)
+        {
+
+
+            try
+            {
+
+                var selectedRow = DGV_Dados.CurrentRow;
+
+
+                string idnumero = selectedRow.Cells["ID"].Value.ToString();
+                string cpf = selectedRow.Cells["CPF"].Value.ToString();
+                string nome = selectedRow.Cells["Nome"].Value.ToString();
+
+
+                if (selectedRow != null)
+                {
+                    var resposta = MessageBox.Show($"Você Realmente quer excluir o usuario  selecionado, {nome}?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resposta == DialogResult.Yes)
+                    {
+                        UserServices US = new UserServices();
+
+                        string id = selectedRow.Cells["ID"].Value.ToString();
+                        US.DeleteInDB(conexaoDB, id);
+
+                        if (US.Status)
+                        {
+                            MessageBox.Show($"OK: {US.Mensagem} user Excluido com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            CarregarTodosUsers();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"{US.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
     }
 }

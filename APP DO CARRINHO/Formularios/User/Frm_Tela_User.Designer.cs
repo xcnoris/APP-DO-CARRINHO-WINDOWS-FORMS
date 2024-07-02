@@ -182,6 +182,7 @@
             this.c.TabIndex = 58;
             this.c.Text = "Criar senha";
             this.c.UseVisualStyleBackColor = true;
+            this.c.Click += new System.EventHandler(this.c_Click);
             // 
             // Btn_Excluir_User
             // 
@@ -195,6 +196,7 @@
             this.Btn_Excluir_User.TabIndex = 13;
             this.Btn_Excluir_User.Text = "Excluir";
             this.Btn_Excluir_User.UseVisualStyleBackColor = true;
+            this.Btn_Excluir_User.Click += new System.EventHandler(this.Btn_Excluir_User_Click);
             // 
             // Btn_Alterar_User
             // 
