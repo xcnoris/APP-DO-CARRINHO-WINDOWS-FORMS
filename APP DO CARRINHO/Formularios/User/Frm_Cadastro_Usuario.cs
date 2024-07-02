@@ -120,9 +120,9 @@ namespace APP_DO_CARRINHO.Formularios.User
                 Id = Txt_Login.Text,
                 CPF = Regex.Replace(MSK_CPF.Text, @"[^\d]", ""),
                 Nome = Txt_Nome.Text,
-                //Id_Tipo = Cbox_Tipo.Text,
+                Id_Tipo = "1",
                 Login = Txt_Login.Text,
-                Id_Situacao = Cbox_Situacao.Text
+                Id_Situacao = Cbox_Situacao.SelectedIndex.ToString()
 
             };
 

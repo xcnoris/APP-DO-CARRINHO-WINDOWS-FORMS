@@ -234,14 +234,15 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         private void AddPessoaToDataGridView(Pessoa pessoa)
         {
 
-
+            Metodos m = new Metodos();
+            string cpfFormatado = m.FormatCPF(pessoa.CPF);
 
             AddColumnDataGridView();
 
             // Adicionar a linha ao DataGridView
             DGV_Dados.Rows.Add(
                 pessoa.ID,
-                pessoa.CPF,
+                cpfFormatado,
                 pessoa.Nome,
                 pessoa.CEP,
                 pessoa.Cidade_Nome,

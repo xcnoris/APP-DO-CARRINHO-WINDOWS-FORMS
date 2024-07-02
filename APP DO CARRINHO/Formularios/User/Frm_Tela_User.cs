@@ -2,6 +2,7 @@
 using AppCarrinhoWFBiblioteca;
 using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
+using AppCarrinhoWFBiblioteca.clientes;
 using AppCarrinhoWFBiblioteca.User;
 using AppCarrinhoWFBiblioteca.Users;
 using banco.DataBases;
@@ -24,7 +25,9 @@ namespace APP_DO_CARRINHO.Formularios.User
 
         private ConexaoDB conexaoDB;
 
+        // Icolletion usaddo para armazenar o retorno da consulta no DB
         public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
+        public ICollection<TipoUser> RetornoTipos = new List<TipoUser>();
 
         public Frm_Tela_User()
         {
@@ -43,9 +46,10 @@ namespace APP_DO_CARRINHO.Formularios.User
 
             Metodos m = new Metodos();
             m.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
+            m.IncluirCamposTipoUser(conexaoDB, RetornoTipos, Cbox_TipoUser);
 
             AddColumnDataGridView();
-            CarregarTodosCarrinhos();
+            CarregarTodosUsers();
         }
 
 
@@ -57,9 +61,9 @@ namespace APP_DO_CARRINHO.Formularios.User
                 DGV_Dados.Columns.Add("ID", "ID");
                 DGV_Dados.Columns.Add("CPF", "CPF");
                 DGV_Dados.Columns.Add("Nome", "Nome");
-                DGV_Dados.Columns.Add("Situação", "Situação");
                 DGV_Dados.Columns.Add("Login", "Login");
                 DGV_Dados.Columns.Add("Tipo", "Tipo");
+                DGV_Dados.Columns.Add("Situação", "Situação");
 
             }
         }
@@ -69,7 +73,7 @@ namespace APP_DO_CARRINHO.Formularios.User
 
         }
 
-        private void CarregarTodosCarrinhos()
+        private void CarregarTodosUsers()
         {
 
             try
@@ -88,7 +92,7 @@ namespace APP_DO_CARRINHO.Formularios.User
                         foreach (User1 user in US.usuarios)
                         {
 
-                            AddCarrinhoToDataGridView(user);
+                            AddUserToDataGridView(user);
                         }
                     }
                     else
@@ -108,13 +112,13 @@ namespace APP_DO_CARRINHO.Formularios.User
         }
 
         // Recebe um object Carrinho1 e convert para uma linha do DataGridView
-        private void AddCarrinhoToDataGridView(User1 user)
+        private void AddUserToDataGridView(User1 user)
         {
             try
             {
                 AddColumnDataGridView();
 
-                string situacao;
+                
                 if (user.Id_Situacao == "1")
                 {
                     user.Id_Situacao = "Ativo";
@@ -125,9 +129,11 @@ namespace APP_DO_CARRINHO.Formularios.User
                     user.Id_Situacao = "Inativo";
 
                 }
+                Metodos m = new Metodos();
+                string cpfFormatado = m.FormatCPF(user.CPF);
 
                 // Adicionar a linha ao DataGridView
-                DGV_Dados.Rows.Add(user.Id, user.CPF, user.Nome,user.Id_Situacao, user.Login, user.Id_Tipo);
+                DGV_Dados.Rows.Add(user.Id, cpfFormatado, user.Nome,  user.Login, user.Id_Tipo, user.Id_Situacao);
             }
             catch (ValidationException ex)
             {
@@ -178,6 +184,76 @@ namespace APP_DO_CARRINHO.Formularios.User
         private void DGV_Dados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Btn_Filtrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string teste = "1";
+                string nome_Cliente = Txt_Nome.Text;
+                //string id_Cliente = Txt_Id.Text;
+                //string cpf_Cliente = Txt_Cpf.Text;
+
+
+                // Caso todos os campos estejam em branco, ele busca todos os carrinho
+                //if ((id_Cliente == "") && string.IsNullOrWhiteSpace(nome_Cliente) && (cpf_Cliente == ""))
+                if (teste == "1")
+                {
+                    try
+                    {
+                        DGV_Dados.Rows.Clear();
+                        CarregarTodosUsers();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                // Caso o campo do id não seja nulo, ele busca pelo id do cliente
+                //else if (!string.IsNullOrWhiteSpace(id_Cliente))
+                else if (1 ==1 )
+                {
+                    try
+                    {
+                        UserServices US = new UserServices();
+
+                        if (US.Status)
+                        {
+                            // Busca a pessoa pelo id
+                            US.ReadInDB(conexaoDB, Txt_Nome.Text);
+
+                            if (US.Status)
+                            {
+                                DGV_Dados.Rows.Clear();
+                                // Pecorre a lista
+                                foreach (User1 pessoa in US.usuarios)
+                                {
+
+                                    AddUserToDataGridView(pessoa);
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show($"ID {Txt_Nome.Text} Não Localizado Na Base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show($"[ERROR]: {US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

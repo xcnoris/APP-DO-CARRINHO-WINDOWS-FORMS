@@ -32,13 +32,13 @@ namespace AppCarrinhoWFBiblioteca.User
             try
             {
                 // Query para inserir um novo registro na tabela tb_pessoa
-                string query = "INSERT INTO tb_pessoa ( nome,  login, senha, situacao, datacriacao, cpf ) " +
-                               "VALUES (@nome, @login, @senha, @situacao, @datacriacao, @cpf)";
+                string query = "INSERT INTO tb_user ( nome,  tipo, login, senha, situacao, datacriacao, cpf ) " +
+                               "VALUES (@nome, @tipo, @login, @senha, @situacao, @datacriacao, @cpf)";
                 using (MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection()))
                 {
                     // Adiciona os parâmetros à query
                     cmd.Parameters.AddWithValue("@nome", user.Nome);
-                    //cmd.Parameters.AddWithValue("@tipo", user.Id_Tipo);
+                    cmd.Parameters.AddWithValue("@tipo", user.Id_Tipo);
                     cmd.Parameters.AddWithValue("@login", user.Login);
                     cmd.Parameters.AddWithValue("@senha", user.Senha);
                     cmd.Parameters.AddWithValue("@situacao", user.Id_Situacao);
@@ -50,12 +50,12 @@ namespace AppCarrinhoWFBiblioteca.User
                     cmd.ExecuteNonQuery();
                     conexaoDB.CloseConnection();
                 }
-                Mensagem = "Pessoa incluída com sucesso!";
+                Mensagem = "Usuario incluído com sucesso!";
             }
             catch (MySqlException ex)
             {
                 Status = false;
-                Mensagem = "Erro ao incluir pessoa no banco de dados: " + ex.Message;
+                Mensagem = "Erro ao incluir novo usuario no banco de dados: " + ex.Message;
             }
         }
 

@@ -106,6 +106,7 @@
     <Compile Include="class\clientes\PessoaService.cs" />
     <Compile Include="class\Cls_Uteis.cs" />
     <Compile Include="class\Situacao.cs" />
+    <Compile Include="class\User\TipoUser.cs" />
     <Compile Include="class\User\User.cs" />
     <Compile Include="class\User\UserServices.cs" />
     <Compile Include="Interfaces\ICruds.cs" />

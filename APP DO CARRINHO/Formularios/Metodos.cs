@@ -1,4 +1,5 @@
 ﻿using AppCarrinhoWFBiblioteca;
+using AppCarrinhoWFBiblioteca.User;
 using banco.DataBases;
 using System;
 using System.Collections.Generic;
@@ -6,12 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace APP_DO_CARRINHO.Formularios
 {
     internal class Metodos
     {
-
+        internal string FormatCPF(string cpf)
+        {
+            if (cpf.Length == 11)
+            {
+                return $"{cpf.Substring(0, 3)}.{cpf.Substring(3, 3)}.{cpf.Substring(6, 3)}-{cpf.Substring(9, 2)}";
+            }
+            return cpf; // Retorna o CPF sem formatação se ele não tiver 11 caracteres
+        }
 
         public void IncluirCamposSituacao(ConexaoDB conexao, ICollection<Situacao> situacoes, ComboBox CboxSituacao)
         {
@@ -59,5 +68,53 @@ namespace APP_DO_CARRINHO.Formularios
             }
         }
 
+
+        // -----------------
+        public void IncluirCamposTipoUser(ConexaoDB conexao, ICollection<TipoUser> tipos, ComboBox CboxTipoUser)
+        {
+            try
+            {
+                if (CboxTipoUser == null)
+                {
+                    throw new ArgumentNullException(nameof(CboxTipoUser), "ComboBox CboxTipoUser não pode ser nulo.");
+                }
+
+                TipoUser tipoUser = new TipoUser();
+
+                if (tipoUser.Status)
+                {
+                    tipoUser.ConsultarTiposDeUsuarioInDB(conexao);
+
+                    if (tipoUser.Status)
+                    {
+                        tipos = TipoUser.Tipos;
+
+                        // Converte o ICollection<TipoUser> para uma List<TipoUser> para adicionar a opção "Todos"
+                        List<TipoUser> tipoUserList = tipos.ToList();
+
+                        // Adiciona a opção "Todos"
+                        tipoUserList.Insert(0, new TipoUser { Id = "0", Nome = "Todos" });
+
+                        CboxTipoUser.DataSource = tipoUserList;
+                        CboxTipoUser.DisplayMember = "Nome";
+                        CboxTipoUser.ValueMember = "Id";
+                        CboxTipoUser.DropDownStyle = ComboBoxStyle.DropDownList;
+                    }
+                    else
+                    {
+                        MessageBox.Show($"[ERROR]: 1{tipoUser.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"[ERROR]: 2{tipoUser.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
+

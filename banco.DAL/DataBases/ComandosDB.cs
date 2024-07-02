@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -79,6 +80,22 @@ namespace banco.DAL.DataBases
                 conexaoDB.CloseConnection();
             }
             return result;
+        }
+
+        // Metodo para transformar senha em hash
+        public static string GetMD5Hasg(string senha)
+        {
+            MD5 md5 = MD5.Create();
+            // Converte a string da senha para um array de byte e calcula o hash
+            byte[] data = md5.ComputeHash(Encoding.UTF8.GetBytes(senha));
+
+            // Cria uma nova stringbuilder para coletar os bytes e criar a string
+            StringBuilder sBuilder = new StringBuilder();
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+            return sBuilder.ToString();
         }
     }
 }

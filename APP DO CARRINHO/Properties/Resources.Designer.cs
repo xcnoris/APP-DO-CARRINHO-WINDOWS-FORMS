@@ -93,6 +93,16 @@ namespace APP_DO_CARRINHO.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap adicionar_usuario {
+            get {
+                object obj = ResourceManager.GetObject("adicionar-usuario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap botao_de_deletar {
             get {
                 object obj = ResourceManager.GetObject("botao-de-deletar", resourceCulture);
@@ -116,6 +126,26 @@ namespace APP_DO_CARRINHO.Properties {
         internal static System.Drawing.Bitmap cancelar {
             get {
                 object obj = ResourceManager.GetObject("cancelar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap carro {
+            get {
+                object obj = ResourceManager.GetObject("carro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chaves {
+            get {
+                object obj = ResourceManager.GetObject("chaves", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,6 +213,16 @@ namespace APP_DO_CARRINHO.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gerenciamento_de_tempo {
+            get {
+                object obj = ResourceManager.GetObject("gerenciamento-de-tempo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ImagemTelaLogin {
             get {
                 object obj = ResourceManager.GetObject("ImagemTelaLogin", resourceCulture);
@@ -196,6 +236,16 @@ namespace APP_DO_CARRINHO.Properties {
         internal static System.Drawing.Bitmap Menu__40_x_40_px_ {
             get {
                 object obj = ResourceManager.GetObject("Menu (40 x 40 px)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trabalho_em_equipe {
+            get {
+                object obj = ResourceManager.GetObject("trabalho-em-equipe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

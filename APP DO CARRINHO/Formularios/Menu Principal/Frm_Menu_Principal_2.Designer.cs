@@ -32,32 +32,32 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Menu_Principal_2));
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.Pnl_Configuracoes = new System.Windows.Forms.Button();
             this.Pnl_Configuracao = new System.Windows.Forms.Button();
-            this.Pnl_Agendamentos = new System.Windows.Forms.Button();
             this.Pnl_Agendamento = new System.Windows.Forms.Button();
             this.Pnl_Carrinhos = new System.Windows.Forms.Button();
             this.Pnl_Carrinho = new System.Windows.Forms.Button();
-            this.Pnl_Pessoas = new System.Windows.Forms.Button();
             this.Pnl_Pessoa = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.labelVersion = new System.Windows.Forms.Label();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.Lbl_Nome_User = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.Pnl_Configuracoes = new System.Windows.Forms.Button();
+            this.Pnl_Agendamentos = new System.Windows.Forms.Button();
             this.Btn_User = new System.Windows.Forms.Button();
+            this.Pnl_Pessoas = new System.Windows.Forms.Button();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panelSidebar.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSidebar
@@ -89,24 +89,6 @@
             this.panelMenu.Size = new System.Drawing.Size(266, 451);
             this.panelMenu.TabIndex = 1;
             // 
-            // Pnl_Configuracoes
-            // 
-            this.Pnl_Configuracoes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Pnl_Configuracoes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Pnl_Configuracoes.FlatAppearance.BorderSize = 0;
-            this.Pnl_Configuracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Pnl_Configuracoes.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.Pnl_Configuracoes.ForeColor = System.Drawing.Color.White;
-            this.Pnl_Configuracoes.Location = new System.Drawing.Point(0, 362);
-            this.Pnl_Configuracoes.Name = "Pnl_Configuracoes";
-            this.Pnl_Configuracoes.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
-            this.Pnl_Configuracoes.Size = new System.Drawing.Size(266, 47);
-            this.Pnl_Configuracoes.TabIndex = 6;
-            this.Pnl_Configuracoes.Text = "Configurações";
-            this.Pnl_Configuracoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Pnl_Configuracoes.UseVisualStyleBackColor = true;
-            this.Pnl_Configuracoes.Click += new System.EventHandler(this.Pnl_Configuracoes_Click);
-            // 
             // Pnl_Configuracao
             // 
             this.Pnl_Configuracao.Dock = System.Windows.Forms.DockStyle.Top;
@@ -122,25 +104,6 @@
             this.Pnl_Configuracao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Pnl_Configuracao.UseVisualStyleBackColor = true;
             this.Pnl_Configuracao.Click += new System.EventHandler(this.Pnl_Configuracao_Click);
-            // 
-            // Pnl_Agendamentos
-            // 
-            this.Pnl_Agendamentos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pnl_Agendamentos.BackgroundImage")));
-            this.Pnl_Agendamentos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Pnl_Agendamentos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Pnl_Agendamentos.FlatAppearance.BorderSize = 0;
-            this.Pnl_Agendamentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Pnl_Agendamentos.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.Pnl_Agendamentos.ForeColor = System.Drawing.Color.White;
-            this.Pnl_Agendamentos.Location = new System.Drawing.Point(0, 268);
-            this.Pnl_Agendamentos.Name = "Pnl_Agendamentos";
-            this.Pnl_Agendamentos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.Pnl_Agendamentos.Size = new System.Drawing.Size(266, 47);
-            this.Pnl_Agendamentos.TabIndex = 4;
-            this.Pnl_Agendamentos.Text = "Agendamentos";
-            this.Pnl_Agendamentos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Pnl_Agendamentos.UseVisualStyleBackColor = true;
-            this.Pnl_Agendamentos.Click += new System.EventHandler(this.Pnl_Agendamentos_Click);
             // 
             // Pnl_Agendamento
             // 
@@ -160,6 +123,8 @@
             // 
             // Pnl_Carrinhos
             // 
+            this.Pnl_Carrinhos.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.carro;
+            this.Pnl_Carrinhos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Pnl_Carrinhos.Dock = System.Windows.Forms.DockStyle.Top;
             this.Pnl_Carrinhos.FlatAppearance.BorderSize = 0;
             this.Pnl_Carrinhos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -190,25 +155,6 @@
             this.Pnl_Carrinho.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Pnl_Carrinho.UseVisualStyleBackColor = true;
             this.Pnl_Carrinho.Click += new System.EventHandler(this.Pnl_Carrinho_Click);
-            // 
-            // Pnl_Pessoas
-            // 
-            this.Pnl_Pessoas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pnl_Pessoas.BackgroundImage")));
-            this.Pnl_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Pnl_Pessoas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Pnl_Pessoas.FlatAppearance.BorderSize = 0;
-            this.Pnl_Pessoas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Pnl_Pessoas.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.Pnl_Pessoas.ForeColor = System.Drawing.Color.White;
-            this.Pnl_Pessoas.Location = new System.Drawing.Point(0, 47);
-            this.Pnl_Pessoas.Name = "Pnl_Pessoas";
-            this.Pnl_Pessoas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.Pnl_Pessoas.Size = new System.Drawing.Size(266, 40);
-            this.Pnl_Pessoas.TabIndex = 0;
-            this.Pnl_Pessoas.Text = "Pessoas";
-            this.Pnl_Pessoas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Pnl_Pessoas.UseVisualStyleBackColor = true;
-            this.Pnl_Pessoas.Click += new System.EventHandler(this.btnCadastrarEntidade_Click_1);
             // 
             // Pnl_Pessoa
             // 
@@ -245,15 +191,6 @@
             this.labelVersion.Size = new System.Drawing.Size(84, 13);
             this.labelVersion.TabIndex = 1;
             this.labelVersion.Text = "Espaço de frase";
-            // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.Location = new System.Drawing.Point(10, 20);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(40, 40);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxLogo.TabIndex = 0;
-            this.pictureBoxLogo.TabStop = false;
             // 
             // panel1
             // 
@@ -320,8 +257,47 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Versão Beta: 0.0.0.0";
             // 
+            // Pnl_Configuracoes
+            // 
+            this.Pnl_Configuracoes.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.gerenciamento_de_tempo;
+            this.Pnl_Configuracoes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Pnl_Configuracoes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_Configuracoes.FlatAppearance.BorderSize = 0;
+            this.Pnl_Configuracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Pnl_Configuracoes.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.Pnl_Configuracoes.ForeColor = System.Drawing.Color.White;
+            this.Pnl_Configuracoes.Location = new System.Drawing.Point(0, 362);
+            this.Pnl_Configuracoes.Name = "Pnl_Configuracoes";
+            this.Pnl_Configuracoes.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.Pnl_Configuracoes.Size = new System.Drawing.Size(266, 47);
+            this.Pnl_Configuracoes.TabIndex = 6;
+            this.Pnl_Configuracoes.Text = "Configurações";
+            this.Pnl_Configuracoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Pnl_Configuracoes.UseVisualStyleBackColor = true;
+            this.Pnl_Configuracoes.Click += new System.EventHandler(this.Pnl_Configuracoes_Click);
+            // 
+            // Pnl_Agendamentos
+            // 
+            this.Pnl_Agendamentos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pnl_Agendamentos.BackgroundImage")));
+            this.Pnl_Agendamentos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Pnl_Agendamentos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_Agendamentos.FlatAppearance.BorderSize = 0;
+            this.Pnl_Agendamentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Pnl_Agendamentos.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.Pnl_Agendamentos.ForeColor = System.Drawing.Color.White;
+            this.Pnl_Agendamentos.Location = new System.Drawing.Point(0, 268);
+            this.Pnl_Agendamentos.Name = "Pnl_Agendamentos";
+            this.Pnl_Agendamentos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.Pnl_Agendamentos.Size = new System.Drawing.Size(266, 47);
+            this.Pnl_Agendamentos.TabIndex = 4;
+            this.Pnl_Agendamentos.Text = "Agendamentos";
+            this.Pnl_Agendamentos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Pnl_Agendamentos.UseVisualStyleBackColor = true;
+            this.Pnl_Agendamentos.Click += new System.EventHandler(this.Pnl_Agendamentos_Click);
+            // 
             // Btn_User
             // 
+            this.Btn_User.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.adicionar_usuario;
             this.Btn_User.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Btn_User.Dock = System.Windows.Forms.DockStyle.Top;
             this.Btn_User.FlatAppearance.BorderSize = 0;
@@ -337,6 +313,34 @@
             this.Btn_User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_User.UseVisualStyleBackColor = true;
             this.Btn_User.Click += new System.EventHandler(this.Btn_User_Click);
+            // 
+            // Pnl_Pessoas
+            // 
+            this.Pnl_Pessoas.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.trabalho_em_equipe;
+            this.Pnl_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Pnl_Pessoas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_Pessoas.FlatAppearance.BorderSize = 0;
+            this.Pnl_Pessoas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Pnl_Pessoas.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.Pnl_Pessoas.ForeColor = System.Drawing.Color.White;
+            this.Pnl_Pessoas.Location = new System.Drawing.Point(0, 47);
+            this.Pnl_Pessoas.Name = "Pnl_Pessoas";
+            this.Pnl_Pessoas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.Pnl_Pessoas.Size = new System.Drawing.Size(266, 40);
+            this.Pnl_Pessoas.TabIndex = 0;
+            this.Pnl_Pessoas.Text = "Pessoas";
+            this.Pnl_Pessoas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Pnl_Pessoas.UseVisualStyleBackColor = true;
+            this.Pnl_Pessoas.Click += new System.EventHandler(this.btnCadastrarEntidade_Click_1);
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Location = new System.Drawing.Point(10, 20);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(40, 40);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // Frm_Menu_Principal_2
             // 
@@ -356,12 +360,12 @@
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

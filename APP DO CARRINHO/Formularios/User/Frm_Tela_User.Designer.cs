@@ -37,10 +37,11 @@
             this.Txt_Login = new System.Windows.Forms.TextBox();
             this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Cbox_TipoUser = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.c = new System.Windows.Forms.Button();
             this.Btn_Excluir_User = new System.Windows.Forms.Button();
             this.Btn_Alterar_User = new System.Windows.Forms.Button();
             this.Btn_Incluir_User = new System.Windows.Forms.Button();
@@ -73,12 +74,13 @@
             // Btn_Filtrar
             // 
             this.Btn_Filtrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Filtrar.Location = new System.Drawing.Point(514, 51);
+            this.Btn_Filtrar.Location = new System.Drawing.Point(506, 52);
             this.Btn_Filtrar.Name = "Btn_Filtrar";
-            this.Btn_Filtrar.Size = new System.Drawing.Size(121, 23);
+            this.Btn_Filtrar.Size = new System.Drawing.Size(169, 23);
             this.Btn_Filtrar.TabIndex = 6;
             this.Btn_Filtrar.Text = "Filtrar ( Enter )";
             this.Btn_Filtrar.UseVisualStyleBackColor = true;
+            this.Btn_Filtrar.Click += new System.EventHandler(this.Btn_Filtrar_Click);
             // 
             // label2
             // 
@@ -115,7 +117,7 @@
             // 
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.Cbox_TipoUser);
             this.groupBox1.Controls.Add(this.Txt_Nome);
             this.groupBox1.Controls.Add(this.Cbox_Situacao);
             this.groupBox1.Controls.Add(this.label1);
@@ -130,6 +132,32 @@
             this.groupBox1.Text = "Filtros";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(292, 62);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Tipo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(292, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Situacao";
+            // 
+            // Cbox_TipoUser
+            // 
+            this.Cbox_TipoUser.FormattingEnabled = true;
+            this.Cbox_TipoUser.Location = new System.Drawing.Point(358, 53);
+            this.Cbox_TipoUser.Name = "Cbox_TipoUser";
+            this.Cbox_TipoUser.Size = new System.Drawing.Size(121, 21);
+            this.Cbox_TipoUser.TabIndex = 11;
+            // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -143,31 +171,17 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // comboBox2
+            // c
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(358, 53);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(292, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Situacao";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(292, 62);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Tipo";
+            this.c.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.chaves;
+            this.c.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.c.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.c.Location = new System.Drawing.Point(475, 379);
+            this.c.Name = "c";
+            this.c.Size = new System.Drawing.Size(126, 32);
+            this.c.TabIndex = 58;
+            this.c.Text = "Criar senha";
+            this.c.UseVisualStyleBackColor = true;
             // 
             // Btn_Excluir_User
             // 
@@ -217,6 +231,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 421);
+            this.Controls.Add(this.c);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Btn_Excluir_User);
             this.Controls.Add(this.Btn_Alterar_User);
@@ -253,6 +268,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox Cbox_TipoUser;
+        private System.Windows.Forms.Button c;
     }
 }
