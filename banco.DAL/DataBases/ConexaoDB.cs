@@ -14,14 +14,16 @@ namespace banco.DataBases
         private string connectionString;
 
 
-        string server = "localhost";
+        // Dados da conexão
+        string server = "26.219.25.12";       // Altere para o IP da sua VPN se necessário
         string database = "appcarrinho";
-        string user = "root";
-        string password = "password";
+        string user = "augusto";
+        string password = "4ppc4rr1nh0";
 
         public ConexaoDB()
         {
-            connectionString = $"Server={server};Database={database};User ID={user}";
+            // Ajustando a string de conexão para incluir a senha
+            connectionString = $"Server={server};Database={database};User ID={user};Password={password}";
             connection = new MySqlConnection(connectionString);
         }
 
