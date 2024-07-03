@@ -28,179 +28,120 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Lbl_Servidor = new System.Windows.Forms.Label();
+            this.Lbl_NomeBD = new System.Windows.Forms.Label();
+            this.Lbl_UsuarioBD = new System.Windows.Forms.Label();
+            this.Lbl_SenhaBD = new System.Windows.Forms.Label();
+            this.Btn_Confirmar = new System.Windows.Forms.Button();
+            this.Btn_Cancelar = new System.Windows.Forms.Button();
+            this.Txt_Servidor = new System.Windows.Forms.TextBox();
+            this.Txt_BD = new System.Windows.Forms.TextBox();
+            this.Txt_UsuarioBD = new System.Windows.Forms.TextBox();
+            this.Txt_SenhaBD = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // Lbl_Servidor
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nome da conexão";
+            this.Lbl_Servidor.AutoSize = true;
+            this.Lbl_Servidor.Location = new System.Drawing.Point(69, 25);
+            this.Lbl_Servidor.Name = "Lbl_Servidor";
+            this.Lbl_Servidor.Size = new System.Drawing.Size(49, 13);
+            this.Lbl_Servidor.TabIndex = 0;
+            this.Lbl_Servidor.Text = "Servidor:";
             // 
-            // button1
+            // Lbl_NomeBD
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.ForeColor = System.Drawing.Color.MediumSeaGreen;
-            this.button1.Location = new System.Drawing.Point(88, 285);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 37);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Confirmar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Lbl_NomeBD.AutoSize = true;
+            this.Lbl_NomeBD.Location = new System.Drawing.Point(28, 51);
+            this.Lbl_NomeBD.Name = "Lbl_NomeBD";
+            this.Lbl_NomeBD.Size = new System.Drawing.Size(90, 13);
+            this.Lbl_NomeBD.TabIndex = 1;
+            this.Lbl_NomeBD.Text = "Banco de Dados:";
             // 
-            // checkBox1
+            // Lbl_UsuarioBD
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(169, 125);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(128, 17);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Usar Porta Especifica";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.Lbl_UsuarioBD.AutoSize = true;
+            this.Lbl_UsuarioBD.Location = new System.Drawing.Point(54, 77);
+            this.Lbl_UsuarioBD.Name = "Lbl_UsuarioBD";
+            this.Lbl_UsuarioBD.Size = new System.Drawing.Size(64, 13);
+            this.Lbl_UsuarioBD.TabIndex = 2;
+            this.Lbl_UsuarioBD.Text = "Usuário BD:";
             // 
-            // label2
+            // Lbl_SenhaBD
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Ip / Host do servidor";
+            this.Lbl_SenhaBD.AutoSize = true;
+            this.Lbl_SenhaBD.Location = new System.Drawing.Point(59, 103);
+            this.Lbl_SenhaBD.Name = "Lbl_SenhaBD";
+            this.Lbl_SenhaBD.Size = new System.Drawing.Size(59, 13);
+            this.Lbl_SenhaBD.TabIndex = 3;
+            this.Lbl_SenhaBD.Text = "Senha BD:";
             // 
-            // label3
+            // Btn_Confirmar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 126);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Porta";
+            this.Btn_Confirmar.Location = new System.Drawing.Point(72, 146);
+            this.Btn_Confirmar.Name = "Btn_Confirmar";
+            this.Btn_Confirmar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Confirmar.TabIndex = 4;
+            this.Btn_Confirmar.Text = "Confirmar";
+            this.Btn_Confirmar.UseVisualStyleBackColor = true;
+            this.Btn_Confirmar.Click += new System.EventHandler(this.Btn_Confirmar_Click);
             // 
-            // label4
+            // Btn_Cancelar
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(50, 166);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Nome do DataBase";
+            this.Btn_Cancelar.Location = new System.Drawing.Point(185, 146);
+            this.Btn_Cancelar.Name = "Btn_Cancelar";
+            this.Btn_Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Cancelar.TabIndex = 5;
+            this.Btn_Cancelar.Text = "Cancelar";
+            this.Btn_Cancelar.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // Txt_Servidor
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 199);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Usuário";
+            this.Txt_Servidor.Location = new System.Drawing.Point(124, 22);
+            this.Txt_Servidor.Name = "Txt_Servidor";
+            this.Txt_Servidor.Size = new System.Drawing.Size(171, 20);
+            this.Txt_Servidor.TabIndex = 6;
             // 
-            // label7
+            // Txt_BD
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(50, 233);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 13);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Senha";
+            this.Txt_BD.Location = new System.Drawing.Point(124, 48);
+            this.Txt_BD.Name = "Txt_BD";
+            this.Txt_BD.Size = new System.Drawing.Size(171, 20);
+            this.Txt_BD.TabIndex = 7;
             // 
-            // textBox2
+            // Txt_UsuarioBD
             // 
-            this.textBox2.Location = new System.Drawing.Point(169, 40);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 10;
+            this.Txt_UsuarioBD.Location = new System.Drawing.Point(124, 74);
+            this.Txt_UsuarioBD.Name = "Txt_UsuarioBD";
+            this.Txt_UsuarioBD.Size = new System.Drawing.Size(171, 20);
+            this.Txt_UsuarioBD.TabIndex = 8;
             // 
-            // textBox3
+            // Txt_SenhaBD
             // 
-            this.textBox3.Location = new System.Drawing.Point(169, 82);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 20);
-            this.textBox3.TabIndex = 11;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(169, 163);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 20);
-            this.textBox4.TabIndex = 12;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(169, 199);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(138, 20);
-            this.textBox5.TabIndex = 13;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(169, 230);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.PasswordChar = '*';
-            this.textBox6.Size = new System.Drawing.Size(138, 20);
-            this.textBox6.TabIndex = 14;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(303, 123);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.PasswordChar = '*';
-            this.textBox7.Size = new System.Drawing.Size(66, 20);
-            this.textBox7.TabIndex = 15;
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(242, 285);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(79, 37);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Fechar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Txt_SenhaBD.Location = new System.Drawing.Point(124, 100);
+            this.Txt_SenhaBD.Name = "Txt_SenhaBD";
+            this.Txt_SenhaBD.Size = new System.Drawing.Size(171, 20);
+            this.Txt_SenhaBD.TabIndex = 9;
             // 
             // Frm_Tela_ConexoesDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(424, 339);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(324, 181);
+            this.Controls.Add(this.Txt_SenhaBD);
+            this.Controls.Add(this.Txt_UsuarioBD);
+            this.Controls.Add(this.Txt_BD);
+            this.Controls.Add(this.Txt_Servidor);
+            this.Controls.Add(this.Btn_Cancelar);
+            this.Controls.Add(this.Btn_Confirmar);
+            this.Controls.Add(this.Lbl_SenhaBD);
+            this.Controls.Add(this.Lbl_UsuarioBD);
+            this.Controls.Add(this.Lbl_NomeBD);
+            this.Controls.Add(this.Lbl_Servidor);
             this.MaximizeBox = false;
             this.Name = "Frm_Tela_ConexoesDB";
             this.Text = "Conexão";
-            this.Load += new System.EventHandler(this.Frm_Tela_ConexoesDB_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,20 +149,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label Lbl_Servidor;
+        private System.Windows.Forms.Label Lbl_NomeBD;
+        private System.Windows.Forms.Label Lbl_UsuarioBD;
+        private System.Windows.Forms.Label Lbl_SenhaBD;
+        private System.Windows.Forms.Button Btn_Confirmar;
+        private System.Windows.Forms.Button Btn_Cancelar;
+        private System.Windows.Forms.TextBox Txt_Servidor;
+        private System.Windows.Forms.TextBox Txt_BD;
+        private System.Windows.Forms.TextBox Txt_UsuarioBD;
+        private System.Windows.Forms.TextBox Txt_SenhaBD;
     }
 }
