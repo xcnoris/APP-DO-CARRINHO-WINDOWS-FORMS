@@ -58,7 +58,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
        
             Metodos m = new Metodos();
-            m.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
+            m.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
             
             CarregarTodosCarrinhos();
         }

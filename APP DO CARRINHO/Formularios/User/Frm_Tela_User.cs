@@ -49,8 +49,8 @@ namespace APP_DO_CARRINHO.Formularios.User
         {
 
             
-            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
-            metodos.IncluirCamposTipoUser(conexaoDB, RetornoTipos, Cbox_TipoUser);
+            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
+            metodos.IncluirCamposTipoUser(conexaoDB, RetornoTipos, Cbox_TipoUser, true);
 
             AddColumnDataGridView();
             CarregarTodosUsers();

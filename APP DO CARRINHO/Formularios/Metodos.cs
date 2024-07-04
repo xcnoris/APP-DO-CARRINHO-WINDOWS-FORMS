@@ -23,7 +23,7 @@ namespace APP_DO_CARRINHO.Formularios
             return cpf; // Retorna o CPF sem formatação se ele não tiver 11 caracteres
         }
 
-        public void IncluirCamposSituacao(ConexaoDB conexao, ICollection<Situacao> situacoes, ComboBox CboxSituacao)
+        public void IncluirCamposSituacao(ConexaoDB conexao, ICollection<Situacao> situacoes, ComboBox CboxSituacao, bool incluirTodos = false)
         {
             try
             {
@@ -44,10 +44,11 @@ namespace APP_DO_CARRINHO.Formularios
 
                         // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
                         List<Situacao> situacaoList = situacoes.ToList();
-
-                        // Adiciona a opção "Todos"
-                        situacaoList.Insert(0, new Situacao { Id = "0", Nome = "Todos" });
-
+                        if (incluirTodos)
+                        {
+                            // Adiciona a opção "Todos"
+                            situacaoList.Insert(0, new Situacao { Id = "0", Nome = "Todos" });
+                        }
                         CboxSituacao.DataSource = situacaoList;
                         CboxSituacao.DisplayMember = "Nome";
                         CboxSituacao.ValueMember = "Id";
@@ -69,51 +70,9 @@ namespace APP_DO_CARRINHO.Formularios
             }
         }
 
-        public void IncluirCamposSituacaoSTodos(ConexaoDB conexao, ICollection<Situacao> situacoes, ComboBox CboxSituacao)
-        {
-            try
-            {
-                if (CboxSituacao == null)
-                {
-                    throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
-                }
-
-                Situacao situacao = new Situacao();
-
-                if (situacao.Status)
-                {
-                    situacao.ConsultarDisponibilidadeInDB(conexao);
-
-                    if (situacao.Status)
-                    {
-                        situacoes = Situacao.Situacoes;
-
-                        // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
-                        List<Situacao> situacaoList = situacoes.ToList();
-
-                        CboxSituacao.DataSource = situacaoList;
-                        CboxSituacao.DisplayMember = "Nome";
-                        CboxSituacao.ValueMember = "Id";
-                        CboxSituacao.DropDownStyle = ComboBoxStyle.DropDownList;
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         // -----------------
-        public void IncluirCamposTipoUser(ConexaoDB conexao, ICollection<TipoUser> tipos, ComboBox CboxTipoUser)
+        public void IncluirCamposTipoUser(ConexaoDB conexao, ICollection<TipoUser> tipos, ComboBox CboxTipoUser, bool incluirTodos = false)
         {
             try
             {
@@ -134,10 +93,11 @@ namespace APP_DO_CARRINHO.Formularios
 
                         // Converte o ICollection<TipoUser> para uma List<TipoUser> para adicionar a opção "Todos"
                         List<TipoUser> tipoUserList = tipos.ToList();
-
-                        // Adiciona a opção "Todos"
-                        tipoUserList.Insert(0, new TipoUser { Id = "0", Nome = "Todos" });
-
+                        if (incluirTodos)
+                        {
+                            // Adiciona a opção "Todos"
+                            tipoUserList.Insert(0, new TipoUser { Id = "0", Nome = "Todos" });
+                        }
                         CboxTipoUser.DataSource = tipoUserList;
                         CboxTipoUser.DisplayMember = "Nome";
                         CboxTipoUser.ValueMember = "Id";
@@ -159,48 +119,7 @@ namespace APP_DO_CARRINHO.Formularios
             }
         }
 
-        public void IncluirCamposTipoUserSTodos(ConexaoDB conexao, ICollection<TipoUser> tipos, ComboBox CboxTipoUser)
-        {
-            try
-            {
-                if (CboxTipoUser == null)
-                {
-                    throw new ArgumentNullException(nameof(CboxTipoUser), "ComboBox CboxTipoUser não pode ser nulo.");
-                }
-
-                TipoUser tipoUser = new TipoUser();
-
-                if (tipoUser.Status)
-                {
-                    tipoUser.ConsultarTiposDeUsuarioInDB(conexao);
-
-                    if (tipoUser.Status)
-                    {
-                        tipos = TipoUser.Tipos;
-
-                        // Converte o ICollection<TipoUser> para uma List<TipoUser> para adicionar a opção "Todos"
-                        List<TipoUser> tipoUserList = tipos.ToList();
-
-                        CboxTipoUser.DataSource = tipoUserList;
-                        CboxTipoUser.DisplayMember = "Nome";
-                        CboxTipoUser.ValueMember = "Id";
-                        CboxTipoUser.DropDownStyle = ComboBoxStyle.DropDownList;
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{tipoUser.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{tipoUser.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
 
 
         internal string IncluirValorTipoInDGV(ComboBox Cbox , User1 user)

@@ -35,8 +35,8 @@ namespace APP_DO_CARRINHO.Formularios.User
             metodos = new Metodos();
 
             
-            metodos.IncluirCamposSituacaoSTodos(conexaoDB, RetornoSituacoes, Cbox_Situacao);
-            metodos.IncluirCamposTipoUserSTodos(conexaoDB, RetornoTipos, Cbox_Tipo);
+            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
+            metodos.IncluirCamposTipoUser(conexaoDB, RetornoTipos, Cbox_Tipo);
             ControleSalvarIncluirUser = true;
         }
 
