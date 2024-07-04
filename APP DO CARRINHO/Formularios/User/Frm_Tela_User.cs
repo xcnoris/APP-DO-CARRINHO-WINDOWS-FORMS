@@ -25,6 +25,7 @@ namespace APP_DO_CARRINHO.Formularios.User
     {
         
         private ConexaoDB conexaoDB;
+        private Metodos metodos;
 
         // Icolletion usaddo para armazenar o retorno da consulta no DB
         public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
@@ -34,7 +35,7 @@ namespace APP_DO_CARRINHO.Formularios.User
         {
             InitializeComponent();
             conexaoDB = new ConexaoDB();
-        
+            metodos = new Metodos();
 
             AddColumnDataGridView();
         }
@@ -47,9 +48,9 @@ namespace APP_DO_CARRINHO.Formularios.User
         private void Frm_Tela_User_Load(object sender, EventArgs e)
         {
 
-            Metodos m = new Metodos();
-            m.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
-            m.IncluirCamposTipoUser(conexaoDB, RetornoTipos, Cbox_TipoUser);
+            
+            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
+            metodos.IncluirCamposTipoUser(conexaoDB, RetornoTipos, Cbox_TipoUser);
 
             AddColumnDataGridView();
             CarregarTodosUsers();
@@ -122,21 +123,12 @@ namespace APP_DO_CARRINHO.Formularios.User
                 AddColumnDataGridView();
 
                 
-                if (user.Id_Situacao == "1")
-                {
-                    user.Id_Situacao = "Ativo";
-
-                }
-                if (user.Id_Situacao == "2")
-                {
-                    user.Id_Situacao = "Inativo";
-
-                }
-                Metodos m = new Metodos();
-                string cpfFormatado = m.FormatCPF(user.CPF);
-
+                string cpfFormatado = metodos.FormatCPF(user.CPF);
+                string tipoNome = metodos.IncluirValorTipoInDGV(Cbox_TipoUser, user);
+                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, user);
+                
                 // Adicionar a linha ao DataGridView
-                DGV_Dados.Rows.Add(user.Id, cpfFormatado, user.Nome,  user.Login, user.Id_Tipo, user.Id_Situacao);
+                DGV_Dados.Rows.Add(user.Id, cpfFormatado, user.Nome,  user.Login, tipoNome, situacaoNome);
             }
             catch (ValidationException ex)
             {

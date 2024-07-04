@@ -1,5 +1,6 @@
 ﻿using AppCarrinhoWFBiblioteca;
 using AppCarrinhoWFBiblioteca.User;
+using AppCarrinhoWFBiblioteca.Users;
 using banco.DataBases;
 using System;
 using System.Collections.Generic;
@@ -114,6 +115,45 @@ namespace APP_DO_CARRINHO.Formularios
             {
                 MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        internal string IncluirValorTipoInDGV(ComboBox Cbox , User1 user)
+        {
+
+            // Verifica se o ComboBox tem itens
+            if (Cbox.Items.Count > 0)
+            {
+                // Loop pelos itens do ComboBox
+                foreach (var item in Cbox.Items)
+                {
+                    // Verifica se o item é do tipo TipoUser e se o ID do item coincide com o ID do usuário
+                    if (item is TipoUser tipoItem && tipoItem.Id == user.Id_Tipo)
+                    {
+                        return tipoItem.Nome; // Retorna o nome do tipo de usuário
+                    }
+                }
+            }
+
+            return "null"; // Retorna "null" se não encontrar uma correspondência
+        }
+        internal string IncluirValorSituacaoInDGV(ComboBox Cbox, User1 user)
+        {
+
+            // Verifica se o ComboBox tem itens
+            if (Cbox.Items.Count > 0)
+            {
+                // Loop pelos itens do ComboBox
+                foreach (var item in Cbox.Items)
+                {
+                    // Verifica se o item é do tipo Situacao e se o ID do item coincide com o ID da situacao
+                    if (item is Situacao situacaoItem && situacaoItem.Id == user.Id_Situacao)
+                    {
+                        return situacaoItem.Nome; // Retorna o nome da situacao
+                    }
+                }
+            }
+
+            return "null"; // Retorna "null" se não encontrar uma correspondência
         }
     }
 }

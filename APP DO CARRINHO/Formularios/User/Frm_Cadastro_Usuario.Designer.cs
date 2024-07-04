@@ -38,7 +38,7 @@
             this.Txt_Id = new System.Windows.Forms.TextBox();
             this.Txt_Login = new System.Windows.Forms.TextBox();
             this.MSK_CPF = new System.Windows.Forms.MaskedTextBox();
-            this.Cbox_Situacao2 = new System.Windows.Forms.ComboBox();
+            this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
             this.Lbl_Situacao_Carrinho = new System.Windows.Forms.Label();
             this.Cbox_Tipo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -128,16 +128,16 @@
             this.MSK_CPF.TabIndex = 53;
             this.MSK_CPF.ValidatingType = typeof(System.DateTime);
             // 
-            // Cbox_Situacao2
+            // Cbox_Situacao
             // 
-            this.Cbox_Situacao2.FormattingEnabled = true;
-            this.Cbox_Situacao2.Items.AddRange(new object[] {
+            this.Cbox_Situacao.FormattingEnabled = true;
+            this.Cbox_Situacao.Items.AddRange(new object[] {
             " "});
-            this.Cbox_Situacao2.Location = new System.Drawing.Point(295, 36);
-            this.Cbox_Situacao2.Name = "Cbox_Situacao2";
-            this.Cbox_Situacao2.Size = new System.Drawing.Size(121, 21);
-            this.Cbox_Situacao2.TabIndex = 54;
-            this.Cbox_Situacao2.Text = "( Selecione )";
+            this.Cbox_Situacao.Location = new System.Drawing.Point(295, 36);
+            this.Cbox_Situacao.Name = "Cbox_Situacao";
+            this.Cbox_Situacao.Size = new System.Drawing.Size(121, 21);
+            this.Cbox_Situacao.TabIndex = 54;
+            this.Cbox_Situacao.Text = "( Selecione )";
             // 
             // Lbl_Situacao_Carrinho
             // 
@@ -165,7 +165,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.Cbox_Tipo);
             this.groupBox1.Controls.Add(this.Txt_Nome);
-            this.groupBox1.Controls.Add(this.Cbox_Situacao2);
+            this.groupBox1.Controls.Add(this.Cbox_Situacao);
             this.groupBox1.Controls.Add(this.Lbl_Situacao_Carrinho);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.MSK_CPF);
@@ -243,7 +243,7 @@
         private System.Windows.Forms.TextBox Txt_Id;
         private System.Windows.Forms.TextBox Txt_Login;
         private System.Windows.Forms.MaskedTextBox MSK_CPF;
-        private System.Windows.Forms.ComboBox Cbox_Situacao2;
+        private System.Windows.Forms.ComboBox Cbox_Situacao;
         private System.Windows.Forms.Label Lbl_Situacao_Carrinho;
         private System.Windows.Forms.ComboBox Cbox_Tipo;
         private System.Windows.Forms.GroupBox groupBox1;

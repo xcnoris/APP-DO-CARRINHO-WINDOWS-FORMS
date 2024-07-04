@@ -1,6 +1,7 @@
 ﻿using APP_DO_CARRINHO.Formularios.Pessoas;
 using AppCarrinhoWFBiblioteca;
 using AppCarrinhoWFBiblioteca.clientes;
+using AppCarrinhoWFBiblioteca.User;
 using AppCarrinhoWFBiblioteca.Users;
 using banco.DataBases;
 using System;
@@ -23,6 +24,7 @@ namespace APP_DO_CARRINHO.Formularios.User
         private Metodos metodos;
 
         public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
+        public ICollection<TipoUser> RetornoTipos = new List<TipoUser>();
 
         private bool ControleSalvarIncluirUser;
 
@@ -33,7 +35,8 @@ namespace APP_DO_CARRINHO.Formularios.User
             metodos = new Metodos();
 
             
-            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao2);
+            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
+            metodos.IncluirCamposTipoUser(conexaoDB, RetornoTipos, Cbox_Tipo);
             ControleSalvarIncluirUser = true;
         }
 
@@ -56,21 +59,29 @@ namespace APP_DO_CARRINHO.Formularios.User
             MSK_CPF.Text = cpf;
             Txt_Nome.Text = nome;
             Txt_Login.Text = login;
-            Cbox_Tipo.Text = tipo;
+            
 
             // Configurar o valor do ComboBox de Situação
-            foreach (var item in Cbox_Situacao2.Items)
+            foreach (var item in Cbox_Situacao.Items)
             {
                 // Checando se o item é do tipo Situacao e se o nome da situação bate com o parâmetro passado
                 if (item is Situacao situacaoItem && situacaoItem.Nome == situacao)
                 {
-                    Cbox_Situacao2.SelectedItem = item;
+                    Cbox_Situacao.SelectedItem = item;
                     break;
                 }
             }
 
-            //// Atualizar o ComboBox para refletir as mudanças
-            //Cbox_Situacao2.Refresh();
+            // Configurar o valor do ComboBox de Situação
+            foreach (var item in Cbox_Tipo.Items)
+            {
+                // Checando se o item é do tipo Situacao e se o nome da situação bate com o parâmetro passado
+                if (item is TipoUser tipoItem && tipoItem.Id == tipo)
+                {
+                    Cbox_Tipo.SelectedItem = item;
+                    break;
+                }
+            }
         }
 
 
@@ -138,9 +149,9 @@ namespace APP_DO_CARRINHO.Formularios.User
                 Id = Txt_Login.Text,
                 CPF = Regex.Replace(MSK_CPF.Text, @"[^\d]", ""),
                 Nome = Txt_Nome.Text,
-                Id_Tipo = "1",
+                Id_Tipo = Cbox_Tipo.SelectedIndex.ToString(),
                 Login = Txt_Login.Text,
-                Id_Situacao = Cbox_Situacao2.SelectedIndex.ToString()
+                Id_Situacao = Cbox_Situacao.SelectedIndex.ToString()
 
             };
 
