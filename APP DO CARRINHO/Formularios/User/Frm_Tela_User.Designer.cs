@@ -211,6 +211,7 @@
             this.Btn_Alterar_User.TabIndex = 12;
             this.Btn_Alterar_User.Text = "  Alterar";
             this.Btn_Alterar_User.UseVisualStyleBackColor = true;
+            this.Btn_Alterar_User.Click += new System.EventHandler(this.Btn_Alterar_User_Click);
             // 
             // Btn_Incluir_User
             // 

@@ -20,6 +20,7 @@ namespace APP_DO_CARRINHO.Formularios.User
     public partial class Frm_Cadastro_Usuario : Form
     {
         private ConexaoDB conexaoDB;
+        private Metodos metodos;
 
         public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
 
@@ -29,15 +30,16 @@ namespace APP_DO_CARRINHO.Formularios.User
         {
             InitializeComponent();
             conexaoDB = new ConexaoDB();
+            metodos = new Metodos();
+
             
+            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao2);
             ControleSalvarIncluirUser = true;
         }
 
         private void Frm_Cadastro_Usuario_Load(object sender, EventArgs e)
         {
-
-            Metodos m = new Metodos();
-            m.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
+            
 
         }
 
@@ -45,16 +47,32 @@ namespace APP_DO_CARRINHO.Formularios.User
         {
             this.Close();
         }
-        internal void InserirDadosInFrm(string id,string cpf,string nome,string situacao,string login,string tipo)
+        // Insere os dados no formularios quando é necessario atualizar algum valor
+        internal void InserirDadosInFrm(string id, string cpf, string nome, string situacao, string login, string tipo)
         {
             ControleSalvarIncluirUser = false;
+
             Txt_Id.Text = id;
             MSK_CPF.Text = cpf;
             Txt_Nome.Text = nome;
-            Cbox_Situacao.Text = situacao;
             Txt_Login.Text = login;
             Cbox_Tipo.Text = tipo;
+
+            // Configurar o valor do ComboBox de Situação
+            foreach (var item in Cbox_Situacao2.Items)
+            {
+                // Checando se o item é do tipo Situacao e se o nome da situação bate com o parâmetro passado
+                if (item is Situacao situacaoItem && situacaoItem.Nome == situacao)
+                {
+                    Cbox_Situacao2.SelectedItem = item;
+                    break;
+                }
+            }
+
+            //// Atualizar o ComboBox para refletir as mudanças
+            //Cbox_Situacao2.Refresh();
         }
+
 
         private void Btn_Confirmar_Click(object sender, EventArgs e)
         {
@@ -122,11 +140,13 @@ namespace APP_DO_CARRINHO.Formularios.User
                 Nome = Txt_Nome.Text,
                 Id_Tipo = "1",
                 Login = Txt_Login.Text,
-                Id_Situacao = Cbox_Situacao.SelectedIndex.ToString()
+                Id_Situacao = Cbox_Situacao2.SelectedIndex.ToString()
 
             };
 
             return user;
         }
+
+     
     }
 }

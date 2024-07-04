@@ -167,7 +167,7 @@ namespace APP_DO_CARRINHO.Formularios.User
                     string id = selectedRow.Cells["ID"].Value.ToString();
                     string cpf = selectedRow.Cells["CPF"].Value.ToString();
                     string nome = selectedRow.Cells["Nome"].Value.ToString();
-                    string situacao = selectedRow.Cells["Situacao"].Value.ToString();
+                    string situacao = selectedRow.Cells["Situação"].Value.ToString();
                     string login = selectedRow.Cells["Login"].Value.ToString();
                     string tipo = selectedRow.Cells["Tipo"].Value.ToString();
 
@@ -268,6 +268,7 @@ namespace APP_DO_CARRINHO.Formularios.User
                 string id;
                 if (selectedRow != null)
                 {
+                    // Atribui o valor do id da linha selecionada a variavel id
                     id = selectedRow.Cells["ID"].Value.ToString();
                 }
                 else
@@ -291,6 +292,7 @@ namespace APP_DO_CARRINHO.Formularios.User
                         // Percorre a lista
                         foreach (User1 user in US.usuarios)
                         {
+                            // Caso o user tenha o campo senha em branco no DB, entra no if
                             if (string.IsNullOrEmpty(user.Senha))
                             {
                                 Random random = new Random();
@@ -315,6 +317,7 @@ namespace APP_DO_CARRINHO.Formularios.User
                             }
                             else
                             {
+                                // Caso nao seja branco o campo, mostra a imagem
                                 MessageBox.Show("Usuario já tem senha gerada!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
                         }
@@ -379,6 +382,44 @@ namespace APP_DO_CARRINHO.Formularios.User
                 MessageBox.Show($"{ex.Message}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
+        }
+
+        private void Btn_Alterar_User_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                var selectedRow = DGV_Dados.CurrentRow;
+
+                if (selectedRow != null)
+                {
+
+
+                    string idnumero = selectedRow.Cells["ID"].Value.ToString();
+                    string cpf = selectedRow.Cells["CPF"].Value.ToString();
+                    string nome = selectedRow.Cells["Nome"].Value.ToString();
+                    string login = selectedRow.Cells["Login"].Value.ToString();
+                    string tipo = selectedRow.Cells["Tipo"].Value.ToString();
+                    string situacao = selectedRow.Cells["Situação"].Value.ToString();
+
+
+                    Frm_Cadastro_Usuario frm = new Frm_Cadastro_Usuario();
+                    frm.InserirDadosInFrm(idnumero, cpf, nome,situacao , login,tipo);
+                    frm.Show();
+                }
+                else
+                {
+                    MessageBox.Show($"Nenhuma linha selecionada!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }
