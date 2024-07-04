@@ -136,7 +136,7 @@ namespace APP_DO_CARRINHO.Formularios
 
             return "null"; // Retorna "null" se não encontrar uma correspondência
         }
-        internal string IncluirValorSituacaoInDGV(ComboBox Cbox, User1 user)
+        internal string IncluirValorSituacaoInDGV(ComboBox Cbox,string idsituacao)
         {
 
             // Verifica se o ComboBox tem itens
@@ -146,7 +146,7 @@ namespace APP_DO_CARRINHO.Formularios
                 foreach (var item in Cbox.Items)
                 {
                     // Verifica se o item é do tipo Situacao e se o ID do item coincide com o ID da situacao
-                    if (item is Situacao situacaoItem && situacaoItem.Id == user.Id_Situacao)
+                    if (item is Situacao situacaoItem && situacaoItem.Id == idsituacao)
                     {
                         return situacaoItem.Nome; // Retorna o nome da situacao
                     }

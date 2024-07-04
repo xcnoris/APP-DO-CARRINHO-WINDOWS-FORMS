@@ -125,7 +125,7 @@ namespace APP_DO_CARRINHO.Formularios.User
                 
                 string cpfFormatado = metodos.FormatCPF(user.CPF);
                 string tipoNome = metodos.IncluirValorTipoInDGV(Cbox_TipoUser, user);
-                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, user);
+                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, user.Id_Situacao.ToString());
                 
                 // Adicionar a linha ao DataGridView
                 DGV_Dados.Rows.Add(user.Id, cpfFormatado, user.Nome,  user.Login, tipoNome, situacaoNome);

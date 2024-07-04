@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZstdSharp.Unsafe;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho
@@ -22,6 +23,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
     public partial class Frm_Tela_Carrinho : Form
     {
         private ConexaoDB conexaoDB;
+        private Metodos metodos;
 
         public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
 
@@ -29,7 +31,10 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         public Frm_Tela_Carrinho()
         {
             InitializeComponent();
+
             conexaoDB = new ConexaoDB();
+            metodos = new Metodos();
+
             AddColumnDataGridView();
         }
 
@@ -182,20 +187,9 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             {
                 AddColumnDataGridView();
 
-                string situacao;
-                if (carrinho.Situacao == "1")
-                {
-                    carrinho.Situacao = "Ativo";
-
-                }
-                if (carrinho.Situacao == "2")
-                {
-                    carrinho.Situacao = "Inativo";
-
-                }
-
+                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, carrinho.Situacao.ToString());
                 // Adicionar a linha ao DataGridView
-                DGV_Dados.Rows.Add(carrinho.ID, carrinho.Nome, carrinho.Congregacao_ID, carrinho.Congregacao_Nome, carrinho.Situacao, carrinho.Codigo_Carrinho);
+                DGV_Dados.Rows.Add(carrinho.ID, carrinho.Nome, carrinho.Congregacao_ID, carrinho.Congregacao_Nome, situacaoNome, carrinho.Codigo_Carrinho);
             }
             catch (ValidationException ex)
             {
