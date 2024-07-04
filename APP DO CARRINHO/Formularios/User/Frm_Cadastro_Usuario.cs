@@ -35,8 +35,8 @@ namespace APP_DO_CARRINHO.Formularios.User
             metodos = new Metodos();
 
             
-            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
-            metodos.IncluirCamposTipoUser(conexaoDB, RetornoTipos, Cbox_Tipo);
+            metodos.IncluirCamposSituacaoSTodos(conexaoDB, RetornoSituacoes, Cbox_Situacao);
+            metodos.IncluirCamposTipoUserSTodos(conexaoDB, RetornoTipos, Cbox_Tipo);
             ControleSalvarIncluirUser = true;
         }
 
@@ -76,7 +76,7 @@ namespace APP_DO_CARRINHO.Formularios.User
             foreach (var item in Cbox_Tipo.Items)
             {
                 // Checando se o item é do tipo Situacao e se o nome da situação bate com o parâmetro passado
-                if (item is TipoUser tipoItem && tipoItem.Id == tipo)
+                if (item is TipoUser tipoItem && tipoItem.Nome == tipo)
                 {
                     Cbox_Tipo.SelectedItem = item;
                     break;
@@ -143,16 +143,17 @@ namespace APP_DO_CARRINHO.Formularios.User
 
         User1 LeituraFormulario()
         {
+            int idSituacao = Cbox_Situacao.SelectedIndex + 1;
+            int idTipo = Cbox_Tipo.SelectedIndex + 1;
 
             User1 user = new User1
             {
-                Id = Txt_Login.Text,
+                Id = Txt_Id.Text,
                 CPF = Regex.Replace(MSK_CPF.Text, @"[^\d]", ""),
                 Nome = Txt_Nome.Text,
-                Id_Tipo = Cbox_Tipo.SelectedIndex.ToString(),
+                Id_Tipo = idTipo.ToString(),
                 Login = Txt_Login.Text,
-                Id_Situacao = Cbox_Situacao.SelectedIndex.ToString()
-
+                Id_Situacao = idSituacao.ToString(),
             };
 
             return user;
