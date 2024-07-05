@@ -234,5 +234,108 @@ namespace AppCarrinhoWFBiblioteca.User
                 Mensagem = "Erro ao deletar usuário no banco de dados: " + ex.Message;
             }
         }
+
+        public void BuscarPorNome(ConexaoDB conexaoDB, string login, string senha)
+        {
+            Status = true;
+            try
+            {
+                // Query para selecionar um registro pelo login e senha
+                string querySelect = "SELECT * FROM tb_user WHERE login = @login AND senha = @senha";
+
+                using (MySqlCommand cmd = new MySqlCommand(querySelect, conexaoDB.GetConnection()))
+                {
+                    // Adiciona os parâmetros à query
+                    cmd.Parameters.AddWithValue("@login", login);
+                    cmd.Parameters.AddWithValue("@senha", senha);
+
+                    // Abre a conexão, executa a query e obtém o resultado
+                    conexaoDB.OpenConnection();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable result = new DataTable();
+                    adapter.Fill(result);
+                    conexaoDB.CloseConnection();
+
+                    // Limpa a lista de usuários antes de adicionar os novos resultados
+                    usuarios.Clear();
+
+                    // Itera pelas linhas do resultado e adiciona cada usuário à lista
+                    foreach (DataRow row in result.Rows)
+                    {
+                        User1 user = new User1
+                        {
+                            Id = row["id"].ToString(),
+                            CPF = row["cpf"].ToString(),
+                            Nome = row["nome"].ToString(),
+                            Id_Tipo = row["tipo"].ToString(),
+                            Login = row["login"].ToString(),
+                            Senha = row["senha"].ToString(),
+                            Id_Situacao = row["situacao"].ToString(),
+                        };
+
+                        usuarios.Add(user);
+                    }
+
+                    if (usuarios.Count > 0)
+                    {
+                        Mensagem = "Usuário encontrado com sucesso!";
+                    }
+                    else
+                    {
+                        Mensagem = "Nenhum usuário encontrado com as credenciais fornecidas.";
+                        Status = false;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar usuários no banco de dados: " + ex.Message;
+            }
+        }
+
+
+        public void UpdatePassWordInDB(ConexaoDB conexaoDB, string id, string password)
+        {
+            Status = true;
+            try
+            {
+                // Query para atualizar um registro na tabela tb_pessoa
+                string query = "UPDATE tb_user SET " +
+                               "senha = @senha " +
+                               "WHERE id = @id";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection()))
+                {
+                    // Adiciona os parâmetros à query
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@senha", password);
+
+                    // Abre a conexão, executa a query e fecha a conexão
+                    conexaoDB.OpenConnection();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    conexaoDB.CloseConnection();
+
+                    // Verifica se algum registro foi atualizado
+                    if (rowsAffected > 0)
+                    {
+                        Status = true;
+                        Mensagem = "Usuario atualizada com sucesso!";
+                    }
+                    else
+                    {
+                        Status = false;
+                        Mensagem = "Nenhum usuario foi atualizado.";
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao atualizar usuario no banco de dados: " + ex.Message;
+            }
+        }
+
     }
 }
+

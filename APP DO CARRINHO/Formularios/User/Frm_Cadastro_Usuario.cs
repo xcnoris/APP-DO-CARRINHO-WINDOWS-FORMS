@@ -152,7 +152,7 @@ namespace APP_DO_CARRINHO.Formularios.User
                 CPF = Regex.Replace(MSK_CPF.Text, @"[^\d]", ""),
                 Nome = Txt_Nome.Text,
                 Id_Tipo = idTipo.ToString(),
-                Login = Txt_Login.Text,
+                Login = Txt_Login.Text.Trim().ToLower(),
                 Id_Situacao = idSituacao.ToString(),
             };
 

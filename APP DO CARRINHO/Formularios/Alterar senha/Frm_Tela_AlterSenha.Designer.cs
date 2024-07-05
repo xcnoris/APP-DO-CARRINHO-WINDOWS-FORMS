@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Tela_AlterSenha));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Txt_User = new System.Windows.Forms.TextBox();
+            this.Txt_NovaSenha = new System.Windows.Forms.TextBox();
+            this.Txt_SenhaAtual = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Txt_NovaSenha_Confirm = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Btn_Confirmar = new System.Windows.Forms.Button();
             this.Btn_Fechar = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.Btn_Confirmar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -57,6 +57,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(446, 52);
             this.panel1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(85, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(242, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "* Não esqueça de anotar a nova senha :)";
             // 
             // label1
             // 
@@ -78,29 +89,29 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Senha atual";
             // 
-            // textBox1
+            // Txt_User
             // 
-            this.textBox1.Location = new System.Drawing.Point(159, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(186, 20);
-            this.textBox1.TabIndex = 6;
+            this.Txt_User.Location = new System.Drawing.Point(159, 39);
+            this.Txt_User.Name = "Txt_User";
+            this.Txt_User.ReadOnly = true;
+            this.Txt_User.Size = new System.Drawing.Size(186, 20);
+            this.Txt_User.TabIndex = 6;
             // 
-            // textBox3
+            // Txt_NovaSenha
             // 
-            this.textBox3.Location = new System.Drawing.Point(159, 110);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '*';
-            this.textBox3.Size = new System.Drawing.Size(149, 20);
-            this.textBox3.TabIndex = 7;
+            this.Txt_NovaSenha.Location = new System.Drawing.Point(159, 110);
+            this.Txt_NovaSenha.Name = "Txt_NovaSenha";
+            this.Txt_NovaSenha.PasswordChar = '*';
+            this.Txt_NovaSenha.Size = new System.Drawing.Size(149, 20);
+            this.Txt_NovaSenha.TabIndex = 7;
             // 
-            // textBox4
+            // Txt_SenhaAtual
             // 
-            this.textBox4.Location = new System.Drawing.Point(159, 75);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.PasswordChar = '*';
-            this.textBox4.Size = new System.Drawing.Size(149, 20);
-            this.textBox4.TabIndex = 8;
+            this.Txt_SenhaAtual.Location = new System.Drawing.Point(159, 75);
+            this.Txt_SenhaAtual.Name = "Txt_SenhaAtual";
+            this.Txt_SenhaAtual.PasswordChar = '*';
+            this.Txt_SenhaAtual.Size = new System.Drawing.Size(149, 20);
+            this.Txt_SenhaAtual.TabIndex = 8;
             // 
             // label2
             // 
@@ -122,24 +133,24 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Confirmar Senha";
             // 
-            // textBox2
+            // Txt_NovaSenha_Confirm
             // 
-            this.textBox2.Location = new System.Drawing.Point(159, 140);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(149, 20);
-            this.textBox2.TabIndex = 10;
+            this.Txt_NovaSenha_Confirm.Location = new System.Drawing.Point(159, 140);
+            this.Txt_NovaSenha_Confirm.Name = "Txt_NovaSenha_Confirm";
+            this.Txt_NovaSenha_Confirm.PasswordChar = '*';
+            this.Txt_NovaSenha_Confirm.Size = new System.Drawing.Size(149, 20);
+            this.Txt_NovaSenha_Confirm.TabIndex = 10;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.Txt_NovaSenha_Confirm);
+            this.groupBox1.Controls.Add(this.Txt_User);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.Txt_NovaSenha);
+            this.groupBox1.Controls.Add(this.Txt_SenhaAtual);
             this.groupBox1.Location = new System.Drawing.Point(30, 67);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(373, 192);
@@ -159,18 +170,6 @@
             this.panel2.Size = new System.Drawing.Size(446, 52);
             this.panel2.TabIndex = 14;
             // 
-            // Btn_Confirmar
-            // 
-            this.Btn_Confirmar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Confirmar.BackgroundImage")));
-            this.Btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Btn_Confirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Confirmar.Location = new System.Drawing.Point(65, 8);
-            this.Btn_Confirmar.Name = "Btn_Confirmar";
-            this.Btn_Confirmar.Size = new System.Drawing.Size(118, 32);
-            this.Btn_Confirmar.TabIndex = 40;
-            this.Btn_Confirmar.Text = "   Confirmar";
-            this.Btn_Confirmar.UseVisualStyleBackColor = true;
-            // 
             // Btn_Fechar
             // 
             this.Btn_Fechar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Fechar.BackgroundImage")));
@@ -185,16 +184,18 @@
             this.Btn_Fechar.Text = "  Cancelar";
             this.Btn_Fechar.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // Btn_Confirmar
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(85, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(242, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "* Não esqueça de anotar a nova senha :)";
+            this.Btn_Confirmar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Confirmar.BackgroundImage")));
+            this.Btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Confirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Confirmar.Location = new System.Drawing.Point(65, 8);
+            this.Btn_Confirmar.Name = "Btn_Confirmar";
+            this.Btn_Confirmar.Size = new System.Drawing.Size(118, 32);
+            this.Btn_Confirmar.TabIndex = 40;
+            this.Btn_Confirmar.Text = "   Confirmar";
+            this.Btn_Confirmar.UseVisualStyleBackColor = true;
+            this.Btn_Confirmar.Click += new System.EventHandler(this.Btn_Confirmar_Click);
             // 
             // Frm_Tela_AlterSenha
             // 
@@ -223,12 +224,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Txt_User;
+        private System.Windows.Forms.TextBox Txt_NovaSenha;
+        private System.Windows.Forms.TextBox Txt_SenhaAtual;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Txt_NovaSenha_Confirm;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button Btn_Confirmar;

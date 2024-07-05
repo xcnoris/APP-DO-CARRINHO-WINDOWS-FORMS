@@ -18,7 +18,10 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
 {
     public partial class Frm_Menu_Principal_2 : Form
     {
-
+        private string Id_User;
+        private string nomeUser;
+        private string login;
+        private string senha;
 
 
         public Frm_Menu_Principal_2()
@@ -35,8 +38,14 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
             frm.ShowDialog();
             if (frm.DialogResult == DialogResult.Yes)
             {
-                // Define o nome de exibicao do usuario logado como sendo o valor que foi informado na tela de login
-                Lbl_Nome_User.Text = frm.NomeUser; 
+                // Define o nome de exibição do usuário logado como sendo o valor que foi informado na tela de login
+                Lbl_Nome_User.Text = frm.Nome_User;
+
+                // Armazena os dados do usuário logado
+                nomeUser = frm.Nome_User;
+                login = frm.Login;
+                senha = frm.Senha;
+                Id_User = frm.Id_User;
 
                 this.Show();
             }
@@ -132,7 +141,14 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
 
         private void Btn_Ferramentas_Click(object sender, EventArgs e)
         {
-            Frm_Tela_AlterSenha frm = new Frm_Tela_AlterSenha();
+            // Passa os dados do usuário logado para o formulário de alteração de senha
+            Frm_Tela_AlterSenha frm = new Frm_Tela_AlterSenha
+            {
+                Id_User = Id_User,
+                Nome_User = nomeUser,
+                Login = login,
+                Senha = senha
+            };
             frm.Show();
         }
     }

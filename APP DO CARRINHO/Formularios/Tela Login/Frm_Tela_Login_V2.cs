@@ -1,10 +1,14 @@
 ﻿using APP_DO_CARRINHO.Formularios.Tela_Login;
+using AppCarrinhoWFBiblioteca.User;
+using banco.DAL.DataBases;
+using banco.DataBases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,20 +17,31 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
 {
     public partial class Frm_Tela_Login_V2 : Form
     {
-        public string NomeUser { get; set; }
+        public bool Status { get; set; }
+        public string Id_User {  get; set; }
+        public string Nome_User { get; set; }
+        public string Login { get; set; }
+        public string Senha { get; set; }
 
+        private ConexaoDB conexaoDB;
 
         public Frm_Tela_Login_V2()
         {
             InitializeComponent();
+
+            conexaoDB = new ConexaoDB();
         }
 
         private void Btn_Acessar_Click(object sender, EventArgs e)
         {
-          
-            DialogResult = DialogResult.Yes;
-            NomeUser = Txt_NomeUser.Text;
-            this.Hide();
+            VerificarLogin();
+
+            if (Status == true)
+            {
+                DialogResult = DialogResult.Yes;
+                this.Hide();
+            }
+       
         }
 
         private void Btn_Sair_Click(object sender, EventArgs e)
@@ -69,5 +84,44 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
         {
             Application.Exit();
         }
+
+        private void VerificarLogin()
+        {
+            try
+            {
+                string loginUser = Txt_LoginUser.Text.Trim().ToLower();
+                string senha = ComandosDB.GetMD5Hasg(Txt_Senha.Text);
+
+                UserServices US = new UserServices();
+                US.BuscarPorNome(conexaoDB, loginUser, senha);
+
+                if (US.Status && US.usuarios.Count > 0)
+                {
+                    // Usuário encontrado, prossiga com o login
+                    foreach (var user in US.usuarios)
+                    {
+                        Id_User = user.Id;
+                        Nome_User = user.Nome;
+                        Login = user.Login;
+                        Senha = user.Senha;
+                    }
+                    Status = true;
+                   
+                    // Continue o fluxo de login...
+                }
+                else
+                {
+                    MessageBox.Show("Usuário ou senha invalidos.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Status = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR]: {ex.Message}", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Status = false;
+            }
+        }
+
     }
 }

@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Tela_Login_V2));
             this.Lbl_Usuario = new System.Windows.Forms.Label();
             this.Lbl_Senha = new System.Windows.Forms.Label();
-            this.Txt_NomeUser = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Txt_LoginUser = new System.Windows.Forms.TextBox();
+            this.Txt_Senha = new System.Windows.Forms.TextBox();
             this.Btn_Acessar = new System.Windows.Forms.Button();
             this.Btn_Conexoes = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -78,21 +78,21 @@
             this.Lbl_Senha.Text = "Senha";
             this.Lbl_Senha.Click += new System.EventHandler(this.Lbl_Senha_Click);
             // 
-            // Txt_NomeUser
+            // Txt_LoginUser
             // 
-            this.Txt_NomeUser.Location = new System.Drawing.Point(63, 138);
-            this.Txt_NomeUser.MaxLength = 50;
-            this.Txt_NomeUser.Name = "Txt_NomeUser";
-            this.Txt_NomeUser.Size = new System.Drawing.Size(245, 20);
-            this.Txt_NomeUser.TabIndex = 2;
+            this.Txt_LoginUser.Location = new System.Drawing.Point(63, 138);
+            this.Txt_LoginUser.MaxLength = 50;
+            this.Txt_LoginUser.Name = "Txt_LoginUser";
+            this.Txt_LoginUser.Size = new System.Drawing.Size(245, 20);
+            this.Txt_LoginUser.TabIndex = 2;
             // 
-            // textBox2
+            // Txt_Senha
             // 
-            this.textBox2.Location = new System.Drawing.Point(63, 201);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(245, 20);
-            this.textBox2.TabIndex = 3;
+            this.Txt_Senha.Location = new System.Drawing.Point(63, 201);
+            this.Txt_Senha.Name = "Txt_Senha";
+            this.Txt_Senha.PasswordChar = '*';
+            this.Txt_Senha.Size = new System.Drawing.Size(245, 20);
+            this.Txt_Senha.TabIndex = 3;
             // 
             // Btn_Acessar
             // 
@@ -135,10 +135,10 @@
             this.groupBox1.Controls.Add(this.pictureBox5);
             this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.Txt_NomeUser);
+            this.groupBox1.Controls.Add(this.Txt_LoginUser);
             this.groupBox1.Controls.Add(this.Lbl_Usuario);
             this.groupBox1.Controls.Add(this.Lbl_Senha);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.Txt_Senha);
             this.groupBox1.Controls.Add(this.Btn_Acessar);
             this.groupBox1.Location = new System.Drawing.Point(32, 85);
             this.groupBox1.Name = "groupBox1";
@@ -263,8 +263,8 @@
 
         private System.Windows.Forms.Label Lbl_Usuario;
         private System.Windows.Forms.Label Lbl_Senha;
-        private System.Windows.Forms.TextBox Txt_NomeUser;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Txt_LoginUser;
+        private System.Windows.Forms.TextBox Txt_Senha;
         private System.Windows.Forms.Button Btn_Acessar;
         private System.Windows.Forms.Button Btn_Conexoes;
         private System.Windows.Forms.Label label1;
