@@ -57,31 +57,42 @@ namespace APP_DO_CARRINHO.Formularios.Alterar_senha
         {
             try
             {
-                string senhaAtualHash = ComandosDB.GetMD5Hasg(Txt_SenhaAtual.Text);
+                if (string.IsNullOrWhiteSpace(Txt_SenhaAtual.Text))
+                {
+                    MessageBox.Show("[ERROR]: Senha atual não digitada.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string senhaAtualHash = ComandosDB.GetMD5Hasg(Txt_SenhaAtual.Text); // Correção do método GetMD5Hash
                 string senhaNova = Txt_NovaSenha.Text;
                 string senhaNovaConfirm = Txt_NovaSenha_Confirm.Text;
 
-                if (senhaAtualHash == Senha)
+                if (senhaAtualHash != Senha)
                 {
-                    if (senhaNova == senhaNovaConfirm)
-                    {
-                        AlterarSenha(senhaNovaConfirm);
-                    }
-                    else
-                    {
-                        MessageBox.Show("[ERROR]: A nova senha e a confirmação não são iguais.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("[ERROR]: Senha atual errada.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                else
+
+                if (string.IsNullOrWhiteSpace(senhaNova) || string.IsNullOrWhiteSpace(senhaNovaConfirm))
                 {
-                    MessageBox.Show("[ERROR]: A senha atual não está correta.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("[ERROR]: A nova senha ou a confirmação não foram digitadas.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
+
+                if (senhaNova != senhaNovaConfirm)
+                {
+                    MessageBox.Show("[ERROR]: A nova senha e a confirmação não são iguais.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                AlterarSenha(senhaNovaConfirm);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"[ERROR]: Ocorreu um erro ao verificar os dados. Detalhes: {ex.Message}", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void AlterarSenha(string novaSenha)
         {
