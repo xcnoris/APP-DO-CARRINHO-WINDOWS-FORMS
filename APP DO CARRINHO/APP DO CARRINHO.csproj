@@ -105,6 +105,12 @@
     <Compile Include="Formularios\Agendamento\Frm_Tela_Agendamento.Designer.cs">
       <DependentUpon>Frm_Tela_Agendamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Alterar senha\Frm_Tela_AlterSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Alterar senha\Frm_Tela_AlterSenha.Designer.cs">
+      <DependentUpon>Frm_Tela_AlterSenha.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Carrinho\Frm_Cadastro_Carrinho_UC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\Agendamento\Frm_Tela_Agendamento.resx">
       <DependentUpon>Frm_Tela_Agendamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Alterar senha\Frm_Tela_AlterSenha.resx">
+      <DependentUpon>Frm_Tela_AlterSenha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Carrinho\Frm_Cadastro_Carrinho_UC.resx">
       <DependentUpon>Frm_Cadastro_Carrinho_UC.cs</DependentUpon>

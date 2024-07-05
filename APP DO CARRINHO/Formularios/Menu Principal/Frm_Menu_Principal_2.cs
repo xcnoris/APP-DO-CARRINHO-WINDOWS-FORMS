@@ -1,4 +1,5 @@
 ﻿using APP_DO_CARRINHO.Formularios.Agendamento;
+using APP_DO_CARRINHO.Formularios.Alterar_senha;
 using APP_DO_CARRINHO.Formularios.Carrinho;
 using APP_DO_CARRINHO.Formularios.Configuração;
 using APP_DO_CARRINHO.Formularios.Pessoas;
@@ -80,6 +81,7 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
             Pnl_Pessoas.Visible = false;
             Pnl_Agendamentos.Visible = false;
             Pnl_Carrinhos.Visible = false;
+            Btn_Ferramentas.Visible = false;
             Pnl_Configuracoes.Visible = false;
             Btn_User.Visible = false;
         }
@@ -120,6 +122,17 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
         private void Btn_User_Click(object sender, EventArgs e)
         {
             Frm_Tela_User frm = new Frm_Tela_User();
+            frm.Show();
+        }
+
+        private void Btn_Ferramenta_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(Btn_Ferramentas);
+        }
+
+        private void Btn_Ferramentas_Click(object sender, EventArgs e)
+        {
+            Frm_Tela_AlterSenha frm = new Frm_Tela_AlterSenha();
             frm.Show();
         }
     }
