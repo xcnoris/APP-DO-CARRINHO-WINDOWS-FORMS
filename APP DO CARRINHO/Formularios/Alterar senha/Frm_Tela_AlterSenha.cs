@@ -98,17 +98,17 @@ namespace APP_DO_CARRINHO.Formularios.Alterar_senha
         {
             try
             {
-                UserServices userService = new UserServices();
-                userService.UpdatePassWordInDB(conexaoDB, Id_User, ComandosDB.GetMD5Hasg(novaSenha));
+                UserServices US = new UserServices();
+                US.UpdatePassWordInDB(conexaoDB, Id_User, ComandosDB.GetMD5Hasg(novaSenha));
 
-                if (userService.Status)
+                if (US.Status)
                 {
                     MessageBox.Show("OK: Senha alterada com sucesso!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show($"[ERROR]: {userService.Mensagem}", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"[ERROR]: {US.Mensagem}", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)

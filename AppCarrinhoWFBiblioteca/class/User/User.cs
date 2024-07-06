@@ -129,6 +129,29 @@ namespace AppCarrinhoWFBiblioteca.Users
                 Mensagem = ex.Message;
             }
         }
+        public void AtualizarPassWordInDB(ConexaoDB conexaoDB, string id, string password)
+        {
+            UserServices US = new UserServices();
+            try
+            {
+                US.UpdatePassWordInDB(conexaoDB, id, password);
+                if (US.Status)
+                {
+                    Status = true;
+                    Mensagem = US.Mensagem;
+                }
+                else
+                {
+                    Status = false;
+                    Mensagem = US.Mensagem;
+                }
+            }
+            catch (Exception ex)
+            {
+                Status = false;
+                Mensagem = ex.Message;
+            }
+        }
 
     }
 }

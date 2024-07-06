@@ -297,7 +297,7 @@ namespace APP_DO_CARRINHO.Formularios.User
                                 user.Senha = senhaInHasg;
 
                                 // Atualiza no banco
-                                user.AtualizarNoBanco(conexaoDB);
+                                user.AtualizarPassWordInDB(conexaoDB, id, senhaInHasg);
                                 if (user.Status)
                                 {
                                     MessageBox.Show($"Senha {randomNumber} gerada com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);

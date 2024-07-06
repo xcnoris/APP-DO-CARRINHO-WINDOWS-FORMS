@@ -61,7 +61,7 @@
             this.Txt_Nome.Location = new System.Drawing.Point(100, 102);
             this.Txt_Nome.Name = "Txt_Nome";
             this.Txt_Nome.Size = new System.Drawing.Size(316, 20);
-            this.Txt_Nome.TabIndex = 1;
+            this.Txt_Nome.TabIndex = 2;
             // 
             // label2
             // 
@@ -117,7 +117,7 @@
             this.Txt_Login.Location = new System.Drawing.Point(100, 170);
             this.Txt_Login.Name = "Txt_Login";
             this.Txt_Login.Size = new System.Drawing.Size(168, 20);
-            this.Txt_Login.TabIndex = 51;
+            this.Txt_Login.TabIndex = 4;
             // 
             // MSK_CPF
             // 
@@ -125,7 +125,7 @@
             this.MSK_CPF.Mask = "000,000,000-00";
             this.MSK_CPF.Name = "MSK_CPF";
             this.MSK_CPF.Size = new System.Drawing.Size(89, 20);
-            this.MSK_CPF.TabIndex = 53;
+            this.MSK_CPF.TabIndex = 1;
             this.MSK_CPF.ValidatingType = typeof(System.DateTime);
             // 
             // Cbox_Situacao
@@ -136,7 +136,7 @@
             this.Cbox_Situacao.Location = new System.Drawing.Point(295, 36);
             this.Cbox_Situacao.Name = "Cbox_Situacao";
             this.Cbox_Situacao.Size = new System.Drawing.Size(121, 21);
-            this.Cbox_Situacao.TabIndex = 54;
+            this.Cbox_Situacao.TabIndex = 5;
             this.Cbox_Situacao.Text = "( Selecione )";
             // 
             // Lbl_Situacao_Carrinho
@@ -157,7 +157,7 @@
             this.Cbox_Tipo.Location = new System.Drawing.Point(100, 135);
             this.Cbox_Tipo.Name = "Cbox_Tipo";
             this.Cbox_Tipo.Size = new System.Drawing.Size(168, 21);
-            this.Cbox_Tipo.TabIndex = 56;
+            this.Cbox_Tipo.TabIndex = 3;
             this.Cbox_Tipo.Text = "( Selecione )";
             // 
             // groupBox1
@@ -191,7 +191,7 @@
             this.Btn_Fechar.MinimumSize = new System.Drawing.Size(118, 32);
             this.Btn_Fechar.Name = "Btn_Fechar";
             this.Btn_Fechar.Size = new System.Drawing.Size(118, 32);
-            this.Btn_Fechar.TabIndex = 42;
+            this.Btn_Fechar.TabIndex = 7;
             this.Btn_Fechar.Text = "  Cancelar";
             this.Btn_Fechar.UseVisualStyleBackColor = true;
             this.Btn_Fechar.Click += new System.EventHandler(this.Btn_Fechar_Click);
@@ -204,7 +204,7 @@
             this.Btn_Confirmar.Location = new System.Drawing.Point(102, 289);
             this.Btn_Confirmar.Name = "Btn_Confirmar";
             this.Btn_Confirmar.Size = new System.Drawing.Size(118, 32);
-            this.Btn_Confirmar.TabIndex = 41;
+            this.Btn_Confirmar.TabIndex = 6;
             this.Btn_Confirmar.Text = "   Confirmar";
             this.Btn_Confirmar.UseVisualStyleBackColor = true;
             this.Btn_Confirmar.Click += new System.EventHandler(this.Btn_Confirmar_Click);

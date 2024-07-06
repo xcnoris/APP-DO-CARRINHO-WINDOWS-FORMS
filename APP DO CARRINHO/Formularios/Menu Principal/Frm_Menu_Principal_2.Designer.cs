@@ -34,6 +34,8 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.Pnl_Configuracoes = new System.Windows.Forms.Button();
             this.Pnl_Configuracao = new System.Windows.Forms.Button();
+            this.Btn_Ferramentas = new System.Windows.Forms.Button();
+            this.Btn_Ferramenta = new System.Windows.Forms.Button();
             this.Pnl_Agendamentos = new System.Windows.Forms.Button();
             this.Pnl_Agendamento = new System.Windows.Forms.Button();
             this.Pnl_Carrinhos = new System.Windows.Forms.Button();
@@ -51,8 +53,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.Btn_Ferramenta = new System.Windows.Forms.Button();
-            this.Btn_Ferramentas = new System.Windows.Forms.Button();
             this.panelSidebar.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -127,6 +127,41 @@
             this.Pnl_Configuracao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Pnl_Configuracao.UseVisualStyleBackColor = true;
             this.Pnl_Configuracao.Click += new System.EventHandler(this.Pnl_Configuracao_Click);
+            // 
+            // Btn_Ferramentas
+            // 
+            this.Btn_Ferramentas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Ferramentas.BackgroundImage")));
+            this.Btn_Ferramentas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Ferramentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_Ferramentas.FlatAppearance.BorderSize = 0;
+            this.Btn_Ferramentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Ferramentas.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.Btn_Ferramentas.ForeColor = System.Drawing.Color.White;
+            this.Btn_Ferramentas.Location = new System.Drawing.Point(0, 362);
+            this.Btn_Ferramentas.Name = "Btn_Ferramentas";
+            this.Btn_Ferramentas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.Btn_Ferramentas.Size = new System.Drawing.Size(266, 47);
+            this.Btn_Ferramentas.TabIndex = 8;
+            this.Btn_Ferramentas.Text = "Alterar Senha de acesso";
+            this.Btn_Ferramentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Ferramentas.UseVisualStyleBackColor = true;
+            this.Btn_Ferramentas.Click += new System.EventHandler(this.Btn_Ferramentas_Click);
+            // 
+            // Btn_Ferramenta
+            // 
+            this.Btn_Ferramenta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_Ferramenta.FlatAppearance.BorderSize = 0;
+            this.Btn_Ferramenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Ferramenta.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.Btn_Ferramenta.ForeColor = System.Drawing.Color.White;
+            this.Btn_Ferramenta.Location = new System.Drawing.Point(0, 315);
+            this.Btn_Ferramenta.Name = "Btn_Ferramenta";
+            this.Btn_Ferramenta.Size = new System.Drawing.Size(266, 47);
+            this.Btn_Ferramenta.TabIndex = 7;
+            this.Btn_Ferramenta.Text = "Ferramenta";
+            this.Btn_Ferramenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Ferramenta.UseVisualStyleBackColor = true;
+            this.Btn_Ferramenta.Click += new System.EventHandler(this.Btn_Ferramenta_Click);
             // 
             // Pnl_Agendamentos
             // 
@@ -309,7 +344,7 @@
             this.Lbl_Nome_User.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_Nome_User.AutoSize = true;
             this.Lbl_Nome_User.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Nome_User.Location = new System.Drawing.Point(818, 11);
+            this.Lbl_Nome_User.Location = new System.Drawing.Point(777, 11);
             this.Lbl_Nome_User.Name = "Lbl_Nome_User";
             this.Lbl_Nome_User.Size = new System.Drawing.Size(147, 15);
             this.Lbl_Nome_User.TabIndex = 8;
@@ -320,7 +355,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(747, 11);
+            this.label6.Location = new System.Drawing.Point(706, 11);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 15);
             this.label6.TabIndex = 9;
@@ -340,46 +375,11 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(861, 8);
+            this.label1.Location = new System.Drawing.Point(818, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.Size = new System.Drawing.Size(131, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Versão Beta: 0.0.0.0";
-            // 
-            // Btn_Ferramenta
-            // 
-            this.Btn_Ferramenta.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_Ferramenta.FlatAppearance.BorderSize = 0;
-            this.Btn_Ferramenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Ferramenta.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.Btn_Ferramenta.ForeColor = System.Drawing.Color.White;
-            this.Btn_Ferramenta.Location = new System.Drawing.Point(0, 315);
-            this.Btn_Ferramenta.Name = "Btn_Ferramenta";
-            this.Btn_Ferramenta.Size = new System.Drawing.Size(266, 47);
-            this.Btn_Ferramenta.TabIndex = 7;
-            this.Btn_Ferramenta.Text = "Ferramenta";
-            this.Btn_Ferramenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Ferramenta.UseVisualStyleBackColor = true;
-            this.Btn_Ferramenta.Click += new System.EventHandler(this.Btn_Ferramenta_Click);
-            // 
-            // Btn_Ferramentas
-            // 
-            this.Btn_Ferramentas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Ferramentas.BackgroundImage")));
-            this.Btn_Ferramentas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Btn_Ferramentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_Ferramentas.FlatAppearance.BorderSize = 0;
-            this.Btn_Ferramentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Ferramentas.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.Btn_Ferramentas.ForeColor = System.Drawing.Color.White;
-            this.Btn_Ferramentas.Location = new System.Drawing.Point(0, 362);
-            this.Btn_Ferramentas.Name = "Btn_Ferramentas";
-            this.Btn_Ferramentas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Btn_Ferramentas.Size = new System.Drawing.Size(266, 47);
-            this.Btn_Ferramentas.TabIndex = 8;
-            this.Btn_Ferramentas.Text = "Alterar Senha de acesso";
-            this.Btn_Ferramentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Ferramentas.UseVisualStyleBackColor = true;
-            this.Btn_Ferramentas.Click += new System.EventHandler(this.Btn_Ferramentas_Click);
+            this.label1.Text = "Versão Beta:  1.24.7.3.3.0";
             // 
             // Frm_Menu_Principal_2
             // 

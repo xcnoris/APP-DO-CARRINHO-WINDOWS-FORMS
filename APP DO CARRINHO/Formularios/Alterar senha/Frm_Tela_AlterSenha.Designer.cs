@@ -100,18 +100,20 @@
             // Txt_NovaSenha
             // 
             this.Txt_NovaSenha.Location = new System.Drawing.Point(159, 110);
+            this.Txt_NovaSenha.MaxLength = 50;
             this.Txt_NovaSenha.Name = "Txt_NovaSenha";
             this.Txt_NovaSenha.PasswordChar = '*';
             this.Txt_NovaSenha.Size = new System.Drawing.Size(149, 20);
-            this.Txt_NovaSenha.TabIndex = 7;
+            this.Txt_NovaSenha.TabIndex = 2;
             // 
             // Txt_SenhaAtual
             // 
             this.Txt_SenhaAtual.Location = new System.Drawing.Point(159, 75);
+            this.Txt_SenhaAtual.MaxLength = 50;
             this.Txt_SenhaAtual.Name = "Txt_SenhaAtual";
             this.Txt_SenhaAtual.PasswordChar = '*';
             this.Txt_SenhaAtual.Size = new System.Drawing.Size(149, 20);
-            this.Txt_SenhaAtual.TabIndex = 8;
+            this.Txt_SenhaAtual.TabIndex = 1;
             // 
             // label2
             // 
@@ -136,10 +138,11 @@
             // Txt_NovaSenha_Confirm
             // 
             this.Txt_NovaSenha_Confirm.Location = new System.Drawing.Point(159, 140);
+            this.Txt_NovaSenha_Confirm.MaxLength = 50;
             this.Txt_NovaSenha_Confirm.Name = "Txt_NovaSenha_Confirm";
             this.Txt_NovaSenha_Confirm.PasswordChar = '*';
             this.Txt_NovaSenha_Confirm.Size = new System.Drawing.Size(149, 20);
-            this.Txt_NovaSenha_Confirm.TabIndex = 10;
+            this.Txt_NovaSenha_Confirm.TabIndex = 3;
             // 
             // groupBox1
             // 
@@ -180,7 +183,7 @@
             this.Btn_Fechar.MinimumSize = new System.Drawing.Size(118, 32);
             this.Btn_Fechar.Name = "Btn_Fechar";
             this.Btn_Fechar.Size = new System.Drawing.Size(118, 32);
-            this.Btn_Fechar.TabIndex = 41;
+            this.Btn_Fechar.TabIndex = 5;
             this.Btn_Fechar.Text = "  Cancelar";
             this.Btn_Fechar.UseVisualStyleBackColor = true;
             // 
@@ -192,7 +195,7 @@
             this.Btn_Confirmar.Location = new System.Drawing.Point(65, 8);
             this.Btn_Confirmar.Name = "Btn_Confirmar";
             this.Btn_Confirmar.Size = new System.Drawing.Size(118, 32);
-            this.Btn_Confirmar.TabIndex = 40;
+            this.Btn_Confirmar.TabIndex = 4;
             this.Btn_Confirmar.Text = "   Confirmar";
             this.Btn_Confirmar.UseVisualStyleBackColor = true;
             this.Btn_Confirmar.Click += new System.EventHandler(this.Btn_Confirmar_Click);
@@ -206,6 +209,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(462, 365);
+            this.MinimumSize = new System.Drawing.Size(462, 365);
             this.Name = "Frm_Tela_AlterSenha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Troca Senha de Login";

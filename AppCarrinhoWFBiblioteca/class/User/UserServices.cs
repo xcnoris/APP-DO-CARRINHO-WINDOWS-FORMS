@@ -156,7 +156,6 @@ namespace AppCarrinhoWFBiblioteca.User
                                "nome = @nome, " +
                                "tipo = @tipo, " +
                                "login = @login, " +
-                               "senha = @senha, " +
                                "situacao = @situacao " +
                                "WHERE id = @id";
 
@@ -235,13 +234,13 @@ namespace AppCarrinhoWFBiblioteca.User
             }
         }
 
-        public void BuscarPorNome(ConexaoDB conexaoDB, string login, string senha)
+        public void BuscarPorNomeESenha(ConexaoDB conexaoDB, string login, string senha)
         {
             Status = true;
             try
             {
                 // Query para selecionar um registro pelo login e senha
-                string querySelect = "SELECT * FROM tb_user WHERE login = @login AND senha = @senha";
+                string querySelect = "SELECT * FROM tb_user WHERE login = @login AND senha = @senha AND situacao = 1";
 
                 using (MySqlCommand cmd = new MySqlCommand(querySelect, conexaoDB.GetConnection()))
                 {

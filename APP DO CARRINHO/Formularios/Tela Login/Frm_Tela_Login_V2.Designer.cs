@@ -122,11 +122,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(315, 395);
+            this.label1.Location = new System.Drawing.Point(295, 399);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 14);
+            this.label1.Size = new System.Drawing.Size(139, 14);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Versão Beta:  0.1.1.0";
+            this.label1.Text = "Versão Beta:  1.24.7.3.3.0";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox1
@@ -183,7 +183,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-87, -38);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1112, 499);
+            this.pictureBox1.Size = new System.Drawing.Size(1112, 488);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -195,9 +195,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.Btn_Conexoes);
-            this.panel1.Location = new System.Drawing.Point(-4, -9);
+            this.panel1.Location = new System.Drawing.Point(-4, -17);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(442, 433);
+            this.panel1.Size = new System.Drawing.Size(446, 441);
             this.panel1.TabIndex = 10;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -235,6 +235,7 @@
             // 
             // Frm_Tela_Login_V2
             // 
+            this.AcceptButton = this.Btn_Acessar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;

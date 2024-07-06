@@ -93,7 +93,7 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
                 string senha = ComandosDB.GetMD5Hasg(Txt_Senha.Text);
 
                 UserServices US = new UserServices();
-                US.BuscarPorNome(conexaoDB, loginUser, senha);
+                US.BuscarPorNomeESenha(conexaoDB, loginUser, senha);
 
                 if (US.Status && US.usuarios.Count > 0)
                 {
