@@ -1,15 +1,8 @@
 ﻿using AppCarrinhoWFBiblioteca.carrinho1;
-using AppCarrinhoWFBiblioteca.clientes;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataBase.DataBases;
-using System.Net.Http;
 using banco.DataBases;
-using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using banco.DAL.DataBases;
 using System.Data;

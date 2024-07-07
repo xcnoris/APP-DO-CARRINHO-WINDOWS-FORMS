@@ -1,4 +1,4 @@
-﻿using AppCarrinhoWFBiblioteca.clientes;
+﻿
 using AppCarrinhoWFBiblioteca.Interfaces;
 using AppCarrinhoWFBiblioteca.Users;
 using banco.DAL.DataBases;
@@ -7,9 +7,6 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppCarrinhoWFBiblioteca.User
 {

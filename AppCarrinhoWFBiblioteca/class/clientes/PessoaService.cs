@@ -1,4 +1,4 @@
-﻿using AppCarrinhoWFBiblioteca.carrinho1;
+﻿
 using AppCarrinhoWFBiblioteca.Interfaces;
 using banco.DAL.DataBases;
 using banco.DataBases;
@@ -7,10 +7,6 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppCarrinhoWFBiblioteca.clientes
 {

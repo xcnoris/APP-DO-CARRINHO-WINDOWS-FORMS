@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using AppCarrinhoWFBiblioteca;
 using Newtonsoft.Json;
-using AppCarrinhoWFBiblioteca.carrinho;
-using AppCarrinhoWFBiblioteca.carrinho1;
 using banco.DataBases;
 
 namespace AppCarrinhoWFBiblioteca.clientes
