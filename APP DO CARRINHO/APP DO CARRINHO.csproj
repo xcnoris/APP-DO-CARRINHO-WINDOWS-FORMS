@@ -100,6 +100,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularios\Agendamento\Frm_CadastroAgendamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Agendamento\Frm_CadastroAgendamento.Designer.cs">
+      <DependentUpon>Frm_CadastroAgendamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Agendamento\Frm_Geral_AgendamentoUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Agendamento\Frm_Geral_AgendamentoUC.Designer.cs">
+      <DependentUpon>Frm_Geral_AgendamentoUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Agendamento\Frm_Local_AgendamentoUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Agendamento\Frm_Local_AgendamentoUC.Designer.cs">
+      <DependentUpon>Frm_Local_AgendamentoUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Agendamento\Frm_Tela_Agendamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +205,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\Agendamento\Frm_CadastroAgendamento.resx">
+      <DependentUpon>Frm_CadastroAgendamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Agendamento\Frm_Geral_AgendamentoUC.resx">
+      <DependentUpon>Frm_Geral_AgendamentoUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Agendamento\Frm_Local_AgendamentoUC.resx">
+      <DependentUpon>Frm_Local_AgendamentoUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Agendamento\Frm_Tela_Agendamento.resx">
       <DependentUpon>Frm_Tela_Agendamento.cs</DependentUpon>
     </EmbeddedResource>

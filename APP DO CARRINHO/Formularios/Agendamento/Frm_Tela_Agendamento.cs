@@ -63,5 +63,21 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
                
             }
         }
+
+        private void Btn_Fechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Btn_Incluir_Pessoas_Click(object sender, EventArgs e)
+        {
+            Frm_CadastroAgendamento frm = new Frm_CadastroAgendamento();
+            frm.ShowDialog();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
