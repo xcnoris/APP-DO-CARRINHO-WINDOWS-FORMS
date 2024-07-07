@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="class\agendamentos\Agendamento.cs" />
+    <Compile Include="class\agendamentos\AgendamentoServices.cs" />
     <Compile Include="class\carrinho\Carrinho.cs" />
     <Compile Include="class\carrinho\CarrinhoService.cs" />
     <Compile Include="class\CateriaUser\CategoriaUser.cs" />

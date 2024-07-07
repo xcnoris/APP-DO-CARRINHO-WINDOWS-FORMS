@@ -1,4 +1,9 @@
-﻿using System;
+﻿using AppCarrinhoWFBiblioteca;
+using AppCarrinhoWFBiblioteca.agendamentos;
+using AppCarrinhoWFBiblioteca.carrinho;
+using AppCarrinhoWFBiblioteca.carrinho1;
+using banco.DataBases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,21 +17,31 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
 {
     public partial class Frm_Tela_Agendamento : Form
     {
+
+        private Metodos metodos;
+        private ConexaoDB conexaoDB;
+        public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
+
+
         public Frm_Tela_Agendamento()
         {
             InitializeComponent();
             
-            AjustarFiltro();
+            conexaoDB = new ConexaoDB();
+            metodos = new Metodos();
 
             DTP_Hora1.Enabled = false;
             DTP_Hora2.Enabled = false;
 
 
+            AjustarFiltro();
+            AddColumnDataGridView();
+
         }
 
         private void Frm_Tela_Agendamento_Load(object sender, EventArgs e)
         {
-
+            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
         }
 
         private void AjustarFiltro()
@@ -78,6 +93,68 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddColumnDataGridView()
+        {
+            try
+            {
+                // Se o DataGridView não tiver colunas, adicione-as
+                if (DGV_Dados.Columns.Count == 0)
+                {
+                    DGV_Dados.Columns.Add("ID", "ID");
+                    DGV_Dados.Columns.Add("IdCategoria", "Categoria");
+                    DGV_Dados.Columns.Add("pessoa", "Pessoa");
+                    DGV_Dados.Columns.Add("DataAgendamento", "Data Agendamento");
+                    DGV_Dados.Columns.Add("Hora1", "Hora inicio");
+                    DGV_Dados.Columns.Add("Hora2", "Hora Fim");
+                    DGV_Dados.Columns.Add("Local1", "Local");
+                    DGV_Dados.Columns.Add("IdCarrinho", "Carrinho");
+                    DGV_Dados.Columns.Add("IdSituacao", "Situação");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CarregarTodosAgendamento()
+        {
+
+            try
+            {
+                DGV_Dados.Rows.Clear();
+                //Carrinho1 carrinho1 = new Carrinho1();
+                AgendamentoServices AS = new AgendamentoServices();
+
+                if (AS.Status)
+                {
+                    AS.ReadAllInDB(conexaoDB);
+
+                    if (AS.Status)
+                    {
+                        // Pecorre a lista
+                        foreach (Carrinho1 carrinhos in AS.Agendamentos)
+                        {
+
+                            AddCarrinhoToDataGridView(carrinhos);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"[ERROR]: 1{AS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"[ERROR]: 2{AS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

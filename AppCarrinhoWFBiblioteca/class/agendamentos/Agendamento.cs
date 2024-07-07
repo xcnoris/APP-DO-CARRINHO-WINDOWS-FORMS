@@ -25,7 +25,7 @@ namespace AppCarrinhoWFBiblioteca.classagendamento
         [Required(ErrorMessage = "Carrinho do Agendamento é Obrigatorio!")]
         public string IdCarrinho { get; set; }
         [Required(ErrorMessage = "Dia da semana do Agendamento é Obrigatorio!")]
-        public string DiaDaSemana { get; set; }
+        public string DataAgendamento { get; set; }
         [Required(ErrorMessage = "Hora do Agendamento é Obrigatorio!")]
         public string Hora1 { get; set; }
         [Required(ErrorMessage = "hora até do Agendamento é Obrigatorio!")]
