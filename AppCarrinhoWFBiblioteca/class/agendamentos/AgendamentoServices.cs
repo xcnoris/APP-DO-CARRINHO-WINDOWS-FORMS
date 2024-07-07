@@ -114,7 +114,8 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
             Status = true;
             try
             {
-                string querySelect = "select * from tb_agendamento;";
+                string querySelect = "SELECT IdAgendamento, IdSituacao, IdCategoria, IdPessoa, IdCarrinho, DATE_FORMAT(`DataAgendamento`, '%d/%m/%Y') AS DataAgendamento, DATE_FORMAT(`Hora1`, '%H:%i') AS Hora1, DATE_FORMAT(`Hora2`, '%H:%i') AS Hora2, Local1, DataCriacao FROM tb_agendamento;";
+
 
                 // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
                 ComandosDB comandosDB = new ComandosDB(conexaoDB);

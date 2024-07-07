@@ -280,5 +280,42 @@ namespace AppCarrinhoWFBiblioteca.clientes
                 Mensagem = "Erro ao Excluir pessoa no banco de dados: " + ex.Message;
             }
         }
+
+        public void ReadNomeAndIDInDB(ConexaoDB conexaoDB)
+        {
+            Status = true;
+            try
+            {
+                string querySelect = "SELECT id, nome FROM tb_pessoa";
+
+                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                DataTable result = comandosDB.ExecuteQuery(querySelect);
+
+                // Limpa a lista de pessoas antes de adicionar os novos resultados
+                Pessoas.Clear();
+
+                // Itera pelas linhas do resultado e adiciona cada pessoa à lista Pessoas
+                foreach (DataRow row in result.Rows)
+                {
+                    Pessoa pessoa = new Pessoa
+                    {
+                        //ID = Convert.ToInt32(row["id"]),
+                        ID = row["id"].ToString(),
+                      
+                        Nome = row["nome"].ToString(),
+                      
+                    };
+
+                    Pessoas.Add(pessoa);
+                }
+                Mensagem = comandosDB.Mensagem;
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar pessoas no banco de dados: " + ex.Message;
+            }
+        }
     }
 }

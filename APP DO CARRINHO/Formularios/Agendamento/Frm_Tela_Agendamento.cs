@@ -4,6 +4,7 @@ using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
 using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
 using AppCarrinhoWFBiblioteca.classagendamento;
+using AppCarrinhoWFBiblioteca.clientes;
 using banco.DataBases;
 using System;
 using System.Collections.Generic;
@@ -24,9 +25,11 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
         private Metodos metodos;
         private ConexaoDB conexaoDB;
 
-        public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
-        public ICollection<CategoriaAgendamento> RetornoCategorias = new List<CategoriaAgendamento>();
-        public ICollection<Carrinho1> RetornoCarrinhos = new List<Carrinho1>();
+        private ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
+        private ICollection<CategoriaAgendamento> RetornoCategorias = new List<CategoriaAgendamento>();
+        private ICollection<Carrinho1> RetornoCarrinhos = new List<Carrinho1>();
+        private ICollection<Pessoa> RetornoPessoas = new List<Pessoa>();
+
 
         public Frm_Tela_Agendamento()
         {
@@ -50,6 +53,7 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
             metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
             metodos.IncluirCamposCategoriaAgendamento(conexaoDB, RetornoCategorias, Cbox_CategoriaAgendamento, true);
             metodos.IncluirCamposCarrinho(conexaoDB, RetornoCarrinhos, Cbox_Carrinhos, true);
+            RetornoPessoas = metodos.IncluirValoresPessoasInIcolletion(conexaoDB, RetornoPessoas);
 
             CarregarTodosAgendamento();
         }
@@ -179,9 +183,10 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
                 string categoriaNome = metodos.IncluirValorCategoriInDGV(Cbox_CategoriaAgendamento, agendamento.IdCategoria.ToString());
                 string carrinhoNome = metodos.IncluirValorCarrinhoInDGV(Cbox_Carrinhos, agendamento.CodCarrinho.ToString());
                 string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, agendamento.IdSituacao.ToString());
-                
+                string nomeCliente = metodos.IncluirValorPessoaInDGV(RetornoPessoas, agendamento.IdPessoa);
+
                 // Adicionar a linha ao DataGridView
-                DGV_Dados.Rows.Add(agendamento.Id, categoriaNome, agendamento.IdPessoa, agendamento.DataAgendamento, agendamento.Hora1, agendamento.Hora2, agendamento.Local, carrinhoNome, situacaoNome);
+                DGV_Dados.Rows.Add(agendamento.Id, categoriaNome, nomeCliente, agendamento.DataAgendamento, agendamento.Hora1, agendamento.Hora2, agendamento.Local, carrinhoNome, situacaoNome);
             }
             catch (ValidationException ex)
             {

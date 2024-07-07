@@ -2,9 +2,11 @@
 using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
 using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
+using AppCarrinhoWFBiblioteca.clientes;
 using AppCarrinhoWFBiblioteca.User;
 using AppCarrinhoWFBiblioteca.Users;
 using banco.DataBases;
+using Org.BouncyCastle.Pqc.Crypto.Lms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -169,7 +171,8 @@ namespace APP_DO_CARRINHO.Formularios
             }
         }
 
-        // -----------------
+        
+        
         public void IncluirCamposTipoUser(ConexaoDB conexao, ICollection<TipoUser> tipos, ComboBox CboxTipoUser, bool incluirTodos = false)
         {
             try
@@ -217,9 +220,43 @@ namespace APP_DO_CARRINHO.Formularios
             }
         }
 
-        
+
+        public ICollection<Pessoa> IncluirValoresPessoasInIcolletion(ConexaoDB conexao, ICollection<Pessoa> pessoas)
+        {
+            try
+            {
+
+                PessoaService PS = new PessoaService();
+
+                if (PS.Status)
+                {
+                    PS.ReadNomeAndIDInDB(conexao);
+
+                    if (PS.Status)
+                    {
+                        return PS.Pessoas;
+                    }
+                    else
+                    {
+                        MessageBox.Show($"[ERROR]: 1{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return pessoas;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"[ERROR]: 2{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return pessoas;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return pessoas; 
+            }
+        }
 
 
+        // Metodos de incluir nomes nos DGV
         internal string IncluirValorTipoInDGV(ComboBox Cbox , User1 user)
         {
 
@@ -298,6 +335,29 @@ namespace APP_DO_CARRINHO.Formularios
 
             return "null"; // Retorna "null" se não encontrar uma correspondência
         }
+
+        internal string IncluirValorPessoaInDGV(ICollection<Pessoa> pessoas, string idPessoa)
+        {
+
+            // Verifica se o ComboBox tem itens
+            if (pessoas.Count > 0)
+            {
+                // Loop pelos itens do ComboBox
+                foreach (var item in pessoas)
+                {
+                    // Verifica se o item é do tipo Situacao e se o ID do item coincide com o ID da situacao
+                    if (item is Pessoa pessoa && pessoa.ID == idPessoa)
+                    {
+                        string idANDNome = $"{pessoa.ID} - {pessoa.Nome}";
+                        return idANDNome; // Retorna o nome da situacao
+                    }
+                }
+            }
+
+            return "null"; // Retorna "null" se não encontrar uma correspondência
+        }
+
+
     }
 }
 
