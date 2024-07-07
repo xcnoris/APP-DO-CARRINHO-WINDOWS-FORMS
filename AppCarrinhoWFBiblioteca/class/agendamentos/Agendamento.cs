@@ -8,7 +8,7 @@ using System.Text;
 
 namespace AppCarrinhoWFBiblioteca.classagendamento
 { 
-    public class Agendameto
+    public class Agendameto1
     {
         public bool Status;
         public string Mensagem;
@@ -36,7 +36,7 @@ namespace AppCarrinhoWFBiblioteca.classagendamento
         public string DataCriacao { get; set; }
 
 
-        public Agendameto()
+        public Agendameto1()
         {
             Status = true;
         }

@@ -2,10 +2,12 @@
 using AppCarrinhoWFBiblioteca.agendamentos;
 using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
+using AppCarrinhoWFBiblioteca.classagendamento;
 using banco.DataBases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -42,6 +44,7 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
         private void Frm_Tela_Agendamento_Load(object sender, EventArgs e)
         {
             metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
+            CarregarTodosAgendamento();
         }
 
         private void AjustarFiltro()
@@ -135,10 +138,10 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
                     if (AS.Status)
                     {
                         // Pecorre a lista
-                        foreach (Carrinho1 carrinhos in AS.Agendamentos)
+                        foreach (Agendameto1 carrinhos in AS.Agendamentos)
                         {
 
-                            AddCarrinhoToDataGridView(carrinhos);
+                            AddAgendamentoToDataGridView(carrinhos);
                         }
                     }
                     else
@@ -154,6 +157,23 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
             catch (Exception ex)
             {
                 MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Recebe um object Agendamento e convert para uma linha do DataGridView
+        private void AddAgendamentoToDataGridView(Agendameto1 agendamento)
+        {
+            try
+            {
+                AddColumnDataGridView();
+
+                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, agendamento.IdSituacao.ToString());
+                // Adicionar a linha ao DataGridView
+                DGV_Dados.Rows.Add(agendamento.Id, agendamento.IdCategoria, agendamento.IdPessoa, agendamento.DataAgendamento, agendamento.Hora1, agendamento.Hora2, agendamento.Local, agendamento.IdCarrinho, situacaoNome);
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -14,13 +14,13 @@ using System.Threading.Tasks;
 
 namespace AppCarrinhoWFBiblioteca.agendamentos
 {
-    public class AgendamentoServices : ICrud<Agendameto>
+    public class AgendamentoServices : ICrud<Agendameto1>
     {
 
         public string Mensagem { get; set; }
         public bool Status;
 
-        public ICollection<Agendameto> Agendamentos { get; set; } = new List<Agendameto>();
+        public ICollection<Agendameto1> Agendamentos { get; set; } = new List<Agendameto1>();
 
         public AgendamentoServices()
         {
@@ -29,7 +29,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
 
 
         //Class de criar um novo registro de carrinho no Banco de dados
-        public void CreateInDB(ConexaoDB conexaoDB, Agendameto agendamento)
+        public void CreateInDB(ConexaoDB conexaoDB, Agendameto1 agendamento)
         {
             Status = true;
             try
@@ -81,7 +81,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                 // Itera pelas linhas do resultado e adiciona cada agendamento à lista agendamentos
                 foreach (DataRow row in result.Rows)
                 {
-                    Agendameto agendamento = new Agendameto
+                    Agendameto1 agendamento = new Agendameto1
                     {
                         Id = row["IdAgendamento"].ToString(),
                         IdSituacao = row["IdSituacao"].ToString(),
@@ -126,12 +126,12 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                 // Itera pelas linhas do resultado e adiciona cada agendamento à lista agendamentos
                 foreach (DataRow row in result.Rows)
                 {
-                    Agendameto agendamento = new Agendameto
+                    Agendameto1 agendamento = new Agendameto1
                     {
                         Id = row["IdAgendamento"].ToString(),
                         IdSituacao = row["IdSituacao"].ToString(),
                         IdCategoria = row["IdCategoria"].ToString(),
-                        IdPessoa = row["IdPesso"].ToString(),
+                        IdPessoa = row["IdPessoa"].ToString(),
                         IdCarrinho = row["IdCarrinho"].ToString(),
                         DataAgendamento = row["DataAgendamento"].ToString(),
                         Hora1 = row["Hora1"].ToString(),
@@ -153,7 +153,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
         }
 
         // Class de atualizar dado de agendamento no banco de dados
-        public void UpdateInDB(ConexaoDB conexaoDB, Agendameto agendamento)
+        public void UpdateInDB(ConexaoDB conexaoDB, Agendameto1 agendamento)
         {
             Status = true;
             try
