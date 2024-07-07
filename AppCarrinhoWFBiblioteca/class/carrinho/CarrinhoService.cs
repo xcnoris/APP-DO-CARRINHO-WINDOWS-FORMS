@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using banco.DAL.DataBases;
 using System.Data;
 using AppCarrinhoWFBiblioteca.Interfaces;
+using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
 
 namespace AppCarrinhoWFBiblioteca.carrinho
 {
@@ -553,5 +554,43 @@ namespace AppCarrinhoWFBiblioteca.carrinho
             }
         }
 
+        public void ConsultarIdENomeDeCarrinhoInDB(ConexaoDB conexaoDB)
+        {
+            Status = true;
+            try
+            {
+                string querySelect = "SELECT id, nome, codigo_carrinho FROM tb_carrinho WHERE situacao =1 ";
+
+                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
+                ComandosDB comandosDB = new ComandosDB(conexaoDB);
+                DataTable result = comandosDB.ExecuteQuery(querySelect);
+
+                // Limpa a lista de carrinhos antes de adicionar os novos resultados
+                Carrinhos.Clear();
+
+                // Itera pelas linhas do resultado e adiciona cada carrinho à lista Carrinhos
+                foreach (DataRow row in result.Rows)
+                {
+                    Carrinho1 carrinho = new Carrinho1
+                    {
+                        ID = row["ID"].ToString(),
+                        Nome = row["nome"].ToString(),
+                        Codigo_Carrinho = row["codigo_carrinho"].ToString()
+
+                        // Certifique-se de ajustar os nomes das colunas conforme estão no banco de dados
+                    };
+
+                    Carrinhos.Add(carrinho);
+                    // Certifique-se de ajustar os nomes das colunas conforme estão no banco de dados
+
+                }
+                Mensagem = comandosDB.Mensagem;
+            }
+            catch (MySqlException ex)
+            {
+                Status = false;
+                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
+            }
+        }
     }
 }

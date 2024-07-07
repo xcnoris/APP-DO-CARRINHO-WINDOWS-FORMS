@@ -42,7 +42,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                     cmd.Parameters.AddWithValue("@idSituacao", agendamento.IdSituacao);
                     cmd.Parameters.AddWithValue("@idcategoria", agendamento.IdCategoria);
                     cmd.Parameters.AddWithValue("@idpessoa", agendamento.IdPessoa);
-                    cmd.Parameters.AddWithValue("@idcarrinho", agendamento.IdCarrinho);
+                    cmd.Parameters.AddWithValue("@idcarrinho", agendamento.CodCarrinho);
                     cmd.Parameters.AddWithValue("@dataagendamento", agendamento.DataAgendamento);
                     cmd.Parameters.AddWithValue("@hora1", agendamento.Hora1);
                     cmd.Parameters.AddWithValue("@hora2", agendamento.Hora2);
@@ -87,7 +87,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                         IdSituacao = row["IdSituacao"].ToString(),
                         IdCategoria = row["IdCategoria"].ToString(),
                         IdPessoa = row["IdPesso"].ToString(),
-                        IdCarrinho = row["IdCarrinho"].ToString(),
+                        CodCarrinho = row["IdCarrinho"].ToString(),
                         DataAgendamento = row["DataAgendamento"].ToString(),
                         Hora1 = row["Hora1"].ToString(),
                         Hora2 = row["Hora2"].ToString(),
@@ -132,7 +132,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                         IdSituacao = row["IdSituacao"].ToString(),
                         IdCategoria = row["IdCategoria"].ToString(),
                         IdPessoa = row["IdPessoa"].ToString(),
-                        IdCarrinho = row["IdCarrinho"].ToString(),
+                        CodCarrinho = row["IdCarrinho"].ToString(),
                         DataAgendamento = row["DataAgendamento"].ToString(),
                         Hora1 = row["Hora1"].ToString(),
                         Hora2 = row["Hora2"].ToString(),
@@ -165,7 +165,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                     cmd.Parameters.AddWithValue("@idsituacao", agendamento.IdSituacao);
                     cmd.Parameters.AddWithValue("@idcategoria", agendamento.IdCategoria);
                     cmd.Parameters.AddWithValue("@idpessoa", agendamento.IdPessoa);
-                    cmd.Parameters.AddWithValue("@idcarrinho", agendamento.IdCarrinho);
+                    cmd.Parameters.AddWithValue("@idcarrinho", agendamento.CodCarrinho);
                     cmd.Parameters.AddWithValue("@dataagendamento", agendamento.DataAgendamento);
                     cmd.Parameters.AddWithValue("@hora1", agendamento.Hora1);
                     cmd.Parameters.AddWithValue("@hora2", agendamento.Hora2);

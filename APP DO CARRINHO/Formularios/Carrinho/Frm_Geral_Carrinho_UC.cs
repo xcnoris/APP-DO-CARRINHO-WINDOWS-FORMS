@@ -44,8 +44,8 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 }
                 else
                 {
-                    
-                    return Cbox_Situacao.SelectedIndex.ToString();
+                    int index = Cbox_Situacao.SelectedIndex + 1;
+                    return index.ToString();
                 }
             }
         }
