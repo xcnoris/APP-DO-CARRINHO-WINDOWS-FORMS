@@ -34,6 +34,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         public Frm_Cadastro_Carrinho_UC()
         {
             InitializeComponent();
+
             conexaoDB = new ConexaoDB();
             frmGeralCarrinho = new Frm_Geral_Carrinho_UC(); // Inicialize o objeto aqui
         }

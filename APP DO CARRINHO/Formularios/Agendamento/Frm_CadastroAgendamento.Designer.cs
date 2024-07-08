@@ -72,6 +72,7 @@
             this.Btn_Confirmar.TabIndex = 41;
             this.Btn_Confirmar.Text = "   Confirmar";
             this.Btn_Confirmar.UseVisualStyleBackColor = true;
+            this.Btn_Confirmar.Click += new System.EventHandler(this.Btn_Confirmar_Click);
             // 
             // panel1
             // 

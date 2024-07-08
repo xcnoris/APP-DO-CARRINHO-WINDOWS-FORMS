@@ -67,8 +67,11 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         public Frm_Geral_Carrinho_UC()
         {
             InitializeComponent();
+
             conexaoDB = new ConexaoDB();
             metodos = new Metodos();
+
+
             metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
 
             
@@ -76,8 +79,6 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private void Frm_Geral_Carrinho_UC_Load(object sender, EventArgs e)
         {
-
-            //Situacao situacao = situacao.ConsultarDisponibilidadeInDB();
 
         }
 

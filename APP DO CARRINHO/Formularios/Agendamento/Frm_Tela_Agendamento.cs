@@ -1,6 +1,7 @@
 ﻿using AppCarrinhoWFBiblioteca;
 using AppCarrinhoWFBiblioteca.agendamentos;
 using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
+using AppCarrinhoWFBiblioteca.agendamentos.Situacao;
 using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
 using AppCarrinhoWFBiblioteca.classagendamento;
@@ -25,7 +26,7 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
         private Metodos metodos;
         private ConexaoDB conexaoDB;
 
-        private ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
+        private ICollection<SituacaoAgendamento> RetornoSituacoes = new List<SituacaoAgendamento>();
         private ICollection<CategoriaAgendamento> RetornoCategorias = new List<CategoriaAgendamento>();
         private ICollection<Carrinho1> RetornoCarrinhos = new List<Carrinho1>();
         private ICollection<Pessoa> RetornoPessoas = new List<Pessoa>();
@@ -50,7 +51,7 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
         private void Frm_Tela_Agendamento_Load(object sender, EventArgs e)
         {
             // Metodos para incluir valores nos combo box dos filtros, passamos o ultimo valor como true para incluir a opção "Todos"
-            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
+            metodos.IncluirCamposSituacaoAgendamento(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
             metodos.IncluirCamposCategoriaAgendamento(conexaoDB, RetornoCategorias, Cbox_CategoriaAgendamento, true);
             metodos.IncluirCamposCarrinho(conexaoDB, RetornoCarrinhos, Cbox_Carrinhos, true);
             RetornoPessoas = metodos.IncluirValoresPessoasInIcolletion(conexaoDB, RetornoPessoas);
@@ -182,7 +183,7 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
                 // retorna o valor(nome) do id
                 string categoriaNome = metodos.IncluirValorCategoriInDGV(Cbox_CategoriaAgendamento, agendamento.IdCategoria.ToString());
                 string carrinhoNome = metodos.IncluirValorCarrinhoInDGV(Cbox_Carrinhos, agendamento.CodCarrinho.ToString());
-                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, agendamento.IdSituacao.ToString());
+                string situacaoNome = metodos.IncluirValorSituacaoAgendamentoInDGV(Cbox_Situacao, agendamento.IdSituacao.ToString());
                 string nomeCliente = metodos.IncluirValorPessoaInDGV(RetornoPessoas, agendamento.IdPessoa);
 
                 // Adicionar a linha ao DataGridView

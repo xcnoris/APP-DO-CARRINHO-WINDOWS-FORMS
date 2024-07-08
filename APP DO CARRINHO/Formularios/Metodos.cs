@@ -1,5 +1,6 @@
 ﻿using AppCarrinhoWFBiblioteca;
 using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
+using AppCarrinhoWFBiblioteca.agendamentos.Situacao;
 using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
 using AppCarrinhoWFBiblioteca.clientes;
@@ -75,7 +76,54 @@ namespace APP_DO_CARRINHO.Formularios
             }
         }
 
-        
+        public void IncluirCamposSituacaoAgendamento(ConexaoDB conexao, ICollection<SituacaoAgendamento> situacoes1, ComboBox CboxSituacao, bool incluirTodos = false)
+        {
+            try
+            {
+                if (CboxSituacao == null)
+                {
+                    throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
+                }
+
+                SituacaoAgendamento situacao = new SituacaoAgendamento();
+
+                if (situacao.Status)
+                {
+                    situacao.ConsultarDisponibilidadeInDB(conexao);
+
+                    if (situacao.Status)
+                    {
+                        situacoes1 = SituacaoAgendamento.Situacoes;
+
+                        // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
+                        List<SituacaoAgendamento> situacaoList = situacoes1.ToList();
+                        if (incluirTodos)
+                        {
+                            // Adiciona a opção "Todos"
+                            situacaoList.Insert(0, new SituacaoAgendamento { Id = "0", Nome = "Todos" });
+                        }
+                        CboxSituacao.DataSource = situacaoList;
+                        CboxSituacao.DisplayMember = "Nome";
+                        CboxSituacao.ValueMember = "Id";
+                        CboxSituacao.DropDownStyle = ComboBoxStyle.DropDownList;
+                    }
+                    else
+                    {
+                        MessageBox.Show($"[ERROR]: 1{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"[ERROR]: 2{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         public void IncluirCamposCategoriaAgendamento(ConexaoDB conexao, ICollection<CategoriaAgendamento> categorias, ComboBox cboxCategorias, bool incluirTodos = false)
         {
             try
@@ -296,6 +344,26 @@ namespace APP_DO_CARRINHO.Formularios
 
             return "null"; // Retorna "null" se não encontrar uma correspondência
         }
+        internal string IncluirValorSituacaoAgendamentoInDGV(ComboBox Cbox, string idsituacao)
+        {
+
+            // Verifica se o ComboBox tem itens
+            if (Cbox.Items.Count > 0)
+            {
+                // Loop pelos itens do ComboBox
+                foreach (var item in Cbox.Items)
+                {
+                    // Verifica se o item é do tipo Situacao e se o ID do item coincide com o ID da situacao
+                    if (item is SituacaoAgendamento situacaoItem && situacaoItem.Id == idsituacao)
+                    {
+                        return situacaoItem.Nome; // Retorna o nome da situacao
+                    }
+                }
+            }
+
+            return "null"; // Retorna "null" se não encontrar uma correspondência
+        }
+
         internal string IncluirValorCategoriInDGV(ComboBox Cbox, string idCategoria)
         {
 

@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,42 +70,46 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
             Status = true;
             try
             {
-                string querySelect = $"select * from tb_agendamento WHERE ID = {Id}";
+                string querySelect = "SELECT * FROM tb_agendamento WHERE IdAgendamento = @Id";
 
-                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
-                ComandosDB comandosDB = new ComandosDB(conexaoDB);
-                DataTable result = comandosDB.ExecuteQuery(querySelect);
-
-                // Limpa a lista de agendamentos antes de adicionar os novos resultados
-                Agendamentos.Clear();
-
-                // Itera pelas linhas do resultado e adiciona cada agendamento à lista agendamentos
-                foreach (DataRow row in result.Rows)
+                using (MySqlCommand cmd = new MySqlCommand(querySelect, conexaoDB.GetConnection()))
                 {
-                    Agendameto1 agendamento = new Agendameto1
-                    {
-                        Id = row["IdAgendamento"].ToString(),
-                        IdSituacao = row["IdSituacao"].ToString(),
-                        IdCategoria = row["IdCategoria"].ToString(),
-                        IdPessoa = row["IdPesso"].ToString(),
-                        CodCarrinho = row["IdCarrinho"].ToString(),
-                        DataAgendamento = row["DataAgendamento"].ToString(),
-                        Hora1 = row["Hora1"].ToString(),
-                        Hora2 = row["Hora2"].ToString(),
-                        Local = row["Local1"].ToString(),
-                        DataCriacao = row["DataCriacao"].ToString(),
-                        // Certifique-se de ajustar os nomes das colunas conforme estão no banco de dados
-                    };
+                    cmd.Parameters.AddWithValue("@Id", Id);
+                    conexaoDB.OpenConnection();
 
-                    Agendamentos.Add(agendamento);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        Agendamentos.Clear();
+                        while (reader.Read())
+                        {
+                            Agendameto1 agendamento = new Agendameto1
+                            {
+                                Id = reader["IdAgendamento"].ToString(),
+                                IdSituacao = reader["IdSituacao"].ToString(),
+                                IdCategoria = reader["IdCategoria"].ToString(),
+                                IdPessoa = reader["IdPessoa"].ToString(),
+                                CodCarrinho = reader["IdCarrinho"].ToString(),
+                                DataAgendamento = (DateTime)reader["DataAgendamento"],
+                                Hora1 = (TimeSpan)reader["Hora1"],
+                                Hora2 = (TimeSpan)reader["Hora2"],
+                                Local = reader["Local1"].ToString(),
+                                DataCriacao = reader["DataCriacao"].ToString()
+                            };
+
+                            Agendamentos.Add(agendamento);
+                        }
+                    }
                 }
-                
-                Mensagem = comandosDB.Mensagem;
+                Mensagem = "Consulta realizada com sucesso!";
             }
             catch (MySqlException ex)
             {
                 Status = false;
-                Mensagem = "Erro ao consultar carrinhos no banco de dados: " + ex.Message;
+                Mensagem = "Erro ao consultar agendamentos no banco de dados: " + ex.Message;
+            }
+            finally
+            {
+                conexaoDB.CloseConnection();
             }
         }
 
@@ -114,44 +119,50 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
             Status = true;
             try
             {
-                string querySelect = "SELECT IdAgendamento, IdSituacao, IdCategoria, IdPessoa, IdCarrinho, DATE_FORMAT(`DataAgendamento`, '%d/%m/%Y') AS DataAgendamento, DATE_FORMAT(`Hora1`, '%H:%i') AS Hora1, DATE_FORMAT(`Hora2`, '%H:%i') AS Hora2, Local1, DataCriacao FROM tb_agendamento;";
+                //string querySelect = "SELECT IdAgendamento, IdSituacao, IdCategoria, IdPessoa, IdCarrinho, DATE_FORMAT(DataAgendamento, '%d/%m/%Y') AS DataAgendamento, DATE_FORMAT(Hora1, '%H:%i:s') AS Hora1, DATE_FORMAT(Hora2, '%H:%i') AS Hora2, Local1, DataCriacao FROM tb_agendamento;";
+                string querySelect = "SELECT * FROM tb_agendamento;";
 
-
-                // Utiliza um objeto ComandosDB para executar a consulta e obter o resultado
-                ComandosDB comandosDB = new ComandosDB(conexaoDB);
-                DataTable result = comandosDB.ExecuteQuery(querySelect);
-
-                // Limpa a lista de agendamentos antes de adicionar os novos resultados
-                Agendamentos.Clear();
-
-                // Itera pelas linhas do resultado e adiciona cada agendamento à lista agendamentos
-                foreach (DataRow row in result.Rows)
+                using (MySqlCommand cmd = new MySqlCommand(querySelect, conexaoDB.GetConnection()))
                 {
-                    Agendameto1 agendamento = new Agendameto1
-                    {
-                        Id = row["IdAgendamento"].ToString(),
-                        IdSituacao = row["IdSituacao"].ToString(),
-                        IdCategoria = row["IdCategoria"].ToString(),
-                        IdPessoa = row["IdPessoa"].ToString(),
-                        CodCarrinho = row["IdCarrinho"].ToString(),
-                        DataAgendamento = row["DataAgendamento"].ToString(),
-                        Hora1 = row["Hora1"].ToString(),
-                        Hora2 = row["Hora2"].ToString(),
-                        Local = row["Local1"].ToString(),
-                        DataCriacao = row["DataCriacao"].ToString(),
-                        // Certifique-se de ajustar os nomes das colunas conforme estão no banco de dados
-                    };
+                    conexaoDB.OpenConnection();
 
-                    Agendamentos.Add(agendamento);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        Agendamentos.Clear();
+                        while (reader.Read())
+                        {
+                            Agendameto1 agendamento = new Agendameto1
+                            {
+                                Id = reader["IdAgendamento"].ToString(),
+                                IdSituacao = reader["IdSituacao"].ToString(),
+                                IdCategoria = reader["IdCategoria"].ToString(),
+                                IdPessoa = reader["IdPessoa"].ToString(),
+                                CodCarrinho = reader["IdCarrinho"].ToString(),
+                                //DataAgendamento = DateTime.ParseExact(reader["DataAgendamento"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                                Hora1 = (TimeSpan)reader["Hora1"],
+                                Hora2 = (TimeSpan)reader["Hora2"],
+                                Local = reader["Local1"].ToString(),
+                                DataCriacao = reader["DataCriacao"].ToString()
+                            };
+
+                            Agendamentos.Add(agendamento);
+                        }
+                    }
                 }
-                Mensagem = comandosDB.Mensagem;
+                Mensagem = "Consulta realizada com sucesso!";
             }
             catch (MySqlException ex)
             {
                 Status = false;
                 Mensagem = "Erro ao consultar agendamentos no banco de dados: " + ex.Message;
             }
+            finally
+            {
+                conexaoDB.CloseConnection();
+            }
         }
+
+
 
         // Class de atualizar dado de agendamento no banco de dados
         public void UpdateInDB(ConexaoDB conexaoDB, Agendameto1 agendamento)

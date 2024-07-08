@@ -33,18 +33,11 @@
             this.Lbl_Situacao_Carrinho = new System.Windows.Forms.Label();
             this.Lbl_Id_Carrinho = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Cbox_CategoriaAgendamento = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.Cbox_Carrinhos = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.DTP_Data = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,14 +57,14 @@
             this.Txt_Endereco_Bairro = new System.Windows.Forms.TextBox();
             this.Txt_Endereco_Complemento = new System.Windows.Forms.TextBox();
             this.Txt_Telefone = new System.Windows.Forms.TextBox();
-            this.Txt_Endereco = new System.Windows.Forms.TextBox();
+            this.Txt_EnderecoPessoa = new System.Windows.Forms.TextBox();
             this.Txt_DDD_Telefone = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.Txt_EmailPessoa = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.Txt_NomePessoa = new System.Windows.Forms.TextBox();
+            this.Txt_IdPessoa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -82,10 +75,11 @@
             // 
             // Cbox_Situacao
             // 
+            this.Cbox_Situacao.Enabled = false;
             this.Cbox_Situacao.FormattingEnabled = true;
             this.Cbox_Situacao.Items.AddRange(new object[] {
             " "});
-            this.Cbox_Situacao.Location = new System.Drawing.Point(358, 24);
+            this.Cbox_Situacao.Location = new System.Drawing.Point(512, 28);
             this.Cbox_Situacao.Name = "Cbox_Situacao";
             this.Cbox_Situacao.Size = new System.Drawing.Size(121, 21);
             this.Cbox_Situacao.TabIndex = 19;
@@ -93,7 +87,7 @@
             // 
             // Txt_ID
             // 
-            this.Txt_ID.Location = new System.Drawing.Point(97, 28);
+            this.Txt_ID.Location = new System.Drawing.Point(56, 27);
             this.Txt_ID.MaxLength = 10;
             this.Txt_ID.Name = "Txt_ID";
             this.Txt_ID.ReadOnly = true;
@@ -105,7 +99,7 @@
             // 
             this.Lbl_Situacao_Carrinho.AutoSize = true;
             this.Lbl_Situacao_Carrinho.ForeColor = System.Drawing.Color.LimeGreen;
-            this.Lbl_Situacao_Carrinho.Location = new System.Drawing.Point(291, 28);
+            this.Lbl_Situacao_Carrinho.Location = new System.Drawing.Point(445, 31);
             this.Lbl_Situacao_Carrinho.Name = "Lbl_Situacao_Carrinho";
             this.Lbl_Situacao_Carrinho.Size = new System.Drawing.Size(61, 13);
             this.Lbl_Situacao_Carrinho.TabIndex = 27;
@@ -124,12 +118,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Controls.Add(this.button8);
-            this.groupBox1.Controls.Add(this.button9);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.Cbox_CategoriaAgendamento);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.Lbl_Id_Carrinho);
@@ -143,80 +133,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados Gerais do Agendamento";
             // 
-            // button7
+            // Cbox_CategoriaAgendamento
             // 
-            this.button7.BackColor = System.Drawing.Color.White;
-            this.button7.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.encontrar;
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button7.Location = new System.Drawing.Point(452, 51);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(27, 23);
-            this.button7.TabIndex = 65;
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.White;
-            this.button8.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.encontrar;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button8.Location = new System.Drawing.Point(425, 51);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(27, 23);
-            this.button8.TabIndex = 64;
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.White;
-            this.button9.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.encontrar;
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button9.Location = new System.Drawing.Point(398, 51);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(26, 23);
-            this.button9.TabIndex = 63;
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(174, 53);
-            this.textBox1.MaxLength = 80;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(223, 20);
-            this.textBox1.TabIndex = 62;
+            this.Cbox_CategoriaAgendamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cbox_CategoriaAgendamento.FormattingEnabled = true;
+            this.Cbox_CategoriaAgendamento.Location = new System.Drawing.Point(255, 26);
+            this.Cbox_CategoriaAgendamento.Name = "Cbox_CategoriaAgendamento";
+            this.Cbox_CategoriaAgendamento.Size = new System.Drawing.Size(133, 21);
+            this.Cbox_CategoriaAgendamento.TabIndex = 61;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label13.Location = new System.Drawing.Point(17, 56);
+            this.label13.Location = new System.Drawing.Point(200, 30);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 13);
-            this.label13.TabIndex = 61;
+            this.label13.TabIndex = 60;
             this.label13.Text = "Categoria";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(97, 53);
-            this.textBox2.MaxLength = 80;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(71, 20);
-            this.textBox2.TabIndex = 60;
-            this.textBox2.Text = "0";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.Cbox_Carrinhos);
             this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.button6);
-            this.groupBox4.Controls.Add(this.button5);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.button4);
-            this.groupBox4.Location = new System.Drawing.Point(19, 165);
+            this.groupBox4.Location = new System.Drawing.Point(19, 138);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(614, 73);
             this.groupBox4.TabIndex = 59;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Carrinho";
+            // 
+            // Cbox_Carrinhos
+            // 
+            this.Cbox_Carrinhos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cbox_Carrinhos.FormattingEnabled = true;
+            this.Cbox_Carrinhos.Location = new System.Drawing.Point(141, 29);
+            this.Cbox_Carrinhos.Name = "Cbox_Carrinhos";
+            this.Cbox_Carrinhos.Size = new System.Drawing.Size(133, 21);
+            this.Cbox_Carrinhos.TabIndex = 62;
             // 
             // label12
             // 
@@ -228,41 +181,6 @@
             this.label12.TabIndex = 60;
             this.label12.Text = "Selecione o carrinho:";
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(387, 23);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(95, 31);
-            this.button6.TabIndex = 57;
-            this.button6.Text = "Carrinho 3";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(267, 23);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(95, 31);
-            this.button5.TabIndex = 56;
-            this.button5.Text = "Carrinho 2";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(368, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 13);
-            this.label5.TabIndex = 55;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(155, 23);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 31);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Carrinho 1";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.DTP_Data);
@@ -271,7 +189,7 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.DTP_Hora1);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(19, 94);
+            this.groupBox3.Location = new System.Drawing.Point(19, 67);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(614, 65);
             this.groupBox3.TabIndex = 58;
@@ -280,9 +198,9 @@
             // 
             // DTP_Data
             // 
-            this.DTP_Data.Location = new System.Drawing.Point(82, 26);
+            this.DTP_Data.Location = new System.Drawing.Point(141, 26);
             this.DTP_Data.Name = "DTP_Data";
-            this.DTP_Data.Size = new System.Drawing.Size(104, 20);
+            this.DTP_Data.Size = new System.Drawing.Size(133, 20);
             this.DTP_Data.TabIndex = 50;
             this.DTP_Data.Value = new System.DateTime(2024, 7, 6, 0, 0, 0, 0);
             // 
@@ -290,7 +208,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label4.Location = new System.Drawing.Point(46, 29);
+            this.label4.Location = new System.Drawing.Point(102, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 51;
@@ -298,7 +216,7 @@
             // 
             // DTP_Hora2
             // 
-            this.DTP_Hora2.Location = new System.Drawing.Point(391, 26);
+            this.DTP_Hora2.Location = new System.Drawing.Point(500, 23);
             this.DTP_Hora2.Name = "DTP_Hora2";
             this.DTP_Hora2.Size = new System.Drawing.Size(69, 20);
             this.DTP_Hora2.TabIndex = 56;
@@ -307,7 +225,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(362, 29);
+            this.label3.Location = new System.Drawing.Point(471, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 13);
             this.label3.TabIndex = 55;
@@ -315,7 +233,7 @@
             // 
             // DTP_Hora1
             // 
-            this.DTP_Hora1.Location = new System.Drawing.Point(284, 25);
+            this.DTP_Hora1.Location = new System.Drawing.Point(393, 22);
             this.DTP_Hora1.Name = "DTP_Hora1";
             this.DTP_Hora1.Size = new System.Drawing.Size(69, 20);
             this.DTP_Hora1.TabIndex = 49;
@@ -325,7 +243,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label6.Location = new System.Drawing.Point(233, 28);
+            this.label6.Location = new System.Drawing.Point(342, 25);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 54;
@@ -346,14 +264,14 @@
             this.groupBox2.Controls.Add(this.Txt_Endereco_Bairro);
             this.groupBox2.Controls.Add(this.Txt_Endereco_Complemento);
             this.groupBox2.Controls.Add(this.Txt_Telefone);
-            this.groupBox2.Controls.Add(this.Txt_Endereco);
+            this.groupBox2.Controls.Add(this.Txt_EnderecoPessoa);
             this.groupBox2.Controls.Add(this.Txt_DDD_Telefone);
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.Txt_EmailPessoa);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.Txt_NomePessoa);
+            this.groupBox2.Controls.Add(this.Txt_IdPessoa);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(16, 270);
@@ -451,12 +369,12 @@
             this.Txt_Telefone.Size = new System.Drawing.Size(87, 20);
             this.Txt_Telefone.TabIndex = 41;
             // 
-            // Txt_Endereco
+            // Txt_EnderecoPessoa
             // 
-            this.Txt_Endereco.Location = new System.Drawing.Point(101, 89);
-            this.Txt_Endereco.Name = "Txt_Endereco";
-            this.Txt_Endereco.Size = new System.Drawing.Size(236, 20);
-            this.Txt_Endereco.TabIndex = 28;
+            this.Txt_EnderecoPessoa.Location = new System.Drawing.Point(101, 89);
+            this.Txt_EnderecoPessoa.Name = "Txt_EnderecoPessoa";
+            this.Txt_EnderecoPessoa.Size = new System.Drawing.Size(236, 20);
+            this.Txt_EnderecoPessoa.TabIndex = 28;
             // 
             // Txt_DDD_Telefone
             // 
@@ -466,13 +384,13 @@
             this.Txt_DDD_Telefone.TabIndex = 40;
             this.Txt_DDD_Telefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox7
+            // Txt_EmailPessoa
             // 
-            this.textBox7.Location = new System.Drawing.Point(101, 60);
-            this.textBox7.MaxLength = 80;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(445, 20);
-            this.textBox7.TabIndex = 39;
+            this.Txt_EmailPessoa.Location = new System.Drawing.Point(101, 60);
+            this.Txt_EmailPessoa.MaxLength = 80;
+            this.Txt_EmailPessoa.Name = "Txt_EmailPessoa";
+            this.Txt_EmailPessoa.Size = new System.Drawing.Size(445, 20);
+            this.Txt_EmailPessoa.TabIndex = 39;
             // 
             // button3
             // 
@@ -507,23 +425,23 @@
             this.button2.TabIndex = 36;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // textBox6
+            // Txt_NomePessoa
             // 
-            this.textBox6.Location = new System.Drawing.Point(160, 29);
-            this.textBox6.MaxLength = 80;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(386, 20);
-            this.textBox6.TabIndex = 29;
+            this.Txt_NomePessoa.Location = new System.Drawing.Point(160, 29);
+            this.Txt_NomePessoa.MaxLength = 80;
+            this.Txt_NomePessoa.Name = "Txt_NomePessoa";
+            this.Txt_NomePessoa.Size = new System.Drawing.Size(386, 20);
+            this.Txt_NomePessoa.TabIndex = 29;
             // 
-            // textBox5
+            // Txt_IdPessoa
             // 
-            this.textBox5.Location = new System.Drawing.Point(101, 29);
-            this.textBox5.MaxLength = 10;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(53, 20);
-            this.textBox5.TabIndex = 28;
-            this.textBox5.Text = "0";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Txt_IdPessoa.Location = new System.Drawing.Point(101, 29);
+            this.Txt_IdPessoa.MaxLength = 10;
+            this.Txt_IdPessoa.Name = "Txt_IdPessoa";
+            this.Txt_IdPessoa.Size = new System.Drawing.Size(53, 20);
+            this.Txt_IdPessoa.TabIndex = 28;
+            this.Txt_IdPessoa.Text = "0";
+            this.Txt_IdPessoa.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label1
             // 
@@ -575,8 +493,8 @@
         private System.Windows.Forms.Label Lbl_Id_Carrinho;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox Txt_NomePessoa;
+        private System.Windows.Forms.TextBox Txt_IdPessoa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
@@ -588,13 +506,13 @@
         private System.Windows.Forms.TextBox Txt_DDD_Celular;
         private System.Windows.Forms.TextBox Txt_Telefone;
         private System.Windows.Forms.TextBox Txt_DDD_Telefone;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox Txt_EmailPessoa;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox Txt_Endereco_Bairro;
         private System.Windows.Forms.TextBox Txt_Endereco_Complemento;
-        private System.Windows.Forms.TextBox Txt_Endereco;
+        private System.Windows.Forms.TextBox Txt_EnderecoPessoa;
         private System.Windows.Forms.TextBox Txt_Sigla_Uf;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DateTimePicker DTP_Data;
@@ -604,16 +522,9 @@
         private System.Windows.Forms.DateTimePicker DTP_Hora1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox Cbox_CategoriaAgendamento;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox Cbox_Carrinhos;
     }
 }
