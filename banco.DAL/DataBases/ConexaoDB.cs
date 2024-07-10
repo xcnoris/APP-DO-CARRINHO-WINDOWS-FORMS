@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
 namespace banco.DataBases
@@ -11,10 +12,12 @@ namespace banco.DataBases
 
 
         // Dados da conexão
-        string server = "26.219.25.12";       // Altere para o IP da sua VPN se necessário
-        string database = "appcarrinho";
-        string user = "augusto";
-        string password = "4ppc4rr1nh0";
+        //string server = "26.219.25.12";       // Altere para o IP da sua VPN se necessário
+        //string database = "appcarrinho";
+        //string user = "augusto";
+        //string password = "4ppc4rr1nh0";
+
+
 
         public ConexaoDB()
         {
@@ -23,7 +26,7 @@ namespace banco.DataBases
             connection = new MySqlConnection(connectionString);
         }
 
-        public MySqlConnection GetConnection()
+        public SqlConnection GetConnection()
         {
             return connection;
         }
