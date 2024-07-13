@@ -186,8 +186,18 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
                 string situacaoNome = metodos.IncluirValorSituacaoAgendamentoInDGV(Cbox_Situacao, agendamento.IdSituacao.ToString());
                 string nomeCliente = metodos.IncluirValorPessoaInDGV(RetornoPessoas, agendamento.IdPessoa);
 
-                // Adicionar a linha ao DataGridView
-                DGV_Dados.Rows.Add(agendamento.Id, categoriaNome, nomeCliente, agendamento.DataAgendamento, agendamento.Hora1, agendamento.Hora2, agendamento.Local, carrinhoNome, situacaoNome);
+                // Adicionar linha ao DataGridView
+                DGV_Dados.Rows.Add(
+                    agendamento.Id,
+                    categoriaNome,
+                    nomeCliente,
+                    agendamento.DataAgendamento.ToShortDateString(),
+                    agendamento.Hora1.ToString(@"hh\:mm"),
+                    agendamento.Hora2.ToString(@"hh\:mm"), 
+                    agendamento.Local,
+                    carrinhoNome,
+                    situacaoNome
+                );
             }
             catch (ValidationException ex)
             {
