@@ -16,8 +16,8 @@ namespace APP_DO_CARRINHO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Formularios.Menu_Principal.Frm_Menu_Principal_2());
-            //Application.Run(new Formularios.Agendamento.Frm_Tela_Agendamento());
+            //Application.Run(new Formularios.Menu_Principal.Frm_Menu_Principal_2());
+            Application.Run(new Formularios.Agendamento.Frm_Tela_Agendamento());
         }
     }
 }

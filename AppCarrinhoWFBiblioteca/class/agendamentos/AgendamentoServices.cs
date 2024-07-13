@@ -89,11 +89,11 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                                 IdCategoria = reader["IdCategoria"].ToString(),
                                 IdPessoa = reader["IdPessoa"].ToString(),
                                 CodCarrinho = reader["IdCarrinho"].ToString(),
-                                DataAgendamento = (DateTime)reader["DataAgendamento"],
+                                DataAgendamento = Convert.ToDateTime(reader["DataAgendamento"]),
                                 Hora1 = (TimeSpan)reader["Hora1"],
                                 Hora2 = (TimeSpan)reader["Hora2"],
                                 Local = reader["Local1"].ToString(),
-                                DataCriacao = reader["DataCriacao"].ToString()
+                                DataCriacao = (DateTime)reader["DataCriacao"]
                             };
 
                             Agendamentos.Add(agendamento);
@@ -113,13 +113,14 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
             }
         }
 
+
         // Consulta todos os agendamentos no banco de dados
         public void ReadAllInDB(ConexaoDB conexaoDB)
         {
             Status = true;
             try
             {
-                //string querySelect = "SELECT IdAgendamento, IdSituacao, IdCategoria, IdPessoa, IdCarrinho, DATE_FORMAT(DataAgendamento, '%d/%m/%Y') AS DataAgendamento, DATE_FORMAT(Hora1, '%H:%i:s') AS Hora1, DATE_FORMAT(Hora2, '%H:%i') AS Hora2, Local1, DataCriacao FROM tb_agendamento;";
+               
                 string querySelect = "SELECT * FROM tb_agendamento;";
 
                 using (MySqlCommand cmd = new MySqlCommand(querySelect, conexaoDB.GetConnection()))
@@ -138,11 +139,12 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                                 IdCategoria = reader["IdCategoria"].ToString(),
                                 IdPessoa = reader["IdPessoa"].ToString(),
                                 CodCarrinho = reader["IdCarrinho"].ToString(),
-                                //DataAgendamento = DateTime.ParseExact(reader["DataAgendamento"].ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture),
+                                DataAgendamento = Convert.ToDateTime(reader["DataAgendamento"]),
                                 Hora1 = (TimeSpan)reader["Hora1"],
                                 Hora2 = (TimeSpan)reader["Hora2"],
                                 Local = reader["Local1"].ToString(),
-                                DataCriacao = reader["DataCriacao"].ToString()
+                                DataCriacao = Convert.ToDateTime(reader["DataCriacao"]),
+                                
                             };
 
                             Agendamentos.Add(agendamento);
@@ -161,6 +163,8 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                 conexaoDB.CloseConnection();
             }
         }
+
+
 
 
 

@@ -91,66 +91,66 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
             try
             {
 
-            }
-            catch (Exception ex)
-            {
-
-            }
-            string nome_Cliente = Txt_Nome.Text;
-            string id_Cliente = Txt_Id.Text;
-            string cpf_Cliente = Txt_Cpf.Text; 
+                string nome_Cliente = Txt_Nome.Text;
+                string id_Cliente = Txt_Id.Text;
+                string cpf_Cliente = Txt_Cpf.Text;
 
 
-            // Caso todos os campos estejam em branco, ele busca todos os carrinho
-            if ((id_Cliente == "") && string.IsNullOrWhiteSpace(nome_Cliente) && (cpf_Cliente == ""))
-            {
-                try
+                // Caso todos os campos estejam em branco, ele busca todos os carrinho
+                if ((id_Cliente == "") && string.IsNullOrWhiteSpace(nome_Cliente) && (cpf_Cliente == ""))
                 {
-                    DGV_Dados.Rows.Clear();
-                    CarregarTodasAsPessoas();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            // Caso o campo do id não seja nulo, ele busca pelo id do cliente
-            else if(!string.IsNullOrWhiteSpace(id_Cliente))
-            {
-                try
-                {
-                    PessoaService PS = new PessoaService();
-                    
-                    if (PS.Status)
+                    try
                     {
-                        // Busca a pessoa pelo id
-                        PS.ReadInDB(conexaoDB, Txt_Id.Text);
+                        DGV_Dados.Rows.Clear();
+                        CarregarTodasAsPessoas();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                // Caso o campo do id não seja nulo, ele busca pelo id do cliente
+                else if (!string.IsNullOrWhiteSpace(id_Cliente))
+                {
+                    try
+                    {
+                        PessoaService PS = new PessoaService();
 
                         if (PS.Status)
                         {
-                            DGV_Dados.Rows.Clear();
-                            // Pecorre a lista
-                            foreach (Pessoa pessoa in PS.Pessoas)
+                            // Busca a pessoa pelo id
+                            PS.ReadInDB(conexaoDB, Txt_Id.Text);
+
+                            if (PS.Status)
                             {
+                                DGV_Dados.Rows.Clear();
+                                // Pecorre a lista
+                                foreach (Pessoa pessoa in PS.Pessoas)
+                                {
 
-                                AddPessoaToDataGridView(pessoa);
+                                    AddPessoaToDataGridView(pessoa);
+                                }
+
                             }
-
+                            else
+                            {
+                                MessageBox.Show($"ID {Txt_Id.Text} Não Localizado Na Base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show($"ID {Txt_Id.Text} Não Localizado Na Base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"[ERROR]: {PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show($"[ERROR]: {PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Console.WriteLine(ex.Message);
                     }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

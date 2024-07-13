@@ -33,7 +33,7 @@ namespace AppCarrinhoWFBiblioteca.classagendamento
         [Required(ErrorMessage = "Local do Agendamento é Obrigatorio!")]
         public string Local { get; set; }
         
-        public string DataCriacao { get; set; }
+        public DateTime DataCriacao { get; set; }
 
 
         public Agendameto1()
