@@ -38,13 +38,13 @@
             this.Btn_Filtrar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
-            this.Btn_Excluir_Pessoas = new System.Windows.Forms.Button();
-            this.Btn_Alterar_Pessoas = new System.Windows.Forms.Button();
-            this.Btn_Incluir_Pessoas = new System.Windows.Forms.Button();
             this.Btn_Fechar = new System.Windows.Forms.Button();
             this.DGV_Dados = new System.Windows.Forms.DataGridView();
             this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.Btn_Excluir_Pessoas = new System.Windows.Forms.Button();
+            this.Btn_Alterar_Pessoas = new System.Windows.Forms.Button();
+            this.Btn_Incluir_Pessoas = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).BeginInit();
             this.SuspendLayout();
@@ -136,45 +136,6 @@
             this.Txt_Nome.Size = new System.Drawing.Size(320, 20);
             this.Txt_Nome.TabIndex = 9;
             // 
-            // Btn_Excluir_Pessoas
-            // 
-            this.Btn_Excluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Excluir_Pessoas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Excluir_Pessoas.BackgroundImage")));
-            this.Btn_Excluir_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Btn_Excluir_Pessoas.Location = new System.Drawing.Point(224, 401);
-            this.Btn_Excluir_Pessoas.Name = "Btn_Excluir_Pessoas";
-            this.Btn_Excluir_Pessoas.Size = new System.Drawing.Size(100, 39);
-            this.Btn_Excluir_Pessoas.TabIndex = 35;
-            this.Btn_Excluir_Pessoas.Text = "Excluir";
-            this.Btn_Excluir_Pessoas.UseVisualStyleBackColor = true;
-            // 
-            // Btn_Alterar_Pessoas
-            // 
-            this.Btn_Alterar_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Alterar_Pessoas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Alterar_Pessoas.BackgroundImage")));
-            this.Btn_Alterar_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Btn_Alterar_Pessoas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Alterar_Pessoas.Location = new System.Drawing.Point(118, 401);
-            this.Btn_Alterar_Pessoas.Name = "Btn_Alterar_Pessoas";
-            this.Btn_Alterar_Pessoas.Size = new System.Drawing.Size(100, 39);
-            this.Btn_Alterar_Pessoas.TabIndex = 34;
-            this.Btn_Alterar_Pessoas.Text = "Alterar";
-            this.Btn_Alterar_Pessoas.UseVisualStyleBackColor = true;
-            // 
-            // Btn_Incluir_Pessoas
-            // 
-            this.Btn_Incluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Btn_Incluir_Pessoas.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.adicionar__2_;
-            this.Btn_Incluir_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Btn_Incluir_Pessoas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Incluir_Pessoas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Incluir_Pessoas.Location = new System.Drawing.Point(12, 401);
-            this.Btn_Incluir_Pessoas.Name = "Btn_Incluir_Pessoas";
-            this.Btn_Incluir_Pessoas.Size = new System.Drawing.Size(100, 39);
-            this.Btn_Incluir_Pessoas.TabIndex = 33;
-            this.Btn_Incluir_Pessoas.Text = "   Incluir";
-            this.Btn_Incluir_Pessoas.UseVisualStyleBackColor = true;
-            // 
             // Btn_Fechar
             // 
             this.Btn_Fechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -218,6 +179,46 @@
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 38;
             this.label4.Text = "Situação";
+            // 
+            // Btn_Excluir_Pessoas
+            // 
+            this.Btn_Excluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_Excluir_Pessoas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Excluir_Pessoas.BackgroundImage")));
+            this.Btn_Excluir_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Excluir_Pessoas.Location = new System.Drawing.Point(224, 401);
+            this.Btn_Excluir_Pessoas.Name = "Btn_Excluir_Pessoas";
+            this.Btn_Excluir_Pessoas.Size = new System.Drawing.Size(100, 39);
+            this.Btn_Excluir_Pessoas.TabIndex = 35;
+            this.Btn_Excluir_Pessoas.Text = "Excluir";
+            this.Btn_Excluir_Pessoas.UseVisualStyleBackColor = true;
+            // 
+            // Btn_Alterar_Pessoas
+            // 
+            this.Btn_Alterar_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_Alterar_Pessoas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn_Alterar_Pessoas.BackgroundImage")));
+            this.Btn_Alterar_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Alterar_Pessoas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Alterar_Pessoas.Location = new System.Drawing.Point(118, 401);
+            this.Btn_Alterar_Pessoas.Name = "Btn_Alterar_Pessoas";
+            this.Btn_Alterar_Pessoas.Size = new System.Drawing.Size(100, 39);
+            this.Btn_Alterar_Pessoas.TabIndex = 34;
+            this.Btn_Alterar_Pessoas.Text = "Alterar";
+            this.Btn_Alterar_Pessoas.UseVisualStyleBackColor = true;
+            // 
+            // Btn_Incluir_Pessoas
+            // 
+            this.Btn_Incluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Btn_Incluir_Pessoas.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.adicionar__2_;
+            this.Btn_Incluir_Pessoas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_Incluir_Pessoas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Incluir_Pessoas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Incluir_Pessoas.Location = new System.Drawing.Point(12, 401);
+            this.Btn_Incluir_Pessoas.Name = "Btn_Incluir_Pessoas";
+            this.Btn_Incluir_Pessoas.Size = new System.Drawing.Size(100, 39);
+            this.Btn_Incluir_Pessoas.TabIndex = 33;
+            this.Btn_Incluir_Pessoas.Text = "   Incluir";
+            this.Btn_Incluir_Pessoas.UseVisualStyleBackColor = true;
+            this.Btn_Incluir_Pessoas.Click += new System.EventHandler(this.Btn_Incluir_Pessoas_Click);
             // 
             // FrmLocalPregacao
             // 

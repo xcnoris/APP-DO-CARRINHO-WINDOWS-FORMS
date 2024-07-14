@@ -97,13 +97,8 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
             {
                 AddColumnDataGridView();
 
-                // Funcoes para comparar o id retornado do banco, com o id dos valores dos combo box, caso tenha um id igual no combox box
-                // retorna o valor(nome) do id
-                //string categoriaNome = metodos.IncluirValorCategoriInDGV(Cbox_CategoriaAgendamento, localPregacao.IdCategoria.ToString());
-                //string carrinhoNome = metodos.IncluirValorCarrinhoInDGV(Cbox_Carrinhos, localPregacao.CodCarrinho.ToString());
-                //string situacaoNome = metodos.IncluirValorSituacaoAgendamentoInDGV(Cbox_Situacao, localPregacao.IdSituacao.ToString());
-                //string nomeCliente = metodos.IncluirValorPessoaInDGV(RetornoPessoas, localPregacao.IdPessoa);
                 string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, localPregacao.IdSituacao.Id);
+                
                 // Adicionar linha ao DataGridView
                 DGV_Dados.Rows.Add(
                     localPregacao.Id,
@@ -236,6 +231,12 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+
+        private void Btn_Incluir_Pessoas_Click(object sender, EventArgs e)
+        {
+            FrmCadastroLocalPregacao frm = new FrmCadastroLocalPregacao();
+            frm.ShowDialog();
         }
     }
 }
