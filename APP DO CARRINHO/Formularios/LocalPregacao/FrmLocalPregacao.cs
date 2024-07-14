@@ -148,91 +148,72 @@ namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
 
         private void Btn_Filtrar_Click(object sender, EventArgs e)
         {
-            var IndexDoBairro = Cbox_Bairros.SelectedIndex;
-            string ID = Txt_Id.Text;
-            string nome = Txt_Nome.Text; 
-            var IndexSituacao = Cbox_Situacao.SelectedIndex;
-
-            if (IndexDoBairro == 0 && IndexSituacao == 0 && string.IsNullOrWhiteSpace(ID) && string.IsNullOrWhiteSpace(nome))
+            try
             {
-                try
-                {
-                    DGV_Dados.Rows.Clear();
-                    CarregarTodosLocaisPregracao();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                try
-                {
-                    DGV_Dados.Rows.Clear();
 
-                    LocalPregracaoServices LPS = new LocalPregracaoServices();
-                    if (LPS.Status)
+                int IndexDoBairro = Cbox_Bairros.SelectedIndex;
+                string ID = Txt_Id.Text;
+                string nome = Txt_Nome.Text;
+                int IndexSituacao = Cbox_Situacao.SelectedIndex;
+
+                // Se nao tiver nenhum filtro selecionado. Puxa todos os Locais de pregação
+                if (IndexDoBairro == 0 && IndexSituacao == 0 && string.IsNullOrWhiteSpace(ID.ToString()) && string.IsNullOrWhiteSpace(nome))
+                {
+                    try
                     {
-                        if (!string.IsNullOrWhiteSpace(ID))
-                        {
-                            LPS.ReadInDB(conexaoDB, Convert.ToInt32(ID));
-                        }
-                        else if (IndexDoBairro > 0)
-                        {
-                        //    if (!string.IsNullOrWhiteSpace(nome) && !string.IsNullOrWhiteSpace(ID))
-                        //    {
-                        //        LPS.FiltrarPorIDESituacaoNomeECodigoCarrinho(conexaoDB, IndexDoBairro.ToString(), nomeCarrinho, codigoCarrinho);
-                        //    }
-                        //    else if (!string.IsNullOrWhiteSpace(nomeCarrinho))
-                        //    {
-                        //        LPS.FiltrarPorSituacaoENome(conexaoDB, IndexDoBairro.ToString(), nomeCarrinho);
-                        //    }
-                        //    else if (!string.IsNullOrWhiteSpace(codigoCarrinho))
-                        //    {
-                        //        LPS.FiltrarPorSituacaoECodigoCarrinho(conexaoDB, IndexDoBairro.ToString(), codigoCarrinho);
-                        //    }
-                        //    else
-                        //    {
-                        //        LPS.FiltrarPorSituacao(conexaoDB, IndexDoBairro.ToString());
-                        //    }
-                        //}
-                        //else if (IndexDoBairro == 0)
-                        //{
-                        //    if (!string.IsNullOrWhiteSpace(nomeCarrinho) && !string.IsNullOrWhiteSpace(codigoCarrinho))
-                        //    {
-                        //        LPS.FiltrarPorCodigoCarrinhoENome(conexaoDB, nomeCarrinho, codigoCarrinho);
-                        //    }
-                        //    else if (!string.IsNullOrWhiteSpace(nomeCarrinho))
-                        //    {
-                        //        LPS.FiltrarPorNome(conexaoDB, nomeCarrinho);
-                        //    }
-                        //    else
-                        //    {
-                        //        LPS.FiltrarPorCodigoCarrinho(conexaoDB, codigoCarrinho);
-                        //    }
-                        }
+                        DGV_Dados.Rows.Clear();
+                        CarregarTodosLocaisPregracao();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        DGV_Dados.Rows.Clear();
+
+                        LocalPregracaoServices LPS = new LocalPregracaoServices();
+
                         if (LPS.Status)
                         {
-                            foreach (AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao localPregacao in LPS.LocaisPregracao)
+                            if (!string.IsNullOrEmpty(ID))
+                            {
+                                LPS.ReadInDB(conexaoDB, Convert.ToInt32(ID));
+                            }
+                            else if (IndexSituacao > 0)
+                            {
+                                if (IndexDoBairro == 0 && string.IsNullOrWhiteSpace(ID.ToString()) && string.IsNullOrWhiteSpace(nome))
+                                {
+                                    LPS.ReadInDB(conexaoDB, Convert.ToInt32(ID));
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show($"Registro não encontrado na base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            foreach (LocalPregacao localPregacao in LPS.LocaisPregracao)
                             {
                                 AddLocalPregacaoToDataGridView(localPregacao);
                             }
                         }
                         else
                         {
-                            MessageBox.Show($"Registro não encontrado na base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"[ERROR]: {LPS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show($"[ERROR]: {LPS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -264,7 +245,11 @@ namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
             }
             catch (ValidationException ex)
             {
-                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"[ERROR]: {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"[ERROR]: {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -290,7 +275,11 @@ namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
             }
             catch (ValidationException ex)
             {
-                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"[ERROR]: {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR]: {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -321,7 +310,11 @@ namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
             }
             catch (ValidationException ex)
             {
-                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"[ERROR]: {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"[ERROR]: {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
