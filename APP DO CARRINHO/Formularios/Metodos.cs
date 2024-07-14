@@ -1,5 +1,6 @@
 ﻿using AppCarrinhoWFBiblioteca;
 using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
+using AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1;
 using AppCarrinhoWFBiblioteca.agendamentos.Situacao;
 using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
@@ -124,52 +125,61 @@ namespace APP_DO_CARRINHO.Formularios
             }
         }
 
-        //internal void IncluirCamposBairro(ConexaoDB conexao, ICollection<Agendameto1> situacoes1, ComboBox CboxSituacao, bool incluirTodos = false)
-        //{
-        //    try
-        //    {
-        //        if (CboxSituacao == null)
-        //        {
-        //            throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
-        //        }
+        internal void IncluirCamposBairro(ConexaoDB conexao, ICollection<LocalPregracao> LocaisPregacao, ComboBox CboxSituacao, bool incluirTodos = false)
+        {
+            try
+            {
+                if (CboxSituacao == null)
+                {
+                    throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
+                }
 
-        //        Agendameto1 Agendamento = new Agendameto1();
+                LocalPregracaoServices localPregacao = new LocalPregracaoServices();
 
-        //        if (Agendamento.Status)
-        //        {
-        //            Agendamento.Rea(conexao);
+                if (localPregacao.Status)
+                {
+                    localPregacao.ReadAllInDB(conexao);
 
-        //            if (Agendamento.Status)
-        //            {
-        //                situacoes1 = SituacaoAgendamento.Situacoes;
+                    if (localPregacao.Status)
+                    {
+                        LocaisPregacao = localPregacao.LocaisPregracao;
 
-        //                // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
-        //                List<SituacaoAgendamento> situacaoList = situacoes1.ToList();
-        //                if (incluirTodos)
-        //                {
-        //                    // Adiciona a opção "Todos"
-        //                    situacaoList.Insert(0, new SituacaoAgendamento { Id = "0", Nome = "Todos" });
-        //                }
-        //                CboxSituacao.DataSource = situacaoList;
-        //                CboxSituacao.DisplayMember = "Nome";
-        //                CboxSituacao.ValueMember = "Id";
-        //                CboxSituacao.DropDownStyle = ComboBoxStyle.DropDownList;
-        //            }
-        //            else
-        //            {
-        //                MessageBox.Show($"[ERROR]: 1{Agendamento.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show($"[ERROR]: 2{Agendamento.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+                        // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
+                        List<LocalPregracao> LocaisList = new List<LocalPregracao>();
+                        if (incluirTodos)
+                        {
+                            // Adiciona a opção "Todos"
+                            LocaisList.Insert(0, new LocalPregracao { Id = "0", Bairro = "Todos" });
+                        }
+                        foreach (var item in LocaisPregacao)
+                        {
+                             
+                            if (!LocaisList.Any(a => a.Bairro == item.Bairro))
+                            {
+                                LocaisList.Add(item);
+                            }
+
+                        }
+                        CboxSituacao.DataSource = LocaisList;
+                        CboxSituacao.DisplayMember = "Bairro";
+                        CboxSituacao.ValueMember = "Id";
+                        CboxSituacao.DropDownStyle = ComboBoxStyle.DropDownList;
+                    }
+                    else
+                    {
+                        MessageBox.Show($"[ERROR]: 1{localPregacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"[ERROR]: 2{localPregacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
         public void IncluirCamposCategoriaAgendamento(ConexaoDB conexao, ICollection<CategoriaAgendamento> categorias, ComboBox cboxCategorias, bool incluirTodos = false)

@@ -21,7 +21,7 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
         private Metodos metodos;
         private ConexaoDB conexaoDB;
 
-        private ICollection<Agendameto1> RetornoBairros = new List<Agendameto1>();
+        private ICollection<LocalPregracao> RetornoBairros = new List<LocalPregracao>();
 
 
         public FrmLocalPregacao()
@@ -38,7 +38,7 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
 
         private void FrmLocalPregacao_Load(object sender, EventArgs e)
         {
-            //metodos.IncluirCamposBairro(conexaoDB, RetornoBairros, Cbox_Bairros, true);
+            metodos.IncluirCamposBairro(conexaoDB, RetornoBairros, Cbox_Bairros, true);
 
 
             CarregarTodosLocaisPregracao();
@@ -67,6 +67,7 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
 
                             AddLocalPregacaoToDataGridView(localPregacao);
                         }
+                        RetornoBairros = LPS.LocaisPregracao ;
                     }
                     else
                     {
@@ -125,7 +126,6 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
                     DGV_Dados.Columns.Add("ID", "ID");
                     DGV_Dados.Columns.Add("nome", "Nome");
                     DGV_Dados.Columns.Add("endereco", "Endereço");
-                    DGV_Dados.Columns.Add("complemento", "Complemento");
                     DGV_Dados.Columns.Add("bairro", "Bairro");
                     DGV_Dados.Columns.Add("cidade", "Cidade");
                     DGV_Dados.Columns.Add("uf", "UF");

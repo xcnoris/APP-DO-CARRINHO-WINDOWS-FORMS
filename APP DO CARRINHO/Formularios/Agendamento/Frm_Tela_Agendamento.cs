@@ -211,5 +211,10 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
             FrmLocalPregacao frm = new FrmLocalPregacao();
             frm.ShowDialog();
         }
+
+        private void Btn_Filtrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -36,11 +36,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
             this.Lbl_Situacao_Carrinho = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.Btn_Filtrar = new System.Windows.Forms.Button();
             this.ChBox_FiltrarPorHora = new System.Windows.Forms.CheckBox();
             this.DTP_Hora2 = new System.Windows.Forms.DateTimePicker();
@@ -57,12 +55,14 @@
             this.DGV_Dados = new System.Windows.Forms.DataGridView();
             this.Btn_Fechar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.Btn_Excluir_Pessoas = new System.Windows.Forms.Button();
-            this.Btn_Alterar_Pessoas = new System.Windows.Forms.Button();
-            this.Btn_Incluir_Pessoas = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.Btn_Excluir_Pessoas = new System.Windows.Forms.Button();
+            this.Btn_Alterar_Pessoas = new System.Windows.Forms.Button();
+            this.Btn_Incluir_Pessoas = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).BeginInit();
             this.SuspendLayout();
@@ -157,17 +157,6 @@
             this.Lbl_Situacao_Carrinho.TabIndex = 40;
             this.Lbl_Situacao_Carrinho.Text = "Situação";
             // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.encontrar;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button5.Location = new System.Drawing.Point(323, 55);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(24, 23);
-            this.button5.TabIndex = 39;
-            this.button5.UseVisualStyleBackColor = false;
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(134, 56);
@@ -192,17 +181,6 @@
             this.label8.TabIndex = 36;
             this.label8.Text = "Local";
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.encontrar;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button4.Location = new System.Drawing.Point(323, 23);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(24, 23);
-            this.button4.TabIndex = 35;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // Btn_Filtrar
             // 
             this.Btn_Filtrar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -212,6 +190,7 @@
             this.Btn_Filtrar.TabIndex = 35;
             this.Btn_Filtrar.Text = "Filtrar ( Enter )";
             this.Btn_Filtrar.UseVisualStyleBackColor = true;
+            this.Btn_Filtrar.Click += new System.EventHandler(this.Btn_Filtrar_Click);
             // 
             // ChBox_FiltrarPorHora
             // 
@@ -352,6 +331,34 @@
             this.button3.Text = "Finalizar";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 218);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 30);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "Cancelar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(3, 254);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 30);
+            this.button2.TabIndex = 36;
+            this.button2.Text = "Duplicar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(3, 290);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(100, 30);
+            this.button6.TabIndex = 37;
+            this.button6.Text = "Local Pregação";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Btn_Excluir_Pessoas
             // 
             this.Btn_Excluir_Pessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -392,33 +399,27 @@
             this.Btn_Incluir_Pessoas.UseVisualStyleBackColor = true;
             this.Btn_Incluir_Pessoas.Click += new System.EventHandler(this.Btn_Incluir_Pessoas_Click);
             // 
-            // button1
+            // button5
             // 
-            this.button1.Location = new System.Drawing.Point(3, 218);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.encontrar;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button5.Location = new System.Drawing.Point(323, 55);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(24, 23);
+            this.button5.TabIndex = 39;
+            this.button5.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // button4
             // 
-            this.button2.Location = new System.Drawing.Point(3, 254);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 30);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Duplicar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(3, 290);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 30);
-            this.button6.TabIndex = 37;
-            this.button6.Text = "Local Pregação";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.BackgroundImage = global::APP_DO_CARRINHO.Properties.Resources.encontrar;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button4.Location = new System.Drawing.Point(323, 23);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(24, 23);
+            this.button4.TabIndex = 35;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // Frm_Tela_Agendamento
             // 
