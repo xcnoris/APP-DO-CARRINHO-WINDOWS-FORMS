@@ -1,5 +1,5 @@
 ﻿using APP_DO_CARRINHO.Formularios.Carrinho;
-using AppCarrinhoWFBiblioteca;
+using AppCarrinhoWFBiblioteca.Situacao;
 using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
 using AppCarrinhoWFBiblioteca.clientes;
@@ -28,7 +28,7 @@ namespace APP_DO_CARRINHO.Formularios.User
         private Metodos metodos;
 
         // Icolletion usaddo para armazenar o retorno da consulta no DB
-        public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
+        public ICollection<Situacao1> RetornoSituacoes = new List<Situacao1>();
         public ICollection<TipoUser> RetornoTipos = new List<TipoUser>();
 
         public Frm_Tela_User()
@@ -125,7 +125,7 @@ namespace APP_DO_CARRINHO.Formularios.User
                 
                 string cpfFormatado = metodos.FormatCPF(user.CPF);
                 string tipoNome = metodos.IncluirValorTipoInDGV(Cbox_TipoUser, user);
-                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, user.Id_Situacao.ToString());
+                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, Convert.ToInt32(user.Id_Situacao));
                 
                 // Adicionar a linha ao DataGridView
                 DGV_Dados.Rows.Add(user.Id, cpfFormatado, user.Nome,  user.Login, tipoNome, situacaoNome);

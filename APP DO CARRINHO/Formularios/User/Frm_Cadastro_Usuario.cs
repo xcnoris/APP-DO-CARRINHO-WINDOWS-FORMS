@@ -1,6 +1,7 @@
 ﻿using APP_DO_CARRINHO.Formularios.Pessoas;
 using AppCarrinhoWFBiblioteca;
 using AppCarrinhoWFBiblioteca.clientes;
+using AppCarrinhoWFBiblioteca.Situacao;
 using AppCarrinhoWFBiblioteca.User;
 using AppCarrinhoWFBiblioteca.Users;
 using banco.DataBases;
@@ -23,7 +24,7 @@ namespace APP_DO_CARRINHO.Formularios.User
         private ConexaoDB conexaoDB;
         private Metodos metodos;
 
-        public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
+        public ICollection<Situacao1> RetornoSituacoes = new List<Situacao1>();
         public ICollection<TipoUser> RetornoTipos = new List<TipoUser>();
 
         private bool ControleSalvarIncluirUser;
@@ -65,7 +66,7 @@ namespace APP_DO_CARRINHO.Formularios.User
             foreach (var item in Cbox_Situacao.Items)
             {
                 // Checando se o item é do tipo Situacao e se o nome da situação bate com o parâmetro passado
-                if (item is Situacao situacaoItem && situacaoItem.Nome == situacao)
+                if (item is Situacao1 situacaoItem && situacaoItem.Nome == situacao)
                 {
                     Cbox_Situacao.SelectedItem = item;
                     break;

@@ -95,7 +95,6 @@
             this.button3.TabIndex = 8;
             this.button3.Text = "Duplicar";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox1
             // 
@@ -120,7 +119,6 @@
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button4
             // 
@@ -253,7 +251,6 @@
             this.DGV_Dados.ReadOnly = true;
             this.DGV_Dados.Size = new System.Drawing.Size(766, 328);
             this.DGV_Dados.TabIndex = 28;
-            this.DGV_Dados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.DGV_Dados.DoubleClick += new System.EventHandler(this.DGV_Dados_DoubleClick);
             // 
             // pictureBox1

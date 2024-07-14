@@ -2,6 +2,7 @@
 using AppCarrinhoWFBiblioteca;
 using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
+using AppCarrinhoWFBiblioteca.Situacao;
 using banco.DataBases;
 using DataBase.DataBases;
 using System;
@@ -25,7 +26,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         private ConexaoDB conexaoDB;
         private Metodos metodos;
 
-        public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
+        public ICollection<Situacao1> RetornoSituacoes = new List<Situacao1>();
 
         // Construtor
         public Frm_Tela_Carrinho()
@@ -36,11 +37,6 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             metodos = new Metodos();
 
             AddColumnDataGridView();
-        }
-
-        private void Frm_Tela_Carrinho_Load(object sender, EventArgs e)
-        {
-   
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,16 +57,6 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             m.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
             
             CarregarTodosCarrinhos();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Btn_Filtrar_Click(object sender, EventArgs e)
@@ -187,9 +173,16 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             {
                 AddColumnDataGridView();
 
-                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, carrinho.Situacao.ToString());
+                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, Convert.ToInt32(carrinho.Situacao));
                 // Adicionar a linha ao DataGridView
-                DGV_Dados.Rows.Add(carrinho.ID, carrinho.Nome, carrinho.Congregacao_ID, carrinho.Congregacao_Nome, situacaoNome, carrinho.Codigo_Carrinho);
+                DGV_Dados.Rows.Add(
+                    carrinho.ID,
+                    carrinho.Nome,
+                    carrinho.Congregacao_ID,
+                    carrinho.Congregacao_Nome,
+                    situacaoNome,
+                    carrinho.Codigo_Carrinho
+                );
             }
             catch (ValidationException ex)
             {
@@ -234,12 +227,6 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             {
                 MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-       
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
 
         // Abre um

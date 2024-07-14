@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppCarrinhoWFBiblioteca.cep;
-using AppCarrinhoWFBiblioteca;
+using AppCarrinhoWFBiblioteca.Situacao;
 using AppCarrinhoWFBiblioteca.clientes;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using banco.DataBases;
+using AppCarrinhoWFBiblioteca.Situacao;
 
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho
@@ -22,7 +23,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
         private ConexaoDB conexaoDB;
         private Metodos metodos;
-        private ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
+        private ICollection<Situacao1> RetornoSituacoes = new List<Situacao1>();
 
 
 
@@ -100,7 +101,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             foreach (var item in Cbox_Situacao.Items)
             {
                 // Assuming each item in Cbox_Situacao is of type Situacao
-                if (item is Situacao situacaoItem && situacaoItem.Nome == situacao)
+                if (item is Situacao1 situacaoItem && situacaoItem.Nome == situacao)
                 {
                     Cbox_Situacao.SelectedItem = item;
                     break;

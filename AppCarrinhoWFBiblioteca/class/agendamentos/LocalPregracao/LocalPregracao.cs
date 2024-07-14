@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-
+using AppCarrinhoWFBiblioteca.Situacao;
 
 namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
 {
@@ -35,6 +35,9 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
         [Required(ErrorMessage = "UF é Obrigatoria!")]
         public string UF { get; set; }
 
+        [Required(ErrorMessage = "Nome do Local de pregação é Obrigatorio!")]
+        public Situacao1 IdSituacao { get; set; }
+        
 
         public LocalPregracao()
         {
@@ -60,6 +63,10 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                 // Add as mensagens de erro para um exeção do tipo validationexception.
                 // E força a mensagem da exceção
                 throw new ValidationException(sbrErrors.ToString());
+            }
+            if(IdSituacao.Id == 0)
+            {
+                throw new ValidationException("Situação não pode ser todas!");
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using AppCarrinhoWFBiblioteca.agendamentos;
+﻿using AppCarrinhoWFBiblioteca.Situacao;
+using AppCarrinhoWFBiblioteca.agendamentos;
 using AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1;
 using AppCarrinhoWFBiblioteca.agendamentos.Situacao;
 using AppCarrinhoWFBiblioteca.carrinho;
@@ -24,6 +25,7 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
         private ConexaoDB conexaoDB;
 
         private ICollection<LocalPregracao> RetornoBairros = new List<LocalPregracao>();
+        public ICollection<Situacao1> RetornoSituacoes = new List<Situacao1>();
 
 
         public FrmLocalPregacao()
@@ -41,7 +43,7 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
         private void FrmLocalPregacao_Load(object sender, EventArgs e)
         {
             metodos.IncluirCamposBairro(conexaoDB, RetornoBairros, Cbox_Bairros, true);
-
+            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
 
             CarregarTodosLocaisPregracao();
         }
@@ -101,7 +103,7 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
                 //string carrinhoNome = metodos.IncluirValorCarrinhoInDGV(Cbox_Carrinhos, localPregacao.CodCarrinho.ToString());
                 //string situacaoNome = metodos.IncluirValorSituacaoAgendamentoInDGV(Cbox_Situacao, localPregacao.IdSituacao.ToString());
                 //string nomeCliente = metodos.IncluirValorPessoaInDGV(RetornoPessoas, localPregacao.IdPessoa);
-
+                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, localPregacao.IdSituacao.Id);
                 // Adicionar linha ao DataGridView
                 DGV_Dados.Rows.Add(
                     localPregacao.Id,
@@ -109,7 +111,8 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
                     localPregacao.Endereco,
                     localPregacao.Bairro,
                     localPregacao.Cidade,
-                    localPregacao.UF
+                    localPregacao.UF,
+                    situacaoNome
                 );
             }
             catch (Exception ex)
@@ -131,6 +134,8 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
                     DGV_Dados.Columns.Add("bairro", "Bairro");
                     DGV_Dados.Columns.Add("cidade", "Cidade");
                     DGV_Dados.Columns.Add("uf", "UF");
+                    DGV_Dados.Columns.Add("situacao", "Situação");
+
                 }
             }
             catch (Exception ex)

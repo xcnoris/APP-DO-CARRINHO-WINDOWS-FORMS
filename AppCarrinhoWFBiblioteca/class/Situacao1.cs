@@ -4,19 +4,19 @@ using banco.DataBases;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Data;
-namespace AppCarrinhoWFBiblioteca
+namespace AppCarrinhoWFBiblioteca.Situacao
 {
 
-    public class Situacao
+    public class Situacao1
     {
         public bool Status;
         public string Mensagem;
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
 
-        public static ICollection<Situacao> Situacoes = new List<Situacao>();
+        public static ICollection<Situacao1> Situacoes = new List<Situacao1>();
 
-        public Situacao()
+        public Situacao1()
         {
             Status = true;
         }
@@ -39,9 +39,9 @@ namespace AppCarrinhoWFBiblioteca
                 // Itera pelas linhas do resultado e adiciona cada carrinho à lista Carrinhos
                 foreach (DataRow row in result.Rows)
                 {
-                    Situacao situacoes = new Situacao
+                    Situacao1 situacoes = new Situacao1
                     {
-                        Id = row["ID"].ToString(),
+                        Id = (int)row["ID"],
                         Nome = row["nome"].ToString()
 
                         // Certifique-se de ajustar os nomes das colunas conforme estão no banco de dados

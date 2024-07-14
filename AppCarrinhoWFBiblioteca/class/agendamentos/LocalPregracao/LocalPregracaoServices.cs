@@ -1,4 +1,5 @@
 ﻿using AppCarrinhoWFBiblioteca.classagendamento;
+using AppCarrinhoWFBiblioteca.Situacao;
 using AppCarrinhoWFBiblioteca.Interfaces;
 using banco.DAL.DataBases;
 using banco.DataBases;
@@ -32,9 +33,9 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
             {
 
                 string query = @"INSERT INTO tb_localpregacao 
-                                    ( nome, descricao, endereco, complemento, bairro, cidade, uf, datacriacao)
+                                    ( nome, descricao, endereco, complemento, bairro, cidade, uf, datacriacao, id_situacao)
                                 VALUES 
-                                    (@nome, @descricao, @endereco, @complemento, @bairro, @Cidade, @uf , @datacriacao)
+                                    (@nome, @descricao, @endereco, @complemento, @bairro, @Cidade, @uf , @datacriacao, @id_situacao)
                                ";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection()))
@@ -48,6 +49,8 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                     cmd.Parameters.AddWithValue("@Cidade", localPregracao.Cidade);
                     cmd.Parameters.AddWithValue("@uf", localPregracao.UF);
                     cmd.Parameters.AddWithValue("@datacriacao", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@id_situacao", localPregracao.IdSituacao.Id);
+                    
 
                     conexaoDB.OpenConnection();
                     cmd.ExecuteNonQuery();
@@ -99,6 +102,10 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                                 Bairro = reader["bairro"].ToString(),
                                 Cidade = reader["cidade"].ToString(),
                                 UF = reader["uf"].ToString(),
+                                IdSituacao = new Situacao1
+                                {
+                                    Id = (int)reader["id_situacao"]
+                                }
                             };
 
                             LocaisPregracao.Add(localPregacao);
@@ -152,6 +159,10 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                                 Bairro = reader["bairro"].ToString(),
                                 Cidade = reader["cidade"].ToString(),
                                 UF = reader["uf"].ToString(),
+                                IdSituacao = new Situacao1
+                                {
+                                    Id = (int)reader["id_situacao"]
+                                }
                             };
 
                             LocaisPregracao.Add(localPregacao);

@@ -35,14 +35,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Cbox_Bairros = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Btn_Filtrar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.Btn_Excluir_Pessoas = new System.Windows.Forms.Button();
             this.Btn_Alterar_Pessoas = new System.Windows.Forms.Button();
             this.Btn_Incluir_Pessoas = new System.Windows.Forms.Button();
             this.Btn_Fechar = new System.Windows.Forms.Button();
             this.DGV_Dados = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Txt_Nome = new System.Windows.Forms.TextBox();
-            this.Btn_Filtrar = new System.Windows.Forms.Button();
+            this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).BeginInit();
             this.SuspendLayout();
@@ -91,6 +93,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.Cbox_Situacao);
             this.groupBox1.Controls.Add(this.Btn_Filtrar);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.Txt_Nome);
@@ -104,6 +108,33 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
+            // 
+            // Btn_Filtrar
+            // 
+            this.Btn_Filtrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Filtrar.Location = new System.Drawing.Point(592, 47);
+            this.Btn_Filtrar.Name = "Btn_Filtrar";
+            this.Btn_Filtrar.Size = new System.Drawing.Size(135, 23);
+            this.Btn_Filtrar.TabIndex = 36;
+            this.Btn_Filtrar.Text = "Filtrar ( Enter )";
+            this.Btn_Filtrar.UseVisualStyleBackColor = true;
+            this.Btn_Filtrar.Click += new System.EventHandler(this.Btn_Filtrar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Nome";
+            // 
+            // Txt_Nome
+            // 
+            this.Txt_Nome.Location = new System.Drawing.Point(57, 47);
+            this.Txt_Nome.Name = "Txt_Nome";
+            this.Txt_Nome.Size = new System.Drawing.Size(320, 20);
+            this.Txt_Nome.TabIndex = 9;
             // 
             // Btn_Excluir_Pessoas
             // 
@@ -171,32 +202,22 @@
             this.DGV_Dados.Size = new System.Drawing.Size(769, 289);
             this.DGV_Dados.TabIndex = 37;
             // 
-            // label3
+            // Cbox_Situacao
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Nome";
+            this.Cbox_Situacao.FormattingEnabled = true;
+            this.Cbox_Situacao.Location = new System.Drawing.Point(552, 19);
+            this.Cbox_Situacao.Name = "Cbox_Situacao";
+            this.Cbox_Situacao.Size = new System.Drawing.Size(175, 21);
+            this.Cbox_Situacao.TabIndex = 37;
             // 
-            // Txt_Nome
+            // label4
             // 
-            this.Txt_Nome.Location = new System.Drawing.Point(57, 47);
-            this.Txt_Nome.Name = "Txt_Nome";
-            this.Txt_Nome.Size = new System.Drawing.Size(320, 20);
-            this.Txt_Nome.TabIndex = 9;
-            // 
-            // Btn_Filtrar
-            // 
-            this.Btn_Filtrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Filtrar.Location = new System.Drawing.Point(592, 47);
-            this.Btn_Filtrar.Name = "Btn_Filtrar";
-            this.Btn_Filtrar.Size = new System.Drawing.Size(135, 23);
-            this.Btn_Filtrar.TabIndex = 36;
-            this.Btn_Filtrar.Text = "Filtrar ( Enter )";
-            this.Btn_Filtrar.UseVisualStyleBackColor = true;
-            this.Btn_Filtrar.Click += new System.EventHandler(this.Btn_Filtrar_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(497, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "Situação";
             // 
             // FrmLocalPregacao
             // 
@@ -239,5 +260,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Txt_Nome;
         private System.Windows.Forms.Button Btn_Filtrar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox Cbox_Situacao;
     }
 }

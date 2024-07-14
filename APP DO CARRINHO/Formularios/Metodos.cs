@@ -1,4 +1,4 @@
-﻿using AppCarrinhoWFBiblioteca;
+﻿using AppCarrinhoWFBiblioteca.Situacao;
 using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
 using AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1;
 using AppCarrinhoWFBiblioteca.agendamentos.Situacao;
@@ -31,7 +31,7 @@ namespace APP_DO_CARRINHO.Formularios
             return cpf; // Retorna o CPF sem formatação se ele não tiver 11 caracteres
         }
 
-        public void IncluirCamposSituacao(ConexaoDB conexao, ICollection<Situacao> situacoes, ComboBox CboxSituacao, bool incluirTodos = false)
+        public void IncluirCamposSituacao(ConexaoDB conexao, ICollection<Situacao1> situacoes, ComboBox CboxSituacao, bool incluirTodos = false)
         {
             try
             {
@@ -40,7 +40,7 @@ namespace APP_DO_CARRINHO.Formularios
                     throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
                 }
 
-                Situacao situacao = new Situacao();
+                Situacao1 situacao = new Situacao1();
 
                 if (situacao.Status)
                 {
@@ -48,14 +48,14 @@ namespace APP_DO_CARRINHO.Formularios
 
                     if (situacao.Status)
                     {
-                        situacoes = Situacao.Situacoes;
+                        situacoes = Situacao1.Situacoes;
 
                         // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
-                        List<Situacao> situacaoList = situacoes.ToList();
+                        List<Situacao1> situacaoList = situacoes.ToList();
                         if (incluirTodos)
                         {
                             // Adiciona a opção "Todos"
-                            situacaoList.Insert(0, new Situacao { Id = "0", Nome = "Todos" });
+                            situacaoList.Insert(0, new Situacao1 { Id = 0, Nome = "Todos" });
                         }
                         CboxSituacao.DataSource = situacaoList;
                         CboxSituacao.DisplayMember = "Nome";
@@ -383,7 +383,7 @@ namespace APP_DO_CARRINHO.Formularios
             return "null"; // Retorna "null" se não encontrar uma correspondência
         }
 
-        internal string IncluirValorSituacaoInDGV(ComboBox Cbox,string idsituacao)
+        internal string IncluirValorSituacaoInDGV(ComboBox Cbox,int idsituacao)
         {
 
             // Verifica se o ComboBox tem itens
@@ -393,7 +393,7 @@ namespace APP_DO_CARRINHO.Formularios
                 foreach (var item in Cbox.Items)
                 {
                     // Verifica se o item é do tipo Situacao e se o ID do item coincide com o ID da situacao
-                    if (item is Situacao situacaoItem && situacaoItem.Id == idsituacao)
+                    if (item is Situacao1 situacaoItem && situacaoItem.Id == idsituacao)
                     {
                         return situacaoItem.Nome; // Retorna o nome da situacao
                     }
