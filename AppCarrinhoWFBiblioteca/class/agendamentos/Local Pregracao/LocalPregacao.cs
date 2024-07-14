@@ -7,14 +7,14 @@ using AppCarrinhoWFBiblioteca.Situacao;
 
 namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
 {
-    public class LocalPregracao
+    public class LocalPregacao
     {
         public bool Status;
         public string Mensagem;
 
 
 
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Nome do Local de pregação é Obrigatorio!")]
         public string Nome { get; set; }
@@ -39,7 +39,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
         public Situacao1 IdSituacao { get; set; }
         
 
-        public LocalPregracao()
+        public LocalPregacao()
         {
             Status = true;
         }

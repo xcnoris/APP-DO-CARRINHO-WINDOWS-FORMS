@@ -1,4 +1,4 @@
-﻿namespace APP_DO_CARRINHO.Formularios.LocalPregacao
+﻿namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
 {
     partial class FrmLocalPregacao
     {
@@ -35,13 +35,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Cbox_Bairros = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
             this.Btn_Filtrar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.Btn_Fechar = new System.Windows.Forms.Button();
             this.DGV_Dados = new System.Windows.Forms.DataGridView();
-            this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.Btn_Excluir_Pessoas = new System.Windows.Forms.Button();
             this.Btn_Alterar_Pessoas = new System.Windows.Forms.Button();
             this.Btn_Incluir_Pessoas = new System.Windows.Forms.Button();
@@ -109,6 +109,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(497, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "Situação";
+            // 
+            // Cbox_Situacao
+            // 
+            this.Cbox_Situacao.FormattingEnabled = true;
+            this.Cbox_Situacao.Location = new System.Drawing.Point(552, 19);
+            this.Cbox_Situacao.Name = "Cbox_Situacao";
+            this.Cbox_Situacao.Size = new System.Drawing.Size(175, 21);
+            this.Cbox_Situacao.TabIndex = 37;
+            // 
             // Btn_Filtrar
             // 
             this.Btn_Filtrar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -162,23 +179,7 @@
             this.DGV_Dados.ReadOnly = true;
             this.DGV_Dados.Size = new System.Drawing.Size(769, 289);
             this.DGV_Dados.TabIndex = 37;
-            // 
-            // Cbox_Situacao
-            // 
-            this.Cbox_Situacao.FormattingEnabled = true;
-            this.Cbox_Situacao.Location = new System.Drawing.Point(552, 19);
-            this.Cbox_Situacao.Name = "Cbox_Situacao";
-            this.Cbox_Situacao.Size = new System.Drawing.Size(175, 21);
-            this.Cbox_Situacao.TabIndex = 37;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(497, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 38;
-            this.label4.Text = "Situação";
+            this.DGV_Dados.DoubleClick += new System.EventHandler(this.DGV_Dados_DoubleClick);
             // 
             // Btn_Excluir_Pessoas
             // 

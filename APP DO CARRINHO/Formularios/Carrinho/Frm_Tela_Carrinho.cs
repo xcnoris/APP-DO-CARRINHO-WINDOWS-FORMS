@@ -314,6 +314,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
 

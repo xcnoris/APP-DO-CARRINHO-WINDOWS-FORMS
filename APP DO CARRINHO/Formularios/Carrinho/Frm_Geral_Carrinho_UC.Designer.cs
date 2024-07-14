@@ -127,7 +127,6 @@
             this.Lbl_Nome_Carrinho.Size = new System.Drawing.Size(39, 13);
             this.Lbl_Nome_Carrinho.TabIndex = 13;
             this.Lbl_Nome_Carrinho.Text = "NOME";
-            this.Lbl_Nome_Carrinho.Click += new System.EventHandler(this.Lbl_Nome_Carrinho_Click);
             // 
             // Lbl_Id_Carrinho
             // 
@@ -165,7 +164,6 @@
             this.Controls.Add(this.Lbl_Id_Carrinho);
             this.Name = "Frm_Geral_Carrinho_UC";
             this.Size = new System.Drawing.Size(695, 185);
-            this.Load += new System.EventHandler(this.Frm_Geral_Carrinho_UC_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

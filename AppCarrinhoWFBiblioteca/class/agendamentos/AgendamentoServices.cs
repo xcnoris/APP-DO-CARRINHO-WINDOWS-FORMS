@@ -93,9 +93,9 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                                 DataAgendamento = Convert.ToDateTime(reader["DataAgendamento"]),
                                 Hora1 = (TimeSpan)reader["Hora1"],
                                 Hora2 = (TimeSpan)reader["Hora2"],
-                                Local = new LocalPregracao
+                                Local = new LocalPregacao
                                 {
-                                    Id = reader["Local1"].ToString()
+                                    Id = (int)reader["Local1"]
                                 },
                                 DataCriacao = (DateTime)reader["DataCriacao"]
                             };
@@ -146,9 +146,9 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                                 DataAgendamento = Convert.ToDateTime(reader["DataAgendamento"]),
                                 Hora1 = (TimeSpan)reader["Hora1"],
                                 Hora2 = (TimeSpan)reader["Hora2"],
-                                Local = new LocalPregracao
+                                Local = new LocalPregacao
                                 {
-                                    Id = reader["Local1"].ToString()
+                                    Id = (int)reader["Local1"]
                                 },
                                 DataCriacao = Convert.ToDateTime(reader["DataCriacao"]),
                                 

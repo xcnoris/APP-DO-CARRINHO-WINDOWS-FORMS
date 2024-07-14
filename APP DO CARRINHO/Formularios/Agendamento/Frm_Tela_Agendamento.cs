@@ -1,4 +1,4 @@
-﻿using APP_DO_CARRINHO.Formularios.LocalPregacao;
+﻿using APP_DO_CARRINHO.Formularios.FrmLocalPregacao;
 using AppCarrinhoWFBiblioteca;
 using AppCarrinhoWFBiblioteca.agendamentos;
 using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
@@ -208,7 +208,7 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
 
         private void button6_Click(object sender, EventArgs e)
         {
-            FrmLocalPregacao frm = new FrmLocalPregacao();
+            FrmLocalPregacao.FrmLocalPregacao frm = new FrmLocalPregacao.FrmLocalPregacao();
             frm.ShowDialog();
         }
 

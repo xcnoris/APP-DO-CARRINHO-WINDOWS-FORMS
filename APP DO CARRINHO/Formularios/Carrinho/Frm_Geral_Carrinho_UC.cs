@@ -78,16 +78,6 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             
         }
 
-        private void Frm_Geral_Carrinho_UC_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        public void InserirSituacao()
-        {
-            
-        }
-
         // Função para inserir dados quando é dado um duplo clique em um data grid view
         public void SetCarrinhoData(string id, string nome,string situacao, string congregacaoId,  string congregacaoNome, string codigoCarrinho)
         {
@@ -107,11 +97,6 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                     break;
                 }
             }
-        }
-
-        private void Lbl_Nome_Carrinho_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

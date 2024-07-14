@@ -16,15 +16,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using APP_DO_CARRINHO.Formularios.Carrinho;
+using System.ComponentModel.DataAnnotations;
 
-namespace APP_DO_CARRINHO.Formularios.LocalPregacao
+namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
 {
     public partial class FrmLocalPregacao : Form
     {
         private Metodos metodos;
         private ConexaoDB conexaoDB;
 
-        private ICollection<LocalPregracao> RetornoBairros = new List<LocalPregracao>();
+        private ICollection<AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao> RetornoBairros = new List<AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao>();
         public ICollection<Situacao1> RetornoSituacoes = new List<Situacao1>();
 
 
@@ -66,7 +68,7 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
                     if (LPS.Status)
                     {
                         // Pecorre a lista
-                        foreach (LocalPregracao localPregacao in LPS.LocaisPregracao)
+                        foreach (AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao localPregacao in LPS.LocaisPregracao)
                         {
 
                             AddLocalPregacaoToDataGridView(localPregacao);
@@ -91,7 +93,7 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
 
 
         // Recebe um object LocalPregacao e convert para uma linha do DataGridView
-        private void AddLocalPregacaoToDataGridView(LocalPregracao localPregacao)
+        private void AddLocalPregacaoToDataGridView(AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao localPregacao)
         {
             try
             {
@@ -211,7 +213,7 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
                         }
                         if (LPS.Status)
                         {
-                            foreach (LocalPregracao localPregacao in LPS.LocaisPregracao)
+                            foreach (AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao localPregacao in LPS.LocaisPregracao)
                             {
                                 AddLocalPregacaoToDataGridView(localPregacao);
                             }
@@ -237,6 +239,33 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
         {
             FrmCadastroLocalPregacao frm = new FrmCadastroLocalPregacao();
             frm.ShowDialog();
+        }
+
+        private void DGV_Dados_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                // Retrieve the selected row data
+                var selectedRow = DGV_Dados.CurrentRow;
+                int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                string nome = selectedRow.Cells["nome"].Value.ToString();
+                string endereco = selectedRow.Cells["endereco"].Value.ToString();
+                string bairro = selectedRow.Cells["bairro"].Value.ToString();
+                string cidade = selectedRow.Cells["cidade"].Value.ToString();
+                string uf = selectedRow.Cells["uf"].Value.ToString();
+                string situacao = selectedRow.Cells["situacao"].Value.ToString();
+                string complemento = "";
+
+                // Pass the data to the Frm_Cadastro_Carrinho_UC form
+                FrmCadastroLocalPregacao frm = new FrmCadastroLocalPregacao();
+                frm.InserirDadosInFrm(id, nome, situacao, endereco, complemento, bairro, cidade);
+                frm.ShowDialog();
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

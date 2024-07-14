@@ -32,7 +32,7 @@ namespace AppCarrinhoWFBiblioteca.classagendamento
         [Required(ErrorMessage = "hora até do Agendamento é Obrigatorio!")]
         public TimeSpan Hora2 { get; set; }
         [Required(ErrorMessage = "Local do Agendamento é Obrigatorio!")]
-        public LocalPregracao Local { get; set; }
+        public LocalPregacao Local { get; set; }
         
         public DateTime DataCriacao { get; set; }
 

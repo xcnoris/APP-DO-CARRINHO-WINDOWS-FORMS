@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
 {
-    public class LocalPregracaoServices : ICrud<LocalPregracao>
+    public class LocalPregracaoServices : ICrud<LocalPregacao>
     {
         public string Mensagem { get; set; }
         public bool Status;
 
-        public ICollection<LocalPregracao> LocaisPregracao { get; set; } = new List<LocalPregracao>();
+        public ICollection<LocalPregacao> LocaisPregracao { get; set; } = new List<LocalPregacao>();
 
         public LocalPregracaoServices()
         {
@@ -26,7 +26,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
 
 
         //Class de criar um novo registro do local de pregacao no Banco de dados
-        public void CreateInDB(ConexaoDB conexaoDB, LocalPregracao localPregracao)
+        public void CreateInDB(ConexaoDB conexaoDB, LocalPregacao localPregracao)
         {
             Status = true;
             try
@@ -55,17 +55,17 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                     conexaoDB.OpenConnection();
                     cmd.ExecuteNonQuery();
                 }
-                Mensagem = "Agendamento incluído com sucesso!";
+                Mensagem = "Local de pregação incluído com sucesso!";
             }
             catch (MySqlException ex)
             {
                 Status = false;
-                Mensagem = "Erro ao incluir novo agendamento no banco de dados: " + ex.Message;
+                Mensagem = "Erro ao incluir local de pregação no banco de dados: " + ex.Message;
             }
             catch (Exception ex) 
             {
                 Status = false;
-                Mensagem = "Erro ao incluir novo agendamento no banco de dados: " + ex.Message;
+                Mensagem = "Erro ao incluir novo local de pregação no banco de dados: " + ex.Message;
             }
             finally
             {
@@ -92,9 +92,9 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                         LocaisPregracao.Clear();
                         while (reader.Read())
                         {
-                            LocalPregracao localPregacao = new LocalPregracao
+                            LocalPregacao localPregacao = new LocalPregacao
                             {
-                                Id = reader["id"].ToString(),
+                                Id = (int)reader["id"],
                                 Nome = reader["nome"].ToString(),
                                 Descricao = reader["descricao"].ToString(),
                                 Endereco = reader["endereco"].ToString(),
@@ -149,9 +149,9 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                         LocaisPregracao.Clear();
                         while (reader.Read())
                         {
-                            LocalPregracao localPregacao = new LocalPregracao
+                            LocalPregacao localPregacao = new LocalPregacao
                             {
-                                Id = reader["id"].ToString(),
+                                Id = (int)reader["id"],
                                 Nome = reader["nome"].ToString(),
                                 Descricao = reader["descricao"].ToString(),
                                 Endereco = reader["endereco"].ToString(),
@@ -193,7 +193,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
 
 
         // Class de atualizar dado de locais de pregacao no banco de dados
-        public void UpdateInDB(ConexaoDB conexaoDB, LocalPregracao localPregacao)
+        public void UpdateInDB(ConexaoDB conexaoDB, LocalPregacao localPregacao)
         {
             Status = true;
             try
@@ -201,7 +201,8 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                 string query = @"UPDATE tb_localpregacao SET 
                                     id = @id, nome = @nome, descricao = @descricao,
                                     endereco = @endereco, complemento = @complemento,
-                                    bairro = @bairro, cidade = @cidade, uf = @uf 
+                                    bairro = @bairro, cidade = @cidade, uf = @uf ,
+                                    id_situacao = @id_situacao
                                 WHERE
                                     id = @id";
                 using (MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection()))
@@ -214,6 +215,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                     cmd.Parameters.AddWithValue("@bairro", localPregacao.Bairro);
                     cmd.Parameters.AddWithValue("@cidade", localPregacao.Cidade);
                     cmd.Parameters.AddWithValue("@uf", localPregacao.UF);
+                    cmd.Parameters.AddWithValue("@id_situacao", localPregacao.IdSituacao.Id);
 
 
                     conexaoDB.OpenConnection();
@@ -231,7 +233,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                     }
 
                 }
-                Mensagem = "Agendamento atualizado com sucesso!";
+                Mensagem = "Local de pregação atualizado com sucesso!";
             }
             catch (MySqlException ex)
             {

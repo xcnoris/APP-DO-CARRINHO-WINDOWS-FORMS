@@ -1,4 +1,4 @@
-﻿namespace APP_DO_CARRINHO.Formularios.LocalPregacao
+﻿namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
 {
     partial class FrmGeralCadastroLocalPregUC
     {
@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.Cbox_Situacao = new System.Windows.Forms.ComboBox();
-            this.Txt_Codigo_Carrinho = new System.Windows.Forms.TextBox();
+            this.Txt_Endereco = new System.Windows.Forms.TextBox();
             this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.Txt_ID = new System.Windows.Forms.TextBox();
             this.Lbl_Situacao_Carrinho = new System.Windows.Forms.Label();
             this.Lbl_Nome_Carrinho = new System.Windows.Forms.Label();
             this.Lbl_Id_Carrinho = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Txt_Descricao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Txt_Complemento = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Txt_UF = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Txt_Bairro = new System.Windows.Forms.TextBox();
+            this.Txt_Cidade = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Cbox_Situacao
@@ -59,13 +59,13 @@
             this.Cbox_Situacao.TabIndex = 19;
             this.Cbox_Situacao.Text = "( Selecione )";
             // 
-            // Txt_Codigo_Carrinho
+            // Txt_Endereco
             // 
-            this.Txt_Codigo_Carrinho.Location = new System.Drawing.Point(106, 152);
-            this.Txt_Codigo_Carrinho.MaxLength = 150;
-            this.Txt_Codigo_Carrinho.Name = "Txt_Codigo_Carrinho";
-            this.Txt_Codigo_Carrinho.Size = new System.Drawing.Size(358, 20);
-            this.Txt_Codigo_Carrinho.TabIndex = 22;
+            this.Txt_Endereco.Location = new System.Drawing.Point(106, 152);
+            this.Txt_Endereco.MaxLength = 150;
+            this.Txt_Endereco.Name = "Txt_Endereco";
+            this.Txt_Endereco.Size = new System.Drawing.Size(358, 20);
+            this.Txt_Endereco.TabIndex = 22;
             // 
             // Txt_Nome
             // 
@@ -124,14 +124,14 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Descrição";
             // 
-            // textBox1
+            // Txt_Descricao
             // 
-            this.textBox1.Location = new System.Drawing.Point(106, 79);
-            this.textBox1.MaxLength = 400;
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(326, 57);
-            this.textBox1.TabIndex = 29;
+            this.Txt_Descricao.Location = new System.Drawing.Point(106, 79);
+            this.Txt_Descricao.MaxLength = 400;
+            this.Txt_Descricao.Multiline = true;
+            this.Txt_Descricao.Name = "Txt_Descricao";
+            this.Txt_Descricao.Size = new System.Drawing.Size(326, 57);
+            this.Txt_Descricao.TabIndex = 29;
             // 
             // label2
             // 
@@ -153,55 +153,23 @@
             this.label3.TabIndex = 31;
             this.label3.Text = "Complemento";
             // 
-            // textBox2
+            // Txt_Complemento
             // 
-            this.textBox2.Location = new System.Drawing.Point(107, 188);
-            this.textBox2.MaxLength = 150;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(357, 20);
-            this.textBox2.TabIndex = 32;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label4.Location = new System.Drawing.Point(267, 226);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
-            this.label4.TabIndex = 33;
-            this.label4.Text = "Bairro";
+            this.Txt_Complemento.Location = new System.Drawing.Point(107, 188);
+            this.Txt_Complemento.MaxLength = 150;
+            this.Txt_Complemento.Name = "Txt_Complemento";
+            this.Txt_Complemento.Size = new System.Drawing.Size(357, 20);
+            this.Txt_Complemento.TabIndex = 32;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label5.Location = new System.Drawing.Point(21, 226);
+            this.label5.Location = new System.Drawing.Point(288, 227);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 34;
             this.label5.Text = "Cidade";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            " "});
-            this.comboBox1.Location = new System.Drawing.Point(343, 223);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 35;
-            this.comboBox1.Text = "( Selecione )";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            " "});
-            this.comboBox2.Location = new System.Drawing.Point(107, 223);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(99, 21);
-            this.comboBox2.TabIndex = 36;
-            this.comboBox2.Text = "( Selecione )";
             // 
             // label6
             // 
@@ -213,33 +181,59 @@
             this.label6.TabIndex = 37;
             this.label6.Text = "UF";
             // 
-            // textBox3
+            // Txt_UF
             // 
-            this.textBox3.Location = new System.Drawing.Point(107, 253);
-            this.textBox3.MaxLength = 10;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(89, 20);
-            this.textBox3.TabIndex = 38;
-            this.textBox3.Text = "SC";
+            this.Txt_UF.Location = new System.Drawing.Point(107, 253);
+            this.Txt_UF.MaxLength = 10;
+            this.Txt_UF.Name = "Txt_UF";
+            this.Txt_UF.ReadOnly = true;
+            this.Txt_UF.Size = new System.Drawing.Size(89, 20);
+            this.Txt_UF.TabIndex = 38;
+            this.Txt_UF.Text = "SC";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label4.Location = new System.Drawing.Point(18, 227);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "Bairro";
+            // 
+            // Txt_Bairro
+            // 
+            this.Txt_Bairro.Location = new System.Drawing.Point(106, 224);
+            this.Txt_Bairro.MaxLength = 150;
+            this.Txt_Bairro.Name = "Txt_Bairro";
+            this.Txt_Bairro.Size = new System.Drawing.Size(176, 20);
+            this.Txt_Bairro.TabIndex = 41;
+            // 
+            // Txt_Cidade
+            // 
+            this.Txt_Cidade.Location = new System.Drawing.Point(343, 224);
+            this.Txt_Cidade.MaxLength = 150;
+            this.Txt_Cidade.Name = "Txt_Cidade";
+            this.Txt_Cidade.Size = new System.Drawing.Size(121, 20);
+            this.Txt_Cidade.TabIndex = 42;
             // 
             // FrmGeralCadastroLocalPregUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.Txt_Cidade);
+            this.Controls.Add(this.Txt_Bairro);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Txt_UF);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.Txt_Complemento);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Txt_Descricao);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Cbox_Situacao);
-            this.Controls.Add(this.Txt_Codigo_Carrinho);
+            this.Controls.Add(this.Txt_Endereco);
             this.Controls.Add(this.Txt_Nome);
             this.Controls.Add(this.Txt_ID);
             this.Controls.Add(this.Lbl_Situacao_Carrinho);
@@ -255,22 +249,22 @@
 
         #endregion
         private System.Windows.Forms.ComboBox Cbox_Situacao;
-        private System.Windows.Forms.TextBox Txt_Codigo_Carrinho;
+        private System.Windows.Forms.TextBox Txt_Endereco;
         private System.Windows.Forms.TextBox Txt_Nome;
         private System.Windows.Forms.TextBox Txt_ID;
         private System.Windows.Forms.Label Lbl_Situacao_Carrinho;
         private System.Windows.Forms.Label Lbl_Nome_Carrinho;
         private System.Windows.Forms.Label Lbl_Id_Carrinho;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txt_Descricao;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox Txt_Complemento;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox Txt_UF;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox Txt_Bairro;
+        private System.Windows.Forms.TextBox Txt_Cidade;
     }
 }

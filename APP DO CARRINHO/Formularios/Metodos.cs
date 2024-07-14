@@ -125,7 +125,7 @@ namespace APP_DO_CARRINHO.Formularios
             }
         }
 
-        internal void IncluirCamposBairro(ConexaoDB conexao, ICollection<LocalPregracao> LocaisPregacao, ComboBox CboxSituacao, bool incluirTodos = false)
+        internal void IncluirCamposBairro(ConexaoDB conexao, ICollection<AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao> LocaisPregacao, ComboBox CboxSituacao, bool incluirTodos = false)
         {
             try
             {
@@ -145,11 +145,11 @@ namespace APP_DO_CARRINHO.Formularios
                         LocaisPregacao = localPregacao.LocaisPregracao;
 
                         // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
-                        List<LocalPregracao> LocaisList = new List<LocalPregracao>();
+                        List<LocalPregacao> LocaisList = new List<AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao>();
                         if (incluirTodos)
                         {
                             // Adiciona a opção "Todos"
-                            LocaisList.Insert(0, new LocalPregracao { Id = "0", Bairro = "Todos" });
+                            LocaisList.Insert(0, new LocalPregacao { Id = 0, Bairro = "Todos" });
                         }
                         foreach (var item in LocaisPregacao)
                         {
