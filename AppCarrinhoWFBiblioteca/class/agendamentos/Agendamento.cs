@@ -1,4 +1,5 @@
-﻿using AppCarrinhoWFBiblioteca.carrinho;
+﻿using AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1;
+using AppCarrinhoWFBiblioteca.carrinho;
 using banco.DataBases;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace AppCarrinhoWFBiblioteca.classagendamento
         [Required(ErrorMessage = "hora até do Agendamento é Obrigatorio!")]
         public TimeSpan Hora2 { get; set; }
         [Required(ErrorMessage = "Local do Agendamento é Obrigatorio!")]
-        public string Local { get; set; }
+        public LocalPregracao Local { get; set; }
         
         public DateTime DataCriacao { get; set; }
 

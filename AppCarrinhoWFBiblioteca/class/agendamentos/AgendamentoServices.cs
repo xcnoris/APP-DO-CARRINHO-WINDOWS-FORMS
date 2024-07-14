@@ -12,6 +12,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1;
 
 namespace AppCarrinhoWFBiblioteca.agendamentos
 {
@@ -92,7 +93,10 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                                 DataAgendamento = Convert.ToDateTime(reader["DataAgendamento"]),
                                 Hora1 = (TimeSpan)reader["Hora1"],
                                 Hora2 = (TimeSpan)reader["Hora2"],
-                                Local = reader["Local1"].ToString(),
+                                Local = new LocalPregracao
+                                {
+                                    Id = reader["Local1"].ToString()
+                                },
                                 DataCriacao = (DateTime)reader["DataCriacao"]
                             };
 
@@ -142,7 +146,10 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
                                 DataAgendamento = Convert.ToDateTime(reader["DataAgendamento"]),
                                 Hora1 = (TimeSpan)reader["Hora1"],
                                 Hora2 = (TimeSpan)reader["Hora2"],
-                                Local = reader["Local1"].ToString(),
+                                Local = new LocalPregracao
+                                {
+                                    Id = reader["Local1"].ToString()
+                                },
                                 DataCriacao = Convert.ToDateTime(reader["DataCriacao"]),
                                 
                             };

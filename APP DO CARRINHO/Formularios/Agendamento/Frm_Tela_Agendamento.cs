@@ -1,4 +1,5 @@
-﻿using AppCarrinhoWFBiblioteca;
+﻿using APP_DO_CARRINHO.Formularios.LocalPregacao;
+using AppCarrinhoWFBiblioteca;
 using AppCarrinhoWFBiblioteca.agendamentos;
 using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
 using AppCarrinhoWFBiblioteca.agendamentos.Situacao;
@@ -194,15 +195,21 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
                     agendamento.DataAgendamento.ToShortDateString(),
                     agendamento.Hora1.ToString(@"hh\:mm"),
                     agendamento.Hora2.ToString(@"hh\:mm"), 
-                    agendamento.Local,
+                    agendamento.Local.Id,
                     carrinhoNome,
                     situacaoNome
                 );
             }
-            catch (ValidationException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FrmLocalPregacao frm = new FrmLocalPregacao();
+            frm.ShowDialog();
         }
     }
 }

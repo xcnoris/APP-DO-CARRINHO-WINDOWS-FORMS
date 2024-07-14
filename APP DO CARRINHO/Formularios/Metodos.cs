@@ -3,6 +3,7 @@ using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
 using AppCarrinhoWFBiblioteca.agendamentos.Situacao;
 using AppCarrinhoWFBiblioteca.carrinho;
 using AppCarrinhoWFBiblioteca.carrinho1;
+using AppCarrinhoWFBiblioteca.classagendamento;
 using AppCarrinhoWFBiblioteca.clientes;
 using AppCarrinhoWFBiblioteca.User;
 using AppCarrinhoWFBiblioteca.Users;
@@ -122,6 +123,53 @@ namespace APP_DO_CARRINHO.Formularios
                 MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        //internal void IncluirCamposBairro(ConexaoDB conexao, ICollection<Agendameto1> situacoes1, ComboBox CboxSituacao, bool incluirTodos = false)
+        //{
+        //    try
+        //    {
+        //        if (CboxSituacao == null)
+        //        {
+        //            throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
+        //        }
+
+        //        Agendameto1 Agendamento = new Agendameto1();
+
+        //        if (Agendamento.Status)
+        //        {
+        //            Agendamento.Rea(conexao);
+
+        //            if (Agendamento.Status)
+        //            {
+        //                situacoes1 = SituacaoAgendamento.Situacoes;
+
+        //                // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
+        //                List<SituacaoAgendamento> situacaoList = situacoes1.ToList();
+        //                if (incluirTodos)
+        //                {
+        //                    // Adiciona a opção "Todos"
+        //                    situacaoList.Insert(0, new SituacaoAgendamento { Id = "0", Nome = "Todos" });
+        //                }
+        //                CboxSituacao.DataSource = situacaoList;
+        //                CboxSituacao.DisplayMember = "Nome";
+        //                CboxSituacao.ValueMember = "Id";
+        //                CboxSituacao.DropDownStyle = ComboBoxStyle.DropDownList;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show($"[ERROR]: 1{Agendamento.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show($"[ERROR]: 2{Agendamento.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
 
         public void IncluirCamposCategoriaAgendamento(ConexaoDB conexao, ICollection<CategoriaAgendamento> categorias, ComboBox cboxCategorias, bool incluirTodos = false)

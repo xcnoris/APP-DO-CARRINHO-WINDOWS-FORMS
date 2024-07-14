@@ -100,6 +100,8 @@
     <Compile Include="class\agendamentos\Agendamento.cs" />
     <Compile Include="class\agendamentos\AgendamentoServices.cs" />
     <Compile Include="class\agendamentos\Categoria Agendamento\CategoriaAgendamento.cs" />
+    <Compile Include="class\agendamentos\LocalPregracao\LocalPregracao.cs" />
+    <Compile Include="class\agendamentos\LocalPregracao\LocalPregracaoServices.cs" />
     <Compile Include="class\agendamentos\Situacao\SituacaoAgendamento.cs" />
     <Compile Include="class\carrinho\Carrinho.cs" />
     <Compile Include="class\carrinho\CarrinhoService.cs" />
@@ -126,5 +128,6 @@
       <Name>DataBase</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

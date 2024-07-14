@@ -154,6 +154,12 @@
     <Compile Include="Formularios\Configuração\Frm_Tela_Configuracao.Designer.cs">
       <DependentUpon>Frm_Tela_Configuracao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\LocalPregacao\FrmLocalPregacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\LocalPregacao\FrmLocalPregacao.Designer.cs">
+      <DependentUpon>FrmLocalPregacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Menu Principal\Frm_Menu_Principal_2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Configuração\Frm_Tela_Configuracao.resx">
       <DependentUpon>Frm_Tela_Configuracao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\LocalPregacao\FrmLocalPregacao.resx">
+      <DependentUpon>FrmLocalPregacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Menu Principal\Frm_Menu_Principal_2.resx">
       <DependentUpon>Frm_Menu_Principal_2.cs</DependentUpon>
@@ -347,5 +356,6 @@
   <ItemGroup>
     <None Include="Resources\chaves.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
