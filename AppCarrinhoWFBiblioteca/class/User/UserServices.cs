@@ -60,7 +60,7 @@ namespace AppCarrinhoWFBiblioteca.User
         }
 
         // Método para consultar um registro pelo ID no banco de dados
-        public void ReadInDB(ConexaoDB conexaoDB, string id)
+        public void ReadInDB(ConexaoDB conexaoDB, int id)
         {
             Status = true;
             try
@@ -193,7 +193,7 @@ namespace AppCarrinhoWFBiblioteca.User
         }
 
         // Método para deletar um registro no banco de dados
-        public void DeleteInDB(ConexaoDB conexaoDB, string id)
+        public void DeleteInDB(ConexaoDB conexaoDB, int id)
         {
             Status = true;
             try
@@ -291,7 +291,7 @@ namespace AppCarrinhoWFBiblioteca.User
         }
 
 
-        public void UpdatePassWordInDB(ConexaoDB conexaoDB, string id, string password)
+        public void UpdatePassWordInDB(ConexaoDB conexaoDB, int id, string password)
         {
             Status = true;
             try

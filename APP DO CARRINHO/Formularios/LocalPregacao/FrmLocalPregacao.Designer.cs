@@ -192,6 +192,7 @@
             this.Btn_Excluir_Pessoas.TabIndex = 35;
             this.Btn_Excluir_Pessoas.Text = "Excluir";
             this.Btn_Excluir_Pessoas.UseVisualStyleBackColor = true;
+            this.Btn_Excluir_Pessoas.Click += new System.EventHandler(this.Btn_Excluir_LocalPregacao_Click);
             // 
             // Btn_Alterar_Pessoas
             // 
@@ -205,6 +206,7 @@
             this.Btn_Alterar_Pessoas.TabIndex = 34;
             this.Btn_Alterar_Pessoas.Text = "Alterar";
             this.Btn_Alterar_Pessoas.UseVisualStyleBackColor = true;
+            this.Btn_Alterar_Pessoas.Click += new System.EventHandler(this.Btn_Alterar_Pessoas_Click);
             // 
             // Btn_Incluir_Pessoas
             // 

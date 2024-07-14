@@ -119,7 +119,7 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
                         if (PS.Status)
                         {
                             // Busca a pessoa pelo id
-                            PS.ReadInDB(conexaoDB, Txt_Id.Text);
+                            PS.ReadInDB(conexaoDB, Convert.ToInt32(Txt_Id.Text));
 
                             if (PS.Status)
                             {
@@ -350,7 +350,7 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
                     {
                         PessoaService pessoa = new PessoaService();
                         var selectedRow = DGV_Dados.CurrentRow;
-                        string id = selectedRow.Cells["ID"].Value.ToString();
+                        int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
                         pessoa.DeleteInDB(conexaoDB, id);
 
                         if (pessoa.Status)

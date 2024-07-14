@@ -187,13 +187,13 @@ namespace APP_DO_CARRINHO.Formularios.User
             {
                 string nome_Cliente = Txt_Nome.Text;
                 string login = Txt_Login.Text;
-                string situacao = Cbox_Situacao.Text;
-                string tipo = Cbox_TipoUser.Text;
-
+                int situacao = Cbox_Situacao.SelectedIndex;
+                int tipo = Cbox_TipoUser.SelectedIndex;
+                int idUser = Convert.ToInt32(Txt_ID.Text);
 
                 // Caso todos os campos estejam em branco, ele busca todos os carrinho
                 //if ((id_Cliente == "") && string.IsNullOrWhiteSpace(nome_Cliente) && (cpf_Cliente == ""))
-                if (string.IsNullOrEmpty(nome_Cliente))
+                if (string.IsNullOrEmpty(nome_Cliente) && string.IsNullOrEmpty(idUser.ToString()) && string.IsNullOrEmpty(login) && situacao == 0 && tipo == 0)
                 {
                     try
                     {
@@ -216,7 +216,7 @@ namespace APP_DO_CARRINHO.Formularios.User
                         if (US.Status)
                         {
                             // Busca a pessoa pelo id
-                            US.ReadInDB(conexaoDB, Txt_Nome.Text);
+                            //US.ReadInDB(conexaoDB, Txt.Text);
 
                             if (US.Status)
                             {
@@ -257,11 +257,11 @@ namespace APP_DO_CARRINHO.Formularios.User
             {
                 // Retrieve the selected row data
                 var selectedRow = DGV_Dados.CurrentRow;
-                string id;
+                int id;
                 if (selectedRow != null)
                 {
                     // Atribui o valor do id da linha selecionada a variavel id
-                    id = selectedRow.Cells["ID"].Value.ToString();
+                    id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
                 }
                 else
                 {
@@ -352,7 +352,7 @@ namespace APP_DO_CARRINHO.Formularios.User
                     {
                         UserServices US = new UserServices();
 
-                        string id = selectedRow.Cells["ID"].Value.ToString();
+                        int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
                         US.DeleteInDB(conexaoDB, id);
 
                         if (US.Status)

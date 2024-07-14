@@ -78,7 +78,7 @@ namespace AppCarrinhoWFBiblioteca.clientes
         }
 
         // Consulta um registro pelo ID no banco de dados
-        public void ReadInDB(ConexaoDB conexaoDB, string Id)
+        public void ReadInDB(ConexaoDB conexaoDB, int Id)
         {
             Status = true;
             try
@@ -254,7 +254,7 @@ namespace AppCarrinhoWFBiblioteca.clientes
         }
 
         // Delete um resgitro no banco pelo ID
-        public void DeleteInDB(ConexaoDB conexaoDB, string Id)
+        public void DeleteInDB(ConexaoDB conexaoDB, int Id)
         {
             try
             {

@@ -17,7 +17,7 @@ namespace APP_DO_CARRINHO.Formularios.Alterar_senha
     public partial class Frm_Tela_AlterSenha : Form
     {
         // Propriedades públicas para armazenar os dados do usuário logado
-        public string Id_User { get; set; }
+        public int Id_User { get; set; }
         public string Nome_User { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }

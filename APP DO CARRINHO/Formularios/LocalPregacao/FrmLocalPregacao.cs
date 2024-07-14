@@ -151,8 +151,9 @@ namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
             var IndexDoBairro = Cbox_Bairros.SelectedIndex;
             string ID = Txt_Id.Text;
             string nome = Txt_Nome.Text; 
+            var IndexSituacao = Cbox_Situacao.SelectedIndex;
 
-            if (IndexDoBairro == 0 && string.IsNullOrWhiteSpace(ID) && string.IsNullOrWhiteSpace(nome))
+            if (IndexDoBairro == 0 && IndexSituacao == 0 && string.IsNullOrWhiteSpace(ID) && string.IsNullOrWhiteSpace(nome))
             {
                 try
                 {
@@ -175,7 +176,7 @@ namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
                     {
                         if (!string.IsNullOrWhiteSpace(ID))
                         {
-                            LPS.ReadInDB(conexaoDB, ID);
+                            LPS.ReadInDB(conexaoDB, Convert.ToInt32(ID));
                         }
                         else if (IndexDoBairro > 0)
                         {
@@ -265,7 +266,63 @@ namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
             {
                 MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
+        private void Btn_Alterar_Pessoas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Retrieve the selected row data
+                var selectedRow = DGV_Dados.CurrentRow;
+                int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                string nome = selectedRow.Cells["nome"].Value.ToString();
+                string endereco = selectedRow.Cells["endereco"].Value.ToString();
+                string bairro = selectedRow.Cells["bairro"].Value.ToString();
+                string cidade = selectedRow.Cells["cidade"].Value.ToString();
+                string uf = selectedRow.Cells["uf"].Value.ToString();
+                string situacao = selectedRow.Cells["situacao"].Value.ToString();
+                string complemento = "";
+
+                // Pass the data to the Frm_Cadastro_Carrinho_UC form
+                FrmCadastroLocalPregacao frm = new FrmCadastroLocalPregacao();
+                frm.InserirDadosInFrm(id, nome, situacao, endereco, complemento, bairro, cidade);
+                frm.ShowDialog();
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Btn_Excluir_LocalPregacao_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var resposta = MessageBox.Show("Você Realmente quer excluir o local de pregação selecionado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resposta == DialogResult.Yes)
+                {
+                    LocalPregracaoServices LPS = new LocalPregracaoServices();
+                    var selectedRow = DGV_Dados.CurrentRow;
+                    int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                    LPS.DeleteInDB(conexaoDB, id);
+
+                    if (LPS.Status)
+                    {
+                        MessageBox.Show($"OK: {LPS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        CarregarTodosLocaisPregracao();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"{LPS.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

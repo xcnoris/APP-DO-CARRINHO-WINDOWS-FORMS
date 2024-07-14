@@ -144,7 +144,7 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
             // Passa os dados do usuário logado para o formulário de alteração de senha
             Frm_Tela_AlterSenha frm = new Frm_Tela_AlterSenha
             {
-                Id_User = Id_User,
+                Id_User = Convert.ToInt32(Id_User),
                 Nome_User = nomeUser,
                 Login = login,
                 Senha = senha

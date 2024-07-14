@@ -10,9 +10,9 @@ namespace AppCarrinhoWFBiblioteca.Interfaces
     internal interface ICrud<T>
     {
         void CreateInDB(ConexaoDB conexaoDB, T obejectUnit);
-        void ReadInDB(ConexaoDB conexaoDB, string id);
+        void ReadInDB(ConexaoDB conexaoDB, int id);
         void ReadAllInDB(ConexaoDB conexaoDB);
         void UpdateInDB(ConexaoDB conexaoDB, T entity);
-        void DeleteInDB(ConexaoDB conexaoDB, string id);
+        void DeleteInDB(ConexaoDB conexaoDB, int id);
     }
 }

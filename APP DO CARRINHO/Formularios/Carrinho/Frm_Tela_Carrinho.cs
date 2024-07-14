@@ -294,7 +294,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 {
                     CarrinhoService carrinho = new CarrinhoService();
                     var selectedRow = DGV_Dados.CurrentRow;
-                    string id = selectedRow.Cells["ID"].Value.ToString();
+                    int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
                     carrinho.DeleteInDB(conexaoDB, id);
 
                     if (carrinho.Status)

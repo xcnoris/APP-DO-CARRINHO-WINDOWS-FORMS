@@ -66,7 +66,7 @@ namespace AppCarrinhoWFBiblioteca.carrinho
 
 
         // Consulta um registro de carrinho no banco de dados
-        public void ReadInDB(ConexaoDB conexaoDB, string Id)
+        public void ReadInDB(ConexaoDB conexaoDB, int Id)
         {
             Status = true;
             try
@@ -184,7 +184,7 @@ namespace AppCarrinhoWFBiblioteca.carrinho
             }
         }
 
-        public void DeleteInDB(ConexaoDB conexaoDB, string Id)
+        public void DeleteInDB(ConexaoDB conexaoDB, int Id)
         {
             try
             {

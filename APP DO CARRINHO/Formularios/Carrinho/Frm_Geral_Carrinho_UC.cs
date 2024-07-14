@@ -13,7 +13,6 @@ using AppCarrinhoWFBiblioteca.clientes;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using banco.DataBases;
-using AppCarrinhoWFBiblioteca.Situacao;
 
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho

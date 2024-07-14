@@ -66,7 +66,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
 
 
         // Consulta um registro de agendamento no banco de dados
-        public void ReadInDB(ConexaoDB conexaoDB, string Id)
+        public void ReadInDB(ConexaoDB conexaoDB, int Id)
         {
             Status = true;
             try
@@ -219,7 +219,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos
             }
         }
 
-        public void DeleteInDB(ConexaoDB conexaoDB, string Id)
+        public void DeleteInDB(ConexaoDB conexaoDB, int Id)
         {
             try
             {
