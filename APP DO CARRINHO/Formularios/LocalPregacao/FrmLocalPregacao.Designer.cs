@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLocalPregacao));
             this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Txt_Id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Cbox_Bairros = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -41,7 +41,7 @@
             this.Btn_Fechar = new System.Windows.Forms.Button();
             this.DGV_Dados = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Txt_Nome = new System.Windows.Forms.TextBox();
             this.Btn_Filtrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).BeginInit();
@@ -63,12 +63,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Id";
             // 
-            // textBox1
+            // Txt_Id
             // 
-            this.textBox1.Location = new System.Drawing.Point(57, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(90, 20);
-            this.textBox1.TabIndex = 3;
+            this.Txt_Id.Location = new System.Drawing.Point(57, 21);
+            this.Txt_Id.Name = "Txt_Id";
+            this.Txt_Id.Size = new System.Drawing.Size(90, 20);
+            this.Txt_Id.TabIndex = 3;
             // 
             // label2
             // 
@@ -93,11 +93,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.Btn_Filtrar);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.Txt_Nome);
             this.groupBox1.Controls.Add(this.Cbox_Bairros);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.Txt_Id);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(769, 88);
@@ -180,12 +180,12 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Nome";
             // 
-            // textBox2
+            // Txt_Nome
             // 
-            this.textBox2.Location = new System.Drawing.Point(57, 47);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(320, 20);
-            this.textBox2.TabIndex = 9;
+            this.Txt_Nome.Location = new System.Drawing.Point(57, 47);
+            this.Txt_Nome.Name = "Txt_Nome";
+            this.Txt_Nome.Size = new System.Drawing.Size(320, 20);
+            this.Txt_Nome.TabIndex = 9;
             // 
             // Btn_Filtrar
             // 
@@ -196,6 +196,7 @@
             this.Btn_Filtrar.TabIndex = 36;
             this.Btn_Filtrar.Text = "Filtrar ( Enter )";
             this.Btn_Filtrar.UseVisualStyleBackColor = true;
+            this.Btn_Filtrar.Click += new System.EventHandler(this.Btn_Filtrar_Click);
             // 
             // FrmLocalPregacao
             // 
@@ -226,7 +227,7 @@
 
         private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txt_Id;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox Cbox_Bairros;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -236,7 +237,7 @@
         private System.Windows.Forms.Button Btn_Fechar;
         private System.Windows.Forms.DataGridView DGV_Dados;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Txt_Nome;
         private System.Windows.Forms.Button Btn_Filtrar;
     }
 }

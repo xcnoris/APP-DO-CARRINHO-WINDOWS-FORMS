@@ -98,7 +98,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                                 Complemento = reader["complemento"].ToString(),
                                 Bairro = reader["bairro"].ToString(),
                                 Cidade = reader["cidade"].ToString(),
-                                UF = reader["Hora2"].ToString(),
+                                UF = reader["uf"].ToString(),
                             };
 
                             LocaisPregracao.Add(localPregacao);

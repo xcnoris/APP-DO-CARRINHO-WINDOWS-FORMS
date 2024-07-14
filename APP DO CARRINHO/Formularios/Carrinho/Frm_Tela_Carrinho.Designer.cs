@@ -99,6 +99,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.Txt_Nome);
             this.groupBox1.Controls.Add(this.Txt_Carrinho_Cod);
@@ -114,7 +116,7 @@
             this.groupBox1.Controls.Add(this.Btn_Filtrar);
             this.groupBox1.Location = new System.Drawing.Point(123, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(649, 149);
+            this.groupBox1.Size = new System.Drawing.Size(766, 149);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
@@ -167,7 +169,7 @@
             // Lbl_Id
             // 
             this.Lbl_Id.AutoSize = true;
-            this.Lbl_Id.Location = new System.Drawing.Point(402, 37);
+            this.Lbl_Id.Location = new System.Drawing.Point(395, 37);
             this.Lbl_Id.Name = "Lbl_Id";
             this.Lbl_Id.Size = new System.Drawing.Size(16, 13);
             this.Lbl_Id.TabIndex = 10;
@@ -177,7 +179,7 @@
             // 
             this.Cbox_Situacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbox_Situacao.FormattingEnabled = true;
-            this.Cbox_Situacao.Location = new System.Drawing.Point(435, 62);
+            this.Cbox_Situacao.Location = new System.Drawing.Point(466, 62);
             this.Cbox_Situacao.Name = "Cbox_Situacao";
             this.Cbox_Situacao.Size = new System.Drawing.Size(133, 21);
             this.Cbox_Situacao.TabIndex = 24;
@@ -194,7 +196,7 @@
             // Lbl_Situacao_Carrinho
             // 
             this.Lbl_Situacao_Carrinho.AutoSize = true;
-            this.Lbl_Situacao_Carrinho.Location = new System.Drawing.Point(364, 69);
+            this.Lbl_Situacao_Carrinho.Location = new System.Drawing.Point(395, 69);
             this.Lbl_Situacao_Carrinho.Name = "Lbl_Situacao_Carrinho";
             this.Lbl_Situacao_Carrinho.Size = new System.Drawing.Size(61, 13);
             this.Lbl_Situacao_Carrinho.TabIndex = 23;
@@ -220,16 +222,16 @@
             // 
             // Txt_Id
             // 
-            this.Txt_Id.Location = new System.Drawing.Point(435, 34);
+            this.Txt_Id.Location = new System.Drawing.Point(466, 34);
             this.Txt_Id.Name = "Txt_Id";
             this.Txt_Id.ReadOnly = true;
-            this.Txt_Id.Size = new System.Drawing.Size(172, 20);
+            this.Txt_Id.Size = new System.Drawing.Size(99, 20);
             this.Txt_Id.TabIndex = 16;
             // 
             // Btn_Filtrar
             // 
             this.Btn_Filtrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Filtrar.Location = new System.Drawing.Point(435, 89);
+            this.Btn_Filtrar.Location = new System.Drawing.Point(466, 89);
             this.Btn_Filtrar.Name = "Btn_Filtrar";
             this.Btn_Filtrar.Size = new System.Drawing.Size(172, 23);
             this.Btn_Filtrar.TabIndex = 19;

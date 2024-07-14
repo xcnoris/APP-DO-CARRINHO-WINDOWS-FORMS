@@ -1,6 +1,8 @@
 ﻿using AppCarrinhoWFBiblioteca.agendamentos;
 using AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1;
 using AppCarrinhoWFBiblioteca.agendamentos.Situacao;
+using AppCarrinhoWFBiblioteca.carrinho;
+using AppCarrinhoWFBiblioteca.carrinho1;
 using AppCarrinhoWFBiblioteca.classagendamento;
 using banco.DataBases;
 using Org.BouncyCastle.Pqc.Crypto.Lms;
@@ -140,6 +142,95 @@ namespace APP_DO_CARRINHO.Formularios.LocalPregacao
         private void Btn_Fechar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Btn_Filtrar_Click(object sender, EventArgs e)
+        {
+            var IndexDoBairro = Cbox_Bairros.SelectedIndex;
+            string ID = Txt_Id.Text;
+            string nome = Txt_Nome.Text; 
+
+            if (IndexDoBairro == 0 && string.IsNullOrWhiteSpace(ID) && string.IsNullOrWhiteSpace(nome))
+            {
+                try
+                {
+                    DGV_Dados.Rows.Clear();
+                    CarregarTodosLocaisPregracao();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"[ERROR]: {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                try
+                {
+                    DGV_Dados.Rows.Clear();
+
+                    LocalPregracaoServices LPS = new LocalPregracaoServices();
+                    if (LPS.Status)
+                    {
+                        if (!string.IsNullOrWhiteSpace(ID))
+                        {
+                            LPS.ReadInDB(conexaoDB, ID);
+                        }
+                        else if (IndexDoBairro > 0)
+                        {
+                        //    if (!string.IsNullOrWhiteSpace(nome) && !string.IsNullOrWhiteSpace(ID))
+                        //    {
+                        //        LPS.FiltrarPorIDESituacaoNomeECodigoCarrinho(conexaoDB, IndexDoBairro.ToString(), nomeCarrinho, codigoCarrinho);
+                        //    }
+                        //    else if (!string.IsNullOrWhiteSpace(nomeCarrinho))
+                        //    {
+                        //        LPS.FiltrarPorSituacaoENome(conexaoDB, IndexDoBairro.ToString(), nomeCarrinho);
+                        //    }
+                        //    else if (!string.IsNullOrWhiteSpace(codigoCarrinho))
+                        //    {
+                        //        LPS.FiltrarPorSituacaoECodigoCarrinho(conexaoDB, IndexDoBairro.ToString(), codigoCarrinho);
+                        //    }
+                        //    else
+                        //    {
+                        //        LPS.FiltrarPorSituacao(conexaoDB, IndexDoBairro.ToString());
+                        //    }
+                        //}
+                        //else if (IndexDoBairro == 0)
+                        //{
+                        //    if (!string.IsNullOrWhiteSpace(nomeCarrinho) && !string.IsNullOrWhiteSpace(codigoCarrinho))
+                        //    {
+                        //        LPS.FiltrarPorCodigoCarrinhoENome(conexaoDB, nomeCarrinho, codigoCarrinho);
+                        //    }
+                        //    else if (!string.IsNullOrWhiteSpace(nomeCarrinho))
+                        //    {
+                        //        LPS.FiltrarPorNome(conexaoDB, nomeCarrinho);
+                        //    }
+                        //    else
+                        //    {
+                        //        LPS.FiltrarPorCodigoCarrinho(conexaoDB, codigoCarrinho);
+                        //    }
+                        }
+                        if (LPS.Status)
+                        {
+                            foreach (LocalPregracao localPregacao in LPS.LocaisPregracao)
+                            {
+                                AddLocalPregacaoToDataGridView(localPregacao);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Registro não encontrado na base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"[ERROR]: {LPS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
     }
 }
