@@ -28,7 +28,7 @@ namespace APP_DO_CARRINHO.Formularios.Alterar_senha
         {
             InitializeComponent();
 
-            conexaoDB = new ConexaoDB();
+           // conexaoDB = new ConexaoDB();
         }
 
         private void Frm_Tela_AlterSenha_Load(object sender, EventArgs e)

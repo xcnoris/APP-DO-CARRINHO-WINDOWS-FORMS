@@ -34,7 +34,7 @@ namespace APP_DO_CARRINHO.Formularios.User
         public Frm_Tela_User()
         {
             InitializeComponent();
-            conexaoDB = new ConexaoDB();
+            // conexaoDB = new ConexaoDB();
             metodos = new Metodos();
 
             AddColumnDataGridView();

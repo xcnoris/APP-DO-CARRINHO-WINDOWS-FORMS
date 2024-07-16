@@ -1,23 +1,7 @@
-﻿using APP_DO_CARRINHO.Formularios.Pessoas;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppCarrinhoWFBiblioteca.carrinho1;
-using AppCarrinhoWFBiblioteca;
-using AppCarrinhoWFBiblioteca.clientes;
-using System.Text.RegularExpressions;
-using System.Runtime.InteropServices.WindowsRuntime;
-using AppCarrinhoWFBiblioteca.cep;
-using DataBase.DataBases;
-using System.IO;
-using AppCarrinhoWFBiblioteca.carrinho;
 using banco.DataBases;
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho
@@ -34,7 +18,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         public Frm_Cadastro_Carrinho_UC()
         {
             InitializeComponent();
-            conexaoDB = new ConexaoDB();
+//             conexaoDB = new ConexaoDB();
             frmGeralCarrinho = new Frm_Geral_Carrinho_UC(); // Inicialize o objeto aqui
         }
 

@@ -29,7 +29,7 @@ namespace APP_DO_CARRINHO.Formularios.Menu_Principal
         {
             InitializeComponent();
 
-            conexaoDB = new ConexaoDB();
+            // conexaoDB = new ConexaoDB();
         }
 
         private void Btn_Acessar_Click(object sender, EventArgs e)

@@ -30,7 +30,7 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         public Frm_CadastroPessoa_UC()
         {
             InitializeComponent();
-            conexaoDB = new ConexaoDB();
+            // conexaoDB = new ConexaoDB();
             frmGeralUSPessoas = new Frm_Geral_Pessoa_UC(); // Inicialize o objeto aqui
         }
 

@@ -29,16 +29,17 @@ namespace banco.DAL.DataBases
                 MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection());
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 adapter.Fill(dt);
+                Mensagem = "Consulta executada com sucesso!";
             }
             catch (MySqlException ex)
             {
-                Mensagem =  "Erro ao executar a consulta: " + ex.Message;
+                Mensagem =  $"Erro ao executar a consulta: {ex.Message}";
             }
             finally
             {
                 conexaoDB.CloseConnection();
             }
-            Mensagem = "Consulta executada com sucesso!";
+//          Mensagem = "Consulta executada com sucesso!";
             return dt;
         }
 
@@ -50,10 +51,11 @@ namespace banco.DAL.DataBases
                 conexaoDB.OpenConnection();
                 MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection());
                 affectedRows = cmd.ExecuteNonQuery();
+                Mensagem = "Comando executado com sucesso!";
             }
             catch (MySqlException ex)
             {
-                Mensagem = "Erro ao executar a consulta: " + ex.Message;
+                Mensagem = $"Erro ao executar a consulta: {ex.Message}";
             }
             finally
             {
@@ -70,10 +72,11 @@ namespace banco.DAL.DataBases
                 conexaoDB.OpenConnection();
                 MySqlCommand cmd = new MySqlCommand(query, conexaoDB.GetConnection());
                 result = cmd.ExecuteScalar();
+                Mensagem = "Consulta executada com sucesso!";
             }
             catch (MySqlException ex)
             {
-                Mensagem = "Erro ao executar a consulta: " + ex.Message;
+                Mensagem = $"Erro ao executar a consulta: {ex.Message}";
             }
             finally
             {

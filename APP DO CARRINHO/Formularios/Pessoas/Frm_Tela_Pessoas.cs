@@ -19,14 +19,13 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         {
             InitializeComponent();
             //AddColumnDataGridView();
-            conexaoDB = new ConexaoDB();
+            // conexaoDB = new ConexaoDB();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Frm_CadastroPessoa_UC frm = new Frm_CadastroPessoa_UC();
             frm.ShowDialog();
-          
         }
 
         private void Btn_Fechar_Click(object sender, EventArgs e)
@@ -88,14 +87,6 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 
         private void Btn_Filtrar_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-
-            }
             string nome_Cliente = Txt_Nome.Text;
             string id_Cliente = Txt_Id.Text;
             string cpf_Cliente = Txt_Cpf.Text; 

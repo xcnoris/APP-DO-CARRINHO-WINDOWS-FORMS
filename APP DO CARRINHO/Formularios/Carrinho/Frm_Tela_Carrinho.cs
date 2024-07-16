@@ -32,7 +32,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
             InitializeComponent();
 
-            conexaoDB = new ConexaoDB();
+            // conexaoDB = new ConexaoDB();
             metodos = new Metodos();
 
             AddColumnDataGridView();

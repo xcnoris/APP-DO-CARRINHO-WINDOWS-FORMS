@@ -1,11 +1,17 @@
-﻿using MySql.Data.MySqlClient;
+﻿using banco.DAL.DataBases;
+using banco.DataBases;
+using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace APP_DO_CARRINHO.Formularios.Tela_Login
 {
     public partial class Frm_Tela_ConexoesDB : Form
     {
+        private ConexaoDB conexaoDb;
+        private ComandosDB comandosDb;
+
         public Frm_Tela_ConexoesDB()
         {
             InitializeComponent();
@@ -14,47 +20,77 @@ namespace APP_DO_CARRINHO.Formularios.Tela_Login
 
         private void CarregarConfig()
         {
-            Txt_Servidor.Text = Properties.Settings.Default.Server;
-            Txt_BD.Text = Properties.Settings.Default.Database;
-            Txt_UsuarioBD.Text = Properties.Settings.Default.Username;
-            Txt_SenhaBD.Text = Properties.Settings.Default.Password;
+            var config = GerenciadorConfiguracao.CarregarConfiguracao();
+            if (config != null)
+            {
+                Txt_Servidor.Text = config.Servidor;
+                Txt_BD.Text = config.BancoDeDados;
+                Txt_UsuarioBD.Text = config.Usuario;
+                Txt_SenhaBD.Text = config.Senha;
+                InicializarConexao(config); // Inicializar a conexão se a configuração existir
+            }
         }
 
-        private void SalvarConfig()
+        private void SalvarConfiguracao()
         {
-            Properties.Settings.Default.Server = Txt_Servidor.Text;
-            Properties.Settings.Default.Database = Txt_BD.Text;
-            Properties.Settings.Default.Username = Txt_UsuarioBD.Text;
-            Properties.Settings.Default.Password = Txt_SenhaBD.Text;
-            Properties.Settings.Default.Save();
+            var config = new ConfiguracaoBanco
+            {
+                Servidor = Txt_Servidor.Text,
+                BancoDeDados = Txt_BD.Text,
+                Usuario = Txt_UsuarioBD.Text,
+                Senha = Txt_SenhaBD.Text
+            };
+            GerenciadorConfiguracao.SalvarConfiguracao(config);
+            InicializarConexao(config); // Atualiza a string de conexao
+        }
+
+        private void InicializarConexao(ConfiguracaoBanco config)
+        {
+            try
+            {
+                conexaoDb = new ConexaoDB(config);
+                comandosDb = new ComandosDB(conexaoDb);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Btn_Confirmar_Click(object sender, EventArgs e)
         {
-            string server = Txt_Servidor.Text;
-            string database = Txt_BD.Text;
-            string username = Txt_UsuarioBD.Text;
-            string password = Txt_SenhaBD.Text;
+            string servidor = Txt_Servidor.Text;
+            string bancoDeDados = Txt_BD.Text;
+            string usuario = Txt_UsuarioBD.Text;
+            string senha = Txt_SenhaBD.Text;
 
-            string connectionString = $"Server={server};Database={database};User ID={username};Password={password};";
+            var config = new ConfiguracaoBanco()
+            {
+                Servidor = servidor,
+                BancoDeDados = bancoDeDados,
+                Usuario = usuario,
+                Senha = senha
+            };
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            string connectionStringTest = $"Server={config.Servidor};Database={config.BancoDeDados}; User ID={config.Usuario};Password={config.Senha};";
+
+            using (MySqlConnection conexao = new MySqlConnection(connectionStringTest))
             {
                 try
                 {
-                    connection.Open();
-                    MessageBox.Show("Conexão bem sucedida!", "Conexão", MessageBoxButtons.OK);
-                    SalvarConfig();
+                    conexao.Open();
+                    MessageBox.Show("Conexão bem sucedida!", "Conexão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    SalvarConfiguracao(); // Sava as configurações após a uma conexão bem sucedida
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show($"Falha na conexão: {ex.Message}", "Conexão", MessageBoxButtons.OK);
+                    MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
-                    if (connection.State == System.Data.ConnectionState.Open)
+                    if (conexao.State == ConnectionState.Open)
                     {
-                        connection.Close();
+                        conexao.Close();
                     }
                 }
             }
