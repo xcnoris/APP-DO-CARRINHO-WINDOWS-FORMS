@@ -1,0 +1,247 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AB0B9D19-51AB-4F1B-B6C1-84F1EB536976}|AppCarrinhoWFBiblioteca\\AppCarrinhoWFBiblioteca.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\appcarrinhowfbiblioteca\\class\\carrinho\\carrinhoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB0B9D19-51AB-4F1B-B6C1-84F1EB536976}|AppCarrinhoWFBiblioteca\\AppCarrinhoWFBiblioteca.csproj|solutionrelative:appcarrinhowfbiblioteca\\class\\carrinho\\carrinhoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AB0CCC1-1D26-436A-A71E-B0A2DCB0A1EE}|banco.DAL\\DataBase.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\banco.dal\\databases\\comandosdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AB0CCC1-1D26-436A-A71E-B0A2DCB0A1EE}|banco.DAL\\DataBase.csproj|solutionrelative:banco.dal\\databases\\comandosdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\app do carrinho\\formularios\\agendamento\\frm_cadastroagendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|solutionrelative:app do carrinho\\formularios\\agendamento\\frm_cadastroagendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\app do carrinho\\formularios\\carrinho\\frm_tela_carrinho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|solutionrelative:app do carrinho\\formularios\\carrinho\\frm_tela_carrinho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\app do carrinho\\formularios\\user\\frm_tela_user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|solutionrelative:app do carrinho\\formularios\\user\\frm_tela_user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\app do carrinho\\formularios\\user\\frm_cadastro_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|solutionrelative:app do carrinho\\formularios\\user\\frm_cadastro_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\app do carrinho\\formularios\\agendamento\\frm_tela_agendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|solutionrelative:app do carrinho\\formularios\\agendamento\\frm_tela_agendamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\app do carrinho\\formularios\\carrinho\\frm_geral_carrinho_uc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|solutionrelative:app do carrinho\\formularios\\carrinho\\frm_geral_carrinho_uc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\app do carrinho\\formularios\\localpregacao\\frmlocalpregacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|solutionrelative:app do carrinho\\formularios\\localpregacao\\frmlocalpregacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\app do carrinho\\formularios\\localpregacao\\frmgeralcadastrolocalpreguc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|solutionrelative:app do carrinho\\formularios\\localpregacao\\frmgeralcadastrolocalpreguc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\app do carrinho\\formularios\\localpregacao\\frmcadastrolocalpregacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|solutionrelative:app do carrinho\\formularios\\localpregacao\\frmcadastrolocalpregacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\app do carrinho\\formularios\\tela login\\frm_tela_login_v2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|solutionrelative:app do carrinho\\formularios\\tela login\\frm_tela_login_v2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|c:\\users\\user\\documents\\projetos c#\\app carrinho - wf\\app do carrinho\\formularios\\tela login\\frm_tela_conexoesdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|solutionrelative:app do carrinho\\formularios\\tela login\\frm_tela_conexoesdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\app do carrinho\\formularios\\carrinho\\frm_tela_carrinho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAC16047-47BC-4092-96B2-4E299608D979}|APP DO CARRINHO\\APP DO CARRINHO.csproj|solutionrelative:app do carrinho\\formularios\\carrinho\\frm_tela_carrinho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 258,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CarrinhoService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\AppCarrinhoWFBiblioteca\\class\\carrinho\\CarrinhoService.cs",
+              "RelativeDocumentMoniker": "AppCarrinhoWFBiblioteca\\class\\carrinho\\CarrinhoService.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\AppCarrinhoWFBiblioteca\\class\\carrinho\\CarrinhoService.cs",
+              "RelativeToolTip": "AppCarrinhoWFBiblioteca\\class\\carrinho\\CarrinhoService.cs",
+              "ViewState": "AQIAAC0CAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T21:19:48.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ComandosDB.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\banco.DAL\\DataBases\\ComandosDB.cs",
+              "RelativeDocumentMoniker": "banco.DAL\\DataBases\\ComandosDB.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\banco.DAL\\DataBases\\ComandosDB.cs",
+              "RelativeToolTip": "banco.DAL\\DataBases\\ComandosDB.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T21:19:40.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Frm_Tela_User.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\User\\Frm_Tela_User.cs",
+              "RelativeDocumentMoniker": "APP DO CARRINHO\\Formularios\\User\\Frm_Tela_User.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\User\\Frm_Tela_User.cs [Design]",
+              "RelativeToolTip": "APP DO CARRINHO\\Formularios\\User\\Frm_Tela_User.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T21:19:15.941Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Frm_Cadastro_Usuario.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\User\\Frm_Cadastro_Usuario.cs",
+              "RelativeDocumentMoniker": "APP DO CARRINHO\\Formularios\\User\\Frm_Cadastro_Usuario.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\User\\Frm_Cadastro_Usuario.cs [Design]",
+              "RelativeToolTip": "APP DO CARRINHO\\Formularios\\User\\Frm_Cadastro_Usuario.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T21:19:15.135Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Frm_CadastroAgendamento.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Agendamento\\Frm_CadastroAgendamento.cs",
+              "RelativeDocumentMoniker": "APP DO CARRINHO\\Formularios\\Agendamento\\Frm_CadastroAgendamento.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Agendamento\\Frm_CadastroAgendamento.cs [Design]",
+              "RelativeToolTip": "APP DO CARRINHO\\Formularios\\Agendamento\\Frm_CadastroAgendamento.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T21:19:09.998Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Frm_Tela_Agendamento.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Agendamento\\Frm_Tela_Agendamento.cs",
+              "RelativeDocumentMoniker": "APP DO CARRINHO\\Formularios\\Agendamento\\Frm_Tela_Agendamento.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Agendamento\\Frm_Tela_Agendamento.cs [Design]",
+              "RelativeToolTip": "APP DO CARRINHO\\Formularios\\Agendamento\\Frm_Tela_Agendamento.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T21:18:52.753Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Frm_Geral_Carrinho_UC.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Carrinho\\Frm_Geral_Carrinho_UC.cs",
+              "RelativeDocumentMoniker": "APP DO CARRINHO\\Formularios\\Carrinho\\Frm_Geral_Carrinho_UC.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Carrinho\\Frm_Geral_Carrinho_UC.cs [Design]",
+              "RelativeToolTip": "APP DO CARRINHO\\Formularios\\Carrinho\\Frm_Geral_Carrinho_UC.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T21:18:49.127Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FrmLocalPregacao.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\LocalPregacao\\FrmLocalPregacao.cs",
+              "RelativeDocumentMoniker": "APP DO CARRINHO\\Formularios\\LocalPregacao\\FrmLocalPregacao.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\LocalPregacao\\FrmLocalPregacao.cs [Design]",
+              "RelativeToolTip": "APP DO CARRINHO\\Formularios\\LocalPregacao\\FrmLocalPregacao.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T21:18:46.245Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FrmGeralCadastroLocalPregUC.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\LocalPregacao\\FrmGeralCadastroLocalPregUC.cs",
+              "RelativeDocumentMoniker": "APP DO CARRINHO\\Formularios\\LocalPregacao\\FrmGeralCadastroLocalPregUC.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\LocalPregacao\\FrmGeralCadastroLocalPregUC.cs [Design]",
+              "RelativeToolTip": "APP DO CARRINHO\\Formularios\\LocalPregacao\\FrmGeralCadastroLocalPregUC.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T21:18:45.303Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FrmCadastroLocalPregacao.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\LocalPregacao\\FrmCadastroLocalPregacao.cs",
+              "RelativeDocumentMoniker": "APP DO CARRINHO\\Formularios\\LocalPregacao\\FrmCadastroLocalPregacao.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\LocalPregacao\\FrmCadastroLocalPregacao.cs [Design]",
+              "RelativeToolTip": "APP DO CARRINHO\\Formularios\\LocalPregacao\\FrmCadastroLocalPregacao.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T21:18:44.097Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Frm_Tela_Login_V2.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Tela Login\\Frm_Tela_Login_V2.cs",
+              "RelativeDocumentMoniker": "APP DO CARRINHO\\Formularios\\Tela Login\\Frm_Tela_Login_V2.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Tela Login\\Frm_Tela_Login_V2.cs [Design]",
+              "RelativeToolTip": "APP DO CARRINHO\\Formularios\\Tela Login\\Frm_Tela_Login_V2.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T21:18:39.299Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Frm_Tela_ConexoesDB.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Tela Login\\Frm_Tela_ConexoesDB.cs",
+              "RelativeDocumentMoniker": "APP DO CARRINHO\\Formularios\\Tela Login\\Frm_Tela_ConexoesDB.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Tela Login\\Frm_Tela_ConexoesDB.cs [Design]",
+              "RelativeToolTip": "APP DO CARRINHO\\Formularios\\Tela Login\\Frm_Tela_ConexoesDB.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T21:18:38.169Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Frm_Tela_Carrinho.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Carrinho\\Frm_Tela_Carrinho.cs",
+              "RelativeDocumentMoniker": "APP DO CARRINHO\\Formularios\\Carrinho\\Frm_Tela_Carrinho.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Carrinho\\Frm_Tela_Carrinho.cs",
+              "RelativeToolTip": "APP DO CARRINHO\\Formularios\\Carrinho\\Frm_Tela_Carrinho.cs",
+              "ViewState": "AQIAAP8AAAAAAAAAAAAUwAgBAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T13:05:22.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Frm_Tela_Carrinho.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Carrinho\\Frm_Tela_Carrinho.cs",
+              "RelativeDocumentMoniker": "APP DO CARRINHO\\Formularios\\Carrinho\\Frm_Tela_Carrinho.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO - WF\\APP DO CARRINHO\\Formularios\\Carrinho\\Frm_Tela_Carrinho.cs [Design]",
+              "RelativeToolTip": "APP DO CARRINHO\\Formularios\\Carrinho\\Frm_Tela_Carrinho.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T13:05:19.02Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

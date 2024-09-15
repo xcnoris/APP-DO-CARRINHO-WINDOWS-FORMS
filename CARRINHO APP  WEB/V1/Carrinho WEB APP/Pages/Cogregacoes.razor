@@ -1,0 +1,66 @@
+﻿@using CarrinhoWebApp.Models
+@inject CongregacaoAPI congregacaoAPI
+
+@page "/Congregacao"
+
+@if (congregacoes is not null)
+{
+    <h3>Listagem de Congregações</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Situação</th>
+                <th>Data Criacao</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var congregacao in congregacoes)
+            {
+                <tr>
+                    <td>@congregacao.Id</td>
+                    <td>@congregacao.Nome</td>
+                    <th>@congregacao.Situacao</th>
+                    <th>@congregacao.DataCriacao.</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else if (errorMessage is not null)
+{
+    <p>@errorMessage</p>
+}
+else
+{
+    <p>Carregando congregações...</p>
+}
+
+<MudSlider Value="@value">Volume</MudSlider>
+<MudSlider Disabled="true" Value="@(20)">Disabled Slider</MudSlider>
+<MudSlider Value="@value" Variant="Variant.Filled">Volume</MudSlider>
+
+@code {
+    double value = 50.0;
+    private ICollection<CongregacaoModel>? congregacoes;
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            congregacoes = await congregacaoAPI.GetTodasCongregacoesAsync();
+        }
+        catch (Exception ex)
+        {
+
+            errorMessage = "Erro ao carregar congregações: " + ex.Message;
+            // Log ou exibir o erro na interface
+            Console.WriteLine($"Erro ao buscar congregações: {ex.Message}");
+        }
+
+    }
+}
