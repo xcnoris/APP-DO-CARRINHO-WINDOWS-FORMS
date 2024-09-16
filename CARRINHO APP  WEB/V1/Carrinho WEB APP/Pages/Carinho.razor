@@ -28,6 +28,17 @@
     </tbody>
 </MudSimpleTable>
 
+@if(carrinho is not null)
+{
+    <MudGrid>
+        @foreach (var carro in carrinho)
+        {
+            <MudItem xs="3">
+            <CardCarrinho Carrinho="carro" />
+            </MudItem>
+        }
+    </MudGrid>
+}
 
 @code {
     private ICollection<CarrinhoModel>? carrinho;

@@ -1,0 +1,17 @@
+﻿<MudCard>
+    <MudCardMedia Image="/imagens/logo-app.jpg"></MudCardMedia>
+    <MudCardHeader>
+        <CardHeaderContent>
+            <MudText Typo="Typo.h6">@Carrinho!.Nome</MudText>
+        </CardHeaderContent>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudText Typo="Typo.body2">@Carrinho!.Codigo_Carrinho</MudText>
+        <MudText Typo="Typo.body2">@Carrinho!.Situacao</MudText>
+    </MudCardContent>
+</MudCard>
+
+@code {
+    [Parameter]
+    public CarrinhoModel? Carrinho { get; set; }
+}
