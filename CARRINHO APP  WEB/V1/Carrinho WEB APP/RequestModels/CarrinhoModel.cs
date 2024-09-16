@@ -3,7 +3,7 @@ using CarrinhoWebApp.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace CarrinhoWebAppI.Models.Enums
+namespace CarrinhoWebApp.Models
 {
     public class CarrinhoModel
     {

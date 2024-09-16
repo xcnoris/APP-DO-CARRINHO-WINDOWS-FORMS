@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
+      "Id": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO\\CARRINHO APP  WEB\\V1\\Carrinho WEB APP\\wwwroot\\imagens\\logo-app.jpg",
+      "PackagePath": "staticwebassets\\imagens\\logo-app.jpg"
+    },
+    {
       "Id": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO\\CARRINHO APP  WEB\\V1\\Carrinho WEB APP\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },

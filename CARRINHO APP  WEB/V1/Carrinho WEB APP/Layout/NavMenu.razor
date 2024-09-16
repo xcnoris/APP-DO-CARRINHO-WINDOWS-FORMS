@@ -1,44 +1,20 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Carrinho WEB APP</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
+﻿﻿﻿<MudNavMenu Class="mud-width-full mt-4">
+    <MudNavLink Href="/" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Congregacao">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Congregação
-            </NavLink>
-        </div>
-    </nav>
-</div>
+    <MudNavGroup Title="Congregação" Icon="@Icons.Material.Filled.HomeWork" Expanded="true">
+        <MudNavLink Href="/Congregacoes">Congregações</MudNavLink>
+        <MudNavLink Href="/Carrinho" >Carrinho</MudNavLink>
+    </MudNavGroup>
 
-@code {
-    private bool collapseNavMenu = true;
+    <MudNavGroup Title="Pessoas" Icon="@Icons.Material.Filled.People" Expanded="true">
+        <MudNavLink Href="/Congregacao">Exibir</MudNavLink>
+    </MudNavGroup>
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-}
+    <MudNavGroup Title="Agendamento" Icon="@Icons.Material.Filled.CalendarMonth" Expanded="true">
+        <MudNavLink Href="/agendamentos" >Exibir</MudNavLink>
+        <MudNavLink Href="/categoria-agendamento">Categorias Agendamentos</MudNavLink>
+        <MudNavLink Href="/local-pregacao" Icon="@Icons.Material.Filled.Place">Local Pregação</MudNavLink>
+        <MudNavLink Href="/situacao-agendamento" >Situação</MudNavLink>
+    </MudNavGroup>
+   
+</MudNavMenu>

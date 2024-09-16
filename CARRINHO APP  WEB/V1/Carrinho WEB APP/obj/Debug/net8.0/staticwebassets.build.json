@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "blKXB0m63bXWJazR7RaDE0z5yMqmTVPI93RbiSGQ9tw=",
+  "Hash": "Y5Erj3VZZlXT3htvejCSGFrZ/8pe3Z7eRdfjj584eI4=",
   "Source": "Carrinho WEB APP",
   "BasePath": "/",
   "Mode": "Root",
@@ -8223,6 +8223,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icon-192.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO\\CARRINHO APP  WEB\\V1\\Carrinho WEB APP\\wwwroot\\imagens\\logo-app.jpg",
+      "SourceId": "Carrinho WEB APP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO\\CARRINHO APP  WEB\\V1\\Carrinho WEB APP\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "imagens/logo-app.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagens\\logo-app.jpg"
     },
     {
       "Identity": "C:\\Users\\User\\Documents\\PROJETOS C#\\APP CARRINHO\\CARRINHO APP  WEB\\V1\\Carrinho WEB APP\\wwwroot\\index.html",

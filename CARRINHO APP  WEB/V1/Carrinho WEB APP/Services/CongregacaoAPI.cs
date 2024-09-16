@@ -1,5 +1,4 @@
 ﻿using CarrinhoWebApp.Models;
-using System.Net.Http;
 using System.Net.Http.Json;
 
 namespace Carrinho_WEB_APP.Services
