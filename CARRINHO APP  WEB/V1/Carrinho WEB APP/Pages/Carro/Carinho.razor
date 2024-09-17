@@ -1,5 +1,6 @@
 ﻿@inject Carrinho_API carrinhoAPI
 @inject NavigationManager navigationManager
+@inject Carrinho_API carrinho_APi
 
 @page "/Carrinho"
 
@@ -30,7 +31,7 @@
                     <th>
                         <!-- Botão de edição -->
                         <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" OnClick="@(() => EditarCarrinho(car.Id))" />
-                        <MudIconButton Color="Color.Tertiary" Icon="@Icons.Material.Filled.Delete" DropShadow="false" OnClick="@(() => EditarCarrinho(car.Id))" />
+                        <MudIconButton Color="Color.Tertiary" Icon="@Icons.Material.Filled.Delete" DropShadow="false" OnClick="@(() => Deletar(car.Id))" />
                     </th>
                 </tr>
             }
@@ -38,8 +39,9 @@
     </tbody>
 </MudSimpleTable>
 
-
-<MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" OnClick="NewCarrinho" />
+<div style="position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);">
+    <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" OnClick="NewCarrinho" />
+</div>
 
 
 @code {
@@ -50,6 +52,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+
         try
         {
             carrinho = await carrinhoAPI.GetTodosCarrinhoAsync();
@@ -61,6 +64,7 @@
         }
     }
 
+
     internal void NewCarrinho()
     {
         var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Medium };
@@ -71,5 +75,33 @@
     private void EditarCarrinho(int idCarrinho)
     {
         navigationManager.NavigateTo($"/edicao-carrinho/{idCarrinho}");
+    }
+
+    public async Task Deletar(int carrinhoId)
+    {
+        try
+        {
+            // Chama a API para deletar o carrinho pelo Id
+            await carrinho_APi.DeleteCarrinhoAsync(carrinhoId);
+            StateHasChanged();
+            
+            // Mensagem de sucesso
+            Console.WriteLine("Carrinho deletado com sucesso!");
+        }
+        catch (ValidationException ex)
+        {
+            // Exibe a mensagem de erro de validação
+            Console.WriteLine($"Erro ao deletar carrinho: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            // Captura outras exceções
+            Console.WriteLine($"Erro inesperado: {ex.Message}");
+        }
+    }
+
+    public void VoltarToCarrinho()
+    {
+        navigationManager.NavigateTo("/carrinho");
     }
 }
