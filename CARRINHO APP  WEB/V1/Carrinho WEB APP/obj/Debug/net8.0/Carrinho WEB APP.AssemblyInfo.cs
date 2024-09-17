@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Carrinho WEB APP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d737031e719fa8ab53224447c1f3ca9d7d374af")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e09035ed8a32894dc691dbf60837f73086ff7f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Carrinho WEB APP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Carrinho WEB APP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,105 @@
+﻿@page "/cadastrar-carrinho"
+@inject Carrinho_API carrinho_API 
+@inject NavigationManager navigationManager
+
+
+<MudPaper Class="px-8 pt-2 pb-4 mx-12 my-8" Justify="Justify.Center">
+
+    <MudText Class="mt-8" Typo="Typo.h4">Cadastro do Artista</MudText>
+
+    <MudForm >
+
+        <MudTextField Class="mt-4" T="string" Placeholder="Nome Carrinho"
+                      Variant="Variant.Outlined"
+                      @bind-Value = "Nome_carrinho"
+                      Required="true"
+                      RequiredError="Campo obrigatório." />
+
+        <MudTextField Class="mt-4" T="string" Placeholder="Codigo Carrinho"
+                      Variant="Variant.Outlined"
+                      @bind-Value="Codigo_carrinho"
+                      Lines="4"
+                      Required="true"
+                      RequiredError="Campo obrigatório." />
+        <MudTextField Class="mt-4" T="string" Placeholder="Situação"
+                      Variant="Variant.Outlined"
+                      @bind-Value="Situacao"
+                      Lines="4"
+                      Required="true"
+                      RequiredError="Campo obrigatório." />
+        <MudTextField Class="mt-4" T="string" Placeholder="Congregação"
+                      Variant="Variant.Outlined"
+                      @bind-Value="Congregacao"
+                      Lines="4"
+                      Required="true"
+                      RequiredError="Campo obrigatório." />
+
+
+        
+
+        <div class="d-flex align-center justify-space-between mt-4">
+            <MudButton Variant="Variant.Filled"
+                       @onclick="Cadastrar"
+                       Color="Color.Primary"
+                       Class="ml-auto">
+                Cadastrar
+            </MudButton>
+            <MudButton Variant="Variant.Filled"
+                       @onclick="VoltarToCarrinho"
+                       Color="Color.Primary"
+                       Class="ml-auto">
+                Voltar
+            </MudButton>
+        </div>
+
+    </MudForm>
+</MudPaper>
+
+@code {
+    private string Nome_carrinho { get; set; }
+    private string Codigo_carrinho { get; set; }
+    private string Situacao { get; set; }
+    private string Congregacao { get; set; }
+
+    private void VoltarToCarrinho()
+    {
+        navigationManager.NavigateTo("/carrinho");
+    }
+
+    private async void Cadastrar()
+    {
+        try
+        {
+            // Cria o objeto CarrinhoModel
+            var request = new CarrinhoModel()
+                {
+                    Nome = Nome_carrinho!,
+                    Codigo_Carrinho = Convert.ToInt32(Codigo_carrinho!),
+                    Situacao = (SituacaoGeral)Enum.Parse(typeof(SituacaoGeral), Situacao!),
+                    CongregacaoId = Convert.ToInt32(Congregacao)
+                };
+
+            request.ValidarClasse();
+
+            await carrinho_API.AddCarrinhoAsync(request);
+
+            VoltarToCarrinho();
+
+            // Aqui você pode prosseguir com o restante da lógica (e.g., salvar no banco de dados)
+            // SalvarCarrinho(request); // Exemplo de método para salvar
+
+            // Exibe uma mensagem de sucesso
+            Console.WriteLine("Carrinho cadastrado com sucesso!");
+        }
+        catch (ValidationException ex)
+        {
+            // Exibe as mensagens de erro de validação
+            Console.WriteLine($"Erro ao cadastrar carrinho: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            // Captura outras exceções
+            Console.WriteLine($"Erro inesperado: {ex.Message}");
+        }
+    }
+}

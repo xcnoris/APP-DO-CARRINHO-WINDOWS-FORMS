@@ -17,5 +17,20 @@ namespace Carrinho_WEB_APP.Services
         {
             return await _httpClient.GetFromJsonAsync<ICollection<CarrinhoModel>>("api/Carrinho/BuscarTodos");
         }
+
+        public async Task AddCarrinhoAsync(CarrinhoModel carrinho)
+        {
+            await _httpClient.PostAsJsonAsync("api/Carrinho/Adicionar", carrinho);
+        }
+
+        public async Task DeleteCarrinhoAsync(int id)
+        {
+            await _httpClient.DeleteAsync($"api/Carrinho/Remover/{id}");
+        }
+
+        public async Task<CarrinhoModel?> GetCarrinhoPorId(int id)
+        {
+            return await _httpClient.GetFromJsonAsync<CarrinhoModel>($"api/Carrinho/BuscarPorId/{id}");
+        }
     }
 }

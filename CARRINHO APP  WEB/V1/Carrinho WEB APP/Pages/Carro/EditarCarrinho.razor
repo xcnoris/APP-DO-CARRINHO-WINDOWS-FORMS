@@ -1,0 +1,121 @@
+﻿@page "/edicao-carrinho/{idCarrinho}"
+@inject Carrinho_API carrinho_API
+@inject NavigationManager navigationManager
+
+
+<MudPaper Class="px-8 pt-2 pb-4 mx-12 my-8" Justify="Justify.Center">
+
+    <MudText Class="mt-8" Typo="Typo.h4">Edição do Carrinho</MudText>
+
+    <MudForm>
+
+        <MudTextField Class="mt-4" T="string" Placeholder="Nome Carrinho"
+                      Variant="Variant.Outlined"
+                      @bind-Value="Nome_carrinho"
+                      Required="true"
+                      RequiredError="Campo obrigatório." />
+
+        <MudTextField Class="mt-4" T="string" Placeholder="Codigo Carrinho"
+                      Variant="Variant.Outlined"
+                      @bind-Value="Codigo_carrinho"
+                      Lines="4"
+                      Required="true"
+                      RequiredError="Campo obrigatório." />
+        <MudTextField Class="mt-4" T="string" Placeholder="Situação"
+                      Variant="Variant.Outlined"
+                      @bind-Value="Situacao"
+                      Lines="4"
+                      Required="true"
+                      RequiredError="Campo obrigatório." />
+        <MudTextField Class="mt-4" T="string" Placeholder="Congregação"
+                      Variant="Variant.Outlined"
+                      @bind-Value="Congregacao"
+                      Lines="4"
+                      Required="true"
+                      RequiredError="Campo obrigatório." />
+
+
+
+
+        <div class="d-flex align-center justify-space-between mt-4">
+            <MudButton Variant="Variant.Filled"
+                       @onclick="Deletar"
+                       Color="Color.Tertiary"
+                       Class="ml-auto">
+                Deletar
+            </MudButton>
+            <MudButton Variant="Variant.Filled"
+                       @onclick="VoltarToCarrinho"
+                       Color="Color.Primary"
+                       Class="ml-auto">
+                Voltar
+            </MudButton>
+        </div>
+
+    </MudForm>
+</MudPaper>
+
+@code {
+    private string? Nome_carrinho { get; set; }
+    private string? Codigo_carrinho { get; set; }
+    private string? Situacao { get; set; }
+    private string? Congregacao { get; set; }
+
+    [Parameter]
+    public string IdCarrinho { get; set; }
+
+    public CarrinhoModel? Carrinho { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Carrinho == null)
+        {
+
+            Carrinho = await carrinho_API.GetCarrinhoPorId(Convert.ToInt32(IdCarrinho!));
+
+            if (Carrinho != null)
+            {
+
+                Nome_carrinho = Carrinho!.Nome;
+                Codigo_carrinho = Carrinho!.Codigo_Carrinho.ToString();
+                Situacao = Carrinho!.Situacao.ToString();
+                Congregacao = Carrinho!.Congregacao!.Nome;
+
+                StateHasChanged();
+            }
+
+        }
+    }
+
+    private void VoltarToCarrinho()
+    {
+        navigationManager.NavigateTo("/carrinho");
+    }
+
+    private async void Deletar()
+    {
+        try
+        {
+
+            await carrinho_API.DeleteCarrinhoAsync(Carrinho!.Id);
+
+            VoltarToCarrinho();
+
+            // Aqui você pode prosseguir com o restante da lógica (e.g., salvar no banco de dados)
+            // SalvarCarrinho(request); // Exemplo de método para salvar
+
+            // Exibe uma mensagem de sucesso
+            Console.WriteLine("Carrinho cadastrado com sucesso!");
+        }
+        catch (ValidationException ex)
+        {
+            // Exibe as mensagens de erro de validação
+            Console.WriteLine($"Erro ao cadastrar carrinho: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            // Captura outras exceções
+            Console.WriteLine($"Erro inesperado: {ex.Message}");
+        }
+    }
+}

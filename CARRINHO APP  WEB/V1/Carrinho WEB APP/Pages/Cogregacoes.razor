@@ -36,6 +36,10 @@ else
     </MudSimpleTable>
 }
 
+<MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" />
+<MudFab Color="Color.Secondary" StartIcon="@Icons.Material.Filled.Edit" />
+<MudFab Color="Color.Tertiary" StartIcon="@Icons.Material.Filled.Delete" DropShadow="false" />
+
 @code {
     private ICollection<CongregacaoModel>? congregacoes;
     private string? errorMessage;

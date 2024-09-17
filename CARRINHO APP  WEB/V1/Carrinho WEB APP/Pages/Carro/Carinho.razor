@@ -1,0 +1,75 @@
+﻿@inject Carrinho_API carrinhoAPI
+@inject NavigationManager navigationManager
+
+@page "/Carrinho"
+
+<h1>Carrinho</h1>
+<MudSimpleTable  Striped=true Style="overflow-x: auto;">
+    <thead>
+        <tr>
+            @foreach (var h in headings)
+            {
+                <th>@h</th>
+            }
+            <th>Ações</th> <!-- Coluna para os botões de ação -->
+        </tr>
+    </thead>
+    
+    <tbody>
+        @if(carrinho is not null)
+        {
+            foreach (var car in carrinho)
+            {
+                <tr onclick="@(() => EditarCarrinho(car.Id))">
+                    <td>@car.Id</td>
+                    <td>@car.Nome</td>
+                    <td>@car.Codigo_Carrinho</td>
+                    <td>@car.Situacao</td>
+                    <td>@car.Congregacao.Nome</td>
+                    <td>@car.DataCriacao</td>
+                    <th>
+                        <!-- Botão de edição -->
+                        <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" OnClick="@(() => EditarCarrinho(car.Id))" />
+                        <MudIconButton Color="Color.Tertiary" Icon="@Icons.Material.Filled.Delete" DropShadow="false" OnClick="@(() => EditarCarrinho(car.Id))" />
+                    </th>
+                </tr>
+            }
+        }
+    </tbody>
+</MudSimpleTable>
+
+
+<MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" OnClick="NewCarrinho" />
+
+
+@code {
+    private ICollection<CarrinhoModel>? carrinho;
+    private string? errorMessage;
+
+    string[] headings = { "ID", "Nome", "Codigo Carrinho", "Situacao", "Congregação","Data de Criação" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            carrinho = await carrinhoAPI.GetTodosCarrinhoAsync();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Erro ao carregar carrinhos: " + ex.Message;
+            Console.WriteLine($"Erro ao buscar Carrinho: {ex.Message}");
+        }
+    }
+
+    internal void NewCarrinho()
+    {
+        var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Medium };
+        navigationManager.NavigateTo("/cadastrar-carrinho");
+    }
+
+    // Método para redirecionar para a página de edição
+    private void EditarCarrinho(int idCarrinho)
+    {
+        navigationManager.NavigateTo($"/edicao-carrinho/{idCarrinho}");
+    }
+}
