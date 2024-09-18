@@ -45,8 +45,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2Fycm9cRWRpdGFyQ2FycmluaG8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/Pages/Cogregacoes.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29ncmVnYWNvZXMucmF6b3I=
+[C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/Pages/Congregacao/CadastrarCongregacao.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uZ3JlZ2FjYW9cQ2FkYXN0cmFyQ29uZ3JlZ2FjYW8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/Pages/Congregacao/Cogregacoes.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uZ3JlZ2FjYW9cQ29ncmVnYWNvZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/Pages/Congregacao/EditarCongregacao.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uZ3JlZ2FjYW9cRWRpdGFyQ29uZ3JlZ2FjYW8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/Pages/Counter.razor]

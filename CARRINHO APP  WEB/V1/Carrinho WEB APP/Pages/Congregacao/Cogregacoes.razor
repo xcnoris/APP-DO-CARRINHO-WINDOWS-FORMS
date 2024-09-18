@@ -1,0 +1,102 @@
+﻿
+@inject CongregacaoAPI congregacaoAPI
+@inject NavigationManager navigationManager
+
+@page "/Congregacoes"
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p>@errorMessage</p>
+}
+else if (congregacoes == null)
+{
+    <p>A carregar congregações...</p>
+}
+else
+{
+    <MudSimpleTable Striped=true Style="overflow-x: auto;">
+        <thead>
+            <tr>
+                @foreach (var h in headings)
+                {
+                    <th>@h</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in congregacoes)
+            {
+                <tr onclick="@(() => EditarCongregacao(x.Id)))">
+                    <td>@x.Id</td>
+                    <td>@x.Nome</td>
+                    <td>@x.Situacao</td>
+                    <td>@x.DataCriacao.ToString("dd/MM/yyyy")</td> <!-- Exemplo de formatação de data -->
+                    <th>
+                        <!-- Botão de edição -->
+                        <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" OnClick="@(() => EditarCongregacao(x.Id))" />
+                        <MudIconButton Color="Color.Tertiary" Icon="@Icons.Material.Filled.Delete" DropShadow="false" OnClick="@(() => Deletar(x.Id))" />
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </MudSimpleTable>
+}
+
+<div style="position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);">
+    <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" OnClick="NewCongregacao" />
+</div>
+
+@code {
+    private ICollection<CongregacaoModel>? congregacoes;
+    private string? errorMessage;
+
+    string[] headings = { "ID", "Nome", "Situação", "Data de Criação" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            congregacoes = await congregacaoAPI.GetTodasCongregacoesAsync();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Erro ao carregar congregações: " + ex.Message;
+            Console.WriteLine($"Erro ao buscar congregações: {ex.Message}");
+        }
+    }
+
+    // Método para redirecionar para a página de edição
+    private void EditarCongregacao(int id)
+    {
+        navigationManager.NavigateTo($"/edicao-congregacao/{id}");
+    }
+
+    public async Task Deletar(int id)
+    {
+        try
+        {
+            // Chama a API para deletar o carrinho pelo Id
+            await congregacaoAPI.DeleteAsync(id);
+            StateHasChanged();
+
+            // Mensagem de sucesso
+            Console.WriteLine("Carrinho deletado com sucesso!");
+        }
+        catch (ValidationException ex)
+        {
+            // Exibe a mensagem de erro de validação
+            Console.WriteLine($"Erro ao deletar carrinho: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            // Captura outras exceções
+            Console.WriteLine($"Erro inesperado: {ex.Message}");
+        }
+    }
+
+    internal void NewCongregacao()
+    {
+        var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Medium };
+        navigationManager.NavigateTo("/cadastrar-congregacao");
+    }
+}

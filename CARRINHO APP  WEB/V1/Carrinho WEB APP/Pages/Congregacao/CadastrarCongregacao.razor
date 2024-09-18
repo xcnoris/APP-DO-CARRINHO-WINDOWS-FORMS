@@ -1,27 +1,22 @@
-﻿@page "/cadastrar-carrinho"
+﻿@page "/cadastrar-congregacao"
 
-@inject Carrinho_API carrinho_API 
+@inject Carrinho_API carrinho_API
 @inject CongregacaoAPI congregacaoAPI
 @inject NavigationManager navigationManager
 
 
 <MudPaper Class="px-8 pt-2 pb-4 mx-12 my-8" Justify="Justify.Center">
 
-    <MudText Class="mt-8" Typo="Typo.h4">Cadastro de Carrinho</MudText>
+    <MudText Class="mt-8" Typo="Typo.h4">Cadastro de Congregação</MudText>
 
-    <MudForm >
+    <MudForm>
 
-        <MudTextField Class="mt-4" T="string" Placeholder="Nome Carrinho"
+        <MudTextField Class="mt-4" T="string" Placeholder="Nome Congregação"
                       Variant="Variant.Outlined"
-                      @bind-Value = "Nome_carrinho"
+                      @bind-Value="Nome_Congregacao"
                       Required="true"
                       RequiredError="Campo obrigatório." />
 
-        <MudTextField Class="mt-4" T="string" Placeholder="Codigo Carrinho"
-                      Variant="Variant.Outlined"
-                      @bind-Value="Codigo_carrinho"
-                      Required="true"
-                      RequiredError="Campo obrigatório." />
 
         <MudSelect Class="mt-4" T="SituacaoGeral" Label="Situação" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter" @bind-Value="Situacao">
             @foreach (var situacao in Enum.GetValues(typeof(SituacaoGeral)).Cast<SituacaoGeral>())
@@ -31,23 +26,8 @@
         </MudSelect>
 
 
-        <MudSelect Class="mt-4" T="CongregacaoModel" Label="Congregação" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter" @bind-Value="Congregacao">
-            @if (congregacoes is not null)
-            {
-                @foreach (CongregacaoModel item in congregacoes)
-                {
-
-                    <MudSelectItem Value="item">@item.Nome</MudSelectItem>
-                }
-            }
-        </MudSelect>
-        
 
 
-        
-
-
-                      
         <div class=" align-center justify-space-between mt-4">
             <MudButton Variant="Variant.Filled"
                        @onclick="Cadastrar"
@@ -56,7 +36,7 @@
                 Cadastrar
             </MudButton>
             <MudButton Variant="Variant.Filled"
-                       @onclick="VoltarToCarrinho"
+                       @onclick="VoltarToCongregacoes"
                        Color="Color.Primary"
                        Class="ml-auto">
                 Voltar
@@ -67,10 +47,9 @@
 </MudPaper>
 
 @code {
-    private string? Nome_carrinho { get; set; }
-    public string? Codigo_carrinho { get; set; }
+    private string Nome_Congregacao { get; set; }
     private SituacaoGeral Situacao { get; set; }
-    private CongregacaoModel? Congregacao { get; set; }
+    private CongregacaoModel Congregacao { get; set; }
 
     // Pega os valores das descrição do Enum
     private string GetEnumDescription(SituacaoGeral situacao)
@@ -87,9 +66,9 @@
         congregacoes = await congregacaoAPI.GetTodasCongregacoesAsync();
     }
 
-    private void VoltarToCarrinho()
+    private void VoltarToCongregacoes()
     {
-        navigationManager.NavigateTo("/carrinho");
+        navigationManager.NavigateTo("/Congregacoes");
     }
 
     private async void Cadastrar()
@@ -97,24 +76,18 @@
         try
         {
             // Cria o objeto CarrinhoModel
-            var request = new CarrinhoModel()
+            var request = new CongregacaoModel()
                 {
-                    Nome = Nome_carrinho!,
-                    Codigo_Carrinho = Convert.ToInt32(Codigo_carrinho!),
-                    Situacao = Situacao,
-                    CongregacaoId = Congregacao.Id
+                    Nome = Nome_Congregacao!,
+                    Situacao = Situacao
                 };
 
             request.ValidarClasse();
 
-            await carrinho_API.AddCarrinhoAsync(request);
+            await congregacaoAPI.AddAsync(request);
 
-            VoltarToCarrinho();
+            VoltarToCongregacoes();
 
-            // Aqui você pode prosseguir com o restante da lógica (e.g., salvar no banco de dados)
-            // SalvarCarrinho(request); // Exemplo de método para salvar
-
-            // Exibe uma mensagem de sucesso
             Console.WriteLine("Carrinho cadastrado com sucesso!");
         }
         catch (ValidationException ex)

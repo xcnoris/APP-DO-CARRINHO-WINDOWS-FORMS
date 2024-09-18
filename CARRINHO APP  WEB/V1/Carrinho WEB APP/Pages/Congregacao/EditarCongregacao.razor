@@ -1,4 +1,4 @@
-﻿@page "/edicao-carrinho/{idCarrinho}"
+﻿@page "/edicao-congregacao/{IdCongregacao}"
 @inject Carrinho_API carrinho_API
 @inject CongregacaoAPI congregacao_API
 @inject NavigationManager navigationManager
@@ -6,26 +6,21 @@
 
 <MudPaper Class="px-8 pt-2 pb-4 mx-12 my-8" Justify="Justify.Center">
 
-    <MudText Class="mt-8" Typo="Typo.h4">Edição do Carrinho</MudText>
+    <MudText Class="mt-8" Typo="Typo.h4">Edição da Congregação</MudText>
 
     <MudForm>
 
-        <MudTextField Class="mt-4" T="string" Placeholder="Id Carrinho"
+        <MudTextField Class="mt-4" T="string" Placeholder="Id Congregação"
                       Variant="Variant.Outlined"
-                      @bind-Value="IdCarrinho" 
-                      ReadOnly ="true"/>
+                      @bind-Value="IdCongregacao"
+                      ReadOnly="true" />
 
-        <MudTextField Class="mt-4" T="string" Placeholder="Nome Carrinho"
+        <MudTextField Class="mt-4" T="string" Placeholder="Nome Congregação"
                       Variant="Variant.Outlined"
-                      @bind-Value="Nome_carrinho"
+                      @bind-Value="Nome_Congregacao"
                       Required="true"
                       RequiredError="Campo obrigatório." />
 
-        <MudTextField Class="mt-4" T="string" Placeholder="Codigo Carrinho"
-                      Variant="Variant.Outlined"
-                      @bind-Value="Codigo_carrinho"
-                      Required="true"
-                      RequiredError="Campo obrigatório." />
 
         <MudSelect Class="mt-4" T="SituacaoGeral" Label="Situação" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter" @bind-Value="Situacao">
             @foreach (var situacao in Enum.GetValues(typeof(SituacaoGeral)).Cast<SituacaoGeral>())
@@ -33,19 +28,6 @@
                 <MudSelectItem Value="situacao">@GetEnumDescription(situacao)</MudSelectItem>
             }
         </MudSelect>
-
-
-        <MudSelect Class="mt-4" T="CongregacaoModel" Label="Congregação" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter" @bind-Value="Congregacao">
-            @if (congregacoes is not null)
-            {
-                @foreach (CongregacaoModel item in congregacoes)
-                {
-
-                    <MudSelectItem Value="@(item)">@item.Nome</MudSelectItem>
-                }
-            }
-        </MudSelect>
-
 
 
 
@@ -63,7 +45,7 @@
                 Deletar
             </MudButton>
             <MudButton Variant="Variant.Filled"
-                       @onclick="VoltarToCarrinho"
+                       @onclick="VoltarToCongregacoes"
                        Color="Color.Primary"
                        Class="ml-auto">
                 Voltar
@@ -74,32 +56,25 @@
 </MudPaper>
 
 @code {
-    private string? Nome_carrinho { get; set; }
-    private string? Codigo_carrinho { get; set; }
+    private string? Nome_Congregacao { get; set; }
     private SituacaoGeral Situacao { get; set; }
     private CongregacaoModel? Congregacao { get; set; }
-    private ICollection<CongregacaoModel>? congregacoes;
 
     [Parameter]
-    public string IdCarrinho { get; set; }
+    public string IdCongregacao { get; set; }
 
-    public CarrinhoModel? Carrinho { get; set; }
+    public CongregacaoModel? congregacao { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
-        if (Carrinho == null)
+        if (congregacao == null)
         {
-            congregacoes = await congregacao_API.GetTodasCongregacoesAsync();
+            congregacao = await congregacao_API.GetPorId(Convert.ToInt32(IdCongregacao));
 
-            Carrinho = await carrinho_API.GetCarrinhoPorId(Convert.ToInt32(IdCarrinho!));
-
-            if (Carrinho != null)
+            if (congregacao != null)
             {
-                IdCarrinho = Carrinho.Id.ToString();
-                Nome_carrinho = Carrinho!.Nome;
-                Codigo_carrinho = Carrinho!.Codigo_Carrinho.ToString();
-                Situacao = Carrinho!.Situacao;
-                Congregacao = Carrinho!.Congregacao;
+                Nome_Congregacao = congregacao!.Nome;
+                Situacao = congregacao!.Situacao;
 
                 StateHasChanged();
             }
@@ -115,27 +90,25 @@
         return descriptionAttributes.Length > 0 ? descriptionAttributes[0].Description : situacao.ToString();
     }
 
-    private void VoltarToCarrinho()
+    private void VoltarToCongregacoes()
     {
-        navigationManager.NavigateTo("/carrinho");
+        navigationManager.NavigateTo("/congregacoes");
     }
 
     private async void Salvar()
     {
         try
         {
-            var request = new CarrinhoModel()
+            var request = new CongregacaoModel()
                 {
-                    Id = Convert.ToInt32(IdCarrinho),
-                    Nome = Nome_carrinho!,
-                    Codigo_Carrinho = Convert.ToInt32(Codigo_carrinho!),
-                    Situacao = Situacao,
-                    CongregacaoId = Congregacao.Id
+                    Id = Convert.ToInt32(IdCongregacao),
+                    Nome = Nome_Congregacao!,
+                    Situacao = Situacao
                 };
 
-            await carrinho_API.AtualizarCarrinhoPorId(request);
+            await congregacao_API.AtualizarPorId(request);
 
-            VoltarToCarrinho();
+            VoltarToCongregacoes();
 
             // Exibe uma mensagem de sucesso
             Console.WriteLine("Carrinho cadastrado com sucesso!");
@@ -157,13 +130,10 @@
         try
         {
 
-            await carrinho_API.DeleteCarrinhoAsync(Carrinho!.Id);
+            await congregacao_API.DeleteAsync(Convert.ToInt32( IdCongregacao));
 
-            VoltarToCarrinho();
-
-            // Aqui você pode prosseguir com o restante da lógica (e.g., salvar no banco de dados)
-            // SalvarCarrinho(request); // Exemplo de método para salvar
-
+            VoltarToCongregacoes();
+            
             // Exibe uma mensagem de sucesso
             Console.WriteLine("Carrinho cadastrado com sucesso!");
         }
