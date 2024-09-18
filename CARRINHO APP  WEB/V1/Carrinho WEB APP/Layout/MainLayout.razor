@@ -6,14 +6,27 @@
 
 <MudLayout>
     <MudAppBar Color="Color.Surface" Fixed="true" Elevation="2">
-        <MudImage Src="imagens/logo-appp.jpg"></MudImage>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="DrawerToggle"/>
+
+        Carrinho Web App
     </MudAppBar>
-    <MudDrawer Open="true" ClipMode="DrawerClipMode.Always" Elevation="2">
+    <MudDrawer Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
         <NavMenu></NavMenu>
     </MudDrawer>
     <MudMainContent>
         @Body
     </MudMainContent>
 </MudLayout>
+
+<MudPopoverProvider></MudPopoverProvider>
+
+@code{
+    bool _drawerOpen = true;
+
+    private void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+}
 
 

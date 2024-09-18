@@ -1,5 +1,5 @@
-﻿using CarrinhoAPI.Models.Enums;
-using CarrinhoWebApp.Models;
+﻿
+using CarrinhoWebApp.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 

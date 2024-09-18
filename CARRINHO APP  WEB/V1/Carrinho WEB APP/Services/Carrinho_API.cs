@@ -32,5 +32,16 @@ namespace Carrinho_WEB_APP.Services
         {
             return await _httpClient.GetFromJsonAsync<CarrinhoModel>($"api/Carrinho/BuscarPorId/{id}");
         }
+        public async Task AtualizarCarrinhoPorId(CarrinhoModel carrinho)
+        {
+            try
+            {
+                await _httpClient.PutAsJsonAsync($"api/Carrinho/Atualizar/{carrinho.Id}", carrinho);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

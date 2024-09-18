@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace CarrinhoAPI.Models.Enums
+namespace CarrinhoWebApp.Models.Enums
 {
     public enum SituacaoGeral
     {

@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Carrinho WEB APP",
   "resources": {
-    "hash": "sha256-phBl9npmc++iPX+PstYd4CjHzgeBG77vhqTcAG5mnXs=",
+    "hash": "sha256-HueHwoPIdEgGa50Flgd6UlfcCkGNJu46zMCIvkFfyQc=",
     "jsModuleNative": {
       "dotnet.native.8.0.7.yd8uq5uw2q.js": "sha256-tFsxPBbhkdn6GKNBKvCRLzrfAHdyM86odYTe0MtrwMk="
     },
@@ -215,10 +215,10 @@
       "mscorlib.wasm": "sha256-fLbZiSHBNdpHoh4EgRqMaNP5NQyIK5TEj6AXFLqo8m8=",
       "netstandard.wasm": "sha256-d4xbAE8qrKq5euUoZHPO+jkYPjlCYBzUew45MKsYKic=",
       "System.Private.CoreLib.wasm": "sha256-8yi6NcX1lkNQgV4WKjnMBYIZyKh4P+OXnXVQmgxGZD4=",
-      "Carrinho WEB APP.wasm": "sha256-ksHmKchHw+mUpS04SAJMQEkXN7G7ke0XKVLNznmCGro="
+      "Carrinho WEB APP.wasm": "sha256-R0ty9X1I27yFxtcupkWiaqTTH1sK0fs+Fv8tNzbCpnE="
     },
     "pdb": {
-      "Carrinho WEB APP.pdb": "sha256-jA4LJFKdHsLOdF9k1u/5qWPOiOKk55Kic6NK5M7YEV4="
+      "Carrinho WEB APP.pdb": "sha256-Et5Y8mWpSmYezjbvwPd256hC467Kq8mHJbKQWcz2Ufs="
     }
   },
   "cacheBootResources": true,

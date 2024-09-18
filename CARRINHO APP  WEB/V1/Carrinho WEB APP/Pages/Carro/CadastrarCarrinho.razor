@@ -1,11 +1,13 @@
 ﻿@page "/cadastrar-carrinho"
+
 @inject Carrinho_API carrinho_API 
+@inject CongregacaoAPI congregacaoAPI
 @inject NavigationManager navigationManager
 
 
 <MudPaper Class="px-8 pt-2 pb-4 mx-12 my-8" Justify="Justify.Center">
 
-    <MudText Class="mt-8" Typo="Typo.h4">Cadastro do Artista</MudText>
+    <MudText Class="mt-8" Typo="Typo.h4">Cadastro de Carrinho</MudText>
 
     <MudForm >
 
@@ -18,29 +20,38 @@
         <MudTextField Class="mt-4" T="string" Placeholder="Codigo Carrinho"
                       Variant="Variant.Outlined"
                       @bind-Value="Codigo_carrinho"
-                      Lines="4"
                       Required="true"
                       RequiredError="Campo obrigatório." />
-        <MudTextField Class="mt-4" T="string" Placeholder="Situação"
-                      Variant="Variant.Outlined"
-                      @bind-Value="Situacao"
-                      Lines="4"
-                      Required="true"
-                      RequiredError="Campo obrigatório." />
-        <MudTextField Class="mt-4" T="string" Placeholder="Congregação"
-                      Variant="Variant.Outlined"
-                      @bind-Value="Congregacao"
-                      Lines="4"
-                      Required="true"
-                      RequiredError="Campo obrigatório." />
+
+        <MudSelect Class="mt-4" T="SituacaoGeral" Label="Situação" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter" @bind-Value="Situacao">
+            @foreach (var situacao in Enum.GetValues(typeof(SituacaoGeral)).Cast<SituacaoGeral>())
+            {
+                <MudSelectItem Value="situacao">@GetEnumDescription(situacao)</MudSelectItem>
+            }
+        </MudSelect>
+
+
+        <MudSelect Class="mt-4" T="CongregacaoModel" Label="Congregação" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter" @bind-Value="Congregacao">
+            @if (congregacoes is not null)
+            {
+                @foreach (CongregacaoModel item in congregacoes)
+                {
+
+                    <MudSelectItem Value="item">@item.Nome</MudSelectItem>
+                }
+            }
+        </MudSelect>
+        
 
 
         
 
-        <div class="d-flex align-center justify-space-between mt-4">
+
+                      
+        <div class=" align-center justify-space-between mt-4">
             <MudButton Variant="Variant.Filled"
                        @onclick="Cadastrar"
-                       Color="Color.Primary"
+                       Color="Color.Tertiary"
                        Class="ml-auto">
                 Cadastrar
             </MudButton>
@@ -58,8 +69,23 @@
 @code {
     private string Nome_carrinho { get; set; }
     private string Codigo_carrinho { get; set; }
-    private string Situacao { get; set; }
-    private string Congregacao { get; set; }
+    private SituacaoGeral Situacao { get; set; }
+    private CongregacaoModel Congregacao { get; set; }
+
+    // Pega os valores das descrição do Enum
+    private string GetEnumDescription(SituacaoGeral situacao)
+    {
+        var fieldInfo = situacao.GetType().GetField(situacao.ToString());
+        var descriptionAttributes = (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
+
+        return descriptionAttributes.Length > 0 ? descriptionAttributes[0].Description : situacao.ToString();
+    }
+    private ICollection<CongregacaoModel>? congregacoes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        congregacoes = await congregacaoAPI.GetTodasCongregacoesAsync();
+    }
 
     private void VoltarToCarrinho()
     {
@@ -75,8 +101,8 @@
                 {
                     Nome = Nome_carrinho!,
                     Codigo_Carrinho = Convert.ToInt32(Codigo_carrinho!),
-                    Situacao = (SituacaoGeral)Enum.Parse(typeof(SituacaoGeral), Situacao!),
-                    CongregacaoId = Convert.ToInt32(Congregacao)
+                    Situacao = Situacao,
+                    CongregacaoId = Congregacao.Id
                 };
 
             request.ValidarClasse();
