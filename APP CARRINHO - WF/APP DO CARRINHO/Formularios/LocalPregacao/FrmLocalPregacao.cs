@@ -1,22 +1,6 @@
-﻿using AppCarrinhoWFBiblioteca.Situacao;
-using AppCarrinhoWFBiblioteca.agendamentos;
-using AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1;
-using AppCarrinhoWFBiblioteca.agendamentos.Situacao;
-using AppCarrinhoWFBiblioteca.carrinho;
-using AppCarrinhoWFBiblioteca.carrinho1;
-using AppCarrinhoWFBiblioteca.classagendamento;
-using banco.DataBases;
-using Org.BouncyCastle.Pqc.Crypto.Lms;
+﻿
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using APP_DO_CARRINHO.Formularios.Carrinho;
 using System.ComponentModel.DataAnnotations;
 
 namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
@@ -24,10 +8,9 @@ namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
     public partial class FrmLocalPregacao : Form
     {
         private Metodos metodos;
-        private ConexaoDB conexaoDB;
 
-        private ICollection<AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao> RetornoBairros = new List<AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao>();
-        public ICollection<Situacao1> RetornoSituacoes = new List<Situacao1>();
+        //private ICollection<AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao> RetornoBairros = new List<AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao>();
+        //public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
 
 
         public FrmLocalPregacao()
@@ -35,88 +18,87 @@ namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
             InitializeComponent();
 
 
-            conexaoDB = new ConexaoDB();
             metodos = new Metodos();
 
             AddColumnDataGridView();
 
         }
 
-        private void FrmLocalPregacao_Load(object sender, EventArgs e)
-        {
-            metodos.IncluirCamposBairro(conexaoDB, RetornoBairros, Cbox_Bairros, true);
-            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
+        //private void FrmLocalPregacao_Load(object sender, EventArgs e)
+        ////{
+        ////    metodos.IncluirCamposBairro(conexaoDB, RetornoBairros, Cbox_Bairros, true);
+        ////    metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
 
-            CarregarTodosLocaisPregracao();
-        }
+        //    //CarregarTodosLocaisPregracao();
+        //}
 
 
 
-        private void CarregarTodosLocaisPregracao()
-        {
+        //private void CarregarTodosLocaisPregracao()
+        //{
 
-            try
-            {
-                DGV_Dados.Rows.Clear();
+        //    try
+        //    {
+        //        DGV_Dados.Rows.Clear();
 
-                LocalPregracaoServices LPS = new LocalPregracaoServices();
+        //        LocalPregracaoServices LPS = new LocalPregracaoServices();
 
-                if (LPS.Status)
-                {
-                    LPS.ReadAllInDB(conexaoDB);
+        //        if (LPS.Status)
+        //        {
+        //            LPS.ReadAllInDB(conexaoDB);
 
-                    if (LPS.Status)
-                    {
-                        // Pecorre a lista
-                        foreach (AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao localPregacao in LPS.LocaisPregracao)
-                        {
+        //            if (LPS.Status)
+        //            {
+        //                // Pecorre a lista
+        //                foreach (AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao localPregacao in LPS.LocaisPregracao)
+        //                {
 
-                            AddLocalPregacaoToDataGridView(localPregacao);
-                        }
-                        RetornoBairros = LPS.LocaisPregracao ;
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{LPS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{LPS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //                    AddLocalPregacaoToDataGridView(localPregacao);
+        //                }
+        //                RetornoBairros = LPS.LocaisPregracao ;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show($"[ERROR]: 1{LPS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show($"[ERROR]: 2{LPS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
 
         // Recebe um object LocalPregacao e convert para uma linha do DataGridView
-        private void AddLocalPregacaoToDataGridView(AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao localPregacao)
-        {
-            try
-            {
-                AddColumnDataGridView();
+        //private void AddLocalPregacaoToDataGridView(AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao localPregacao)
+        //{
+        //    try
+        //    {
+        //        AddColumnDataGridView();
 
-                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, localPregacao.IdSituacao.Id);
+        //        string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, localPregacao.IdSituacao.Id);
                 
-                // Adicionar linha ao DataGridView
-                DGV_Dados.Rows.Add(
-                    localPregacao.Id,
-                    localPregacao.Nome,
-                    localPregacao.Endereco,
-                    localPregacao.Bairro,
-                    localPregacao.Cidade,
-                    localPregacao.UF,
-                    situacaoNome
-                );
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //        // Adicionar linha ao DataGridView
+        //        DGV_Dados.Rows.Add(
+        //            localPregacao.Id,
+        //            localPregacao.Nome,
+        //            localPregacao.Endereco,
+        //            localPregacao.Bairro,
+        //            localPregacao.Cidade,
+        //            localPregacao.UF,
+        //            situacaoNome
+        //        );
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void AddColumnDataGridView()
         {
@@ -162,7 +144,7 @@ namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
                     try
                     {
                         DGV_Dados.Rows.Clear();
-                        CarregarTodosLocaisPregracao();
+                        //CarregarTodosLocaisPregracao();
                     }
                     catch (Exception ex)
                     {
@@ -175,35 +157,35 @@ namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
                     {
                         DGV_Dados.Rows.Clear();
 
-                        LocalPregracaoServices LPS = new LocalPregracaoServices();
+                        //LocalPregracaoServices LPS = new LocalPregracaoServices();
 
-                        if (LPS.Status)
-                        {
-                            if (!string.IsNullOrEmpty(ID))
-                            {
-                                LPS.ReadInDB(conexaoDB, Convert.ToInt32(ID));
-                            }
-                            else if (IndexSituacao > 0)
-                            {
-                                if (IndexDoBairro == 0 && string.IsNullOrWhiteSpace(ID.ToString()) && string.IsNullOrWhiteSpace(nome))
-                                {
-                                    LPS.ReadInDB(conexaoDB, Convert.ToInt32(ID));
+                        //if (LPS.Status)
+                        //{
+                        //    if (!string.IsNullOrEmpty(ID))
+                        //    {
+                        //        LPS.ReadInDB(conexaoDB, Convert.ToInt32(ID));
+                        //    }
+                        //    else if (IndexSituacao > 0)
+                        //    {
+                        //        if (IndexDoBairro == 0 && string.IsNullOrWhiteSpace(ID.ToString()) && string.IsNullOrWhiteSpace(nome))
+                        //        {
+                        //            LPS.ReadInDB(conexaoDB, Convert.ToInt32(ID));
 
-                                }
-                                else
-                                {
-                                    MessageBox.Show($"Registro não encontrado na base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                            foreach (LocalPregacao localPregacao in LPS.LocaisPregracao)
-                            {
-                                AddLocalPregacaoToDataGridView(localPregacao);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show($"[ERROR]: {LPS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        //        }
+                        //        else
+                        //        {
+                        //            MessageBox.Show($"Registro não encontrado na base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //        }
+                        //    }
+                        //    foreach (LocalPregacao localPregacao in LPS.LocaisPregracao)
+                        //    {
+                        //        AddLocalPregacaoToDataGridView(localPregacao);
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show($"[ERROR]: {LPS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //}
                     }
                     catch (Exception ex)
                     {
@@ -288,25 +270,25 @@ namespace APP_DO_CARRINHO.Formularios.FrmLocalPregacao
 
             try
             {
-                var resposta = MessageBox.Show("Você Realmente quer excluir o local de pregação selecionado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (resposta == DialogResult.Yes)
-                {
-                    LocalPregracaoServices LPS = new LocalPregracaoServices();
-                    var selectedRow = DGV_Dados.CurrentRow;
-                    int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-                    LPS.DeleteInDB(conexaoDB, id);
+                //var resposta = MessageBox.Show("Você Realmente quer excluir o local de pregação selecionado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                //if (resposta == DialogResult.Yes)
+                //{
+                //    //LocalPregracaoServices LPS = new LocalPregracaoServices();
+                //    var selectedRow = DGV_Dados.CurrentRow;
+                //    int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                //    LPS.DeleteInDB(conexaoDB, id);
 
-                    if (LPS.Status)
-                    {
-                        MessageBox.Show($"OK: {LPS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    if (LPS.Status)
+                //    {
+                //        MessageBox.Show($"OK: {LPS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        CarregarTodosLocaisPregracao();
-                    }
-                    else
-                    {
-                        MessageBox.Show($"{LPS.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                //        CarregarTodosLocaisPregracao();
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show($"{LPS.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
             }
             catch (ValidationException ex)
             {

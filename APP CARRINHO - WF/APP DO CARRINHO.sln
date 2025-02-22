@@ -5,9 +5,13 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APP DO CARRINHO", "APP DO CARRINHO\APP DO CARRINHO.csproj", "{DAC16047-47BC-4092-96B2-4E299608D979}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCarrinhoWFBiblioteca", "AppCarrinhoWFBiblioteca\AppCarrinhoWFBiblioteca.csproj", "{AB0B9D19-51AB-4F1B-B6C1-84F1EB536976}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarrinhoAPI", "..\APP CARRINHO - API\CarrinhoAPI.csproj", "{30394423-6F28-4E12-98B1-41E07C748506}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "banco.DAL\DataBase.csproj", "{1AB0CCC1-1D26-436A-A71E-B0A2DCB0A1EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase.APPCarrinho", "DataBase.APPCarrinho\DataBase.APPCarrinho.csproj", "{EE671BC9-8E64-4597-AD92-16F12B3E6EB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metodos.APPCarrinho", "Metodos.APPCarrinho\Metodos.APPCarrinho.csproj", "{8E498AC8-7E72-4533-B875-5C7930FDB63E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelos.APPCarrinho", "Modelos.APPCarrinho\Modelos.APPCarrinho.csproj", "{34C3F7B0-C0E5-4667-8CBE-3929D7DA4F3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +23,22 @@ Global
 		{DAC16047-47BC-4092-96B2-4E299608D979}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAC16047-47BC-4092-96B2-4E299608D979}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAC16047-47BC-4092-96B2-4E299608D979}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB0B9D19-51AB-4F1B-B6C1-84F1EB536976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB0B9D19-51AB-4F1B-B6C1-84F1EB536976}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB0B9D19-51AB-4F1B-B6C1-84F1EB536976}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB0B9D19-51AB-4F1B-B6C1-84F1EB536976}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1AB0CCC1-1D26-436A-A71E-B0A2DCB0A1EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1AB0CCC1-1D26-436A-A71E-B0A2DCB0A1EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1AB0CCC1-1D26-436A-A71E-B0A2DCB0A1EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1AB0CCC1-1D26-436A-A71E-B0A2DCB0A1EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30394423-6F28-4E12-98B1-41E07C748506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30394423-6F28-4E12-98B1-41E07C748506}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30394423-6F28-4E12-98B1-41E07C748506}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30394423-6F28-4E12-98B1-41E07C748506}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE671BC9-8E64-4597-AD92-16F12B3E6EB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE671BC9-8E64-4597-AD92-16F12B3E6EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE671BC9-8E64-4597-AD92-16F12B3E6EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE671BC9-8E64-4597-AD92-16F12B3E6EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E498AC8-7E72-4533-B875-5C7930FDB63E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E498AC8-7E72-4533-B875-5C7930FDB63E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E498AC8-7E72-4533-B875-5C7930FDB63E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E498AC8-7E72-4533-B875-5C7930FDB63E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34C3F7B0-C0E5-4667-8CBE-3929D7DA4F3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34C3F7B0-C0E5-4667-8CBE-3929D7DA4F3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34C3F7B0-C0E5-4667-8CBE-3929D7DA4F3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34C3F7B0-C0E5-4667-8CBE-3929D7DA4F3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

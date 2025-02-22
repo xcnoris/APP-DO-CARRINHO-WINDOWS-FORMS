@@ -240,7 +240,6 @@
             this.Name = "FrmLocalPregacao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLocalPregacao";
-            this.Load += new System.EventHandler(this.FrmLocalPregacao_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Dados)).EndInit();

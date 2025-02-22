@@ -1,21 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using AppCarrinhoWFBiblioteca.clientes;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
-using System.Runtime.InteropServices.WindowsRuntime;
-using AppCarrinhoWFBiblioteca;
-using AppCarrinhoWFBiblioteca.cep;
-using AppCarrinhoWFBiblioteca.carrinho1;
-using banco.DataBases;
-using APP_DO_CARRINHO.Formularios.Carrinho;
 
 namespace APP_DO_CARRINHO.Formularios.Pessoas
 {
@@ -23,14 +9,12 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
     {
         private Frm_Geral_Pessoa_UC frmGeralUSPessoas;
 
-        private ConexaoDB conexaoDB;
         // Controla se o clinte vai incluir um novo carrinho, ou atualizar um existente
         private bool ControleSalvarIncluirPessoa = true;
 
         public Frm_CadastroPessoa_UC()
         {
             InitializeComponent();
-            conexaoDB = new ConexaoDB();
             frmGeralUSPessoas = new Frm_Geral_Pessoa_UC(); // Inicialize o objeto aqui
         }
 
@@ -57,46 +41,46 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
                 // Função de incluir no banco o nova pessoa
                 if (ControleSalvarIncluirPessoa)
                 {
-                    // Instancia a class e puxa os dados do formulario
-                    Pessoa pessoa = LeituraFormulario();
-                    // Valida os dados
-                    pessoa.ValidarClass();
-                    // Tenta incluir os dados no banco de dados
-                    pessoa.IncluirNoBanco(conexaoDB);
-                    if (pessoa.Status)
-                    {
-                        ControleSalvarIncluirPessoa = true;
-                        MessageBox.Show($"OK: {pessoa.Mensagem} Carrinho incluído com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else
-                    {
-                        ControleSalvarIncluirPessoa = true;
-                        MessageBox.Show($"{pessoa.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.Close();
-                    }
+                    //// Instancia a class e puxa os dados do formulario
+                    //Pessoa pessoa = LeituraFormulario();
+                    //// Valida os dados
+                    //pessoa.ValidarClass();
+                    //// Tenta incluir os dados no banco de dados
+                    //pessoa.IncluirNoBanco(conexaoDB);
+                    //if (pessoa.Status)
+                    //{
+                    //    ControleSalvarIncluirPessoa = true;
+                    //    MessageBox.Show($"OK: {pessoa.Mensagem} Carrinho incluído com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    this.Close();
+                    //}
+                    //else
+                    //{
+                    //    ControleSalvarIncluirPessoa = true;
+                    //    MessageBox.Show($"{pessoa.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    this.Close();
+                    //}
                 }
                 // Funcao de atualizar Pessoa no banco
                 else
                 {
                     // Instancia a class e puxa os dados do formulario
-                    Pessoa pessoa = LeituraFormulario();
-                    // Valida os dados
-                    pessoa.ValidarClass();
-                    // Tenta incluir os dados no banco de dados
-                    pessoa.AtualizarNoBanco(conexaoDB);
-                    if (pessoa.Status)
-                    {
-                        ControleSalvarIncluirPessoa = true;
-                        MessageBox.Show($"OK: {pessoa.Mensagem} Carrinho Atualizado com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else
-                    {
-                        ControleSalvarIncluirPessoa = true;
-                        MessageBox.Show($"{pessoa.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.Close();
-                    }
+                    //Pessoa pessoa = LeituraFormulario();
+                    //// Valida os dados
+                    //pessoa.ValidarClass();
+                    //// Tenta incluir os dados no banco de dados
+                    //pessoa.AtualizarNoBanco(conexaoDB);
+                    //if (pessoa.Status)
+                    //{
+                    //    ControleSalvarIncluirPessoa = true;
+                    //    MessageBox.Show($"OK: {pessoa.Mensagem} Carrinho Atualizado com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    this.Close();
+                    //}
+                    //else
+                    //{
+                    //    ControleSalvarIncluirPessoa = true;
+                    //    MessageBox.Show($"{pessoa.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    this.Close();
+                    //}
                 }
             }
             catch (ValidationException ex)
@@ -110,33 +94,33 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
             this.Close();
         }
 
-        Pessoa LeituraFormulario()
-        {
+        //Pessoa LeituraFormulario()
+        //{
 
-            Pessoa cliente = new Pessoa
-            {
-                ID = frmGeralUSPessoas.Id,
-                CPF = Regex.Replace(frmGeralUSPessoas.CPF, @"[^\d]", ""),
-                Nome = frmGeralUSPessoas.Nome,
-                CEP = frmGeralUSPessoas.CEP_Numero,
-                //ID_Cidade = frmGeralUSPessoas.Cidade_Cod,
-                Cidade_Nome = frmGeralUSPessoas.Cidade_Nome,
-                UF = frmGeralUSPessoas.UF,
-                Endereco = frmGeralUSPessoas.Endereco,
-                Endereco_Numero = frmGeralUSPessoas.Endereco_Numero,
-                Endereco_Complemento = frmGeralUSPessoas.Endereco_Complemento,
-                Bairro = frmGeralUSPessoas.Endereco_Bairro,
-                DDD_Telefone = frmGeralUSPessoas.Telefone_DDD,
-                Telefone = frmGeralUSPessoas.Telefone_Numero,
-                DDD_Celular = frmGeralUSPessoas.Celular_DDD,
-                Celular = frmGeralUSPessoas.Celular_Numero,
-                Sexo = frmGeralUSPessoas.Sexo,
-                DataNascimento = frmGeralUSPessoas.Data_Nascimento,
-                Email = frmGeralUSPessoas.Email
-            };
+        //    Pessoa cliente = new Pessoa
+        //    {
+        //        ID = frmGeralUSPessoas.Id,
+        //        CPF = Regex.Replace(frmGeralUSPessoas.CPF, @"[^\d]", ""),
+        //        Nome = frmGeralUSPessoas.Nome,
+        //        CEP = frmGeralUSPessoas.CEP_Numero,
+        //        //ID_Cidade = frmGeralUSPessoas.Cidade_Cod,
+        //        Cidade_Nome = frmGeralUSPessoas.Cidade_Nome,
+        //        UF = frmGeralUSPessoas.UF,
+        //        Endereco = frmGeralUSPessoas.Endereco,
+        //        Endereco_Numero = frmGeralUSPessoas.Endereco_Numero,
+        //        Endereco_Complemento = frmGeralUSPessoas.Endereco_Complemento,
+        //        Bairro = frmGeralUSPessoas.Endereco_Bairro,
+        //        DDD_Telefone = frmGeralUSPessoas.Telefone_DDD,
+        //        Telefone = frmGeralUSPessoas.Telefone_Numero,
+        //        DDD_Celular = frmGeralUSPessoas.Celular_DDD,
+        //        Celular = frmGeralUSPessoas.Celular_Numero,
+        //        Sexo = frmGeralUSPessoas.Sexo,
+        //        DataNascimento = frmGeralUSPessoas.Data_Nascimento,
+        //        Email = frmGeralUSPessoas.Email
+        //    };
 
-            return cliente;
-        }
+        //    return cliente;
+        //}
 
         public void InserirDadosInUserControlPessoa(string id, string cpf, string nome, string cep, string cidade, string uf, string endereco, string numero, string complemento, string bairro, string telefoneDDD, string telefoneNumero, string celularDDD, string celularNumero, string sexo, string dataNascimento, string email, string congregacaoId, string situacao)
         {

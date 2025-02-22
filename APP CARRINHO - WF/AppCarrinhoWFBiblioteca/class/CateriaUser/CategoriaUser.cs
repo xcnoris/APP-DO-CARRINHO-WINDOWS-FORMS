@@ -9,7 +9,7 @@ namespace AppCarrinhoWFBiblioteca.CateriaUser
     public class CategoriaUser
     {
 
-        ICollection<User1> usuarios = new List<User1>();
+        ICollection<Users.User> usuarios = new List<Users.User>();
 
         public bool Status;
         public string Mensagem;

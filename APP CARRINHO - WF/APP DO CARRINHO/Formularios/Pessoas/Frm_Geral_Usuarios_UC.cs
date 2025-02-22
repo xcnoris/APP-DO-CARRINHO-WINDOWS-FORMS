@@ -1,15 +1,5 @@
-﻿using AppCarrinhoWFBiblioteca.cep;
-using AppCarrinhoWFBiblioteca;
-using AppCarrinhoWFBiblioteca.clientes;
+﻿
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
@@ -141,18 +131,18 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
             {
                 if(vCep.Length == 8)
                 {
-                    // Consulta o cep informado, e retorna uma varial string, no formato Json 
-                    var vJson = Cls_Uteis.GeraJSONCEP(vCep);
-                    // Instancia a class
-                    CEP.Unit Cep = new CEP.Unit();
-                    // DesSerialized o Json na class CEP.Unit(), transforma o texto em class
-                    Cep = CEP.DesSerializedClassUnit(vJson);
+                    //// Consulta o cep informado, e retorna uma varial string, no formato Json 
+                    //var vJson = Cls_Uteis.GeraJSONCEP(vCep);
+                    //// Instancia a class
+                    //CEP.Unit Cep = new CEP.Unit();
+                    //// DesSerialized o Json na class CEP.Unit(), transforma o texto em class
+                    //Cep = CEP.DesSerializedClassUnit(vJson);
 
-                    Txt_Cidade_Nome.Text = Cep.localidade;
-                    Txt_Sigla_Uf.Text = Cep.uf;
-                    Txt_Endereco.Text = Cep.logradouro;
-                    Txt_Endereco_Complemento.Text = Cep.complemento;
-                    Txt_Endereco_Bairro.Text = Cep.bairro;
+                    //Txt_Cidade_Nome.Text = Cep.localidade;
+                    //Txt_Sigla_Uf.Text = Cep.uf;
+                    //Txt_Endereco.Text = Cep.logradouro;
+                    //Txt_Endereco_Complemento.Text = Cep.complemento;
+                    //Txt_Endereco_Bairro.Text = Cep.bairro;
                 }
             }
         }

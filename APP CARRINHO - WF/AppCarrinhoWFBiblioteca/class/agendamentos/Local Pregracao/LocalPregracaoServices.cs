@@ -102,7 +102,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                                 Bairro = reader["bairro"].ToString(),
                                 Cidade = reader["cidade"].ToString(),
                                 UF = reader["uf"].ToString(),
-                                IdSituacao = new Situacao1
+                                IdSituacao = new AppCarrinhoWFBiblioteca.Situacao.Situacao
                                 {
                                     Id = (int)reader["id_situacao"]
                                 }
@@ -159,7 +159,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
                                 Bairro = reader["bairro"].ToString(),
                                 Cidade = reader["cidade"].ToString(),
                                 UF = reader["uf"].ToString(),
-                                IdSituacao = new Situacao1
+                                IdSituacao = new AppCarrinhoWFBiblioteca.Situacao.Situacao
                                 {
                                     Id = (int)reader["id_situacao"]
                                 }

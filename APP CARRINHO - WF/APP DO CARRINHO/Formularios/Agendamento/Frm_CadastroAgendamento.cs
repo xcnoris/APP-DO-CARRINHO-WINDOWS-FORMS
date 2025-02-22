@@ -1,15 +1,5 @@
-﻿using AppCarrinhoWFBiblioteca.carrinho1;
-using AppCarrinhoWFBiblioteca.classagendamento;
-using banco.DataBases;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP_DO_CARRINHO.Formularios.Agendamento
@@ -18,7 +8,6 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
     {
         private Frm_Local_AgendamentoUC frmLocalAgendamento;
         private Frm_Geral_AgendamentoUC frmgeralAgendamentoUC;
-        private ConexaoDB conexaoDB;
 
         // Controla se o clinte vai incluir um novo carrinho, ou atualizar um existente
         private bool ControleSalvarIncluirCarrinho = true;
@@ -29,8 +18,6 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
 
             frmgeralAgendamentoUC = new Frm_Geral_AgendamentoUC();
             frmLocalAgendamento = new Frm_Local_AgendamentoUC();
-            conexaoDB = new ConexaoDB();
-
 
         }
 
@@ -43,9 +30,6 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
         {
             this.Close();
         }
-
-
-        // --------------
 
         private void CarregarUserControls()
         {
@@ -69,54 +53,54 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
         {
             try
             {
-                // Função de incluir no banco o novo carrinho
-                if (ControleSalvarIncluirCarrinho)
-                {
-                    // Instancia a class e puxa os dados do formulario
-                    Agendameto1 agendamento = LeituraFormulario();
-                    // Valida os dados
-                    agendamento.ValidarClasse();
-                    // Tenta incluir os dados no banco de dados
-                    agendamento.IncluirNoBanco(conexaoDB);
-                    if (agendamento.Status)
-                    {
-                        ControleSalvarIncluirCarrinho = true;
-                        MessageBox.Show($"OK: {agendamento.Mensagem} Carrinho incluído com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //// Função de incluir no banco o novo carrinho
+                //if (ControleSalvarIncluirCarrinho)
+                //{
+                //    // Instancia a class e puxa os dados do formulario
+                //    Agendameto1 agendamento = LeituraFormulario();
+                //    // Valida os dados
+                //    agendamento.ValidarClasse();
+                //    // Tenta incluir os dados no banco de dados
+                //    agendamento.IncluirNoBanco(conexaoDB);
+                //    if (agendamento.Status)
+                //    {
+                //        ControleSalvarIncluirCarrinho = true;
+                //        MessageBox.Show($"OK: {agendamento.Mensagem} Carrinho incluído com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        this.Close();
-                    }
-                    else
-                    {
-                        ControleSalvarIncluirCarrinho = true;
-                        MessageBox.Show($"{agendamento.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //        this.Close();
+                //    }
+                //    else
+                //    {
+                //        ControleSalvarIncluirCarrinho = true;
+                //        MessageBox.Show($"{agendamento.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        this.Close();
-                    }
-                }
-                // Funcao de atualizar carrinho no banco
-                else
-                {
-                    // Instancia a class e puxa os dados do formulario
-                    Agendameto1 carrinho = LeituraFormulario();
-                    // Valida os dados
-                    carrinho.ValidarClasse();
-                    // Tenta incluir os dados no banco de dados
-                    carrinho.AtualizarNoBanco(conexaoDB);
-                    if (carrinho.Status)
-                    {
-                        ControleSalvarIncluirCarrinho = true;
-                        MessageBox.Show($"OK: {carrinho.Mensagem} Carrinho Atualizado com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //        this.Close();
+                //    }
+                //}
+                //// Funcao de atualizar carrinho no banco
+                //else
+                //{
+                //    // Instancia a class e puxa os dados do formulario
+                //    Agendameto1 carrinho = LeituraFormulario();
+                //    // Valida os dados
+                //    carrinho.ValidarClasse();
+                //    // Tenta incluir os dados no banco de dados
+                //    carrinho.AtualizarNoBanco(conexaoDB);
+                //    if (carrinho.Status)
+                //    {
+                //        ControleSalvarIncluirCarrinho = true;
+                //        MessageBox.Show($"OK: {carrinho.Mensagem} Carrinho Atualizado com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        this.Close();
-                    }
-                    else
-                    {
-                        ControleSalvarIncluirCarrinho = true;
-                        MessageBox.Show($"{carrinho.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //        this.Close();
+                //    }
+                //    else
+                //    {
+                //        ControleSalvarIncluirCarrinho = true;
+                //        MessageBox.Show($"{carrinho.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        this.Close();
-                    }
-                }
+                //        this.Close();
+                //    }
+                //}
             }
             catch (ValidationException ex)
             {
@@ -124,22 +108,22 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
             }
         }
 
-        private Agendameto1 LeituraFormulario()
-        {
-            return new Agendameto1
-            {
+        //private agendamen LeituraFormulario()
+        //{
+        //    return new Agendameto1
+        //    {
 
-                Id = frmgeralAgendamentoUC.IdAgendamento,
-                IdSituacao = frmgeralAgendamentoUC.SituacaoAgendamento,
-                IdCategoria = frmgeralAgendamentoUC.CategoriaAgendamento,
-                IdPessoa = frmgeralAgendamentoUC.IdPessoa,
-                CodCarrinho = frmgeralAgendamentoUC.IdCarrinho,
-                DataAgendamento = frmgeralAgendamentoUC.DataAgendamento,
-                Hora1 = frmgeralAgendamentoUC.HoraInicio,
-                Hora2 = frmgeralAgendamentoUC.HoraFim,
+        //        Id = frmgeralAgendamentoUC.IdAgendamento,
+        //        IdSituacao = frmgeralAgendamentoUC.SituacaoAgendamento,
+        //        IdCategoria = frmgeralAgendamentoUC.CategoriaAgendamento,
+        //        IdPessoa = frmgeralAgendamentoUC.IdPessoa,
+        //        CodCarrinho = frmgeralAgendamentoUC.IdCarrinho,
+        //        DataAgendamento = frmgeralAgendamentoUC.DataAgendamento,
+        //        Hora1 = frmgeralAgendamentoUC.HoraInicio,
+        //        Hora2 = frmgeralAgendamentoUC.HoraFim,
               
 
-            };
-        }
+        //    };
+        //}
     }
 }

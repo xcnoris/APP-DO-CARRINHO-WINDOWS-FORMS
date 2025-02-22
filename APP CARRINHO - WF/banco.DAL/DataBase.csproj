@@ -97,10 +97,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBases\ComandosDB.cs" />
-    <Compile Include="DataBases\ConexaoDB.cs" />
     <Compile Include="DataBases\ControlConfig.cs" />
     <Compile Include="DataBases\DBConfig.cs" />
     <Compile Include="DataBases\Fichario.cs" />
+    <Compile Include="Data\DAL.cs" />
+    <Compile Include="Data\DataBase\ComandosDB.cs" />
+    <Compile Include="Data\DataBase\ConexaoDB.cs" />
+    <Compile Include="Data\IntegradorDBContext.cs" />
+    <Compile Include="Data\Map\acaoSituacao_Boleto_Map.cs" />
+    <Compile Include="Data\Map\acaoSituacao_OS_Map.cs" />
+    <Compile Include="Data\Map\BoletoAcaoCRM_Map.cs" />
+    <Compile Include="Data\Map\CobrancasSegundaMap.cs" />
+    <Compile Include="Data\Map\DadosAPIMap.cs" />
+    <Compile Include="Data\Map\OSAcaoMap.cs" />
+    <Compile Include="Data\Map\RelacaoBoletoCRMMap.cs" />
+    <Compile Include="Data\Map\RelacaoOSMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

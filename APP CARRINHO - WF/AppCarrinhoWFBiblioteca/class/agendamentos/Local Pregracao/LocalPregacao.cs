@@ -36,7 +36,7 @@ namespace AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1
         public string UF { get; set; }
 
         [Required(ErrorMessage = "Nome do Local de pregação é Obrigatorio!")]
-        public Situacao1 IdSituacao { get; set; }
+        public AppCarrinhoWFBiblioteca.Situacao.Situacao IdSituacao { get; set; }
         
 
         public LocalPregacao()

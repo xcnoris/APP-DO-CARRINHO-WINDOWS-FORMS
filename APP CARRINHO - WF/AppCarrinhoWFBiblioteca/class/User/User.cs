@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
-using banco.DataBases;
+
 using AppCarrinhoWFBiblioteca.User;
 
 namespace AppCarrinhoWFBiblioteca.Users
 {
-    public class User1 
+    public class User 
     {
         public bool Status;
         public string Mensagem;
 
-        public User1()
+        public User()
         {
             Status = true;
         }

@@ -1,39 +1,22 @@
-﻿using APP_DO_CARRINHO.Formularios.Pessoas;
-using AppCarrinhoWFBiblioteca;
-using AppCarrinhoWFBiblioteca.carrinho;
-using AppCarrinhoWFBiblioteca.carrinho1;
-using AppCarrinhoWFBiblioteca.Situacao;
-using banco.DataBases;
-using DataBase.DataBases;
+﻿
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ZstdSharp.Unsafe;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
     public partial class Frm_Tela_Carrinho : Form
     {
-        private ConexaoDB conexaoDB;
         private Metodos metodos;
 
-        public ICollection<Situacao1> RetornoSituacoes = new List<Situacao1>();
+        //public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
 
         // Construtor
         public Frm_Tela_Carrinho()
         {
             InitializeComponent();
 
-            conexaoDB = new ConexaoDB();
             metodos = new Metodos();
 
             AddColumnDataGridView();
@@ -54,7 +37,7 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
        
             Metodos m = new Metodos();
-            m.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
+            //m.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
             
             CarregarTodosCarrinhos();
         }
@@ -84,59 +67,59 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 {
                     DGV_Dados.Rows.Clear();
 
-                    CarrinhoService CS = new CarrinhoService();
-                    if (CS.Status)
-                    {
-                        if (IndexDaSituacao > 0)
-                        {
-                            if (!string.IsNullOrWhiteSpace(codigoCarrinho) && !string.IsNullOrWhiteSpace(nomeCarrinho))
-                            {
-                                CS.FiltrarPorIDESituacaoNomeECodigoCarrinho(conexaoDB, IndexDaSituacao.ToString(), nomeCarrinho, codigoCarrinho);
-                            }
-                            else if (!string.IsNullOrWhiteSpace(nomeCarrinho))
-                            {
-                                CS.FiltrarPorSituacaoENome(conexaoDB, IndexDaSituacao.ToString(), nomeCarrinho);
-                            }
-                            else if (!string.IsNullOrWhiteSpace(codigoCarrinho))
-                            {
-                                CS.FiltrarPorSituacaoECodigoCarrinho(conexaoDB, IndexDaSituacao.ToString(), codigoCarrinho);
-                            }
-                            else
-                            {
-                                CS.FiltrarPorSituacao(conexaoDB, IndexDaSituacao.ToString());
-                            }
-                        }
-                        else if (IndexDaSituacao == 0)
-                        {
-                            if (!string.IsNullOrWhiteSpace(nomeCarrinho) && !string.IsNullOrWhiteSpace(codigoCarrinho))
-                            {
-                                CS.FiltrarPorCodigoCarrinhoENome(conexaoDB, nomeCarrinho, codigoCarrinho);
-                            }
-                            else if (!string.IsNullOrWhiteSpace(nomeCarrinho))
-                            {
-                                CS.FiltrarPorNome(conexaoDB, nomeCarrinho);
-                            }
-                            else
-                            {
-                                CS.FiltrarPorCodigoCarrinho(conexaoDB, codigoCarrinho);
-                            }
-                        }
-                        if (CS.Status)
-                        {
-                            foreach (Carrinho1 carrinhos in CS.Carrinhos)
-                            {
-                                AddCarrinhoToDataGridView(carrinhos);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Registro não encontrado na base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: {CS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    //CarrinhoService CS = new CarrinhoService();
+                    //if (CS.Status)
+                    //{
+                    //    if (IndexDaSituacao > 0)
+                    //    {
+                    //        if (!string.IsNullOrWhiteSpace(codigoCarrinho) && !string.IsNullOrWhiteSpace(nomeCarrinho))
+                    //        {
+                    //            CS.FiltrarPorIDESituacaoNomeECodigoCarrinho(conexaoDB, IndexDaSituacao.ToString(), nomeCarrinho, codigoCarrinho);
+                    //        }
+                    //        else if (!string.IsNullOrWhiteSpace(nomeCarrinho))
+                    //        {
+                    //            CS.FiltrarPorSituacaoENome(conexaoDB, IndexDaSituacao.ToString(), nomeCarrinho);
+                    //        }
+                    //        else if (!string.IsNullOrWhiteSpace(codigoCarrinho))
+                    //        {
+                    //            CS.FiltrarPorSituacaoECodigoCarrinho(conexaoDB, IndexDaSituacao.ToString(), codigoCarrinho);
+                    //        }
+                    //        else
+                    //        {
+                    //            CS.FiltrarPorSituacao(conexaoDB, IndexDaSituacao.ToString());
+                    //        }
+                    //    }
+                    //    else if (IndexDaSituacao == 0)
+                    //    {
+                    //        if (!string.IsNullOrWhiteSpace(nomeCarrinho) && !string.IsNullOrWhiteSpace(codigoCarrinho))
+                    //        {
+                    //            CS.FiltrarPorCodigoCarrinhoENome(conexaoDB, nomeCarrinho, codigoCarrinho);
+                    //        }
+                    //        else if (!string.IsNullOrWhiteSpace(nomeCarrinho))
+                    //        {
+                    //            CS.FiltrarPorNome(conexaoDB, nomeCarrinho);
+                    //        }
+                    //        else
+                    //        {
+                    //            CS.FiltrarPorCodigoCarrinho(conexaoDB, codigoCarrinho);
+                    //        }
+                    //    }
+                    //    if (CS.Status)
+                    //    {
+                    //        foreach (Carrinho1 carrinhos in CS.Carrinhos)
+                    //        {
+                    //            AddCarrinhoToDataGridView(carrinhos);
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        MessageBox.Show($"Registro não encontrado na base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show($"[ERROR]: {CS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //}
                 }
                 catch (Exception ex)
                 {
@@ -167,28 +150,28 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
 
 
         // Recebe um object Carrinho1 e convert para uma linha do DataGridView
-        private void AddCarrinhoToDataGridView(Carrinho1 carrinho)
-        {
-            try
-            {
-                AddColumnDataGridView();
+        //private void AddCarrinhoToDataGridView(Carrinho1 carrinho)
+        //{
+        //    try
+        //    {
+        //        AddColumnDataGridView();
 
-                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, Convert.ToInt32(carrinho.Situacao));
-                // Adicionar a linha ao DataGridView
-                DGV_Dados.Rows.Add(
-                    carrinho.ID,
-                    carrinho.Nome,
-                    carrinho.Congregacao_ID,
-                    carrinho.Congregacao_Nome,
-                    situacaoNome,
-                    carrinho.Codigo_Carrinho
-                );
-            }
-            catch (ValidationException ex)
-            {
-                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //        string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, Convert.ToInt32(carrinho.Situacao));
+        //        // Adicionar a linha ao DataGridView
+        //        DGV_Dados.Rows.Add(
+        //            carrinho.ID,
+        //            carrinho.Nome,
+        //            carrinho.Congregacao_ID,
+        //            carrinho.Congregacao_Nome,
+        //            situacaoNome,
+        //            carrinho.Codigo_Carrinho
+        //        );
+        //    }
+        //    catch (ValidationException ex)
+        //    {
+        //        MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
 
         private void CarregarTodosCarrinhos()
@@ -196,32 +179,32 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             
             try
             {
-                DGV_Dados.Rows.Clear();
-                //Carrinho1 carrinho1 = new Carrinho1();
-                CarrinhoService CS = new CarrinhoService();
+                //DGV_Dados.Rows.Clear();
+                ////Carrinho1 carrinho1 = new Carrinho1();
+                //CarrinhoService CS = new CarrinhoService();
                 
-                if (CS.Status)
-                {
-                    CS.ReadAllInDB(conexaoDB);
+                //if (CS.Status)
+                //{
+                //    CS.ReadAllInDB(conexaoDB);
                     
-                    if (CS.Status)
-                    {
-                        // Pecorre a lista
-                        foreach (Carrinho1 carrinhos in CS.Carrinhos)
-                        {
+                //    if (CS.Status)
+                //    {
+                //        // Pecorre a lista
+                //        foreach (Carrinho1 carrinhos in CS.Carrinhos)
+                //        {
                             
-                            AddCarrinhoToDataGridView(carrinhos);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{CS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{CS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //            AddCarrinhoToDataGridView(carrinhos);
+                //        }
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show($"[ERROR]: 1{CS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
+                //else
+                //{
+                //    MessageBox.Show($"[ERROR]: 2{CS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
             }
             catch (Exception ex)
             {
@@ -292,21 +275,21 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
                 var resposta = MessageBox.Show("Você Realmente quer excluir o carrinho selecionado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resposta == DialogResult.Yes)
                 {
-                    CarrinhoService carrinho = new CarrinhoService();
-                    var selectedRow = DGV_Dados.CurrentRow;
-                    int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-                    carrinho.DeleteInDB(conexaoDB, id);
+                    //CarrinhoService carrinho = new CarrinhoService();
+                    //var selectedRow = DGV_Dados.CurrentRow;
+                    //int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                    //carrinho.DeleteInDB(conexaoDB, id);
 
-                    if (carrinho.Status)
-                    {
-                        MessageBox.Show($"OK: {carrinho.Mensagem} Carrinho Excluido com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //if (carrinho.Status)
+                    //{
+                    //    MessageBox.Show($"OK: {carrinho.Mensagem} Carrinho Excluido com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        CarregarTodosCarrinhos();
-                    }
-                    else
-                    {
-                        MessageBox.Show($"{carrinho.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    //    CarregarTodosCarrinhos();
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show($"{carrinho.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //}
                 }  
             }
             catch (ValidationException ex)

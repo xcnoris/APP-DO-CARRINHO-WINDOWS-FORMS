@@ -92,7 +92,7 @@
             congregacoes = await congregacao_API.GetTodasCongregacoesAsync();
 
             Carrinho = await carrinho_API.GetCarrinhoPorId(Convert.ToInt32(IdCarrinho!));
-
+         
             if (Carrinho != null)
             {
                 IdCarrinho = Carrinho.Id.ToString();

@@ -1,22 +1,8 @@
-﻿using AppCarrinhoWFBiblioteca.Situacao;
-using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
-using AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1;
-using AppCarrinhoWFBiblioteca.agendamentos.Situacao;
-using AppCarrinhoWFBiblioteca.carrinho;
-using AppCarrinhoWFBiblioteca.carrinho1;
-using AppCarrinhoWFBiblioteca.classagendamento;
-using AppCarrinhoWFBiblioteca.clientes;
-using AppCarrinhoWFBiblioteca.User;
-using AppCarrinhoWFBiblioteca.Users;
-using banco.DataBases;
-using Org.BouncyCastle.Pqc.Crypto.Lms;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace APP_DO_CARRINHO.Formularios
 {
@@ -31,357 +17,357 @@ namespace APP_DO_CARRINHO.Formularios
             return cpf; // Retorna o CPF sem formatação se ele não tiver 11 caracteres
         }
 
-        public void IncluirCamposSituacao(ConexaoDB conexao, ICollection<Situacao1> situacoes, ComboBox CboxSituacao, bool incluirTodos = false)
-        {
-            try
-            {
-                if (CboxSituacao == null)
-                {
-                    throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
-                }
+        //public void IncluirCamposSituacao(ConexaoDB conexao, ICollection<Situacao> situacoes, ComboBox CboxSituacao, bool incluirTodos = false)
+        //{
+        //    try
+        //    {
+        //        if (CboxSituacao == null)
+        //        {
+        //            throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
+        //        }
 
-                Situacao1 situacao = new Situacao1();
+        //        Situacao situacao = new Situacao();
 
-                if (situacao.Status)
-                {
-                    situacao.ConsultarDisponibilidadeInDB(conexao);
+        //        if (situacao.Status)
+        //        {
+        //            situacao.ConsultarDisponibilidadeInDB(conexao);
 
-                    if (situacao.Status)
-                    {
-                        situacoes = Situacao1.Situacoes;
+        //            if (situacao.Status)
+        //            {
+        //                situacoes = Situacao.Situacoes;
 
-                        // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
-                        List<Situacao1> situacaoList = situacoes.ToList();
-                        if (incluirTodos)
-                        {
-                            // Adiciona a opção "Todos"
-                            situacaoList.Insert(0, new Situacao1 { Id = 0, Nome = "Todos" });
-                        }
-                        CboxSituacao.DataSource = situacaoList;
-                        CboxSituacao.DisplayMember = "Nome";
-                        CboxSituacao.ValueMember = "Id";
-                        CboxSituacao.DropDownStyle = ComboBoxStyle.DropDownList;
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //                // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
+        //                List<Situacao> situacaoList = situacoes.ToList();
+        //                if (incluirTodos)
+        //                {
+        //                    // Adiciona a opção "Todos"
+        //                    situacaoList.Insert(0, new Situacao { Id = 0, Nome = "Todos" });
+        //                }
+        //                CboxSituacao.DataSource = situacaoList;
+        //                CboxSituacao.DisplayMember = "Nome";
+        //                CboxSituacao.ValueMember = "Id";
+        //                CboxSituacao.DropDownStyle = ComboBoxStyle.DropDownList;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show($"[ERROR]: 1{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show($"[ERROR]: 2{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
-        public void IncluirCamposSituacaoAgendamento(ConexaoDB conexao, ICollection<SituacaoAgendamento> situacoes1, ComboBox CboxSituacao, bool incluirTodos = false)
-        {
-            try
-            {
-                if (CboxSituacao == null)
-                {
-                    throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
-                }
+        //public void IncluirCamposSituacaoAgendamento(ConexaoDB conexao, ICollection<SituacaoAgendamento> situacoes1, ComboBox CboxSituacao, bool incluirTodos = false)
+        //{
+        //    try
+        //    {
+        //        if (CboxSituacao == null)
+        //        {
+        //            throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
+        //        }
 
-                SituacaoAgendamento situacao = new SituacaoAgendamento();
+        //        SituacaoAgendamento situacao = new SituacaoAgendamento();
 
-                if (situacao.Status)
-                {
-                    situacao.ConsultarDisponibilidadeInDB(conexao);
+        //        if (situacao.Status)
+        //        {
+        //            situacao.ConsultarDisponibilidadeInDB(conexao);
 
-                    if (situacao.Status)
-                    {
-                        situacoes1 = SituacaoAgendamento.Situacoes;
+        //            if (situacao.Status)
+        //            {
+        //                situacoes1 = SituacaoAgendamento.Situacoes;
 
-                        // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
-                        List<SituacaoAgendamento> situacaoList = situacoes1.ToList();
-                        if (incluirTodos)
-                        {
-                            // Adiciona a opção "Todos"
-                            situacaoList.Insert(0, new SituacaoAgendamento { Id = "0", Nome = "Todos" });
-                        }
-                        CboxSituacao.DataSource = situacaoList;
-                        CboxSituacao.DisplayMember = "Nome";
-                        CboxSituacao.ValueMember = "Id";
-                        CboxSituacao.DropDownStyle = ComboBoxStyle.DropDownList;
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //                // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
+        //                List<SituacaoAgendamento> situacaoList = situacoes1.ToList();
+        //                if (incluirTodos)
+        //                {
+        //                    // Adiciona a opção "Todos"
+        //                    situacaoList.Insert(0, new SituacaoAgendamento { Id = "0", Nome = "Todos" });
+        //                }
+        //                CboxSituacao.DataSource = situacaoList;
+        //                CboxSituacao.DisplayMember = "Nome";
+        //                CboxSituacao.ValueMember = "Id";
+        //                CboxSituacao.DropDownStyle = ComboBoxStyle.DropDownList;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show($"[ERROR]: 1{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show($"[ERROR]: 2{situacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
-        internal void IncluirCamposBairro(ConexaoDB conexao, ICollection<AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao> LocaisPregacao, ComboBox CboxSituacao, bool incluirTodos = false)
-        {
-            try
-            {
-                if (CboxSituacao == null)
-                {
-                    throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
-                }
+        //internal void IncluirCamposBairro(ConexaoDB conexao, ICollection<AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao> LocaisPregacao, ComboBox CboxSituacao, bool incluirTodos = false)
+        //{
+        //    try
+        //    {
+        //        if (CboxSituacao == null)
+        //        {
+        //            throw new ArgumentNullException(nameof(CboxSituacao), "ComboBox CboxSituacao não pode ser nulo.");
+        //        }
 
-                LocalPregracaoServices localPregacao = new LocalPregracaoServices();
+        //        LocalPregracaoServices localPregacao = new LocalPregracaoServices();
 
-                if (localPregacao.Status)
-                {
-                    localPregacao.ReadAllInDB(conexao);
+        //        if (localPregacao.Status)
+        //        {
+        //            localPregacao.ReadAllInDB(conexao);
 
-                    if (localPregacao.Status)
-                    {
-                        LocaisPregacao = localPregacao.LocaisPregracao;
+        //            if (localPregacao.Status)
+        //            {
+        //                LocaisPregacao = localPregacao.LocaisPregracao;
 
-                        // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
-                        List<LocalPregacao> LocaisList = new List<AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao>();
-                        if (incluirTodos)
-                        {
-                            // Adiciona a opção "Todos"
-                            LocaisList.Insert(0, new LocalPregacao { Id = 0, Bairro = "Todos" });
-                        }
-                        foreach (var item in LocaisPregacao)
-                        {
+        //                // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
+        //                List<LocalPregacao> LocaisList = new List<AppCarrinhoWFBiblioteca.agendamentos.LocalPregracao1.LocalPregacao>();
+        //                if (incluirTodos)
+        //                {
+        //                    // Adiciona a opção "Todos"
+        //                    LocaisList.Insert(0, new LocalPregacao { Id = 0, Bairro = "Todos" });
+        //                }
+        //                foreach (var item in LocaisPregacao)
+        //                {
                              
-                            if (!LocaisList.Any(a => a.Bairro == item.Bairro))
-                            {
-                                LocaisList.Add(item);
-                            }
+        //                    if (!LocaisList.Any(a => a.Bairro == item.Bairro))
+        //                    {
+        //                        LocaisList.Add(item);
+        //                    }
 
-                        }
-                        CboxSituacao.DataSource = LocaisList;
-                        CboxSituacao.DisplayMember = "Bairro";
-                        CboxSituacao.ValueMember = "Id";
-                        CboxSituacao.DropDownStyle = ComboBoxStyle.DropDownList;
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{localPregacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{localPregacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        public void IncluirCamposCategoriaAgendamento(ConexaoDB conexao, ICollection<CategoriaAgendamento> categorias, ComboBox cboxCategorias, bool incluirTodos = false)
-        {
-            try
-            {
-                if (cboxCategorias == null)
-                {
-                    throw new ArgumentNullException(nameof(cboxCategorias), "ComboBox Cbox_CategoriasAgendamento não pode ser nulo.");
-                }
-
-                CategoriaAgendamento categoria = new CategoriaAgendamento();
-
-                if (categoria.Status)
-                {
-                    categoria.ConsultarCategoriaInDB(conexao);
-
-                    if (categoria.Status)
-                    {
-                        categorias = CategoriaAgendamento.categorias;
-
-                        // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
-                        List<CategoriaAgendamento> categotiaList = categorias.ToList();
-                        if (incluirTodos)
-                        {
-                            // Adiciona a opção "Todos"
-                            categotiaList.Insert(0, new CategoriaAgendamento { Id = "0", Nome = "Todos" });
-                        }
-                        cboxCategorias.DataSource = categotiaList;
-                        cboxCategorias.DisplayMember = "Nome";
-                        cboxCategorias.ValueMember = "Id";
-                        cboxCategorias.DropDownStyle = ComboBoxStyle.DropDownList;
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{categoria.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{categoria.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //                }
+        //                CboxSituacao.DataSource = LocaisList;
+        //                CboxSituacao.DisplayMember = "Bairro";
+        //                CboxSituacao.ValueMember = "Id";
+        //                CboxSituacao.DropDownStyle = ComboBoxStyle.DropDownList;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show($"[ERROR]: 1{localPregacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show($"[ERROR]: 2{localPregacao.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
 
-        public void IncluirCamposCarrinho(ConexaoDB conexao, ICollection<Carrinho1> carrinhos, ComboBox CboxCarrinho, bool incluirTodos = false)
-        {
-            try
-            {
-                if (CboxCarrinho == null)
-                {
-                    throw new ArgumentNullException(nameof(CboxCarrinho), "ComboBox Cbox_Carrinho não pode ser nulo.");
-                }
+        //public void IncluirCamposCategoriaAgendamento(ConexaoDB conexao, ICollection<CategoriaAgendamento> categorias, ComboBox cboxCategorias, bool incluirTodos = false)
+        //{
+        //    try
+        //    {
+        //        if (cboxCategorias == null)
+        //        {
+        //            throw new ArgumentNullException(nameof(cboxCategorias), "ComboBox Cbox_CategoriasAgendamento não pode ser nulo.");
+        //        }
 
-                CarrinhoService US = new CarrinhoService();
+        //        CategoriaAgendamento categoria = new CategoriaAgendamento();
 
-                if (US.Status)
-                {
-                    US.ConsultarIdENomeDeCarrinhoInDB(conexao);
+        //        if (categoria.Status)
+        //        {
+        //            categoria.ConsultarCategoriaInDB(conexao);
 
-                    if (US.Status)
-                    {
-                        carrinhos = US.Carrinhos;
+        //            if (categoria.Status)
+        //            {
+        //                categorias = CategoriaAgendamento.categorias;
 
-                        // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
-                        List<Carrinho1> carrinhoList = carrinhos.ToList();
-                        if (incluirTodos)
-                        {
-                            // Adiciona a opção "Todos"
-                            carrinhoList.Insert(0, new Carrinho1 { ID = "0", Nome = "Todos" });
-                        }
-                        CboxCarrinho.DataSource = carrinhoList;
-                        CboxCarrinho.DisplayMember = "Nome";
-                        CboxCarrinho.ValueMember = "Id";
-                        CboxCarrinho.DropDownStyle = ComboBoxStyle.DropDownList;
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //                // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
+        //                List<CategoriaAgendamento> categotiaList = categorias.ToList();
+        //                if (incluirTodos)
+        //                {
+        //                    // Adiciona a opção "Todos"
+        //                    categotiaList.Insert(0, new CategoriaAgendamento { Id = "0", Nome = "Todos" });
+        //                }
+        //                cboxCategorias.DataSource = categotiaList;
+        //                cboxCategorias.DisplayMember = "Nome";
+        //                cboxCategorias.ValueMember = "Id";
+        //                cboxCategorias.DropDownStyle = ComboBoxStyle.DropDownList;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show($"[ERROR]: 1{categoria.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show($"[ERROR]: 2{categoria.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+
+
+        //public void IncluirCamposCarrinho(ConexaoDB conexao, ICollection<Carrinho1> carrinhos, ComboBox CboxCarrinho, bool incluirTodos = false)
+        //{
+        //    try
+        //    {
+        //        if (CboxCarrinho == null)
+        //        {
+        //            throw new ArgumentNullException(nameof(CboxCarrinho), "ComboBox Cbox_Carrinho não pode ser nulo.");
+        //        }
+
+        //        CarrinhoService US = new CarrinhoService();
+
+        //        if (US.Status)
+        //        {
+        //            US.ConsultarIdENomeDeCarrinhoInDB(conexao);
+
+        //            if (US.Status)
+        //            {
+        //                carrinhos = US.Carrinhos;
+
+        //                // Converte o ICollection<Situacao> para uma List<Situacao> para adicionar a opção "Todos"
+        //                List<Carrinho1> carrinhoList = carrinhos.ToList();
+        //                if (incluirTodos)
+        //                {
+        //                    // Adiciona a opção "Todos"
+        //                    carrinhoList.Insert(0, new Carrinho1 { ID = "0", Nome = "Todos" });
+        //                }
+        //                CboxCarrinho.DataSource = carrinhoList;
+        //                CboxCarrinho.DisplayMember = "Nome";
+        //                CboxCarrinho.ValueMember = "Id";
+        //                CboxCarrinho.DropDownStyle = ComboBoxStyle.DropDownList;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show($"[ERROR]: 1{US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show($"[ERROR]: 2{US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         
         
-        public void IncluirCamposTipoUser(ConexaoDB conexao, ICollection<TipoUser> tipos, ComboBox CboxTipoUser, bool incluirTodos = false)
-        {
-            try
-            {
-                if (CboxTipoUser == null)
-                {
-                    throw new ArgumentNullException(nameof(CboxTipoUser), "ComboBox CboxTipoUser não pode ser nulo.");
-                }
+        //public void IncluirCamposTipoUser(ConexaoDB conexao, ICollection<TipoUser> tipos, ComboBox CboxTipoUser, bool incluirTodos = false)
+        //{
+        //    try
+        //    {
+        //        if (CboxTipoUser == null)
+        //        {
+        //            throw new ArgumentNullException(nameof(CboxTipoUser), "ComboBox CboxTipoUser não pode ser nulo.");
+        //        }
 
-                TipoUser tipoUser = new TipoUser();
+        //        TipoUser tipoUser = new TipoUser();
 
-                if (tipoUser.Status)
-                {
-                    tipoUser.ConsultarTiposDeUsuarioInDB(conexao);
+        //        if (tipoUser.Status)
+        //        {
+        //            tipoUser.ConsultarTiposDeUsuarioInDB(conexao);
 
-                    if (tipoUser.Status)
-                    {
-                        tipos = TipoUser.Tipos;
+        //            if (tipoUser.Status)
+        //            {
+        //                tipos = TipoUser.Tipos;
 
-                        // Converte o ICollection<TipoUser> para uma List<TipoUser> para adicionar a opção "Todos"
-                        List<TipoUser> tipoUserList = tipos.ToList();
-                        if (incluirTodos)
-                        {
-                            // Adiciona a opção "Todos"
-                            tipoUserList.Insert(0, new TipoUser { Id = "0", Nome = "Todos" });
-                        }
-                        CboxTipoUser.DataSource = tipoUserList;
-                        CboxTipoUser.DisplayMember = "Nome";
-                        CboxTipoUser.ValueMember = "Id";
-                        CboxTipoUser.DropDownStyle = ComboBoxStyle.DropDownList;
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{tipoUser.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{tipoUser.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        public ICollection<Pessoa> IncluirValoresPessoasInIcolletion(ConexaoDB conexao, ICollection<Pessoa> pessoas)
-        {
-            try
-            {
-
-                PessoaService PS = new PessoaService();
-
-                if (PS.Status)
-                {
-                    PS.ReadNomeAndIDInDB(conexao);
-
-                    if (PS.Status)
-                    {
-                        return PS.Pessoas;
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return pessoas;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return pessoas;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return pessoas; 
-            }
-        }
+        //                // Converte o ICollection<TipoUser> para uma List<TipoUser> para adicionar a opção "Todos"
+        //                List<TipoUser> tipoUserList = tipos.ToList();
+        //                if (incluirTodos)
+        //                {
+        //                    // Adiciona a opção "Todos"
+        //                    tipoUserList.Insert(0, new TipoUser { Id = "0", Nome = "Todos" });
+        //                }
+        //                CboxTipoUser.DataSource = tipoUserList;
+        //                CboxTipoUser.DisplayMember = "Nome";
+        //                CboxTipoUser.ValueMember = "Id";
+        //                CboxTipoUser.DropDownStyle = ComboBoxStyle.DropDownList;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show($"[ERROR]: 1{tipoUser.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show($"[ERROR]: 2{tipoUser.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
 
-        // Metodos de incluir nomes nos DGV
-        internal string IncluirValorTipoInDGV(ComboBox Cbox , User1 user)
-        {
+        //public ICollection<Pessoa> IncluirValoresPessoasInIcolletion(ConexaoDB conexao, ICollection<Pessoa> pessoas)
+        //{
+        //    try
+        //    {
 
-            // Verifica se o ComboBox tem itens
-            if (Cbox.Items.Count > 0)
-            {
-                // Loop pelos itens do ComboBox
-                foreach (var item in Cbox.Items)
-                {
-                    // Verifica se o item é do tipo TipoUser e se o ID do item coincide com o ID do usuário
-                    if (item is TipoUser tipoItem && tipoItem.Id == user.Id_Tipo)
-                    {
-                        return tipoItem.Nome; // Retorna o nome do tipo de usuário
-                    }
-                }
-            }
+        //        PessoaService PS = new PessoaService();
 
-            return "null"; // Retorna "null" se não encontrar uma correspondência
-        }
+        //        if (PS.Status)
+        //        {
+        //            PS.ReadNomeAndIDInDB(conexao);
+
+        //            if (PS.Status)
+        //            {
+        //                return PS.Pessoas;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show($"[ERROR]: 1{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //                return pessoas;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show($"[ERROR]: 2{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            return pessoas;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return pessoas; 
+        //    }
+        //}
+
+
+        //// Metodos de incluir nomes nos DGV
+        //internal string IncluirValorTipoInDGV(ComboBox Cbox , AppCarrinhoWFBiblioteca.Users.User user)
+        //{
+
+        //    // Verifica se o ComboBox tem itens
+        //    if (Cbox.Items.Count > 0)
+        //    {
+        //        // Loop pelos itens do ComboBox
+        //        foreach (var item in Cbox.Items)
+        //        {
+        //            // Verifica se o item é do tipo TipoUser e se o ID do item coincide com o ID do usuário
+        //            if (item is TipoUser tipoItem && tipoItem.Id == user.Id_Tipo)
+        //            {
+        //                return tipoItem.Nome; // Retorna o nome do tipo de usuário
+        //            }
+        //        }
+        //    }
+
+        //    return "null"; // Retorna "null" se não encontrar uma correspondência
+        //}
 
         internal string IncluirValorSituacaoInDGV(ComboBox Cbox,int idsituacao)
         {
@@ -393,10 +379,10 @@ namespace APP_DO_CARRINHO.Formularios
                 foreach (var item in Cbox.Items)
                 {
                     // Verifica se o item é do tipo Situacao e se o ID do item coincide com o ID da situacao
-                    if (item is Situacao1 situacaoItem && situacaoItem.Id == idsituacao)
-                    {
-                        return situacaoItem.Nome; // Retorna o nome da situacao
-                    }
+                    //if (item is Situacao situacaoItem && situacaoItem.Id == idsituacao)
+                    //{
+                    //    return situacaoItem.Nome; // Retorna o nome da situacao
+                    //}
                 }
             }
 
@@ -412,10 +398,10 @@ namespace APP_DO_CARRINHO.Formularios
                 foreach (var item in Cbox.Items)
                 {
                     // Verifica se o item é do tipo Situacao e se o ID do item coincide com o ID da situacao
-                    if (item is SituacaoAgendamento situacaoItem && situacaoItem.Id == idsituacao)
-                    {
-                        return situacaoItem.Nome; // Retorna o nome da situacao
-                    }
+                    //if (item is SituacaoAgendamento situacaoItem && situacaoItem.Id == idsituacao)
+                    //{
+                    //    return situacaoItem.Nome; // Retorna o nome da situacao
+                    //}
                 }
             }
 
@@ -432,10 +418,10 @@ namespace APP_DO_CARRINHO.Formularios
                 foreach (var item in Cbox.Items)
                 {
                     // Verifica se o item é do tipo Situacao e se o ID do item coincide com o ID da situacao
-                    if (item is CategoriaAgendamento categoriaItem && categoriaItem.Id == idCategoria)
-                    {
-                        return categoriaItem.Nome; // Retorna o nome da situacao
-                    }
+                    //if (item is CategoriaAgendamento categoriaItem && categoriaItem.Id == idCategoria)
+                    //{
+                    //    return categoriaItem.Nome; // Retorna o nome da situacao
+                    //}
                 }
             }
 
@@ -452,36 +438,36 @@ namespace APP_DO_CARRINHO.Formularios
                 foreach (var item in Cbox.Items)
                 {
                     // Verifica se o item é do tipo Situacao e se o ID do item coincide com o ID da situacao
-                    if (item is Carrinho1 carrinhoItem && carrinhoItem.Codigo_Carrinho == codCarrinho)
-                    {
-                        return carrinhoItem.Nome; // Retorna o nome da situacao
-                    }
+                    //if (item is Carrinho1 carrinhoItem && carrinhoItem.Codigo_Carrinho == codCarrinho)
+                    //{
+                    //    return carrinhoItem.Nome; // Retorna o nome da situacao
+                    //}
                 }
             }
 
             return "null"; // Retorna "null" se não encontrar uma correspondência
         }
 
-        internal string IncluirValorPessoaInDGV(ICollection<Pessoa> pessoas, string idPessoa)
-        {
+        //internal string IncluirValorPessoaInDGV(ICollection<Pessoa> pessoas, string idPessoa)
+        //{
 
-            // Verifica se o ComboBox tem itens
-            if (pessoas.Count > 0)
-            {
-                // Loop pelos itens do ComboBox
-                foreach (var item in pessoas)
-                {
-                    // Verifica se o item é do tipo Situacao e se o ID do item coincide com o ID da situacao
-                    if (item is Pessoa pessoa && pessoa.ID == idPessoa)
-                    {
-                        string idANDNome = $"{pessoa.ID} - {pessoa.Nome}";
-                        return idANDNome; // Retorna o nome da situacao
-                    }
-                }
-            }
+        //    // Verifica se o ComboBox tem itens
+        //    if (pessoas.Count > 0)
+        //    {
+        //        // Loop pelos itens do ComboBox
+        //        foreach (var item in pessoas)
+        //        {
+        //            // Verifica se o item é do tipo Situacao e se o ID do item coincide com o ID da situacao
+        //            if (item is Pessoa pessoa && pessoa.ID == idPessoa)
+        //            {
+        //                string idANDNome = $"{pessoa.ID} - {pessoa.Nome}";
+        //                return idANDNome; // Retorna o nome da situacao
+        //            }
+        //        }
+        //    }
 
-            return "null"; // Retorna "null" se não encontrar uma correspondência
-        }
+        //    return "null"; // Retorna "null" se não encontrar uma correspondência
+        //}
 
 
     }

@@ -1,16 +1,6 @@
-﻿using AppCarrinhoWFBiblioteca.User;
-using banco.DAL.DataBases;
-using banco.DataBases;
+﻿
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace APP_DO_CARRINHO.Formularios.Alterar_senha
 {
@@ -22,13 +12,11 @@ namespace APP_DO_CARRINHO.Formularios.Alterar_senha
         public string Login { get; set; }
         public string Senha { get; set; }
 
-        private ConexaoDB conexaoDB;
 
         public Frm_Tela_AlterSenha()
         {
             InitializeComponent();
 
-            conexaoDB = new ConexaoDB();
         }
 
         private void Frm_Tela_AlterSenha_Load(object sender, EventArgs e)
@@ -63,15 +51,15 @@ namespace APP_DO_CARRINHO.Formularios.Alterar_senha
                     return;
                 }
 
-                string senhaAtualHash = ComandosDB.GetMD5Hasg(Txt_SenhaAtual.Text); // Correção do método GetMD5Hash
+                //string senhaAtualHash = ComandosDB.GetMD5Hasg(Txt_SenhaAtual.Text); // Correção do método GetMD5Hash
                 string senhaNova = Txt_NovaSenha.Text;
                 string senhaNovaConfirm = Txt_NovaSenha_Confirm.Text;
 
-                if (senhaAtualHash != Senha)
-                {
-                    MessageBox.Show("[ERROR]: Senha atual errada.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //if (senhaAtualHash != Senha)
+                //{
+                //    MessageBox.Show("[ERROR]: Senha atual errada.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
 
                 if (string.IsNullOrWhiteSpace(senhaNova) || string.IsNullOrWhiteSpace(senhaNovaConfirm))
                 {
@@ -98,18 +86,18 @@ namespace APP_DO_CARRINHO.Formularios.Alterar_senha
         {
             try
             {
-                UserServices US = new UserServices();
-                US.UpdatePassWordInDB(conexaoDB, Id_User, ComandosDB.GetMD5Hasg(novaSenha));
+                //UserServices US = new UserServices();
+                //US.UpdatePassWordInDB(conexaoDB, Id_User, ComandosDB.GetMD5Hasg(novaSenha));
 
-                if (US.Status)
-                {
-                    MessageBox.Show("OK: Senha alterada com sucesso!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: {US.Mensagem}", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //if (US.Status)
+                //{
+                //    MessageBox.Show("OK: Senha alterada com sucesso!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    this.Close();
+                //}
+                //else
+                //{
+                //    MessageBox.Show($"[ERROR]: {US.Mensagem}", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
             }
             catch (Exception ex)
             {

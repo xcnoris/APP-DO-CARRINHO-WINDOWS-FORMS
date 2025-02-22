@@ -1,22 +1,6 @@
-﻿using APP_DO_CARRINHO.Formularios.FrmLocalPregacao;
-using AppCarrinhoWFBiblioteca;
-using AppCarrinhoWFBiblioteca.agendamentos;
-using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
-using AppCarrinhoWFBiblioteca.agendamentos.Situacao;
-using AppCarrinhoWFBiblioteca.carrinho;
-using AppCarrinhoWFBiblioteca.carrinho1;
-using AppCarrinhoWFBiblioteca.classagendamento;
-using AppCarrinhoWFBiblioteca.clientes;
-using banco.DataBases;
+﻿
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP_DO_CARRINHO.Formularios.Agendamento
@@ -25,19 +9,17 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
     {
 
         private Metodos metodos;
-        private ConexaoDB conexaoDB;
 
-        private ICollection<SituacaoAgendamento> RetornoSituacoes = new List<SituacaoAgendamento>();
-        private ICollection<CategoriaAgendamento> RetornoCategorias = new List<CategoriaAgendamento>();
-        private ICollection<Carrinho1> RetornoCarrinhos = new List<Carrinho1>();
-        private ICollection<Pessoa> RetornoPessoas = new List<Pessoa>();
+        //private ICollection<SituacaoAgendamento> RetornoSituacoes = new List<SituacaoAgendamento>();
+        //private ICollection<CategoriaAgendamento> RetornoCategorias = new List<CategoriaAgendamento>();
+        //private ICollection<Carrinho1> RetornoCarrinhos = new List<Carrinho1>();
+        //private ICollection<Pessoa> RetornoPessoas = new List<Pessoa>();
 
 
         public Frm_Tela_Agendamento()
         {
             InitializeComponent();
             
-            conexaoDB = new ConexaoDB();
             metodos = new Metodos();
 
             DTP_Hora1.Enabled = false;
@@ -51,13 +33,13 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
 
         private void Frm_Tela_Agendamento_Load(object sender, EventArgs e)
         {
-            // Metodos para incluir valores nos combo box dos filtros, passamos o ultimo valor como true para incluir a opção "Todos"
-            metodos.IncluirCamposSituacaoAgendamento(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
-            metodos.IncluirCamposCategoriaAgendamento(conexaoDB, RetornoCategorias, Cbox_CategoriaAgendamento, true);
-            metodos.IncluirCamposCarrinho(conexaoDB, RetornoCarrinhos, Cbox_Carrinhos, true);
-            RetornoPessoas = metodos.IncluirValoresPessoasInIcolletion(conexaoDB, RetornoPessoas);
+            //// Metodos para incluir valores nos combo box dos filtros, passamos o ultimo valor como true para incluir a opção "Todos"
+            //metodos.IncluirCamposSituacaoAgendamento(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
+            //metodos.IncluirCamposCategoriaAgendamento(conexaoDB, RetornoCategorias, Cbox_CategoriaAgendamento, true);
+            //metodos.IncluirCamposCarrinho(conexaoDB, RetornoCarrinhos, Cbox_Carrinhos, true);
+            //RetornoPessoas = metodos.IncluirValoresPessoasInIcolletion(conexaoDB, RetornoPessoas);
 
-            CarregarTodosAgendamento();
+            //CarregarTodosAgendamento();
         }
 
         private void AjustarFiltro()
@@ -142,30 +124,30 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
             {
                 DGV_Dados.Rows.Clear();
                 //Carrinho1 carrinho1 = new Carrinho1();
-                AgendamentoServices AS = new AgendamentoServices();
+                //AgendamentoServices AS = new AgendamentoServices();
 
-                if (AS.Status)
-                {
-                    AS.ReadAllInDB(conexaoDB);
+                //if (AS.Status)
+                //{
+                //    AS.ReadAllInDB(conexaoDB);
 
-                    if (AS.Status)
-                    {
-                        // Pecorre a lista
-                        foreach (Agendameto1 carrinhos in AS.Agendamentos)
-                        {
+                //    if (AS.Status)
+                //    {
+                //        // Pecorre a lista
+                //        foreach (Agendameto1 carrinhos in AS.Agendamentos)
+                //        {
 
-                            AddAgendamentoToDataGridView(carrinhos);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{AS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{AS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //            AddAgendamentoToDataGridView(carrinhos);
+                //        }
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show($"[ERROR]: 1{AS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
+                //else
+                //{
+                //    MessageBox.Show($"[ERROR]: 2{AS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
             }
             catch (Exception ex)
             {
@@ -174,37 +156,37 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
         }
 
         // Recebe um object Agendamento e convert para uma linha do DataGridView
-        private void AddAgendamentoToDataGridView(Agendameto1 agendamento)
-        {
-            try
-            {
-                AddColumnDataGridView();
+        //private void AddAgendamentoToDataGridView(Agendameto1 agendamento)
+        //{
+        //    try
+        //    {
+        //        AddColumnDataGridView();
                 
-                // Funcoes para comparar o id retornado do banco, com o id dos valores dos combo box, caso tenha um id igual no combox box
-                // retorna o valor(nome) do id
-                string categoriaNome = metodos.IncluirValorCategoriInDGV(Cbox_CategoriaAgendamento, agendamento.IdCategoria.ToString());
-                string carrinhoNome = metodos.IncluirValorCarrinhoInDGV(Cbox_Carrinhos, agendamento.CodCarrinho.ToString());
-                string situacaoNome = metodos.IncluirValorSituacaoAgendamentoInDGV(Cbox_Situacao, agendamento.IdSituacao.ToString());
-                string nomeCliente = metodos.IncluirValorPessoaInDGV(RetornoPessoas, agendamento.IdPessoa);
+        //        // Funcoes para comparar o id retornado do banco, com o id dos valores dos combo box, caso tenha um id igual no combox box
+        //        // retorna o valor(nome) do id
+        //        string categoriaNome = metodos.IncluirValorCategoriInDGV(Cbox_CategoriaAgendamento, agendamento.IdCategoria.ToString());
+        //        string carrinhoNome = metodos.IncluirValorCarrinhoInDGV(Cbox_Carrinhos, agendamento.CodCarrinho.ToString());
+        //        string situacaoNome = metodos.IncluirValorSituacaoAgendamentoInDGV(Cbox_Situacao, agendamento.IdSituacao.ToString());
+        //        string nomeCliente = metodos.IncluirValorPessoaInDGV(RetornoPessoas, agendamento.IdPessoa);
 
-                // Adicionar linha ao DataGridView
-                DGV_Dados.Rows.Add(
-                    agendamento.Id,
-                    categoriaNome,
-                    nomeCliente,
-                    agendamento.DataAgendamento.ToShortDateString(),
-                    agendamento.Hora1.ToString(@"hh\:mm"),
-                    agendamento.Hora2.ToString(@"hh\:mm"), 
-                    agendamento.Local.Id,
-                    carrinhoNome,
-                    situacaoNome
-                );
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //        // Adicionar linha ao DataGridView
+        //        DGV_Dados.Rows.Add(
+        //            agendamento.Id,
+        //            categoriaNome,
+        //            nomeCliente,
+        //            agendamento.DataAgendamento.ToShortDateString(),
+        //            agendamento.Hora1.ToString(@"hh\:mm"),
+        //            agendamento.Hora2.ToString(@"hh\:mm"), 
+        //            agendamento.Local.Id,
+        //            carrinhoNome,
+        //            situacaoNome
+        //        );
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void button6_Click(object sender, EventArgs e)
         {

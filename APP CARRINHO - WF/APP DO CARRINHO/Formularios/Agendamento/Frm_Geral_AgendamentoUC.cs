@@ -1,10 +1,4 @@
-﻿using AppCarrinhoWFBiblioteca;
-using AppCarrinhoWFBiblioteca.agendamentos.Categoria_Agendamento;
-using AppCarrinhoWFBiblioteca.agendamentos.Situacao;
-using AppCarrinhoWFBiblioteca.carrinho1;
-using AppCarrinhoWFBiblioteca.clientes;
-using banco.DAL.DataBases;
-using banco.DataBases;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,13 +14,12 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
 {
     public partial class Frm_Geral_AgendamentoUC : UserControl
     {
-        private ConexaoDB conexaoDB;
         private Metodos metodos;
 
-        private ICollection<SituacaoAgendamento> RetornoSituacoes = new List<SituacaoAgendamento>();
-        private ICollection<CategoriaAgendamento> RetornoCategorias = new List<CategoriaAgendamento>();
-        private ICollection<Carrinho1> RetornoCarrinhos = new List<Carrinho1>();
-        private ICollection<Pessoa> RetornoPessoas = new List<Pessoa>();
+        //private ICollection<SituacaoAgendamento> RetornoSituacoes = new List<SituacaoAgendamento>();
+        //private ICollection<CategoriaAgendamento> RetornoCategorias = new List<CategoriaAgendamento>();
+        //private ICollection<Carrinho1> RetornoCarrinhos = new List<Carrinho1>();
+        //private ICollection<Pessoa> RetornoPessoas = new List<Pessoa>();
 
         public string IdAgendamento
         {
@@ -142,18 +135,18 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
 
         public Frm_Geral_AgendamentoUC()
         {
-            InitializeComponent();
+            //InitializeComponent();
 
-            conexaoDB = new ConexaoDB();
-            metodos = new Metodos();
+            //conexaoDB = new ConexaoDB();
+            //metodos = new Metodos();
 
-            // Metodos para incluir valores nos combo box dos filtros, passamos o ultimo valor como true para incluir a opção "Todos"
-            metodos.IncluirCamposSituacaoAgendamento(conexaoDB, RetornoSituacoes, Cbox_Situacao);
-            metodos.IncluirCamposCategoriaAgendamento(conexaoDB, RetornoCategorias, Cbox_CategoriaAgendamento);
-            metodos.IncluirCamposCarrinho(conexaoDB, RetornoCarrinhos, Cbox_Carrinhos);
-            RetornoPessoas = metodos.IncluirValoresPessoasInIcolletion(conexaoDB, RetornoPessoas);
+            //// Metodos para incluir valores nos combo box dos filtros, passamos o ultimo valor como true para incluir a opção "Todos"
+            //metodos.IncluirCamposSituacaoAgendamento(conexaoDB, RetornoSituacoes, Cbox_Situacao);
+            //metodos.IncluirCamposCategoriaAgendamento(conexaoDB, RetornoCategorias, Cbox_CategoriaAgendamento);
+            //metodos.IncluirCamposCarrinho(conexaoDB, RetornoCarrinhos, Cbox_Carrinhos);
+            //RetornoPessoas = metodos.IncluirValoresPessoasInIcolletion(conexaoDB, RetornoPessoas);
 
-            AjustarFiltro();
+            //AjustarFiltro();
         }
 
         private void Frm_Geral_AgendamentoUC_Load(object sender, EventArgs e)
@@ -187,21 +180,21 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
             // Configurar o valor do ComboBox de CategoriaAgendamento
             foreach (var item in Cbox_CategoriaAgendamento.Items)
             {
-                if (item is CategoriaAgendamento categoriaItem && categoriaItem.Nome == categoriaAgendamento)
-                {
-                    Cbox_CategoriaAgendamento.SelectedItem = item;
-                    break;
-                }
+                //if (item is CategoriaAgendamento categoriaItem && categoriaItem.Nome == categoriaAgendamento)
+                //{
+                //    Cbox_CategoriaAgendamento.SelectedItem = item;
+                //    break;
+                //}
             }
 
             // Configurar o valor do ComboBox de Situação
             foreach (var item in Cbox_Situacao.Items)
             {
-                if (item is SituacaoAgendamento situacaoItem && situacaoItem.Nome == situacaoAgendamento)
-                {
-                    Cbox_Situacao.SelectedItem = item;
-                    break;
-                }
+                //if (item is SituacaoAgendamento situacaoItem && situacaoItem.Nome == situacaoAgendamento)
+                //{
+                //    Cbox_Situacao.SelectedItem = item;
+                //    break;
+                //}
             }
 
             DTP_Data.Value = dataAgendamento;
@@ -211,11 +204,11 @@ namespace APP_DO_CARRINHO.Formularios.Agendamento
             // Configurar o valor do ComboBox de Carrinho
             foreach (var item in Cbox_Carrinhos.Items)
             {
-                if (item is Carrinho1 carrinhoItem && carrinhoItem.Codigo_Carrinho == codCarrinho)
-                {
-                    Cbox_Carrinhos.SelectedItem = item;
-                    break;
-                }
+                //if (item is Carrinho1 carrinhoItem && carrinhoItem.Codigo_Carrinho == codCarrinho)
+                //{
+                //    Cbox_Carrinhos.SelectedItem = item;
+                //    break;
+                //}
             }
 
             Txt_IdPessoa.Text = idPessoa;

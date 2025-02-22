@@ -1,11 +1,4 @@
-﻿using APP_DO_CARRINHO.Formularios.Carrinho;
-using AppCarrinhoWFBiblioteca.carrinho;
-using AppCarrinhoWFBiblioteca.carrinho1;
-using AppCarrinhoWFBiblioteca.clientes;
-using banco.DataBases;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 using System.Windows.Forms;
@@ -14,12 +7,10 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 {
     public partial class Frm_Tela_Pessoas : Form
     {
-        private ConexaoDB conexaoDB;
         public Frm_Tela_Pessoas()
         {
             InitializeComponent();
             //AddColumnDataGridView();
-            conexaoDB = new ConexaoDB();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,8 +27,8 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 
         private void Frm_Tela_Pessoas_Load(object sender, EventArgs e)
         {
-            AddColumnDataGridView();
-            CarregarTodasAsPessoas();
+            //AddColumnDataGridView();
+            //CarregarTodasAsPessoas();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -49,41 +40,41 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
         {
 
         }
-        private void CarregarTodasAsPessoas()
-        {
-            try
-            {
-                DGV_Dados.Rows.Clear();
-                PessoaService PS = new PessoaService();
+        //private void CarregarTodasAsPessoas()
+        //{
+            //try
+            //{
+            //    DGV_Dados.Rows.Clear();
+            //    PessoaService PS = new PessoaService();
 
-                if (PS.Status)
-                {
-                    PS.ReadAllInDB(conexaoDB);
+            //    if (PS.Status)
+            //    {
+            //        PS.ReadAllInDB(conexaoDB);
 
-                    if (PS.Status)
-                    {
-                        // Pecorre a lista
-                        foreach (Pessoa pessoa in PS.Pessoas)
-                        {
+            //        if (PS.Status)
+            //        {
+            //            // Pecorre a lista
+            //            foreach (Pessoa pessoa in PS.Pessoas)
+            //            {
 
-                            AddPessoaToDataGridView(pessoa);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+            //                AddPessoaToDataGridView(pessoa);
+            //            }
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show($"[ERROR]: 1{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show($"[ERROR]: 2{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    //    }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"[ERROR]:3 {ex.Message}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
 
         private void Btn_Filtrar_Click(object sender, EventArgs e)
@@ -102,7 +93,7 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
                     try
                     {
                         DGV_Dados.Rows.Clear();
-                        CarregarTodasAsPessoas();
+                        //CarregarTodasAsPessoas();
                     }
                     catch (Exception ex)
                     {
@@ -114,33 +105,33 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
                 {
                     try
                     {
-                        PessoaService PS = new PessoaService();
+                        //PessoaService PS = new PessoaService();
 
-                        if (PS.Status)
-                        {
-                            // Busca a pessoa pelo id
-                            PS.ReadInDB(conexaoDB, Convert.ToInt32(Txt_Id.Text));
+                        //if (PS.Status)
+                        //{
+                        //    // Busca a pessoa pelo id
+                        //    PS.ReadInDB(conexaoDB, Convert.ToInt32(Txt_Id.Text));
 
-                            if (PS.Status)
-                            {
-                                DGV_Dados.Rows.Clear();
-                                // Pecorre a lista
-                                foreach (Pessoa pessoa in PS.Pessoas)
-                                {
+                        //    if (PS.Status)
+                        //    {
+                        //        DGV_Dados.Rows.Clear();
+                        //        // Pecorre a lista
+                        //        foreach (Pessoa pessoa in PS.Pessoas)
+                        //        {
 
-                                    AddPessoaToDataGridView(pessoa);
-                                }
+                        //            AddPessoaToDataGridView(pessoa);
+                        //        }
 
-                            }
-                            else
-                            {
-                                MessageBox.Show($"ID {Txt_Id.Text} Não Localizado Na Base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show($"[ERROR]: {PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        //    }
+                        //    else
+                        //    {
+                        //        MessageBox.Show($"ID {Txt_Id.Text} Não Localizado Na Base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show($"[ERROR]: {PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //}
                     }
                     catch (Exception ex)
                     {
@@ -160,34 +151,34 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
             try
             {
                 // Instancia a class service
-                PessoaService PS = new PessoaService();
+                //PessoaService PS = new PessoaService();
 
                 // Verifica se deu certo a instanciação
-                if (PS.Status)
-                {
-                    // Chama o metodo de buscar todos os carrinho no banco de dados
-                    PS.ReadAllInDB(conexaoDB);
+                //if (PS.Status)
+                //{
+                //    // Chama o metodo de buscar todos os carrinho no banco de dados
+                //    PS.ReadAllInDB(conexaoDB);
 
-                    // Verifica se deu certo a consulta no banco. Caso deu certo entra no if
-                    if (PS.Status)
-                    {
-                        // Pecorre a lista de dados que retornou na consulta no banco
-                        foreach (Pessoa pessoa in PS.Pessoas)
-                        {
-                            // Add linha por linha
-                            AddPessoaToDataGridView(pessoa);
-                        }
-                    }
-                    // Caso deu errado, entra no else
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //    // Verifica se deu certo a consulta no banco. Caso deu certo entra no if
+                //    if (PS.Status)
+                //    {
+                //        // Pecorre a lista de dados que retornou na consulta no banco
+                //        foreach (Pessoa pessoa in PS.Pessoas)
+                //        {
+                //            // Add linha por linha
+                //            AddPessoaToDataGridView(pessoa);
+                //        }
+                //    }
+                //    // Caso deu errado, entra no else
+                //    else
+                //    {
+                //        MessageBox.Show($"[ERROR]: 1{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
+                //else
+                //{
+                //    MessageBox.Show($"[ERROR]: 2{PS.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
             }
             catch (Exception ex)
             {
@@ -231,36 +222,36 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
 
 
         // Recebe um object Pessoa, e inclui os valores em uma linha do DataGridView
-        private void AddPessoaToDataGridView(Pessoa pessoa)
-        {
+        //private void AddPessoaToDataGridView(Pessoa pessoa)
+        //{
 
-            Metodos m = new Metodos();
-            string cpfFormatado = m.FormatCPF(pessoa.CPF);
+        //    Metodos m = new Metodos();
+        //    string cpfFormatado = m.FormatCPF(pessoa.CPF);
 
-            AddColumnDataGridView();
+        //    AddColumnDataGridView();
 
-            // Adicionar a linha ao DataGridView
-            DGV_Dados.Rows.Add(
-                pessoa.ID,
-                cpfFormatado,
-                pessoa.Nome,
-                pessoa.CEP,
-                pessoa.Cidade_Nome,
-                pessoa.UF,
-                pessoa.Endereco,
-                pessoa.Endereco_Numero,
-                pessoa.Endereco_Complemento,
-                pessoa.Bairro,
-                pessoa.DDD_Telefone,
-                pessoa.Telefone,
-                pessoa.DDD_Celular,
-                pessoa.Celular,
-                pessoa.Sexo,
-                pessoa.DataNascimento,
-                pessoa.Email,
-                pessoa.Congregacao_ID
-            );
-        }
+        //    // Adicionar a linha ao DataGridView
+        //    DGV_Dados.Rows.Add(
+        //        pessoa.ID,
+        //        cpfFormatado,
+        //        pessoa.Nome,
+        //        pessoa.CEP,
+        //        pessoa.Cidade_Nome,
+        //        pessoa.UF,
+        //        pessoa.Endereco,
+        //        pessoa.Endereco_Numero,
+        //        pessoa.Endereco_Complemento,
+        //        pessoa.Bairro,
+        //        pessoa.DDD_Telefone,
+        //        pessoa.Telefone,
+        //        pessoa.DDD_Celular,
+        //        pessoa.Celular,
+        //        pessoa.Sexo,
+        //        pessoa.DataNascimento,
+        //        pessoa.Email,
+        //        pessoa.Congregacao_ID
+        //    );
+        //}
 
         private void DGV_Dados_DoubleClick(object sender, EventArgs e)
         {
@@ -348,21 +339,21 @@ namespace APP_DO_CARRINHO.Formularios.Pessoas
                     var resposta = MessageBox.Show("Você Realmente quer excluir a Pessoa selecionada?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (resposta == DialogResult.Yes)
                     {
-                        PessoaService pessoa = new PessoaService();
+                        //PessoaService pessoa = new PessoaService();
                         var selectedRow = DGV_Dados.CurrentRow;
                         int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-                        pessoa.DeleteInDB(conexaoDB, id);
+                        //pessoa.DeleteInDB(conexaoDB, id);
 
-                        if (pessoa.Status)
-                        {
-                            MessageBox.Show($"OK: {pessoa.Mensagem} Carrinho Excluido com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //if (pessoa.Status)
+                        //{
+                        //    MessageBox.Show($"OK: {pessoa.Mensagem} Carrinho Excluido com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            CarregarTodasAsPessoas();
-                        }
-                        else
-                        {
-                            MessageBox.Show($"{pessoa.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        //    CarregarTodasAsPessoas();
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show($"{pessoa.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //}
                     }
 
                 }

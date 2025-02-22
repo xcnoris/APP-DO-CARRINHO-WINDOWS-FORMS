@@ -24,13 +24,19 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\User\Documents\PROJETOS C#\APP CARRINHO\CARRINHO APP  WEB\V1\Carrinho WEB APP
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
 [C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/Componentes/CardCarrinho.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50ZXNcQ2FyZENhcnJpbmhvLnJhem9y
+[C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/Componentes/carrinho/BarraDePesquisa.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50ZXNcY2FycmluaG9cQmFycmFEZVBlc3F1aXNhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/Componentes/carrinho/CardCarrinho.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50ZXNcY2FycmluaG9cQ2FyZENhcnJpbmhvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/Pages/Carro/CadastrarCarrinho.razor]
@@ -63,10 +69,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Documents/PROJETOS C\#/APP CARRINHO/CARRINHO APP  WEB/V1/Carrinho WEB APP/_Imports.razor]

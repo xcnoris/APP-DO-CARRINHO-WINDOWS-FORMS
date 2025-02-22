@@ -1,28 +1,13 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using AppCarrinhoWFBiblioteca.cep;
-using AppCarrinhoWFBiblioteca.Situacao;
-using AppCarrinhoWFBiblioteca.clientes;
-using System.Security.Cryptography.X509Certificates;
-using System.Text.RegularExpressions;
-using banco.DataBases;
-
 
 namespace APP_DO_CARRINHO.Formularios.Carrinho
 {
     public partial class Frm_Geral_Carrinho_UC : UserControl
     {
-
-        private ConexaoDB conexaoDB;
         private Metodos metodos;
-        private ICollection<Situacao1> RetornoSituacoes = new List<Situacao1>();
+        //private ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
 
 
 
@@ -68,11 +53,10 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
         {
             InitializeComponent();
 
-            conexaoDB = new ConexaoDB();
             metodos = new Metodos();
 
 
-            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
+            //metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao);
 
             
         }
@@ -90,11 +74,11 @@ namespace APP_DO_CARRINHO.Formularios.Carrinho
             foreach (var item in Cbox_Situacao.Items)
             {
                 // Assuming each item in Cbox_Situacao is of type Situacao
-                if (item is Situacao1 situacaoItem && situacaoItem.Nome == situacao)
-                {
-                    Cbox_Situacao.SelectedItem = item;
-                    break;
-                }
+                //if (item is Situacao situacaoItem && situacaoItem.Nome == situacao)
+                //{
+                //    Cbox_Situacao.SelectedItem = item;
+                //    break;
+                //}
             }
         }
     }

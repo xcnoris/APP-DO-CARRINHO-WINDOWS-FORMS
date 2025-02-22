@@ -1,40 +1,22 @@
-﻿using APP_DO_CARRINHO.Formularios.Carrinho;
-using AppCarrinhoWFBiblioteca.Situacao;
-using AppCarrinhoWFBiblioteca.carrinho;
-using AppCarrinhoWFBiblioteca.carrinho1;
-using AppCarrinhoWFBiblioteca.clientes;
-using AppCarrinhoWFBiblioteca.User;
-using AppCarrinhoWFBiblioteca.Users;
-using banco.DAL.DataBases;
-using banco.DataBases;
+﻿
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.Versioning;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace APP_DO_CARRINHO.Formularios.User
 {
     public partial class Frm_Tela_User : Form
     {
-        
-        private ConexaoDB conexaoDB;
         private Metodos metodos;
 
         // Icolletion usaddo para armazenar o retorno da consulta no DB
-        public ICollection<Situacao1> RetornoSituacoes = new List<Situacao1>();
-        public ICollection<TipoUser> RetornoTipos = new List<TipoUser>();
+        //public ICollection<Situacao> RetornoSituacoes = new List<Situacao>();
+        //public ICollection<TipoUser> RetornoTipos = new List<TipoUser>();
 
         public Frm_Tela_User()
         {
             InitializeComponent();
-            conexaoDB = new ConexaoDB();
             metodos = new Metodos();
 
             AddColumnDataGridView();
@@ -49,8 +31,8 @@ namespace APP_DO_CARRINHO.Formularios.User
         {
 
             
-            metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
-            metodos.IncluirCamposTipoUser(conexaoDB, RetornoTipos, Cbox_TipoUser, true);
+            //metodos.IncluirCamposSituacao(conexaoDB, RetornoSituacoes, Cbox_Situacao, true);
+            //metodos.IncluirCamposTipoUser(conexaoDB, RetornoTipos, Cbox_TipoUser, true);
 
             AddColumnDataGridView();
             CarregarTodosUsers();
@@ -82,32 +64,32 @@ namespace APP_DO_CARRINHO.Formularios.User
 
             try
             {
-                DGV_Dados.Rows.Clear();
-                //Carrinho1 carrinho1 = new Carrinho1();
-                UserServices US = new UserServices();
+                //DGV_Dados.Rows.Clear();
+                ////Carrinho1 carrinho1 = new Carrinho1();
+                //UserServices US = new UserServices();
 
-                if (US.Status)
-                {
-                    US.ReadAllInDB(conexaoDB);
+                //if (US.Status)
+                //{
+                //    US.ReadAllInDB(conexaoDB);
 
-                    if (US.Status)
-                    {
-                        // Pecorre a lista
-                        foreach (User1 user in US.usuarios)
-                        {
+                //    if (US.Status)
+                //    {
+                //        // Pecorre a lista
+                //        foreach (AppCarrinhoWFBiblioteca.Users.User user in US.usuarios)
+                //        {
 
-                            AddUserToDataGridView(user);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show($"[ERROR]: 1{US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: 2{US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //            AddUserToDataGridView(user);
+                //        }
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show($"[ERROR]: 1{US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ////    }
+                //}
+                //else
+                //{
+                //    MessageBox.Show($"[ERROR]: 2{US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
             }
             catch (Exception ex)
             {
@@ -116,25 +98,25 @@ namespace APP_DO_CARRINHO.Formularios.User
         }
 
         // Recebe um object Carrinho1 e convert para uma linha do DataGridView
-        private void AddUserToDataGridView(User1 user)
-        {
-            try
-            {
-                AddColumnDataGridView();
+        //private void AddUserToDataGridView(UserModels user)
+        //{
+        //    try
+        //    {
+        //        AddColumnDataGridView();
 
                 
-                string cpfFormatado = metodos.FormatCPF(user.CPF);
-                string tipoNome = metodos.IncluirValorTipoInDGV(Cbox_TipoUser, user);
-                string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, Convert.ToInt32(user.Id_Situacao));
+        //        string cpfFormatado = metodos.FormatCPF(user.CPF);
+        //        string tipoNome = metodos.IncluirValorTipoInDGV(Cbox_TipoUser, user);
+        //        string situacaoNome = metodos.IncluirValorSituacaoInDGV(Cbox_Situacao, Convert.ToInt32(user.Id_Situacao));
                 
-                // Adicionar a linha ao DataGridView
-                DGV_Dados.Rows.Add(user.Id, cpfFormatado, user.Nome,  user.Login, tipoNome, situacaoNome);
-            }
-            catch (ValidationException ex)
-            {
-                MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //        // Adicionar a linha ao DataGridView
+        //        DGV_Dados.Rows.Add(user.Id, cpfFormatado, user.Nome,  user.Login, tipoNome, situacaoNome);
+        //    }
+        //    catch (ValidationException ex)
+        //    {
+        //        MessageBox.Show($" {ex.Message}", $"App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -211,33 +193,33 @@ namespace APP_DO_CARRINHO.Formularios.User
                 {
                     try
                     {
-                        UserServices US = new UserServices();
+                        //UserServices US = new UserServices();
 
-                        if (US.Status)
-                        {
-                            // Busca a pessoa pelo id
-                            //US.ReadInDB(conexaoDB, Txt.Text);
+                        //if (US.Status)
+                        //{
+                        //    Busca a pessoa pelo id
+                        //    US.ReadInDB(conexaoDB, Txt.Text);
 
-                            if (US.Status)
-                            {
-                                DGV_Dados.Rows.Clear();
-                                // Pecorre a lista
-                                foreach (User1 pessoa in US.usuarios)
-                                {
+                        //    if (US.Status)
+                        //    {
+                        //        DGV_Dados.Rows.Clear();
+                        //        Pecorre a lista
+                        //        foreach (AppCarrinhoWFBiblioteca.Users.User pessoa in US.usuarios)
+                        //        {
 
-                                    AddUserToDataGridView(pessoa);
-                                }
+                        //            AddUserToDataGridView(pessoa);
+                        //        }
 
-                            }
-                            else
-                            {
-                                MessageBox.Show($"ID {Txt_Nome.Text} Não Localizado Na Base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show($"[ERROR]: {US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        //    }
+                        //    else
+                        //    {
+                        //        MessageBox.Show($"ID {Txt_Nome.Text} Não Localizado Na Base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show($"[ERROR]: {US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //}
                     }
                     catch (Exception ex)
                     {
@@ -269,60 +251,60 @@ namespace APP_DO_CARRINHO.Formularios.User
                     return;
                 }
 
-                // Instancia a classe
-                UserServices US = new UserServices();
+                //// Instancia a classe
+                //UserServices US = new UserServices();
 
-                if (US.Status)
-                {
-                    // Busca o usuário pelo id
-                    US.ReadInDB(conexaoDB, id);
+                //if (US.Status)
+                //{
+                //    // Busca o usuário pelo id
+                //    US.ReadInDB(conexaoDB, id);
 
-                    if (US.Status)
-                    {
-                        //DGV_Dados.Rows.Clear();
+                //    if (US.Status)
+                //    {
+                //        //DGV_Dados.Rows.Clear();
 
-                        // Percorre a lista
-                        foreach (User1 user in US.usuarios)
-                        {
-                            // Caso o user tenha o campo senha em branco no DB, entra no if
-                            if (string.IsNullOrEmpty(user.Senha))
-                            {
-                                Random random = new Random();
+                //        // Percorre a lista
+                //        foreach (AppCarrinhoWFBiblioteca.Users.User user in US.usuarios)
+                //        {
+                //            // Caso o user tenha o campo senha em branco no DB, entra no if
+                //            if (string.IsNullOrEmpty(user.Senha))
+                //            {
+                //                Random random = new Random();
 
-                                // Gera um número aleatório de 4 dígitos
-                                string randomNumber = random.Next(1000, 10000).ToString();
+                //                // Gera um número aleatório de 4 dígitos
+                //                string randomNumber = random.Next(1000, 10000).ToString();
 
-                                // transforma o numero gerado em hash
-                                string senhaInHasg = ComandosDB.GetMD5Hasg(randomNumber);
-                                user.Senha = senhaInHasg;
+                //                // transforma o numero gerado em hash
+                //                string senhaInHasg = ComandosDB.GetMD5Hasg(randomNumber);
+                //                user.Senha = senhaInHasg;
 
-                                // Atualiza no banco
-                                user.AtualizarPassWordInDB(conexaoDB, id, senhaInHasg);
-                                if (user.Status)
-                                {
-                                    MessageBox.Show($"Senha {randomNumber} gerada com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                else
-                                {
-                                    MessageBox.Show($"[ERROR]: {user.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
-                            else
-                            {
-                                // Caso nao seja branco o campo, mostra a imagem
-                                MessageBox.Show("Usuario já tem senha gerada!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show($"ID {id} não localizado na base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"[ERROR]: {US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //                // Atualiza no banco
+                //                user.AtualizarPassWordInDB(conexaoDB, id, senhaInHasg);
+                //                if (user.Status)
+                //                {
+                //                    MessageBox.Show($"Senha {randomNumber} gerada com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //                }
+                //                else
+                //                {
+                //                    MessageBox.Show($"[ERROR]: {user.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //                }
+                //            }
+                //            else
+                //            {
+                //                // Caso nao seja branco o campo, mostra a imagem
+                //                MessageBox.Show("Usuario já tem senha gerada!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //            }
+                //        }
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show($"ID {id} não localizado na base de dados", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
+                //else
+                //{
+                //    MessageBox.Show($"[ERROR]: {US.Mensagem}", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
             }
             catch (Exception ex)
             {
@@ -347,25 +329,25 @@ namespace APP_DO_CARRINHO.Formularios.User
 
                 if (selectedRow != null)
                 {
-                    var resposta = MessageBox.Show($"Você Realmente quer excluir o usuario  selecionado, {nome}?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (resposta == DialogResult.Yes)
-                    {
-                        UserServices US = new UserServices();
+                    //var resposta = MessageBox.Show($"Você Realmente quer excluir o usuario  selecionado, {nome}?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    //if (resposta == DialogResult.Yes)
+                    //{
+                    //    UserServices US = new UserServices();
 
-                        int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-                        US.DeleteInDB(conexaoDB, id);
+                    //    int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                    //    US.DeleteInDB(conexaoDB, id);
 
-                        if (US.Status)
-                        {
-                            MessageBox.Show($"OK: {US.Mensagem} user Excluido com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    if (US.Status)
+                    //    {
+                    //        MessageBox.Show($"OK: {US.Mensagem} user Excluido com sucesso!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            CarregarTodosUsers();
-                        }
-                        else
-                        {
-                            MessageBox.Show($"{US.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                    //        CarregarTodosUsers();
+                    //    }
+                    //    else
+                    //    {
+                    //        MessageBox.Show($"{US.Mensagem}!", "App Carrinho", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    }
+                    //}
                 }
                 
             }
